@@ -17,17 +17,15 @@ Vue.use(VueI18n)
 const messages = {
   en: {
     ...enLocale,
-    // ...elementEnLocale
-    ...ELEMENT.lang.en.elementEnLocale
+    ...ELEMENT.lang.en
   },
   zh: {
     ...zhLocale,
-    ...ELEMENT.lang.zhCN.elementZhLocale
+    ...ELEMENT.lang.zhCN
   },
   es: {
     ...esLocale,
-    // ...elementEsLocale
-    ...ELEMENT.lang.es.elementEsLocale
+    ...ELEMENT.lang.es
   }
 }
 export function getLanguage() {

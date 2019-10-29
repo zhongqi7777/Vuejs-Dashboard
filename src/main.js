@@ -19,16 +19,21 @@ import "@/utils/dialogDrag";
 // import ElementUI from "element-ui";
 // import "element-ui/lib/theme-chalk/index.css";
 
-
-import 'normalize.css/normalize.css' // A modern alternative to CSS resets
+import "normalize.css/normalize.css"; // A modern alternative to CSS resets
 
 // import ElementUI from 'element-ui'
-import './styles/element-variables.scss'
+import "./styles/element-variables.scss";
 
-import '@/styles/index.scss' // global css
+import "@/styles/index.scss"; // global css
 
 import "./icons"; // icon
 
+import VueMeta from "vue-meta";
+
+Vue.use(VueMeta, {
+  // optional pluginOptions
+  refreshOnceOnNavigation: true
+});
 
 import VueDragDrop from "vue-drag-drop"; //https://github.com/cameronhimself/vue-drag-drop
 

@@ -32,6 +32,7 @@
     "vue-count-to": "^1.0.13",
     "vue-drag-drop": "^1.1.4",
     "vue-i18n": "^8.11.2",
+    "vue-meta": "^2.3.1",
     "vuex-persistedstate": "^2.5.4"
   },
   "devDependencies": {

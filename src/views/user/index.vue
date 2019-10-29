@@ -25,6 +25,14 @@ import tab from "./components/pageTab";
 import tab2 from "./components/pageTab2";
 
 export default {
+  metaInfo: {
+    title: "user",
+    titleTemplate: "%s - Yay!",
+    htmlAttrs: {
+      lang: "en",
+      amp: true
+    }
+  },
   name: "Tab",
   components: { tab, tab2 },
   data() {

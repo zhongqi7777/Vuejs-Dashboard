@@ -30,6 +30,14 @@ const lineChartData = {
   }
 };
 export default {
+  metaInfo: {
+    title: "dashborad",
+    titleTemplate: "%s - Yay!",
+    htmlAttrs: {
+      lang: "en",
+      amp: true
+    }
+  },
   components: {
     PanelGroup,
     vTable
