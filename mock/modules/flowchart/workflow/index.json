@@ -1,0 +1,294 @@
+{
+    "id": "173d8617-e3b5-4a05-8cc2-8348fbb9864c",
+    "name": "tc_wf_基本测试7",
+    "flowType": "workflow",
+    "steps": [
+        {
+            "id": "parallel_4",
+            "name": "parallel_4",
+            "type": "parallel",
+            "x": 225,
+            "y": 267,
+            "otherConfigurations": {
+                "conditions": [
+                    {
+                        "output": "dataflow_5",
+                        "condition": ""
+                    },
+                    {
+                        "output": "dataflow_6",
+                        "condition": ""
+                    },
+                    {
+                        "output": "dataflow_7",
+                        "condition": ""
+                    },
+                    {
+                        "output": "dataflow_8",
+                        "condition": ""
+                    },
+                    {
+                        "output": "dataflow_9",
+                        "condition": ""
+                    },
+                    {
+                        "output": "dataflow_10",
+                        "condition": ""
+                    },
+                    {
+                        "output": "dataflow_11",
+                        "condition": ""
+                    },
+                    {
+                        "output": "dataflow_12",
+                        "condition": ""
+                    }
+                ]
+            },
+            "inputConfigurations": [
+                {
+                    "id": "input",
+                    "fields": []
+                }
+            ],
+            "outputConfigurations": [
+                {
+                    "id": "output",
+                    "fields": []
+                }
+            ]
+        },
+        {
+            "id": "dataflow_5",
+            "name": "tc_df_transform_009_函数base64-length_new",
+            "type": "dataflow",
+            "x": 546,
+            "y": 70,
+            "otherConfigurations": {
+                "dataflowId$": "94d4bae8-cedc-44a7-8764-5ac0056edbd9"
+            },
+            "inputConfigurations": [],
+            "outputConfigurations": []
+        },
+        {
+            "id": "dataflow_6",
+            "name": "tc_df_transform_009_函数base64-length",
+            "type": "dataflow",
+            "x": 547,
+            "y": 180,
+            "otherConfigurations": {
+                "dataflowId$": "f6054fb2-76b0-4ff8-914e-fb3d69257bdd"
+            },
+            "inputConfigurations": [],
+            "outputConfigurations": []
+        },
+        {
+            "id": "dataflow_7",
+            "name": "tc_df_cs_transform&sql&filter_71",
+            "type": "dataflow",
+            "x": 552,
+            "y": 275,
+            "otherConfigurations": {
+                "dataflowId$": "6bcfa823-eabe-4f7b-94ec-2148cbe5baba"
+            },
+            "inputConfigurations": [],
+            "outputConfigurations": []
+        },
+        {
+            "id": "dataflow_8",
+            "name": "tc_df_cs_transform&sql&filter_72",
+            "type": "dataflow",
+            "x": 553,
+            "y": 389,
+            "otherConfigurations": {
+                "dataflowId$": "69d80074-000e-4fdc-a7e2-2f80527baf4a"
+            },
+            "inputConfigurations": [],
+            "outputConfigurations": []
+        },
+        {
+            "id": "dataflow_9",
+            "name": "tc_df_cs_aggregate&filter&transform&sql_7",
+            "type": "dataflow",
+            "x": 552,
+            "y": 514,
+            "otherConfigurations": {
+                "dataflowId$": "59c638b7-3754-46f7-83bd-209eafc4c788"
+            },
+            "inputConfigurations": [],
+            "outputConfigurations": []
+        },
+        {
+            "id": "dataflow_10",
+            "name": "tc_df_cs_join&sql_filter&transform_7",
+            "type": "dataflow",
+            "x": 552,
+            "y": 627,
+            "otherConfigurations": {
+                "dataflowId$": "1fab9bd7-017b-43ea-9db7-f57e3a9f1495"
+            },
+            "inputConfigurations": [],
+            "outputConfigurations": []
+        },
+        {
+            "id": "dataflow_11",
+            "name": "tc_df_cs_filter&sql&transform_7",
+            "type": "dataflow",
+            "x": 549,
+            "y": 750,
+            "otherConfigurations": {
+                "dataflowId$": "a6927595-b0eb-4484-b1e0-a8c04f053858"
+            },
+            "inputConfigurations": [],
+            "outputConfigurations": []
+        },
+        {
+            "id": "dataflow_12",
+            "name": "tc_df_cs_transform&sql&filter_7",
+            "type": "dataflow",
+            "x": 551,
+            "y": 846,
+            "otherConfigurations": {
+                "dataflowId$": "aa13cdd3-9dce-4afd-b348-403cefbf0515"
+            },
+            "inputConfigurations": [],
+            "outputConfigurations": []
+        },
+        {
+            "id": "dataflow_13",
+            "name": "tc_df_join_leftouter",
+            "type": "dataflow",
+            "x": 823,
+            "y": 177,
+            "otherConfigurations": {
+                "dataflowId$": "b57707e2-1120-4288-92ae-d179b5a3d639"
+            },
+            "inputConfigurations": [],
+            "outputConfigurations": []
+        },
+        {
+            "id": "dataflow_14",
+            "name": "tc_df_cs_transform&sql&filter_73",
+            "type": "dataflow",
+            "x": 830,
+            "y": 393,
+            "otherConfigurations": {
+                "dataflowId$": "17667867-afef-44ff-9879-ef13c708b99d"
+            },
+            "inputConfigurations": [],
+            "outputConfigurations": []
+        }
+    ],
+    "links": [
+        {
+            "name": "con_567",
+            "source": "parallel_4",
+            "sourceOutput": "output",
+            "target": "dataflow_5",
+            "targetInput": "input",
+            "input": "input"
+        },
+        {
+            "name": "con_568",
+            "source": "parallel_4",
+            "sourceOutput": "output",
+            "target": "dataflow_6",
+            "targetInput": "input",
+            "input": "input"
+        },
+        {
+            "name": "con_569",
+            "source": "parallel_4",
+            "sourceOutput": "output",
+            "target": "dataflow_7",
+            "targetInput": "input",
+            "input": "input"
+        },
+        {
+            "name": "con_570",
+            "source": "parallel_4",
+            "sourceOutput": "output",
+            "target": "dataflow_8",
+            "targetInput": "input",
+            "input": "input"
+        },
+        {
+            "name": "con_571",
+            "source": "parallel_4",
+            "sourceOutput": "output",
+            "target": "dataflow_9",
+            "targetInput": "input",
+            "input": "input"
+        },
+        {
+            "name": "con_572",
+            "source": "parallel_4",
+            "sourceOutput": "output",
+            "target": "dataflow_10",
+            "targetInput": "input",
+            "input": "input"
+        },
+        {
+            "name": "con_573",
+            "source": "parallel_4",
+            "sourceOutput": "output",
+            "target": "dataflow_11",
+            "targetInput": "input",
+            "input": "input"
+        },
+        {
+            "name": "con_574",
+            "source": "parallel_4",
+            "sourceOutput": "output",
+            "target": "dataflow_12",
+            "targetInput": "input",
+            "input": "input"
+        },
+        {
+            "name": "con_575",
+            "source": "dataflow_6",
+            "sourceOutput": "output",
+            "target": "dataflow_13",
+            "targetInput": "input",
+            "input": "input"
+        },
+        {
+            "name": "con_576",
+            "source": "dataflow_8",
+            "sourceOutput": "output",
+            "target": "dataflow_14",
+            "targetInput": "input",
+            "input": "input"
+        }
+    ],
+    "oid": "$null",
+    "creator": "admin",
+    "createTime": 1558987046000,
+    "lastModifier": "admin",
+    "lastModifiedTime": 1559244445000,
+    "owner": "601a71e6-d6af-491c-ae3c-f70a939385de",
+    "version": 5,
+    "enabled": 1,
+    "moduleVersion": 0,
+    "tenant": {
+        "id": "55f7f910-b1c9-41d2-9771-e734e6b8285f",
+        "name": "default",
+        "creator": "root",
+        "createTime": 1559138723000,
+        "lastModifier": "root",
+        "lastModifiedTime": 1559731815000,
+        "owner": "af9b0954-51ef-40c9-aac6-39390b91bcc9",
+        "version": 1,
+        "moduleVersion": 0,
+        "enabled": 1,
+        "resourceQueues": [
+            "default"
+        ],
+        "hdfsSpaceQuota": 0,
+        "zid": "",
+        "expiredPeriod": 0
+    },
+    "tableName": "merce_flow",
+    "isHide": 0,
+    "expiredPeriod": 0
+}

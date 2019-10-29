@@ -1,0 +1,439 @@
+[
+    {
+        "group": "Gateway",
+        "thisIcon": [
+            {
+                "id": "event",
+                "name": "event",
+                "type": "event",
+                "group": "Gateway",
+                "icon": "default.png",
+                "inputCount": 1,
+                "outputCount": 1,
+                "inputConfigurations": [
+                    {
+                        "id": "",
+                        "fields": []
+                    }
+                ],
+                "outputConfigurations": [
+                    {
+                        "id": "",
+                        "fields": []
+                    }
+                ],
+                "otherConfigurations": {
+                    "cron": "",
+                    "filterClass": "",
+                    "parameter": ""
+                },
+                "creator": "SYSTEM",
+                "createTime": 1562828722000,
+                "lastModifier": "SYSTEM",
+                "lastModifiedTime": 1562828722000,
+                "owner": "SYSTEM",
+                "version": 1,
+                "enabled": 1,
+                "moduleVersion": 0,
+                "tags": [
+                    "Gateway",
+                    "workflow"
+                ],
+                "expiredPeriod": 0
+            },
+            {
+                "id": "exclusive",
+                "name": "exclusive",
+                "type": "exclusive",
+                "group": "Gateway",
+                "icon": "default.png",
+                "inputCount": 1,
+                "outputCount": 1,
+                "inputConfigurations": [
+                    {
+                        "id": "",
+                        "fields": []
+                    }
+                ],
+                "outputConfigurations": [
+                    {
+                        "id": "",
+                        "fields": []
+                    }
+                ],
+                "otherConfigurations": {
+                    "conditions": [
+                        {
+                            "output": "",
+                            "condition": ""
+                        }
+                    ]
+                },
+                "creator": "SYSTEM",
+                "createTime": 1562828722000,
+                "lastModifier": "SYSTEM",
+                "lastModifiedTime": 1562828722000,
+                "owner": "SYSTEM",
+                "version": 1,
+                "enabled": 1,
+                "moduleVersion": 0,
+                "tags": [
+                    "Gateway",
+                    "workflow"
+                ],
+                "expiredPeriod": 0
+            },
+            {
+                "id": "parallel",
+                "name": "parallel",
+                "type": "parallel",
+                "group": "Gateway",
+                "icon": "default.png",
+                "inputCount": 1,
+                "outputCount": 1,
+                "inputConfigurations": [
+                    {
+                        "id": "",
+                        "fields": []
+                    }
+                ],
+                "outputConfigurations": [
+                    {
+                        "id": "",
+                        "fields": []
+                    }
+                ],
+                "otherConfigurations": {
+                    "conditions": [
+                        {
+                            "output": "",
+                            "condition": ""
+                        }
+                    ]
+                },
+                "creator": "SYSTEM",
+                "createTime": 1562828722000,
+                "lastModifier": "SYSTEM",
+                "lastModifiedTime": 1562828722000,
+                "owner": "SYSTEM",
+                "version": 1,
+                "enabled": 1,
+                "moduleVersion": 0,
+                "tags": [
+                    "Gateway",
+                    "workflow"
+                ],
+                "expiredPeriod": 0
+            }
+        ]
+    },
+    {
+        "group": "Process",
+        "thisIcon": [
+            {
+                "id": "dataflow",
+                "name": "dataflow",
+                "type": "dataflow",
+                "group": "Process",
+                "icon": "default.png",
+                "inputCount": 1,
+                "outputCount": 1,
+                "inputConfigurations": [
+                    {
+                        "id": "",
+                        "fields": []
+                    }
+                ],
+                "outputConfigurations": [
+                    {
+                        "id": "",
+                        "fields": []
+                    }
+                ],
+                "otherConfigurations": {
+                    "dataflowId$": ""
+                },
+                "creator": "SYSTEM",
+                "createTime": 1562828722000,
+                "lastModifier": "SYSTEM",
+                "lastModifiedTime": 1562828722000,
+                "owner": "SYSTEM",
+                "version": 1,
+                "enabled": 1,
+                "moduleVersion": 0,
+                "tags": [
+                    "Process",
+                    "workflow"
+                ],
+                "expiredPeriod": 0
+            },
+            {
+                "id": "hawq",
+                "name": "hawq",
+                "type": "hawq",
+                "group": "Process",
+                "icon": "default.png",
+                "inputCount": 1,
+                "outputCount": 1,
+                "inputConfigurations": [
+                    {
+                        "id": "",
+                        "fields": []
+                    }
+                ],
+                "outputConfigurations": [
+                    {
+                        "id": "",
+                        "fields": []
+                    }
+                ],
+                "otherConfigurations": {
+                    "hawq_cmd": "/usr/local/hawq/bin/psql",
+                    "database": "gpadmin",
+                    "port": "5432",
+                    "logFile": "/tmp/hawq-output.log",
+                    "host": "node1",
+                    "workingDiretory": "/tmp",
+                    "dataflowId$": "hawq",
+                    "user": "gpadmin",
+                    "sql": "select 1"
+                },
+                "creator": "SYSTEM",
+                "createTime": 1562828722000,
+                "lastModifier": "SYSTEM",
+                "lastModifiedTime": 1562828722000,
+                "owner": "SYSTEM",
+                "version": 1,
+                "enabled": 1,
+                "moduleVersion": 0,
+                "tags": [
+                    "Process",
+                    "workflow"
+                ],
+                "expiredPeriod": 0
+            },
+            {
+                "id": "hive",
+                "name": "hive",
+                "type": "hive",
+                "group": "Process",
+                "icon": "default.png",
+                "inputCount": 1,
+                "outputCount": 1,
+                "inputConfigurations": [
+                    {
+                        "id": "",
+                        "fields": []
+                    }
+                ],
+                "outputConfigurations": [
+                    {
+                        "id": "",
+                        "fields": []
+                    }
+                ],
+                "otherConfigurations": {
+                    "database": "default",
+                    "logFile": "/tmp/hive-output.log",
+                    "workingDiretory": "/tmp",
+                    "dataflowId$": "hive",
+                    "hive_cmd": "/usr/bin/hive",
+                    "sql": "select 1"
+                },
+                "creator": "SYSTEM",
+                "createTime": 1562828722000,
+                "lastModifier": "SYSTEM",
+                "lastModifiedTime": 1562828722000,
+                "owner": "SYSTEM",
+                "version": 1,
+                "enabled": 1,
+                "moduleVersion": 0,
+                "tags": [
+                    "Process",
+                    "workflow"
+                ],
+                "expiredPeriod": 0
+            },
+            {
+                "id": "mapreduce",
+                "name": "mapreduce",
+                "type": "mapreduce",
+                "group": "Process",
+                "icon": "default.png",
+                "inputCount": 1,
+                "outputCount": 1,
+                "inputConfigurations": [
+                    {
+                        "id": "",
+                        "fields": []
+                    }
+                ],
+                "outputConfigurations": [
+                    {
+                        "id": "",
+                        "fields": []
+                    }
+                ],
+                "otherConfigurations": {
+                    "jarFile": "/tmp/hadoop-mapreduce-examples-2.2.0.jar",
+                    "logFile": "/tmp/hive-output.log",
+                    "workingDiretory": "/tmp",
+                    "dataflowId$": "mapreduce",
+                    "arguments": "/usr/joe/wordcount/input /usr/joe/wordcount/output",
+                    "program": "wordcount",
+                    "hadoop_cmd": "/usr/bin/hadoop"
+                },
+                "creator": "SYSTEM",
+                "createTime": 1562828722000,
+                "lastModifier": "SYSTEM",
+                "lastModifiedTime": 1562828722000,
+                "owner": "SYSTEM",
+                "version": 1,
+                "enabled": 1,
+                "moduleVersion": 0,
+                "tags": [
+                    "Process",
+                    "workflow"
+                ],
+                "expiredPeriod": 0
+            },
+            {
+                "id": "shell",
+                "name": "shell",
+                "type": "shell",
+                "group": "Process",
+                "icon": "default.png",
+                "inputCount": 1,
+                "outputCount": 1,
+                "inputConfigurations": [
+                    {
+                        "id": "",
+                        "fields": []
+                    }
+                ],
+                "outputConfigurations": [
+                    {
+                        "id": "",
+                        "fields": []
+                    }
+                ],
+                "otherConfigurations": {
+                    "workingDiretory": "/tmp",
+                    "dataflowId$": "shell",
+                    "command": "/bin/sh -c 'echo 'good' > /tmp/good'"
+                },
+                "creator": "SYSTEM",
+                "createTime": 1562828722000,
+                "lastModifier": "SYSTEM",
+                "lastModifiedTime": 1562828722000,
+                "owner": "SYSTEM",
+                "version": 1,
+                "enabled": 1,
+                "moduleVersion": 0,
+                "tags": [
+                    "Process",
+                    "workflow"
+                ],
+                "expiredPeriod": 0
+            },
+            {
+                "id": "spark",
+                "name": "spark",
+                "type": "spark",
+                "group": "Process",
+                "icon": "default.png",
+                "inputCount": 1,
+                "outputCount": 1,
+                "inputConfigurations": [
+                    {
+                        "id": "",
+                        "fields": []
+                    }
+                ],
+                "outputConfigurations": [
+                    {
+                        "id": "",
+                        "fields": []
+                    }
+                ],
+                "otherConfigurations": {
+                    "driverMemory": "512M",
+                    "executorMemory": "1G",
+                    "executorCores": "2",
+                    "dataflowId$": "spark",
+                    "applicationJar": "${spark.home}/lib/spark-examples-1.6.1-hadoop2.6.0.jar",
+                    "applicationArgs": "1000",
+                    "master": "yarn",
+                    "sparkHome": "/usr/hdp/current/spark-client",
+                    "deploymode": "client",
+                    "numExecutors": "2",
+                    "applicationClass": "org.apache.spark.examples.SparkPi",
+                    "logFile": "/tmp/output-${ENV.TASK.ID}.log",
+                    "workingDiretory": "/tmp",
+                    "queue": "default"
+                },
+                "creator": "SYSTEM",
+                "createTime": 1562828722000,
+                "lastModifier": "SYSTEM",
+                "lastModifiedTime": 1562828722000,
+                "owner": "SYSTEM",
+                "version": 1,
+                "enabled": 1,
+                "moduleVersion": 0,
+                "tags": [
+                    "Process",
+                    "workflow"
+                ],
+                "expiredPeriod": 0
+            }
+        ]
+    },
+    {
+        "group": "define",
+        "thisIcon": [
+            {
+                "id": "define_workflow",
+                "name": "definestep",
+                "type": "definestep",
+                "group": "define",
+                "icon": "default.png",
+                "inputCount": 1,
+                "outputCount": 1,
+                "inputConfigurations": [
+                    {
+                        "id": "",
+                        "fields": []
+                    }
+                ],
+                "outputConfigurations": [
+                    {
+                        "id": "",
+                        "fields": []
+                    }
+                ],
+                "otherConfigurations": {
+                    "watermark": {
+                        "watermarkColumn": "",
+                        "watermarkInterval": ""
+                    },
+                    "columns": "",
+                    "sessionCache": "",
+                    "interceptor": ""
+                },
+                "creator": "SYSTEM",
+                "createTime": 1562828722000,
+                "lastModifier": "SYSTEM",
+                "lastModifiedTime": 1562828722000,
+                "owner": "SYSTEM",
+                "version": 1,
+                "enabled": 1,
+                "moduleVersion": 0,
+                "tags": [
+                    "define",
+                    "workflow"
+                ],
+                "expiredPeriod": 0
+            }
+        ]
+    }
+]

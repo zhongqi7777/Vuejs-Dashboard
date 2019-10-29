@@ -1,0 +1,746 @@
+[
+    {
+        "group": "Join",
+        "thisIcon": [
+            {
+                "id": "streaming_join",
+                "name": "join",
+                "type": "join",
+                "group": "Join",
+                "icon": "default.png",
+                "inputCount": 1,
+                "outputCount": 1,
+                "inputConfigurations": [
+                    {
+                        "id": "",
+                        "fields": []
+                    }
+                ],
+                "outputConfigurations": [
+                    {
+                        "id": "",
+                        "fields": []
+                    }
+                ],
+                "otherConfigurations": {
+                    "joinType": "",
+                    "sessionCache": "",
+                    "interceptor": "",
+                    "joinConditions": []
+                },
+                "creator": "SYSTEM",
+                "createTime": 1562828722000,
+                "lastModifier": "SYSTEM",
+                "lastModifiedTime": 1562828722000,
+                "owner": "SYSTEM",
+                "version": 1,
+                "enabled": 1,
+                "moduleVersion": 0,
+                "tags": [
+                    "Join",
+                    "streamflow"
+                ],
+                "expiredPeriod": 0
+            },
+            {
+                "id": "streaming_starjoin",
+                "name": "starjoin",
+                "type": "starjoin",
+                "group": "Join",
+                "icon": "default.png",
+                "inputCount": 1,
+                "outputCount": 1,
+                "inputConfigurations": [
+                    {
+                        "id": "",
+                        "fields": []
+                    }
+                ],
+                "outputConfigurations": [
+                    {
+                        "id": "",
+                        "fields": []
+                    }
+                ],
+                "otherConfigurations": {
+                    "sessionCache": "",
+                    "interceptor": "",
+                    "factTable": "",
+                    "joinConditions": [
+                        {
+                            "tableName": "",
+                            "dimColumn": "",
+                            "factColumn": ""
+                        }
+                    ]
+                },
+                "creator": "SYSTEM",
+                "createTime": 1562828722000,
+                "lastModifier": "SYSTEM",
+                "lastModifiedTime": 1562828722000,
+                "owner": "SYSTEM",
+                "version": 1,
+                "enabled": 1,
+                "moduleVersion": 0,
+                "tags": [
+                    "Join",
+                    "streamflow"
+                ],
+                "expiredPeriod": 0
+            }
+        ]
+    },
+    {
+        "group": "Transform",
+        "thisIcon": [
+            {
+                "id": "streaming_filter",
+                "name": "filter",
+                "type": "filter",
+                "group": "Transform",
+                "icon": "default.png",
+                "inputCount": 1,
+                "outputCount": 1,
+                "inputConfigurations": [
+                    {
+                        "id": "",
+                        "fields": []
+                    }
+                ],
+                "outputConfigurations": [
+                    {
+                        "id": "",
+                        "fields": []
+                    }
+                ],
+                "otherConfigurations": {
+                    "condition": "",
+                    "sessionCache": "",
+                    "interceptor": ""
+                },
+                "creator": "SYSTEM",
+                "createTime": 1562828722000,
+                "lastModifier": "SYSTEM",
+                "lastModifiedTime": 1562828722000,
+                "owner": "SYSTEM",
+                "version": 1,
+                "enabled": 1,
+                "moduleVersion": 0,
+                "tags": [
+                    "Transform",
+                    "streamflow"
+                ],
+                "expiredPeriod": 0
+            },
+            {
+                "id": "streaming_sample",
+                "name": "sample",
+                "type": "sample",
+                "group": "Transform",
+                "icon": "default.png",
+                "inputCount": 1,
+                "outputCount": 1,
+                "inputConfigurations": [
+                    {
+                        "id": "",
+                        "fields": []
+                    }
+                ],
+                "outputConfigurations": [
+                    {
+                        "id": "",
+                        "fields": []
+                    }
+                ],
+                "otherConfigurations": {
+                    "withReplacement": "false",
+                    "interceptor": "string",
+                    "fraction": "0.2"
+                },
+                "creator": "SYSTEM",
+                "createTime": 1562828722000,
+                "lastModifier": "SYSTEM",
+                "lastModifiedTime": 1562828722000,
+                "owner": "SYSTEM",
+                "version": 1,
+                "enabled": 1,
+                "moduleVersion": 0,
+                "tags": [
+                    "Transform",
+                    "streamflow"
+                ],
+                "expiredPeriod": 0
+            },
+            {
+                "id": "streaming_sql",
+                "name": "sql",
+                "type": "sql",
+                "group": "Transform",
+                "icon": "default.png",
+                "inputCount": 1,
+                "outputCount": 1,
+                "inputConfigurations": [
+                    {
+                        "id": "",
+                        "fields": []
+                    }
+                ],
+                "outputConfigurations": [
+                    {
+                        "id": "",
+                        "fields": []
+                    }
+                ],
+                "otherConfigurations": {
+                    "sessionCache": "",
+                    "interceptor": "",
+                    "sql": ""
+                },
+                "creator": "SYSTEM",
+                "createTime": 1562828722000,
+                "lastModifier": "SYSTEM",
+                "lastModifiedTime": 1562828722000,
+                "owner": "SYSTEM",
+                "version": 1,
+                "enabled": 1,
+                "moduleVersion": 0,
+                "tags": [
+                    "Transform",
+                    "streamflow"
+                ],
+                "expiredPeriod": 0
+            },
+            {
+                "id": "streaming_transform",
+                "name": "transform",
+                "type": "transform",
+                "group": "Transform",
+                "icon": "default.png",
+                "inputCount": 1,
+                "outputCount": 1,
+                "inputConfigurations": [
+                    {
+                        "id": "",
+                        "fields": []
+                    }
+                ],
+                "outputConfigurations": [
+                    {
+                        "id": "",
+                        "fields": []
+                    }
+                ],
+                "otherConfigurations": {
+                    "sessionCache": "",
+                    "interceptor": "",
+                    "expressions": []
+                },
+                "creator": "SYSTEM",
+                "createTime": 1562828722000,
+                "lastModifier": "SYSTEM",
+                "lastModifiedTime": 1562828722000,
+                "owner": "SYSTEM",
+                "version": 1,
+                "enabled": 1,
+                "moduleVersion": 0,
+                "tags": [
+                    "Transform",
+                    "streamflow"
+                ],
+                "expiredPeriod": 0
+            }
+        ]
+    },
+    {
+        "group": "Set",
+        "thisIcon": [
+            {
+                "id": "streaming_deduplication",
+                "name": "deduplication",
+                "type": "deduplication",
+                "group": "Set",
+                "icon": "default.png",
+                "inputCount": 1,
+                "outputCount": 1,
+                "inputConfigurations": [
+                    {
+                        "id": "",
+                        "fields": []
+                    }
+                ],
+                "outputConfigurations": [
+                    {
+                        "id": "",
+                        "fields": []
+                    }
+                ],
+                "otherConfigurations": {
+                    "watermark": {
+                        "watermarkColumn": "",
+                        "watermarkInterval": ""
+                    },
+                    "columns": [],
+                    "sessionCache": "",
+                    "interceptor": ""
+                },
+                "creator": "SYSTEM",
+                "createTime": 1562828722000,
+                "lastModifier": "SYSTEM",
+                "lastModifiedTime": 1562828722000,
+                "owner": "SYSTEM",
+                "version": 1,
+                "enabled": 1,
+                "moduleVersion": 0,
+                "tags": [
+                    "Set",
+                    "streamflow"
+                ],
+                "expiredPeriod": 0
+            },
+            {
+                "id": "streaming_intersect",
+                "name": "intersect",
+                "type": "intersect",
+                "group": "Set",
+                "icon": "default.png",
+                "inputCount": 1,
+                "outputCount": 1,
+                "inputConfigurations": [
+                    {
+                        "id": "",
+                        "fields": []
+                    }
+                ],
+                "outputConfigurations": [
+                    {
+                        "id": "",
+                        "fields": []
+                    }
+                ],
+                "otherConfigurations": {},
+                "creator": "SYSTEM",
+                "createTime": 1562828722000,
+                "lastModifier": "SYSTEM",
+                "lastModifiedTime": 1562828722000,
+                "owner": "SYSTEM",
+                "version": 1,
+                "enabled": 1,
+                "moduleVersion": 0,
+                "tags": [
+                    "Set",
+                    "streamflow"
+                ],
+                "expiredPeriod": 0
+            },
+            {
+                "id": "streaming_minus",
+                "name": "minus",
+                "type": "minus",
+                "group": "Set",
+                "icon": "default.png",
+                "inputCount": 1,
+                "outputCount": 1,
+                "inputConfigurations": [
+                    {
+                        "id": "",
+                        "fields": []
+                    }
+                ],
+                "outputConfigurations": [
+                    {
+                        "id": "",
+                        "fields": []
+                    }
+                ],
+                "otherConfigurations": {},
+                "creator": "SYSTEM",
+                "createTime": 1562828722000,
+                "lastModifier": "SYSTEM",
+                "lastModifiedTime": 1562828722000,
+                "owner": "SYSTEM",
+                "version": 1,
+                "enabled": 1,
+                "moduleVersion": 0,
+                "tags": [
+                    "Set",
+                    "streamflow"
+                ],
+                "expiredPeriod": 0
+            },
+            {
+                "id": "streaming_union",
+                "name": "union",
+                "type": "union",
+                "group": "Set",
+                "icon": "default.png",
+                "inputCount": 1,
+                "outputCount": 1,
+                "inputConfigurations": [
+                    {
+                        "id": "",
+                        "fields": []
+                    }
+                ],
+                "outputConfigurations": [
+                    {
+                        "id": "",
+                        "fields": []
+                    }
+                ],
+                "otherConfigurations": {
+                    "distinct": "false",
+                    "sessionCache": "",
+                    "interceptor": ""
+                },
+                "creator": "SYSTEM",
+                "createTime": 1562828722000,
+                "lastModifier": "SYSTEM",
+                "lastModifiedTime": 1562828722000,
+                "owner": "SYSTEM",
+                "version": 1,
+                "enabled": 1,
+                "moduleVersion": 0,
+                "tags": [
+                    "Set",
+                    "streamflow"
+                ],
+                "expiredPeriod": 0
+            }
+        ]
+    },
+    {
+        "group": "Gateway",
+        "thisIcon": [
+            {
+                "id": "streaming_decision",
+                "name": "decision",
+                "type": "decision",
+                "group": "Gateway",
+                "icon": "default.png",
+                "inputCount": 1,
+                "outputCount": 1,
+                "inputConfigurations": [
+                    {
+                        "id": "",
+                        "fields": []
+                    }
+                ],
+                "outputConfigurations": [
+                    {
+                        "id": "",
+                        "fields": []
+                    }
+                ],
+                "otherConfigurations": {
+                    "condition": "",
+                    "sessionCache": "",
+                    "interceptor": ""
+                },
+                "creator": "SYSTEM",
+                "createTime": 1562828722000,
+                "lastModifier": "SYSTEM",
+                "lastModifiedTime": 1562828722000,
+                "owner": "SYSTEM",
+                "version": 1,
+                "enabled": 1,
+                "moduleVersion": 0,
+                "tags": [
+                    "Gateway",
+                    "streamflow"
+                ],
+                "expiredPeriod": 0
+            },
+            {
+                "id": "streaming_validate",
+                "name": "validate",
+                "type": "validate",
+                "group": "Gateway",
+                "icon": "default.png",
+                "inputCount": 1,
+                "outputCount": 1,
+                "inputConfigurations": [
+                    {
+                        "id": "",
+                        "fields": []
+                    }
+                ],
+                "outputConfigurations": [
+                    {
+                        "id": "",
+                        "fields": []
+                    }
+                ],
+                "otherConfigurations": {
+                    "detailColumn": "errorInfo",
+                    "validationRules": [
+                        {
+                            "name": "",
+                            "expression": ""
+                        }
+                    ],
+                    "action": "",
+                    "sessionCache": "",
+                    "interceptor": "",
+                    "showDetails": ""
+                },
+                "creator": "SYSTEM",
+                "createTime": 1562828722000,
+                "lastModifier": "SYSTEM",
+                "lastModifiedTime": 1562828722000,
+                "owner": "SYSTEM",
+                "version": 1,
+                "enabled": 1,
+                "moduleVersion": 0,
+                "tags": [
+                    "Gateway",
+                    "streamflow"
+                ],
+                "expiredPeriod": 0
+            }
+        ]
+    },
+    {
+        "group": "Group",
+        "thisIcon": [
+            {
+                "id": "streaming_aggregate",
+                "name": "aggregate",
+                "type": "aggregate",
+                "group": "Group",
+                "icon": "default.png",
+                "inputCount": 1,
+                "outputCount": 1,
+                "inputConfigurations": [
+                    {
+                        "id": "",
+                        "fields": []
+                    }
+                ],
+                "outputConfigurations": [
+                    {
+                        "id": "",
+                        "fields": []
+                    }
+                ],
+                "otherConfigurations": {
+                    "watermark": {
+                        "watermarkColumn": "",
+                        "watermarkInterval": ""
+                    },
+                    "windowFunc": {
+                        "timeColumn": "",
+                        "windowDuration": "",
+                        "slideDuration": ""
+                    },
+                    "groupBy": [],
+                    "aggregations": []
+                },
+                "creator": "SYSTEM",
+                "createTime": 1562828722000,
+                "lastModifier": "SYSTEM",
+                "lastModifiedTime": 1562828722000,
+                "owner": "SYSTEM",
+                "version": 1,
+                "enabled": 1,
+                "moduleVersion": 0,
+                "tags": [
+                    "Group",
+                    "streamflow"
+                ],
+                "expiredPeriod": 0
+            }
+        ]
+    },
+    {
+        "group": "IO",
+        "thisIcon": [
+            {
+                "id": "source_str",
+                "name": "source",
+                "type": "source",
+                "group": "IO",
+                "icon": "default.png",
+                "inputCount": 0,
+                "outputCount": 1,
+                "outputConfigurations": [
+                    {
+                        "id": "",
+                        "fields": []
+                    }
+                ],
+                "otherConfigurations": {
+                    "sessionCache": "",
+                    "interceptor": "",
+                    "dataset": ""
+                },
+                "creator": "SYSTEM",
+                "createTime": 1562828722000,
+                "lastModifier": "SYSTEM",
+                "lastModifiedTime": 1562828722000,
+                "owner": "SYSTEM",
+                "version": 1,
+                "enabled": 1,
+                "moduleVersion": 0,
+                "tags": [
+                    "IO",
+                    "streamflow"
+                ],
+                "expiredPeriod": 0
+            },
+            {
+                "id": "streaming_sink",
+                "name": "sink",
+                "type": "sink",
+                "group": "IO",
+                "icon": "default.png",
+                "inputCount": 1,
+                "outputCount": 0,
+                "inputConfigurations": [
+                    {
+                        "id": "",
+                        "fields": []
+                    }
+                ],
+                "outputConfigurations": [],
+                "otherConfigurations": {
+                    "schema": "",
+                    "brokers": "",
+                    "columns": "",
+                    "groupId": "",
+                    "description": "",
+                    "sessionCache": "",
+                    "interceptor": "",
+                    "outputMode": "",
+                    "type": "HDFS",
+                    "nullValue": "",
+                    "mode": "",
+                    "path": "",
+                    "password": "",
+                    "table": "",
+                    "quoteChar": "\"",
+                    "escapeChar": "\\",
+                    "sliceTimeColumn": "",
+                    "partitionColumns": "",
+                    "format": "csv",
+                    "trigger": "",
+                    "maxFileSize": "",
+                    "maxFileNumber": "",
+                    "separator": ",",
+                    "url": "",
+                    "expiredTime": "0",
+                    "driver": "",
+                    "checkpointLocation": "",
+                    "namespace": "",
+                    "topic": "",
+                    "dataset": "",
+                    "user": "",
+                    "sliceType": "",
+                    "specifiedStringColumnTypes": []
+                },
+                "creator": "SYSTEM",
+                "createTime": 1562828722000,
+                "lastModifier": "SYSTEM",
+                "lastModifiedTime": 1562828722000,
+                "owner": "SYSTEM",
+                "version": 1,
+                "enabled": 1,
+                "moduleVersion": 0,
+                "tags": [
+                    "IO",
+                    "streamflow"
+                ],
+                "expiredPeriod": 0
+            },
+            {
+                "id": "streaming_source",
+                "name": "streaming_source",
+                "type": "streaming_source",
+                "group": "IO",
+                "icon": "default.png",
+                "inputCount": 0,
+                "outputCount": 1,
+                "outputConfigurations": [
+                    {
+                        "id": "",
+                        "fields": []
+                    }
+                ],
+                "otherConfigurations": {
+                    "startingOffsets": "latest",
+                    "quoteChar": "\"",
+                    "escapeChar": "\\",
+                    "brokers": "",
+                    "watermark": {
+                        "watermarkColumn": "",
+                        "watermarkInterval": ""
+                    },
+                    "engine": "",
+                    "delimiter": " ",
+                    "format": "csv",
+                    "topic": ""
+                },
+                "creator": "SYSTEM",
+                "createTime": 1562828722000,
+                "lastModifier": "SYSTEM",
+                "lastModifiedTime": 1562828722000,
+                "owner": "SYSTEM",
+                "version": 1,
+                "enabled": 1,
+                "moduleVersion": 0,
+                "tags": [
+                    "IO",
+                    "streamflow"
+                ],
+                "expiredPeriod": 0
+            }
+        ]
+    },
+    {
+        "group": "define",
+        "thisIcon": [
+            {
+                "id": "define_streamflow",
+                "name": "definestep",
+                "type": "definestep",
+                "group": "define",
+                "icon": "default.png",
+                "inputCount": 1,
+                "outputCount": 1,
+                "inputConfigurations": [
+                    {
+                        "id": "",
+                        "fields": []
+                    }
+                ],
+                "outputConfigurations": [
+                    {
+                        "id": "",
+                        "fields": []
+                    }
+                ],
+                "otherConfigurations": {
+                    "watermark": {
+                        "watermarkColumn": "",
+                        "watermarkInterval": ""
+                    },
+                    "columns": "",
+                    "sessionCache": "",
+                    "interceptor": ""
+                },
+                "creator": "SYSTEM",
+                "createTime": 1562828722000,
+                "lastModifier": "SYSTEM",
+                "lastModifiedTime": 1562828722000,
+                "owner": "SYSTEM",
+                "version": 1,
+                "enabled": 1,
+                "moduleVersion": 0,
+                "tags": [
+                    "define",
+                    "streamflow"
+                ],
+                "expiredPeriod": 0
+            }
+        ]
+    }
+]

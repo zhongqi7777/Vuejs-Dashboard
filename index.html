@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>NLP服务系统后台管理</title>
+    <!-- 使用CDN加速的CSS文件，配置在config/index.js下 -->
+    <% for (var i in
+    htmlWebpackPlugin.options.css&&htmlWebpackPlugin.options.css) { %>
+    <link href="<%= htmlWebpackPlugin.options.css[i] %>" rel="stylesheet" />
+    <% } %>
+  </head>
+
+  <body>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+    <!-- 使用CDN加速的JS文件，配置在config/index.js下 -->
+    <% for (var i in htmlWebpackPlugin.options.js&&htmlWebpackPlugin.options.js)
+    { %>
+    <script src="<%= htmlWebpackPlugin.options.js[i] %>"></script>
+    <% } %>
+  </body>
+</html>
