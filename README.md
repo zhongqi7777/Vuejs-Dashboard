@@ -1,6 +1,4 @@
 # vue-cli2 全面配置
-&emsp;&emsp;细致全面的vue-cli2配置信息。涵盖了使用vue-cli开发过程中大部分配置需求。
-
 <span id="top">目录</span>
 
 - [√ 配置多环境变量]
