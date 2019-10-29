@@ -33,7 +33,7 @@ export default {
       amp: true
     }
   },
-  name: "Tab",
+  // name: "Tab",
   components: { tab, tab2 },
   data() {
     return {

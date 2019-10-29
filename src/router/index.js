@@ -30,23 +30,23 @@ export const constantRoutes = [
         path: "dashboard",
         component: () => import("@/views/dashboard/index"),
         name: "Dashboard",
-        meta: {
-          title: "dashboard",
-          icon: "dashboard",
-          noCache: true,
-          affix: true
-        }
+        // meta: {
+        //   title: "dashboard",
+        //   icon: "dashboard",
+        //   noCache: true,
+        //   affix: true
+        // }
       },
       {
         path: "user",
         component: () => import("@/views/user/index"),
         name: "user",
-        meta: {
-          title: "user",
-          icon: "user",
-          noCache: true,
-          affix: true
-        }
+        // meta: {
+        //   title: "user",
+        //   icon: "user",
+        //   noCache: true,
+        //   affix: true
+        // }
       },
       {
         path: "project",

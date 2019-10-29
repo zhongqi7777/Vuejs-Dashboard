@@ -5,7 +5,7 @@
 const path = require("path");
 const csslist = ["https://unpkg.com/element-ui/lib/theme-chalk/index.css"];
 const jslist = [
-  "https://cdn.bootcss.com/vue/2.5.2/vue.min.js",
+  "https://cdn.bootcss.com/vue/2.6.10/vue.min.js",
   "https://cdn.bootcss.com/vue-router/2.7.0/vue-router.min.js",
   "https://cdn.bootcss.com/axios/0.18.0/axios.min.js",
   // "https://unpkg.com/element-ui/lib/index.js",
