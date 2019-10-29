@@ -1,12 +1,5 @@
-# vue-cli3 全面配置(持续更新)
+# vue-cli2 全面配置
 &emsp;&emsp;细致全面的vue-cli2配置信息。涵盖了使用vue-cli开发过程中大部分配置需求。
-
-
-### 其他系列
-★ [Blog](https://github.com/staven630/blog)
-
-★ [Nuxt.js 全面配置](https://github.com/staven630/nuxt-config)
-
 
 <span id="top">目录</span>
 
