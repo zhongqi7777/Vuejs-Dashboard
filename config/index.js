@@ -4,13 +4,25 @@
 
 const path = require("path");
 const csslist = ["https://unpkg.com/element-ui/lib/theme-chalk/index.css"];
-const jslist = [
+const devJslist = [
+  "https://cdn.bootcss.com/vue/2.6.10/vue.js",
+  "https://cdn.bootcss.com/vue-router/2.7.0/vue-router.min.js",
+  "https://cdn.bootcss.com/axios/0.18.0/axios.min.js",
+  // "https://unpkg.com/element-ui/lib/index.js",
+  "https://cdn.bootcss.com/element-ui/2.12.0/index.js",
+  "https://cdn.bootcss.com/vuex/2.5.0/vuex.js",
+  "https://cdn.bootcss.com/element-ui/2.12.0/locale/zh-CN.min.js",
+  "https://cdn.bootcss.com/element-ui/2.12.0/locale/en.js",
+  "https://cdn.bootcss.com/element-ui/2.12.0/locale/es.js"
+];
+
+const productjslist = [
   "https://cdn.bootcss.com/vue/2.6.10/vue.min.js",
   "https://cdn.bootcss.com/vue-router/2.7.0/vue-router.min.js",
   "https://cdn.bootcss.com/axios/0.18.0/axios.min.js",
   // "https://unpkg.com/element-ui/lib/index.js",
   "https://cdn.bootcss.com/element-ui/2.12.0/index.js",
-  "https://cdn.bootcss.com/vuex/3.0.1/vuex.js",
+  "https://cdn.bootcss.com/vuex/2.5.0/vuex.js",
   "https://cdn.bootcss.com/element-ui/2.12.0/locale/zh-CN.min.js",
   "https://cdn.bootcss.com/element-ui/2.12.0/locale/en.js",
   "https://cdn.bootcss.com/element-ui/2.12.0/locale/es.js"
@@ -63,7 +75,7 @@ module.exports = {
     // 直接通过link标签或script标签加载的CDN文件链接
     cdn: {
       css: csslist,
-      js: jslist
+      js: devJslist
     }
   },
 
@@ -99,7 +111,7 @@ module.exports = {
     // 直接通过link标签或script标签加载的CDN文件链接
     cdn: {
       css: csslist,
-      js: jslist
+      js: productjslist
     }
   }
 };
