@@ -10,7 +10,6 @@
 - [√ 去掉 console.log]
 - [√ 开启 gzip 压缩]
 - [√ 为 sass 提供全局样式，以及全局变量]
-- [√ 预渲染prerender-spa-plugin]
 - [√ 添加 IE 兼容]
 
 ## Build Setup
