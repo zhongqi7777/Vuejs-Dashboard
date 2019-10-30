@@ -10,7 +10,7 @@ const devJslist = [
   "https://cdn.bootcss.com/axios/0.18.0/axios.min.js",
   // "https://unpkg.com/element-ui/lib/index.js",
   "https://cdn.bootcss.com/element-ui/2.12.0/index.js",
-  "https://cdn.bootcss.com/vuex/2.5.0/vuex.js",
+  "https://cdn.bootcss.com/vuex/3.1.1/vuex.js",
   "https://cdn.bootcss.com/element-ui/2.12.0/locale/zh-CN.min.js",
   "https://cdn.bootcss.com/element-ui/2.12.0/locale/en.js",
   "https://cdn.bootcss.com/element-ui/2.12.0/locale/es.js"
@@ -22,7 +22,7 @@ const productjslist = [
   "https://cdn.bootcss.com/axios/0.18.0/axios.min.js",
   // "https://unpkg.com/element-ui/lib/index.js",
   "https://cdn.bootcss.com/element-ui/2.12.0/index.js",
-  "https://cdn.bootcss.com/vuex/2.5.0/vuex.js",
+  "https://cdn.bootcss.com/vuex/3.3.1/vuex.js",
   "https://cdn.bootcss.com/element-ui/2.12.0/locale/zh-CN.min.js",
   "https://cdn.bootcss.com/element-ui/2.12.0/locale/en.js",
   "https://cdn.bootcss.com/element-ui/2.12.0/locale/es.js"
