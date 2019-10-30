@@ -12,7 +12,8 @@
     "test": "npm run unit && npm run e2e",
     "lint": "eslint --ext .js,.vue src test/unit test/e2e/specs",
     "build": "node build/build.js",
-    "server": "nodemon --watch mock --exec json-server server/server.js --port 7000"
+    "server": "nodemon --watch mock --exec json-server server/server.js --port 7000",
+    "api-server": "node ./server/index.js"
   },
   "dependencies": {
     "@babel/polyfill": "^7.4.4",
