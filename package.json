@@ -13,7 +13,8 @@
     "lint": "eslint --ext .js,.vue src test/unit test/e2e/specs",
     "build": "node build/build.js",
     "mock": "nodemon --watch mock --exec json-server mock/index.js --port 7000 --m mock/post-to-get.js",
-    "api-server": "node ./server/server.js"
+    "api-server": "node ./server/server.js",
+    "server": "nodemon --watch mock --exec json-server server/server.js --port 7000"
   },
   "dependencies": {
     "@babel/polyfill": "^7.4.4",
