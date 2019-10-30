@@ -24,10 +24,11 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions, mapState } from "vuex";
 import Logo from "./Logo";
 import SidebarItem from "./SidebarItem";
 import variables from "@/styles/variables.scss";
+import { getMenu } from "@/api/menu";
 
 export default {
   components: { SidebarItem, Logo },
@@ -51,6 +52,18 @@ export default {
     isCollapse() {
       return !this.sidebar.opened;
     }
+  },
+  methods: {
+    ...mapActions(["getMenuData"]),
+    initData() {
+      getMenu().then(res => {
+        console.log(" getMenu().then(res => {", res.data.menu);
+        this.getMenuData(res.data.menu);
+      });
+    }
+  },
+  mounted() {
+    this.initData();
   }
 };
 </script>
@@ -59,7 +72,7 @@ export default {
 <style lang="scss">
 .has-logo {
   position: relative;
-  .scrollbar-wrapper{
+  .scrollbar-wrapper {
     position: absolute;
     width: 100%;
   }

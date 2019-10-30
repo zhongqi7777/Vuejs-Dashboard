@@ -35,65 +35,7 @@ export function filterAsyncRoutes(routes, roles) {
 }
 
 const state = {
-  routes: [
-    { path: "/login", hidden: true },
-    {
-      path: "",
-      redirect: "dashboard",
-      children: [
-        {
-          path: "dashboard",
-          name: "Dashboard",
-          meta: {
-            title: "数据统计",
-            icon: "dashboard",
-            noCache: true,
-            affix: true
-          }
-        }
-      ]
-    },
-    {
-      path: "user",
-      name: "user",
-      meta: {
-        title: "用户管理",
-        icon: "user",
-        noCache: true,
-        affix: true
-      }
-    },
-    {
-      path: "project",
-      name: "project",
-      meta: {
-        title: "项目管理",
-        icon: "excel",
-        noCache: true,
-        affix: true
-      }
-    },
-    {
-      path: "model",
-      name: "model",
-      meta: {
-        title: "预置模型",
-        icon: "table",
-        noCache: true,
-        affix: true
-      }
-    },
-    {
-      path: "config",
-      name: "config",
-      meta: {
-        title: "配置",
-        icon: "edit",
-        noCache: true,
-        affix: true
-      }
-    }
-  ],
+  routes: [],
   addRoutes: []
 };
 
@@ -101,10 +43,16 @@ const mutations = {
   SET_ROUTES: (state, routes) => {
     state.addRoutes = routes;
     state.routes = constantRoutes.concat(routes);
+  },
+  SET_MENU: (state, data) => {
+    state.routes = data;
   }
 };
 
 const actions = {
+  getMenuData({ commit }, data) {
+    commit("SET_MENU", data);
+  },
   generateRoutes({ commit }, roles) {
     return new Promise(resolve => {
       let accessedRoutes;
