@@ -1,23 +1,30 @@
 <template>
   <div class="add-from">
-    <el-dialog :title="formType=='add'?'添加用户':'编辑用户'" :visible.sync="dialogFormVisible" v-dialog-drag>
+    <el-dialog
+      :title="formType=='add'?'添加用户':'编辑用户'"
+      :visible.sync="dialogFormVisible"
+      v-dialog-drag
+    >
       <el-form :model="form">
-        <el-form-item label="用户" :label-width="formLabelWidth">
+        <el-form-item label="name" :label-width="formLabelWidth">
           <el-input v-model="form.name" autocomplete="off"></el-input>
         </el-form-item>
-        <el-form-item label="公司" :label-width="formLabelWidth">
-          <el-input v-model="form.name" autocomplete="off"></el-input>
+        <el-form-item label="address" :label-width="formLabelWidth">
+          <el-input v-model="form.address" autocomplete="off"></el-input>
         </el-form-item>
-        <el-form-item label="手机号" :label-width="formLabelWidth">
+        <el-form-item label="date" :label-width="formLabelWidth">
+          <el-input v-model="form.date" autocomplete="off"></el-input>
+        </el-form-item>
+        <!-- <el-form-item label="手机号" :label-width="formLabelWidth">
           <el-input v-model="form.name" autocomplete="off"></el-input>
         </el-form-item>
         <el-form-item label="密码" :label-width="formLabelWidth">
           <el-input v-model="form.name" autocomplete="off"></el-input>
-        </el-form-item>
+        </el-form-item>-->
       </el-form>
       <div slot="footer" class="dialog-footer">
         <el-button @click="reset">取 消</el-button>
-        <el-button type="primary" @click="reset">确 定</el-button>
+        <el-button type="primary" @click="submit">确 定</el-button>
       </div>
     </el-dialog>
   </div>
@@ -25,6 +32,7 @@
 
 
 <script>
+import { addUser } from "@/api/userlist";
 import { mapGetters, mapActions, mapState } from "vuex";
 // import _ from "lodash";
 export default {
@@ -47,9 +55,8 @@ export default {
       formType: "add",
       form: {
         name: "",
-        company: "",
-        phone: "",
-        password: ""
+        address: "",
+        date: ""
       },
       formLabelWidth: "120px"
     };
@@ -69,6 +76,12 @@ export default {
     //...mapActions([""]),
     reset() {
       this.$emit("reset", "add");
+    },
+    submit() {
+      addUser(this.form).then(res=>{
+        console.log(res);
+      });
+      this.reset();
     }
   }
 };

@@ -69,6 +69,7 @@
 
 
 <script>
+import { getUserList } from "@/api/userlist";
 import addForm from "./addFrom";
 import { mapGetters, mapActions, mapState } from "vuex";
 // import _ from "lodash";
@@ -93,26 +94,6 @@ export default {
         region: ""
       },
       tableData: [
-        {
-          date: "2016-05-02",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1518 弄"
-        },
-        {
-          date: "2016-05-04",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1517 弄"
-        },
-        {
-          date: "2016-05-01",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1519 弄"
-        },
-        {
-          date: "2016-05-03",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1516 弄"
-        }
       ],
       currentPage1: 5,
       currentPage2: 5,
@@ -123,7 +104,9 @@ export default {
   computed: {
     //...mapState([""])
   },
-  mounted() {},
+  mounted() {
+    this.initData();
+  },
   beforeCreate() {},
   created() {},
   beforeMount() {},
@@ -150,6 +133,11 @@ export default {
     cancel(val) {
       this.addDialogFormVisible = false;
       this.formType = val;
+    },
+    initData(){
+      getUserList().then(res=>{
+        this.tableData=res.data;
+      });
     }
   }
 };

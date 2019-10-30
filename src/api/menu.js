@@ -6,3 +6,4 @@ export const getMenu = () => {
     method: "get"
   });
 };
+
