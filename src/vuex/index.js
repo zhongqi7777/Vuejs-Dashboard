@@ -1,41 +1,26 @@
 // import Vue from 'vue'
 // import Vuex from 'vuex'
-import getters from "./getters";
+import app from "./modules/app";
+import errorLog from "./modules/errorLog";
+import permission from "./modules/permission";
+import settings from "./modules/settings";
+import tagsView from "./modules/tagsView";
+import user from "./modules/user";
+import createLogger from "@/plugins/logger";
 
 Vue.use(Vuex);
 
-// https://webpack.js.org/guides/dependency-management/#requirecontext
-const modulesFiles = require.context("./modules", false, /\.js$/);
+const debug = process.env.NODE_ENV !== "production";
 
-// you do not need `import app from './modules/app'`
-// it will auto require all vuex module from modules file
-let states = {},
-  actions = {},
-  mutations = {};
-const modules = modulesFiles.keys().reduce((modules, modulePath) => {
-  // set './app.js' => 'app'
-  const moduleName = modulePath.replace(/^\.\/(.*)\.\w+$/, "$1");
-  const value = modulesFiles(modulePath);
-  modules[moduleName] = value.default;
-  let state = value.default.state;
-  let action = value.default.actions;
-  let mutation = value.default.mutations;
-  console.log("value.defaul", value.default);
-
-  states = { ...states, ...state };
-  actions = { ...actions, ...action };
-  mutations = { ...mutations, ...mutation };
-  return modules;
-}, {});
-
-// console.log("  modules,", modules);
-console.log(states,actions,mutations);
-const store = new Vuex.Store({
-  modules,
-  getters,
-  // states,
-  // actions,
-  // mutations
+export default new Vuex.Store({
+  modules: {
+    app,
+    errorLog,
+    permission,
+    settings,
+    tagsView,
+    user
+  },
+  strict: debug,
+  plugins: debug ? [createLogger()] : []
 });
-
-export default store;
