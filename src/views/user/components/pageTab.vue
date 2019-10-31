@@ -47,7 +47,7 @@
       <el-table-column prop="address" label="属性"></el-table-column>
       <el-table-column fixed="right" label="操作" width="100">
         <template slot-scope="scope">
-          <el-button type="text" size="small" @click="handleCreate('edit')">编辑</el-button>
+          <el-button type="text" size="small" @click="modifyUser(scope.row)">编辑</el-button>
           <el-button type="text" size="small" @click="delItem(scope.row.id)">删除</el-button>
         </template>
       </el-table-column>
@@ -63,16 +63,20 @@
       style="    text-align: right"
     ></el-pagination>
 
-    <addForm :data="{dialogFormVisible:addDialogFormVisible,formType:formType}" @reset="cancel" @initData="initData"></addForm>
+    <addForm
+      :data="{dialogFormVisible:addDialogFormVisible,formType:formType,formData:formData}"
+      @reset="cancel"
+      @initData="initData"
+    ></addForm>
   </div>
 </template>
 
 
 <script>
-import { getUserList } from "@/api/userlist";
+import { getUserList, delUser, modifyUser } from "@/api/userlist";
 import addForm from "./addFrom";
 import { mapGetters, mapActions, mapState } from "vuex";
-// import _ from "lodash";
+import _ from "lodash";
 export default {
   watch: {
     // flowData(val) {
@@ -89,12 +93,12 @@ export default {
     return {
       addDialogFormVisible: false,
       formType: "add",
+      formData: {},
       formInline: {
         user: "",
         region: ""
       },
-      tableData: [
-      ],
+      tableData: [],
       currentPage1: 5,
       currentPage2: 5,
       currentPage3: 5,
@@ -134,13 +138,25 @@ export default {
       this.addDialogFormVisible = false;
       this.formType = val;
     },
-    initData(){
-      getUserList().then(res=>{
-        this.tableData=res.data;
+    initData() {
+      getUserList().then(res => {
+        this.tableData = res.data;
       });
     },
-    delItem(val){
-      console.log(' delItem(val){',val);
+    delItem(val) {
+      console.log(" delItem(val){", val);
+      delUser(val).then(res => {
+        this.initData();
+      });
+    },
+    modifyUser(val) {
+      console.log("  modifyUser(val) {", val);
+      this.addDialogFormVisible = true;
+      this.formType = "edit";
+      this.formData = _.cloneDeep(val);
+      // modifyUser(val).then(res => {
+      //   this.initData();
+      // });
     }
   }
 };

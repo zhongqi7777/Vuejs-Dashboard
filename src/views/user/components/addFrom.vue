@@ -32,7 +32,7 @@
 
 
 <script>
-import { addUser } from "@/api/userlist";
+import { addUser, modifyUser } from "@/api/userlist";
 import { mapGetters, mapActions, mapState } from "vuex";
 // import _ from "lodash";
 export default {
@@ -40,6 +40,7 @@ export default {
     data(val) {
       this.dialogFormVisible = val.dialogFormVisible;
       this.formType = val.formType;
+      this.form = val.formData;
     }
   },
   props: {
@@ -78,10 +79,17 @@ export default {
       this.$emit("reset", "add");
     },
     submit() {
-      addUser(this.form).then(res=>{
-        //console.log(res);
-        this.$emit("initData");
-      });
+      if (this.formType == "add") {
+        addUser(this.form).then(res => {
+          //console.log(res);
+          this.$emit("initData");
+        });
+      } else {
+        modifyUser(this.form).then(res => {
+          this.$emit("initData");
+        });
+      }
+
       this.reset();
     }
   }
