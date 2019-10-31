@@ -19,8 +19,16 @@
 npm install
 
 # serve with hot reload at localhost:8080
-npm run dev
+npm run dev (默认开启dev模式mock环境,即 baseurl="http://localhost:8080/" baseenv="mock") 
 
+
+显示指定开发环境
+
+npm run dev --baseurl=http://localhost.dev/ --baseenv=api
+
+显示指定生产环境
+
+npm run dev --baseurl=http://localhost.pro/ --baseenv=api
 # build for production with minification
 npm run build
 
