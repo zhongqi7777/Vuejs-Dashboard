@@ -3,6 +3,7 @@
     <el-dialog
       :title="formType=='add'?'添加用户':'编辑用户'"
       :visible.sync="dialogFormVisible"
+      @closed="closedDialog"
       v-dialog-drag
     >
       <el-form :model="form">
@@ -75,6 +76,13 @@ export default {
   destroyed: function() {},
   methods: {
     //...mapActions([""]),
+    closedDialog() {
+      // this.form = {
+      //   name: "",
+      //   address: "",
+      //   date: ""
+      // };
+    },
     reset() {
       this.$emit("reset", "add");
     },
@@ -82,11 +90,13 @@ export default {
       if (this.formType == "add") {
         addUser(this.form).then(res => {
           //console.log(res);
-          this.$emit("initData");
+          this.$emit("initData", this.data.pagination);
+          this.$emit("getTotal");
         });
       } else {
         modifyUser(this.form).then(res => {
-          this.$emit("initData");
+          this.$emit("initData", this.data.pagination);
+          this.$emit("getTotal");
         });
       }
 

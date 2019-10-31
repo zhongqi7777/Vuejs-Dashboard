@@ -55,32 +55,39 @@
     <el-pagination
       @size-change="handleSizeChange"
       @current-change="handleCurrentChange"
-      :current-page="currentPage4"
-      :page-sizes="[100, 200, 300, 400]"
-      :page-size="100"
+      :current-page="currentPage"
+      :page-sizes="[5, 8,10, 15]"
+      :page-size="pageSize"
       layout="total, sizes, prev, pager, next, jumper"
-      :total="400"
+      :total="total"
       style="    text-align: right"
     ></el-pagination>
 
     <addForm
-      :data="{dialogFormVisible:addDialogFormVisible,formType:formType,formData:formData}"
+      :data="{dialogFormVisible:addDialogFormVisible,formType:formType,formData:formData,pagination:{ pageSize: this.pageSize, currentPage: this.currentPage }}"
       @reset="cancel"
       @initData="initData"
+      @getTotal="getTotal"
     ></addForm>
   </div>
 </template>
 
 
 <script>
-import { getUserList, delUser, modifyUser } from "@/api/userlist";
+import {
+  getUserList,
+  delUser,
+  modifyUser,
+  getAllUserList
+} from "@/api/userlist";
 import addForm from "./addFrom";
 import { mapGetters, mapActions, mapState } from "vuex";
 import _ from "lodash";
 export default {
   watch: {
-    // flowData(val) {
-    // }
+    data(val) {
+      console.log("formData", val.formData);
+    }
   },
   props: {
     // data: {
@@ -102,14 +109,19 @@ export default {
       currentPage1: 5,
       currentPage2: 5,
       currentPage3: 5,
-      currentPage4: 4
+      currentPage4: 4,
+      currentPage: 1,
+      pageSize: 5,
+      total: 0
     };
   },
   computed: {
     //...mapState([""])
   },
   mounted() {
-    this.initData();
+    this.initData({ pageSize: this.pageSize, currentPage: this.currentPage });
+
+    this.getTotal();
   },
   beforeCreate() {},
   created() {},
@@ -126,37 +138,59 @@ export default {
     resetForm(val) {},
     handleSizeChange(val) {
       console.log(`每页 ${val} 条`);
+      this.pageSize = val;
+      this.initData({ pageSize: this.pageSize, currentPage: this.currentPage });
     },
     handleCurrentChange(val) {
       console.log(`当前页: ${val}`);
+      this.currentPage = val;
+      this.initData({ pageSize: this.pageSize, currentPage: this.currentPage });
     },
     handleCreate(val) {
       this.addDialogFormVisible = true;
       this.formType = val;
+      this.formData = {
+        name: "",
+        address: "",
+        date: ""
+      };
     },
     cancel(val) {
       this.addDialogFormVisible = false;
       this.formType = val;
     },
-    initData() {
-      getUserList().then(res => {
+    initData(val) {
+      getUserList(val).then(res => {
+        if (res.data.length == 0) {
+          this.initData({
+            pageSize: this.pageSize,
+            currentPage: this.currentPage - 1
+          });
+        }
         this.tableData = res.data;
       });
     },
     delItem(val) {
-      console.log(" delItem(val){", val);
       delUser(val).then(res => {
-        this.initData();
+        this.initData({
+          pageSize: this.pageSize,
+          currentPage: this.currentPage
+        });
+        this.getTotal();
       });
     },
     modifyUser(val) {
-      console.log("  modifyUser(val) {", val);
       this.addDialogFormVisible = true;
       this.formType = "edit";
       this.formData = _.cloneDeep(val);
       // modifyUser(val).then(res => {
       //   this.initData();
       // });
+    },
+    getTotal() {
+      getAllUserList().then(res => {
+        this.total = res.data.length;
+      });
     }
   }
 };

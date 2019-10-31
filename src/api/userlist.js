@@ -1,8 +1,15 @@
 import request from "@/utils/request";
 
-export const getUserList = () => {
+export const getAllUserList = () => {
   return request({
     url: "/userlist",
+    method: "get"
+  });
+};
+
+export const getUserList = val => {
+  return request({
+    url: "/userlist?_page=" + val.currentPage + "&_limit=" + val.pageSize,
     method: "get"
   });
 };
