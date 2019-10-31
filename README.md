@@ -12,6 +12,7 @@
 - [√ 为 sass 提供全局样式，以及全局变量]
 - [√ 添加 IE 兼容]
 - [√ 配置多项目模式]
+- [√ webpack启动之后自动打开首页]
 
 备注 npm run  参数说明
 baseurl 默认值 "http://localhost:8080/"  baseurl 根路径
