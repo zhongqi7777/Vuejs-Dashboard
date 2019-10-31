@@ -7,8 +7,6 @@ Vue.use(VueRouter);
 // import Layout from "@/layout";
 
 /* Router Modules */
-import Login1 from "@/views/Login/Login1/index.vue";
-import Container from "@/container/index";
 
 /**
  * constantRoutes
@@ -19,17 +17,18 @@ export const constantRoutes = [
   {
     path: "/login",
     name: "login",
-    component: Login1
+    component: () => import("@/views/Login/index")
   },
   {
     path: "",
-    component: Container,
+    // component: Container,
+    component: () => import("@/container/index"),
     redirect: "login",
     children: [
       {
         path: "dashboard",
         component: () => import("@/views/dashboard/index"),
-        name: "Dashboard",
+        name: "Dashboard"
         // meta: {
         //   title: "dashboard",
         //   icon: "dashboard",
@@ -40,7 +39,7 @@ export const constantRoutes = [
       {
         path: "user",
         component: () => import("@/views/user/index"),
-        name: "user",
+        name: "user"
         // meta: {
         //   title: "user",
         //   icon: "user",
@@ -89,31 +88,7 @@ export const constantRoutes = [
  * asyncRoutes
  * the routes that need to be dynamically loaded based on user roles
  */
-export const asyncRoutes = [
-  {
-    path: "/login",
-    name: "Login1",
-    component: Login1
-  },
-  {
-    path: "",
-    component: Container,
-    redirect: "dashboard",
-    children: [
-      {
-        path: "dashboard",
-        component: () => import("@/views/dashboard/index"),
-        name: "Dashboard",
-        meta: {
-          title: "dashboard",
-          icon: "dashboard",
-          noCache: true,
-          affix: true
-        }
-      }
-    ]
-  }
-];
+export const asyncRoutes = [...constantRoutes];
 
 const createRouter = () =>
   new VueRouter({
