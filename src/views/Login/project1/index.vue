@@ -91,10 +91,18 @@ import SocialSign from "./socialSignin";
 
 export default {
   name: "Login",
+  metaInfo: {
+    title: "project1",
+    titleTemplate: "%s - Yay!",
+    htmlAttrs: {
+      lang: "en",
+      amp: true
+    }
+  },
   components: { SocialSign },
   data() {
     const validateUsername = (rule, value, callback) => {
-      if (!validUsername(value,this)) {
+      if (!validUsername(value, this)) {
         callback(new Error("Please enter the correct user name"));
       } else {
         callback();

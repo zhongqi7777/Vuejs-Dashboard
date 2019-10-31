@@ -91,6 +91,14 @@ import SocialSign from "./socialSignin";
 
 export default {
   name: "Login",
+  metaInfo: {
+    title: "project2",
+    titleTemplate: "%s - Yay!",
+    htmlAttrs: {
+      lang: "en",
+      amp: true
+    }
+  },
   components: { SocialSign },
   data() {
     const validateUsername = (rule, value, callback) => {
