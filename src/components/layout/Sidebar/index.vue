@@ -57,9 +57,9 @@ export default {
     // ...mapActions("permission",["getMenuData"]),
     initData() {
       getMenu().then(res => {
-        console.log(" getMenu().then(res => {", res.data.menu);
+        console.log(" getMenu().then(res => {", res.data);
         // this.getMenuData(res.data.menu);
-        this.$store.dispatch('permission/getMenuData',res.data.menu)
+        this.$store.dispatch('permission/getMenuData',res.data)
       });
     }
   },
