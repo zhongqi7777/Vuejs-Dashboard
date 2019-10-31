@@ -18,13 +18,13 @@ import Container from "@/container/index";
 export const constantRoutes = [
   {
     path: "/login",
-    name: "Login1",
+    name: "login",
     component: Login1
   },
   {
     path: "",
     component: Container,
-    redirect: "dashboard",
+    redirect: "login",
     children: [
       {
         path: "dashboard",

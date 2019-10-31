@@ -178,7 +178,7 @@ export default {
       this.$refs.loginForm.validate(valid => {
         if (valid) {
           // this.loading = true;
-          this.$router.push({ path: this.redirect || "/" });
+          this.$router.push({ path: this.redirect || "/dashboard" });
           // this.$store
           //   .dispatch("user/login", this.loginForm)
           //   .then(() => {

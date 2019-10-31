@@ -11,6 +11,12 @@
 - [√ 开启 gzip 压缩]
 - [√ 为 sass 提供全局样式，以及全局变量]
 - [√ 添加 IE 兼容]
+- [√ 配置多项目模式]
+
+备注 npm run  参数说明
+baseurl 默认值 "http://localhost:8080/"  baseurl 根路径
+baseenv 默认值 "mock"            代理环境
+baseproject 默认值 "project1"    项目名称 (此处值对应view/login/文件下文件名称)
 
 ## Build Setup
 
