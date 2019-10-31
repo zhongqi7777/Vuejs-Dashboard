@@ -9,7 +9,7 @@ export const getUserList = () => {
 
 export const addUser = data => {
   return request({
-    url: "/adduser",
+    url: "/userlist",
     method: "post",
     data
   });

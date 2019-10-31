@@ -1,5 +1,4 @@
 {
     "/menu": "/menu",
-    "/user": "/userlist",
-    "/userlist": "/adduser"
+    "/user": "/userlist"
 }

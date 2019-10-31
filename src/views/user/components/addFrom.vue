@@ -79,7 +79,8 @@ export default {
     },
     submit() {
       addUser(this.form).then(res=>{
-        console.log(res);
+        //console.log(res);
+        this.$emit("initData");
       });
       this.reset();
     }
