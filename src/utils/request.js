@@ -3,10 +3,17 @@
 // import store from '@/store'
 import { getToken } from "@/utils/auth";
 
+let baseURL = process.env.BASE_URL;
+let baseENV = process.env.BASE_ENV;
+baseURL += baseENV;
+
+// console.log("baseURL", baseURL);
+// console.log("baseENV", baseENV);
+
 // create an axios instance
 const service = axios.create({
   // baseURL: process.env.VUE_APP_BASE_API, // api 的 base_url
-  baseURL: process.env.BASE_ENV || "mock", // api 的 base_url
+  baseURL: baseURL, // api 的 base_url
   withCredentials: true, // 跨域请求时发送 cookies
   timeout: 5000 // request timeout
 });
