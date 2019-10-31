@@ -70,3 +70,23 @@ export function partial(fn, arg) {
     return fn(arg);
   };
 }
+
+export const getBaseURL = () => {
+  var baseURL = "";
+  var baseDocument = "index.html";
+
+  if (document.getElementsByTagName("base").length > 0) {
+    baseURL = document
+      .getElementsByTagName("base")[0]
+      .href.replace(baseDocument, "");
+  } else {
+    baseURL =
+      location.protocol +
+      "//" +
+      location.hostname +
+      (location.port && ":" + location.port) +
+      "/";
+  }
+
+  return baseURL;
+};

@@ -33,6 +33,7 @@ module.exports = {
     // Paths
     assetsSubDirectory: "static",
     assetsPublicPath: "/",
+    //依据参数 baseenv 确定代理环境
     proxyTable: {
       "/mock/": {
         target: "http://localhost:7000",

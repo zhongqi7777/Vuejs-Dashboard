@@ -1,9 +1,9 @@
 // import axios from "axios";
 
 // import store from '@/store'
-import { getToken } from "@/utils/auth";
+import { getBaseURL } from "@/utils/util";
 
-let baseURL = process.env.BASE_URL;
+let baseURL = process.env.BASE_URL ? process.env.BASE_URL : getBaseURL();
 let baseENV = process.env.BASE_ENV;
 baseURL += baseENV;
 
