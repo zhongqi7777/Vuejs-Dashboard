@@ -122,6 +122,7 @@ export default {
     this.initData({ pageSize: this.pageSize, currentPage: this.currentPage });
 
     this.getTotal();
+
   },
   beforeCreate() {},
   created() {},

@@ -40,6 +40,13 @@ module.exports = {
         pathRewrite: {
           "^/mock": ""
         }
+      },
+      "/api/": {
+        target: "http://localhost:7000",
+        changeOrigin: false,
+        pathRewrite: {
+          "^/api": ""
+        }
       }
     },
 
