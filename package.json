@@ -5,14 +5,19 @@
   "author": "ylb",
   "private": true,
   "scripts": {
-    "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
+    "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js --open",
     "start": "npm run dev",
     "unit": "jest --config test/unit/jest.conf.js --coverage",
     "e2e": "node test/e2e/runner.js",
     "test": "npm run unit && npm run e2e",
     "lint": "eslint --ext .js,.vue src test/unit test/e2e/specs",
     "build": "node build/build.js",
-    "mock": "nodemon --watch mock --exec json-server mock/index.js --port 7000 --m mock/post-to-get.js"
+    "server": "nodemon --watch mock --exec json-server server/server.js --port 7000",
+    "api-server": "node ./server/index.js",
+    "nodemon-server-routes": "nodemon --watch mock --exec json-server ./server/db/db.json --routes ./server/db/routes.json --port 7000",
+    "nodemon-server": "nodemon --watch mock --exec json-server ./server/db/db.json --port 7000",
+    "json-server-routes": "json-server ./server/db/db.json --routes ./server/db/routes.json --port 7000",
+    "json-server": "json-server ./server/db/db.json --port 7000"
   },
   "dependencies": {
     "@babel/polyfill": "^7.4.4",
@@ -73,6 +78,7 @@
     "image-webpack-loader": "^6.0.0",
     "jest": "^22.0.4",
     "jest-serializer-vue": "^0.3.0",
+    "json-server": "^0.15.1",
     "nightwatch": "^0.9.12",
     "node-notifier": "^5.1.2",
     "optimize-css-assets-webpack-plugin": "^3.2.0",

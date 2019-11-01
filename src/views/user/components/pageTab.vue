@@ -47,35 +47,47 @@
       <el-table-column prop="address" label="属性"></el-table-column>
       <el-table-column fixed="right" label="操作" width="100">
         <template slot-scope="scope">
-          <el-button type="text" size="small" @click="handleCreate('edit')">编辑</el-button>
-          <el-button type="text" size="small">删除</el-button>
+          <el-button type="text" size="small" @click="modifyUser(scope.row)">编辑</el-button>
+          <el-button type="text" size="small" @click="delItem(scope.row.id)">删除</el-button>
         </template>
       </el-table-column>
     </el-table>
     <el-pagination
       @size-change="handleSizeChange"
       @current-change="handleCurrentChange"
-      :current-page="currentPage4"
-      :page-sizes="[100, 200, 300, 400]"
-      :page-size="100"
+      :current-page="currentPage"
+      :page-sizes="[5, 8,10, 15]"
+      :page-size="pageSize"
       layout="total, sizes, prev, pager, next, jumper"
-      :total="400"
+      :total="total"
       style="    text-align: right"
     ></el-pagination>
 
-    <addForm :data="{dialogFormVisible:addDialogFormVisible,formType:formType}" @reset="cancel"></addForm>
+    <addForm
+      :data="{dialogFormVisible:addDialogFormVisible,formType:formType,formData:formData,pagination:{ pageSize: this.pageSize, currentPage: this.currentPage }}"
+      @reset="cancel"
+      @initData="initData"
+      @getTotal="getTotal"
+    ></addForm>
   </div>
 </template>
 
 
 <script>
+import {
+  getUserList,
+  delUser,
+  modifyUser,
+  getAllUserList
+} from "@/api/userlist";
 import addForm from "./addFrom";
 import { mapGetters, mapActions, mapState } from "vuex";
-// import _ from "lodash";
+import _ from "lodash";
 export default {
   watch: {
-    // flowData(val) {
-    // }
+    data(val) {
+      console.log("formData", val.formData);
+    }
   },
   props: {
     // data: {
@@ -88,42 +100,30 @@ export default {
     return {
       addDialogFormVisible: false,
       formType: "add",
+      formData: {},
       formInline: {
         user: "",
         region: ""
       },
-      tableData: [
-        {
-          date: "2016-05-02",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1518 弄"
-        },
-        {
-          date: "2016-05-04",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1517 弄"
-        },
-        {
-          date: "2016-05-01",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1519 弄"
-        },
-        {
-          date: "2016-05-03",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1516 弄"
-        }
-      ],
+      tableData: [],
       currentPage1: 5,
       currentPage2: 5,
       currentPage3: 5,
-      currentPage4: 4
+      currentPage4: 4,
+      currentPage: 1,
+      pageSize: 5,
+      total: 0
     };
   },
   computed: {
     //...mapState([""])
   },
-  mounted() {},
+  mounted() {
+    this.initData({ pageSize: this.pageSize, currentPage: this.currentPage });
+
+    this.getTotal();
+
+  },
   beforeCreate() {},
   created() {},
   beforeMount() {},
@@ -139,17 +139,59 @@ export default {
     resetForm(val) {},
     handleSizeChange(val) {
       console.log(`每页 ${val} 条`);
+      this.pageSize = val;
+      this.initData({ pageSize: this.pageSize, currentPage: this.currentPage });
     },
     handleCurrentChange(val) {
       console.log(`当前页: ${val}`);
+      this.currentPage = val;
+      this.initData({ pageSize: this.pageSize, currentPage: this.currentPage });
     },
     handleCreate(val) {
       this.addDialogFormVisible = true;
       this.formType = val;
+      this.formData = {
+        name: "",
+        address: "",
+        date: ""
+      };
     },
     cancel(val) {
       this.addDialogFormVisible = false;
       this.formType = val;
+    },
+    initData(val) {
+      getUserList(val).then(res => {
+        if (res.data.length == 0) {
+          this.initData({
+            pageSize: this.pageSize,
+            currentPage: this.currentPage - 1
+          });
+        }
+        this.tableData = res.data;
+      });
+    },
+    delItem(val) {
+      delUser(val).then(res => {
+        this.initData({
+          pageSize: this.pageSize,
+          currentPage: this.currentPage
+        });
+        this.getTotal();
+      });
+    },
+    modifyUser(val) {
+      this.addDialogFormVisible = true;
+      this.formType = "edit";
+      this.formData = _.cloneDeep(val);
+      // modifyUser(val).then(res => {
+      //   this.initData();
+      // });
+    },
+    getTotal() {
+      getAllUserList().then(res => {
+        this.total = res.data.length;
+      });
     }
   }
 };

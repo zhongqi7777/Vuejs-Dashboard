@@ -1,25 +1,44 @@
 // import Vue from 'vue'
 // import Vuex from 'vuex'
-import getters from './getters'
+import getters from "./getters";
+import app from "./modules/app";
+import errorLog from "./modules/errorLog";
+import permission from "./modules/permission";
+import settings from "./modules/settings";
+import tagsView from "./modules/tagsView";
+import user from "./modules/user";
+import createLogger from "@/plugins/logger";
+import createPersistedState from "vuex-persistedstate";
 
-Vue.use(Vuex)
+Vue.use(Vuex);
 
-// https://webpack.js.org/guides/dependency-management/#requirecontext
-const modulesFiles = require.context('./modules', false, /\.js$/)
+const debug = process.env.NODE_ENV !== "production";
 
-// you do not need `import app from './modules/app'`
-// it will auto require all vuex module from modules file
-const modules = modulesFiles.keys().reduce((modules, modulePath) => {
-  // set './app.js' => 'app'
-  const moduleName = modulePath.replace(/^\.\/(.*)\.\w+$/, '$1')
-  const value = modulesFiles(modulePath)
-  modules[moduleName] = value.default
-  return modules
-}, {})
+const vuexPersisted = new createPersistedState({
+  key: "myVuex",
+  storage: window.localStorage,
+  reducer: state => ({
+    // PK: {
+    //   multipleSelection: state.pk.multipleSelection,
+    //   stepData: state.pk.stepData
+    // },
+  })
+  // filter: mutation => (
+  //   'CHANGE_LOADING' === mutation.type
+  // )
+});
 
-const store = new Vuex.Store({
-  modules,
-  getters
-})
-
-export default store
+export default new Vuex.Store({
+  getters,
+  modules: {
+    app,
+    errorLog,
+    permission,
+    settings,
+    tagsView,
+    user
+  },
+  strict: debug,
+  // plugins: debug ? [createLogger()] : []
+  plugins: debug ? [createLogger(), vuexPersisted] : [vuexPersisted]
+});
