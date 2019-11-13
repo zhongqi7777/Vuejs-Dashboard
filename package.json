@@ -14,7 +14,7 @@
     "build": "node build/build.js",
     "server": "nodemon --watch mock --exec json-server server/server.js --port 7000",
     "api-server": "node ./server/index.js",
-    "nodemon-server-routes": "nodemon --watch mock --exec json-server ./server/db/db.json --routes ./server/db/routes.json --port 7000",
+    "nodemon-server-routes": "nodemon --watch mock --exec json-server --routes ./server/db/routes.json ./server/db/db.json --port 7000",
     "nodemon-server": "nodemon --watch mock --exec json-server ./server/db/db.json --port 7000",
     "json-server-routes": "json-server ./server/db/db.json --routes ./server/db/routes.json --port 7000",
     "json-server": "json-server ./server/db/db.json --port 7000"
