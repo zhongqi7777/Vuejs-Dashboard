@@ -1,6 +1,5 @@
 {
     "/del/user/:id": "/userlist/:id",
     "/modify/user/:id": "/userlist/:id",
-    "/add/user": "/userlist",
-    "/get/user/list":"/userlist"
+    "/add/user": "/userlist"
 }

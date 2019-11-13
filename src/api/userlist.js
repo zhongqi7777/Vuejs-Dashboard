@@ -2,16 +2,16 @@ import request from "@/utils/request";
 
 export const getAllUserList = () => {
   return request({
-    // url: "/userlist",
-    url: "/get/user/list",
+    url: "/userlist",
+    // url: "/get/user/list",
     method: "get"
   });
 };
 
 export const getUserList = val => {
   return request({
-    // url: "/userlist?_page=" + val.currentPage + "&_limit=" + val.pageSize,
-    url: "/get/user/list?_page=" + val.currentPage + "&_limit=" + val.pageSize, ///get/userlist
+    url: "/userlist?_page=" + val.currentPage + "&_limit=" + val.pageSize,
+    // url: "/get/user/list?_page=" + val.currentPage + "&_limit=" + val.pageSize, ///get/userlist
     method: "get"
   });
 };
