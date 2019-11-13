@@ -1,4 +1,5 @@
 {
-    "/menu": "/menu",
-    "/user": "/userlist"
+    "/del/user/:id": "/userlist/:id",
+    "/modify/user/:id": "/userlist/:id",
+    "/add/user": "/userlist"
 }
