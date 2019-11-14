@@ -9,6 +9,10 @@ import Cookies from "js-cookie";
 import store from "./vuex";
 import "@/utils/dialogDrag";
 
+
+//vue 鼠标事件控制台警告Added non-passive event listener to a scroll-blocking 'mousewheel' event. Consider marking event handler as 'passive' to make the page more responsive
+import 'default-passive-events'
+
 // import "normalize.css/normalize.css"; // A modern alternative to CSS resets
 // import "./styles/element-variables.scss";
 // import "font-awesome/css/font-awesome.min.css";

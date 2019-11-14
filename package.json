@@ -21,6 +21,7 @@
   "dependencies": {
     "@babel/polyfill": "^7.4.4",
     "dagre": "^0.8.4",
+    "default-passive-events": "^1.0.10",
     "fuse.js": "^3.4.5",
     "js-cookie": "^2.2.0",
     "json-serve": "^0.1.0",
