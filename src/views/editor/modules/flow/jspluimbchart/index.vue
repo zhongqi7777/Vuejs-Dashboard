@@ -1,11 +1,6 @@
 <template>
-  <div class="editor">
-    <transition name="fade-transform" mode="out-in">
-      <!-- <keep-alive>
-        <router-view />
-      </keep-alive>-->
-      <router-view />
-    </transition>
+  <div class="jspluimbchart">
+    jspluimbchart
   </div>
 </template>
 
@@ -45,9 +40,10 @@ export default {
 </script>
 
 <style lang="scss">
-.editor {
+.jspluimbchart {
   position: absolute;
   width: 100%;
   height: 100%;
+  background: #fff;
 }
 </style>

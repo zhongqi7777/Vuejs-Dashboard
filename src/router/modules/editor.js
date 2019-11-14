@@ -16,6 +16,12 @@ const editRouter = {
       component: () => import("@/views/editor/modules/jspluimbchart/index"),
       name: "jspluimbchart",
       meta: { title: "jspluimbchart", noCache: true }
+    },
+    {
+      path: "flowlist",
+      component: () => import("@/views/editor/modules/flow/list/index"),
+      name: "jspluimbchart",
+      meta: { title: "jspluimbchart", noCache: true }
     }
   ]
 };

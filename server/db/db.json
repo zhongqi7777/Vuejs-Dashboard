@@ -72,8 +72,8 @@
       "alwaysShow": true,
       "children": [
         {
-          "path": "jspluimbchart",
-          "name": "jspluimbchart",
+          "path": "flowlist",
+          "name": "flowlist",
           "meta": {
             "title": "流程编辑器",
             "icon": "nested",
@@ -96,6 +96,2398 @@
       "address": "fsdf",
       "date": "fsdf",
       "id": 13
+    }
+  ],
+  "flowlist": [
+    {
+      "id": "402881d26e40e874016e49af46d40004",
+      "name": "fflow_9",
+      "steps": [
+        {
+          "id": "source_1",
+          "name": "source",
+          "type": "source",
+          "stepSettings": {
+            "quoteChar": "\"",
+            "escapeChar": "\\",
+            "brokers": "info3:9093",
+            "zookeeper": "info1:2181,info2:2181,info3:2181/europa/app/kafka",
+            "offset": "",
+            "maxOutOfOrderness": "0",
+            "parallelism": "1",
+            "groupId": "kafkafe3_new",
+            "format": "csv",
+            "datasetName": "kafka_520",
+            "type": "KAFKA",
+            "version": "0.10",
+            "separator": ",",
+            "nullValue": "",
+            "kafkaFetchSize": "1048576",
+            "autoOffsetReset": "earliest",
+            "timeColumn": "",
+            "jsonSchema": "",
+            "schemaId": "ff601d68-a921-4da4-8aca-e945793e879d",
+            "timeFormat": "yyyy-MM-dd HH:mm:ss",
+            "topic": "kafkafe3"
+          },
+          "outputConfigurations": {
+            "output": [
+              {
+                "column": "NAME",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "JOB",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "SALARY",
+                "type": "double",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "AGE",
+                "type": "double",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "GENDER",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "TIME",
+                "type": "date",
+                "alias": "",
+                "description": ""
+              }
+            ]
+          },
+          "x": 76,
+          "y": 80
+        },
+        {
+          "id": "source_2",
+          "name": "source",
+          "type": "source",
+          "stepSettings": {
+            "path": "/tmp/test/tc_df_transform_003_least_sink_8",
+            "quoteChar": "\"",
+            "escapeChar": "\\",
+            "schemaId": "b838a517-788c-40f9-b1d7-91a8761bd390",
+            "parallelism": "1",
+            "format": "csv",
+            "datasetName": "tc_df_transform_003_least_sink_8",
+            "interval": "3000",
+            "type": "HDFS",
+            "separator": ","
+          },
+          "outputConfigurations": {
+            "output": [
+              {
+                "column": "id",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "name",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "age",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "resultStr",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              }
+            ]
+          },
+          "x": 75,
+          "y": 221
+        },
+        {
+          "id": "join_3",
+          "name": "join",
+          "type": "join",
+          "stepSettings": {
+            "allowedLateness": "0",
+            "slide": "30",
+            "parallelism": "1",
+            "joinType": "inner",
+            "window": "60",
+            "windowType": "tumble",
+            "joinCondition": []
+          },
+          "inputConfigurations": {
+            "left": [
+              {
+                "column": "NAME",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "JOB",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "SALARY",
+                "type": "double",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "AGE",
+                "type": "double",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "GENDER",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "TIME",
+                "type": "date",
+                "alias": "",
+                "description": ""
+              }
+            ],
+            "right": [
+              {
+                "column": "id",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "name",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "age",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "resultStr",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              }
+            ]
+          },
+          "outputConfigurations": {
+            "output": [
+              {
+                "column": "left_NAME",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "left_JOB",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "left_SALARY",
+                "type": "double",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "left_AGE",
+                "type": "double",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "left_GENDER",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "left_TIME",
+                "type": "date",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "right_id",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "right_name",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "right_age",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "right_resultStr",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              }
+            ]
+          },
+          "x": 468,
+          "y": 212
+        },
+        {
+          "id": "sink_4",
+          "name": "sink",
+          "type": "sink",
+          "stepSettings": {
+            "quoteChar": "\"",
+            "escapeChar": "\\",
+            "batchRolloverInterval": "60000",
+            "brokers": "",
+            "parallelism": "1",
+            "format": "csv",
+            "type": "kafka",
+            "separator": ",",
+            "version": "0.10",
+            "nullValue": "",
+            "path": "",
+            "jsonSchema": "",
+            "topic": "",
+            "batchSize": "402653184"
+          },
+          "inputConfigurations": {
+            "input": [
+              {
+                "column": "left_NAME",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "left_JOB",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "left_SALARY",
+                "type": "double",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "left_AGE",
+                "type": "double",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "left_GENDER",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "left_TIME",
+                "type": "date",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "right_id",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "right_name",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "right_age",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "right_resultStr",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              }
+            ]
+          },
+          "outputConfigurations": {
+            "output": []
+          },
+          "x": 626,
+          "y": 62
+        },
+        {
+          "id": "source_5",
+          "name": "source",
+          "type": "source",
+          "stepSettings": {},
+          "outputConfigurations": {
+            "output": []
+          },
+          "x": 119,
+          "y": 367
+        }
+      ],
+      "links": [
+        {
+          "name": "con_657",
+          "source": "source_1",
+          "sourceOutput": "output",
+          "target": "join_3",
+          "targetInput": "left",
+          "input": "left"
+        },
+        {
+          "name": "con_658",
+          "source": "source_2",
+          "sourceOutput": "output",
+          "target": "join_3",
+          "targetInput": "right",
+          "input": "right"
+        },
+        {
+          "name": "con_659",
+          "source": "join_3",
+          "sourceOutput": "output",
+          "target": "sink_4",
+          "targetInput": "input",
+          "input": "input"
+        }
+      ],
+      "createTime": 1573714956285,
+      "lastModifyTime": 1573714956285
+    },
+    {
+      "id": "402881d26e3f75fa016e3f7c6be10000",
+      "name": "shiy_flink_test_01",
+      "steps": [
+        {
+          "id": "dummy_source_1",
+          "name": "dummy_source",
+          "type": "source_dummy",
+          "stepSettings": {
+            "maxOutOfOrderness": "",
+            "parallelism": "1",
+            "dataType": "userClick",
+            "type": "HDFS"
+          },
+          "inputConfigurations": {
+            "input": []
+          },
+          "outputConfigurations": {
+            "output": [
+              {
+                "column": "userId",
+                "type": "int",
+                "alias": "userId",
+                "description": ""
+              },
+              {
+                "column": "username",
+                "type": "string",
+                "alias": "username",
+                "description": ""
+              },
+              {
+                "column": "url",
+                "type": "string",
+                "alias": "url",
+                "description": ""
+              },
+              {
+                "column": "clickTime",
+                "type": "timestamp",
+                "alias": "clickTime",
+                "description": ""
+              },
+              {
+                "column": "rank",
+                "type": "int",
+                "alias": "rank",
+                "description": ""
+              },
+              {
+                "column": "uuid",
+                "type": "string",
+                "alias": "uuid",
+                "description": ""
+              }
+            ]
+          },
+          "x": 335,
+          "y": 111
+        },
+        {
+          "id": "filter_2",
+          "name": "filter",
+          "type": "filter",
+          "stepSettings": {
+            "condition": "userId > 60",
+            "parallelism": "1"
+          },
+          "inputConfigurations": {
+            "input": [
+              {
+                "column": "userId",
+                "type": "int",
+                "alias": "userId",
+                "description": ""
+              },
+              {
+                "column": "username",
+                "type": "string",
+                "alias": "username",
+                "description": ""
+              },
+              {
+                "column": "url",
+                "type": "string",
+                "alias": "url",
+                "description": ""
+              },
+              {
+                "column": "clickTime",
+                "type": "timestamp",
+                "alias": "clickTime",
+                "description": ""
+              },
+              {
+                "column": "rank",
+                "type": "int",
+                "alias": "rank",
+                "description": ""
+              },
+              {
+                "column": "uuid",
+                "type": "string",
+                "alias": "uuid",
+                "description": ""
+              }
+            ]
+          },
+          "outputConfigurations": {
+            "output": [
+              {
+                "column": "userId",
+                "type": "int",
+                "alias": "userId",
+                "description": ""
+              },
+              {
+                "column": "username",
+                "type": "string",
+                "alias": "username",
+                "description": ""
+              },
+              {
+                "column": "url",
+                "type": "string",
+                "alias": "url",
+                "description": ""
+              },
+              {
+                "column": "clickTime",
+                "type": "timestamp",
+                "alias": "clickTime",
+                "description": ""
+              },
+              {
+                "column": "rank",
+                "type": "int",
+                "alias": "rank",
+                "description": ""
+              },
+              {
+                "column": "uuid",
+                "type": "string",
+                "alias": "uuid",
+                "description": ""
+              }
+            ]
+          },
+          "x": 759,
+          "y": 175
+        },
+        {
+          "id": "sink_3",
+          "name": "sink",
+          "type": "sink",
+          "stepSettings": {
+            "quoteChar": "\"",
+            "escapeChar": "\\",
+            "batchRolloverInterval": "60000",
+            "brokers": "",
+            "parallelism": "1",
+            "format": "csv",
+            "storage": "HDFS",
+            "type": "kafka",
+            "separator": ",",
+            "version": "0.10",
+            "nullValue": "",
+            "path": "/tmp/shiy/streaming/step_output_20191106",
+            "jsonSchema": "",
+            "topic": "",
+            "batchSize": "402653184"
+          },
+          "inputConfigurations": {
+            "input": [
+              {
+                "column": "userId",
+                "type": "int",
+                "alias": "userId",
+                "description": ""
+              },
+              {
+                "column": "username",
+                "type": "string",
+                "alias": "username",
+                "description": ""
+              },
+              {
+                "column": "url",
+                "type": "string",
+                "alias": "url",
+                "description": ""
+              },
+              {
+                "column": "clickTime",
+                "type": "timestamp",
+                "alias": "clickTime",
+                "description": ""
+              },
+              {
+                "column": "rank",
+                "type": "int",
+                "alias": "rank",
+                "description": ""
+              },
+              {
+                "column": "uuid",
+                "type": "string",
+                "alias": "uuid",
+                "description": ""
+              }
+            ]
+          },
+          "outputConfigurations": {
+            "output": []
+          },
+          "x": 171,
+          "y": 274
+        }
+      ],
+      "links": [
+        {
+          "name": "con_69",
+          "source": "dummy_source_1",
+          "sourceOutput": "output",
+          "target": "filter_2",
+          "targetInput": "input",
+          "input": "input"
+        },
+        {
+          "name": "con_70",
+          "source": "filter_2",
+          "sourceOutput": "output",
+          "target": "sink_3",
+          "targetInput": "input",
+          "input": "input"
+        }
+      ],
+      "createTime": 1573620487314,
+      "lastModifyTime": 1573620487314
+    },
+    {
+      "id": "402881d26e40e874016e49ad386d0003",
+      "name": "flow_7",
+      "steps": [
+        {
+          "id": "source_1",
+          "name": "source",
+          "type": "source",
+          "stepSettings": {
+            "path": "",
+            "quoteChar": "\"",
+            "escapeChar": "\\",
+            "schemaId": "2c662d45-b072-422c-a18b-78ee8b03f28b",
+            "format": "csv",
+            "datasetName": "cs_bank_kpi_result_zxqykh_nmz_8",
+            "interval": "3000",
+            "type": "HDFS",
+            "separator": ","
+          },
+          "outputConfigurations": {
+            "output": [
+              {
+                "column": "kpi_time_type",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "kpi_time",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "kpi_dimension_type",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "kpi_dimension_value",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "kpi_type",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "kpi_value",
+                "type": "double",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "kpi_jgbh",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              }
+            ]
+          },
+          "x": 39,
+          "y": 54
+        },
+        {
+          "id": "filter_2",
+          "name": "filter",
+          "type": "filter",
+          "stepSettings": {
+            "condition": "",
+            "parallelism": "1"
+          },
+          "inputConfigurations": {
+            "input": [
+              {
+                "column": "kpi_time_type",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "kpi_time",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "kpi_dimension_type",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "kpi_dimension_value",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "kpi_type",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "kpi_value",
+                "type": "double",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "kpi_jgbh",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              }
+            ]
+          },
+          "outputConfigurations": {
+            "output": [
+              {
+                "column": "kpi_time_type",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "kpi_time",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "kpi_dimension_type",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "kpi_dimension_value",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "kpi_type",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "kpi_value",
+                "type": "double",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "kpi_jgbh",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              }
+            ]
+          },
+          "x": 237,
+          "y": 196
+        },
+        {
+          "id": "lookup_3",
+          "name": "lookup",
+          "type": "lookup",
+          "stepSettings": {
+            "lookupEngine": "Redis",
+            "parallelism": ""
+          },
+          "inputConfigurations": {
+            "input": [
+              {
+                "column": "kpi_time_type",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "kpi_time",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "kpi_dimension_type",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "kpi_dimension_value",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "kpi_type",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "kpi_value",
+                "type": "double",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "kpi_jgbh",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              }
+            ]
+          },
+          "outputConfigurations": {
+            "output": [
+              {
+                "column": "kpi_time_type",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "kpi_time",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "kpi_dimension_type",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "kpi_dimension_value",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "kpi_type",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "kpi_value",
+                "type": "double",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "kpi_jgbh",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              }
+            ]
+          },
+          "x": 534,
+          "y": 181
+        },
+        {
+          "id": "aggregate_4",
+          "name": "aggregate",
+          "type": "aggregate",
+          "stepSettings": {
+            "allowedLateness": "0",
+            "timeFormat": "yyyy-MM-dd HH:mm:ss",
+            "parallelism": "1",
+            "aggregates": [
+              {
+                "column": "kpi_time_type",
+                "func": "count",
+                "alias": ""
+              }
+            ],
+            "groupBy": [
+              "kpi_time"
+            ],
+            "window": "60",
+            "timeCol": ""
+          },
+          "inputConfigurations": {
+            "input": [
+              {
+                "column": "kpi_time_type",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "kpi_time",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "kpi_dimension_type",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "kpi_dimension_value",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "kpi_type",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "kpi_value",
+                "type": "double",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "kpi_jgbh",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              }
+            ]
+          },
+          "outputConfigurations": {
+            "output": [
+              {
+                "column": "kpi_time",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              }
+            ]
+          },
+          "x": 287,
+          "y": 450
+        },
+        {
+          "id": "sink_5",
+          "name": "sink",
+          "type": "sink",
+          "stepSettings": {
+            "path": "",
+            "quoteChar": "\"",
+            "escapeChar": "\\",
+            "format": "csv",
+            "type": "hdfs",
+            "batchSize": "",
+            "separator": ","
+          },
+          "inputConfigurations": {
+            "input": [
+              {
+                "column": "kpi_time",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              }
+            ]
+          },
+          "outputConfigurations": {
+            "output": []
+          },
+          "x": 997,
+          "y": 271
+        }
+      ],
+      "links": [
+        {
+          "name": "con_502",
+          "source": "source_1",
+          "sourceOutput": "output",
+          "target": "filter_2",
+          "targetInput": "input",
+          "input": "input"
+        },
+        {
+          "name": "con_503",
+          "source": "filter_2",
+          "sourceOutput": "output",
+          "target": "lookup_3",
+          "targetInput": "input",
+          "input": "input"
+        },
+        {
+          "name": "con_504",
+          "source": "lookup_3",
+          "sourceOutput": "output",
+          "target": "aggregate_4",
+          "targetInput": "input",
+          "input": "input"
+        },
+        {
+          "name": "con_505",
+          "source": "aggregate_4",
+          "sourceOutput": "output",
+          "target": "sink_5",
+          "targetInput": "input",
+          "input": "input"
+        }
+      ],
+      "createTime": 1573194119677,
+      "lastModifyTime": 1573194119677
+    },
+    {
+      "id": "402881d26e40e874016e441ae81d0002",
+      "name": "flow_1",
+      "steps": [
+        {
+          "id": "source_1",
+          "name": "source",
+          "type": "source",
+          "stepSettings": {
+            "path": "",
+            "quoteChar": "\"",
+            "escapeChar": "\\",
+            "schemaId": "2c662d45-b072-422c-a18b-78ee8b03f28b",
+            "format": "csv",
+            "datasetName": "cs_bank_kpi_result_zxqykh_nmz_8",
+            "interval": "3000",
+            "type": "HDFS",
+            "separator": ","
+          },
+          "outputConfigurations": {
+            "output": [
+              {
+                "column": "kpi_time_type",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "kpi_dimension_type",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "kpi_value",
+                "type": "double",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "kpi_jgbh",
+                "type": "string",
+                "alias": "首发式发生",
+                "description": ""
+              }
+            ]
+          },
+          "x": 99,
+          "y": 173
+        },
+        {
+          "id": "source_3",
+          "name": "source",
+          "type": "source",
+          "stepSettings": {
+            "quoteChar": "\"",
+            "escapeChar": "\\",
+            "brokers": "info3:9093",
+            "zookeeper": "",
+            "offset": "",
+            "maxOutOfOrderness": "",
+            "groupId": "",
+            "format": "csv",
+            "datasetName": "kafka_0703_5",
+            "type": "KAFKA",
+            "separator": ",",
+            "nullValue": "",
+            "kafkaFetchSize": "1048576",
+            "autoOffsetReset": "earliest",
+            "timeColumn": "",
+            "jsonSchema": "",
+            "schemaId": "69f1fee0-34c6-4726-8f08-dce583699795",
+            "timeFormat": "yyyy-MM-dd HH:mm:ss",
+            "topic": "topic_926"
+          },
+          "outputConfigurations": {
+            "output": [
+              {
+                "column": "Name",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "Sex",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "Age",
+                "type": "int",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "bb",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "Current_time",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "Data_long",
+                "type": "bigint",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "Data_double",
+                "type": "double",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "Data_boolean",
+                "type": "boolean",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "aa",
+                "type": "timestamp",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "Str_time",
+                "type": "bigint",
+                "alias": "",
+                "description": ""
+              }
+            ]
+          },
+          "x": 94,
+          "y": 312
+        },
+        {
+          "id": "join_4",
+          "name": "join",
+          "type": "join",
+          "stepSettings": {
+            "allowedLateness": "0",
+            "slide": "30",
+            "joinType": "inner",
+            "parallelism": "1",
+            "window": "60",
+            "windowType": "tumble",
+            "joinCondition": [
+              {
+                "leftColumn": "kpi_time_type",
+                "rightColumn": "Sex",
+                "op": "="
+              }
+            ]
+          },
+          "inputConfigurations": {
+            "left": [
+              {
+                "column": "kpi_time_type",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "kpi_dimension_type",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "kpi_value",
+                "type": "double",
+                "alias": "",
+                "description": ""
+              }
+            ],
+            "right": [
+              {
+                "column": "Name",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "Sex",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "Age",
+                "type": "int",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "bb",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "Current_time",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "Data_double",
+                "type": "double",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "aa",
+                "type": "timestamp",
+                "alias": "",
+                "description": ""
+              }
+            ]
+          },
+          "outputConfigurations": {
+            "output": [
+              {
+                "column": "left_kpi_time_type",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "left_kpi_dimension_type",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "left_kpi_value",
+                "type": "double",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "right_Data_double",
+                "type": "double",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "right_aa",
+                "type": "timestamp",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "right_Current_time",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "right_bb",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              }
+            ]
+          },
+          "x": 545,
+          "y": 295
+        },
+        {
+          "id": "filter_5",
+          "name": "filter",
+          "type": "filter",
+          "stepSettings": {
+            "condition": "",
+            "parallelism": "1"
+          },
+          "inputConfigurations": {
+            "input": [
+              {
+                "column": "Name",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "Age",
+                "type": "int",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "Data_double",
+                "type": "double",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "Data_boolean",
+                "type": "boolean",
+                "alias": "",
+                "description": ""
+              }
+            ]
+          },
+          "outputConfigurations": {
+            "output": [
+              {
+                "column": "发士大夫士大夫",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              }
+            ]
+          },
+          "x": 549,
+          "y": 419
+        },
+        {
+          "id": "sink_6",
+          "name": "sink",
+          "type": "sink",
+          "stepSettings": {
+            "path": "",
+            "quoteChar": "\"",
+            "escapeChar": "\\",
+            "format": "csv",
+            "type": "hdfs",
+            "batchSize": "",
+            "separator": ","
+          },
+          "inputConfigurations": {
+            "input": [
+              {
+                "column": "放松放松",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "Age",
+                "type": "int",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "Data_double",
+                "type": "double",
+                "alias": "",
+                "description": ""
+              }
+            ]
+          },
+          "outputConfigurations": {
+            "output": []
+          },
+          "x": 997,
+          "y": 398
+        },
+        {
+          "id": "transform_6",
+          "name": "transform",
+          "type": "transform",
+          "stepSettings": {
+            "parallelism": "1",
+            "expressions": [
+              "1"
+            ]
+          },
+          "inputConfigurations": {
+            "input": [
+              {
+                "column": "kpi_time_type",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "kpi_dimension_type",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              }
+            ]
+          },
+          "outputConfigurations": {
+            "output": [
+              {
+                "column": "kpi_time_type",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "kpi_dimension_type",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              }
+            ]
+          },
+          "x": 317,
+          "y": 28
+        },
+        {
+          "id": "sql_7",
+          "name": "sql",
+          "type": "sql",
+          "stepSettings": {
+            "parallelism": "1"
+          },
+          "inputConfigurations": {
+            "input": [
+              {
+                "column": "kpi_time_type",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "kpi_dimension_type",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              }
+            ]
+          },
+          "outputConfigurations": {
+            "output": []
+          },
+          "x": 941,
+          "y": 30
+        },
+        {
+          "id": "transform_8",
+          "name": "transform",
+          "type": "transform",
+          "stepSettings": {
+            "parallelism": "1",
+            "expressions": [
+              "1"
+            ]
+          },
+          "inputConfigurations": {
+            "input": [
+              {
+                "column": "kpi_time_type",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "kpi_dimension_type",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "kpi_value",
+                "type": "double",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "首发式发生",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              }
+            ]
+          },
+          "outputConfigurations": {
+            "output": [
+              {
+                "column": "kpi_time_type",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "kpi_value",
+                "type": "double",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "首发式发生",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "EXPR$0",
+                "type": "int",
+                "alias": "",
+                "description": ""
+              }
+            ]
+          },
+          "x": 578,
+          "y": 171
+        },
+        {
+          "id": "rtc_sql_9",
+          "name": "sql",
+          "type": "sql",
+          "stepSettings": {
+            "parallelism": "1",
+            "sql": "select * from tb"
+          },
+          "inputConfigurations": {
+            "input": [
+              {
+                "column": "kpi_time_type",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "kpi_dimension_type",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "kpi_value",
+                "type": "double",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "首发式发生",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "EXPR$0",
+                "type": "int",
+                "alias": "",
+                "description": ""
+              }
+            ]
+          },
+          "outputConfigurations": {
+            "output": []
+          },
+          "x": 960,
+          "y": 264
+        },
+        {
+          "id": "dummy_source_10",
+          "name": "dummy_source",
+          "type": "source_dummy",
+          "stepSettings": {
+            "maxOutOfOrderness": "",
+            "dataType": "userClick"
+          },
+          "inputConfigurations": {
+            "left": [
+              {
+                "column": "kpi_time_type",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "kpi_dimension_type",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "kpi_value",
+                "type": "double",
+                "alias": "",
+                "description": ""
+              }
+            ],
+            "right": []
+          },
+          "outputConfigurations": {
+            "output": [
+              {
+                "column": "userId",
+                "type": "int",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "username",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "url",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "clickTime",
+                "type": "timestamp",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "rank",
+                "type": "int",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "uuid",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              }
+            ]
+          },
+          "x": 84,
+          "y": 480
+        }
+      ],
+      "links": [
+        {
+          "name": "con_1005",
+          "source": "source_3",
+          "sourceOutput": "output",
+          "target": "join_4",
+          "targetInput": "right",
+          "input": "right"
+        },
+        {
+          "name": "con_1006",
+          "source": "source_1",
+          "sourceOutput": "output",
+          "target": "join_4",
+          "targetInput": "left",
+          "input": "left"
+        },
+        {
+          "name": "con_1007",
+          "source": "source_3",
+          "sourceOutput": "output",
+          "target": "filter_5",
+          "targetInput": "input",
+          "input": "input"
+        },
+        {
+          "name": "con_1008",
+          "source": "filter_5",
+          "sourceOutput": "output",
+          "target": "sink_6",
+          "targetInput": "input",
+          "input": "input"
+        },
+        {
+          "name": "con_1009",
+          "source": "source_1",
+          "sourceOutput": "output",
+          "target": "transform_6",
+          "targetInput": "input",
+          "input": "input"
+        },
+        {
+          "name": "con_1010",
+          "source": "transform_6",
+          "sourceOutput": "output",
+          "target": "sql_7",
+          "targetInput": "input",
+          "input": "input"
+        },
+        {
+          "name": "con_1011",
+          "source": "source_1",
+          "sourceOutput": "output",
+          "target": "transform_8",
+          "targetInput": "input",
+          "input": "input"
+        },
+        {
+          "name": "con_1012",
+          "source": "transform_8",
+          "sourceOutput": "output",
+          "target": "rtc_sql_9",
+          "targetInput": "input",
+          "input": "input"
+        }
+      ],
+      "createTime": 1573193712725,
+      "lastModifyTime": 1573193712725
+    },
+    {
+      "id": "402881d26e3fd52c016e3fe7be440001",
+      "name": "test_1106_flink",
+      "steps": [
+        {
+          "id": "source_1",
+          "name": "source",
+          "type": "source",
+          "stepSettings": {
+            "quoteChar": "\"",
+            "escapeChar": "\\",
+            "brokers": "info3:9093",
+            "zookeeper": "",
+            "offset": "",
+            "maxOutOfOrderness": "0",
+            "groupId": "topic_926",
+            "format": "csv",
+            "datasetName": "kafka_0703_5",
+            "type": "KAFKA",
+            "separator": ",",
+            "nullValue": "",
+            "version": "0.10",
+            "kafkaFetchSize": "1048576",
+            "autoOffsetReset": "earliest",
+            "timeColumn": "",
+            "jsonSchema": "",
+            "schemaId": "69f1fee0-34c6-4726-8f08-dce583699795",
+            "timeFormat": "yyyy-MM-dd HH:mm:ss",
+            "topic": "topic_926"
+          },
+          "outputConfigurations": {
+            "output": [
+              {
+                "column": "Name",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "Sex",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "Age",
+                "type": "int",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "bb",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "Current_time",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "Data_long",
+                "type": "bigint",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "Data_double",
+                "type": "double",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "Data_boolean",
+                "type": "boolean",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "aa",
+                "type": "timestamp",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "Str_time",
+                "type": "bigint",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "Salary",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "Null_data",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "City",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "data1",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "data2",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "data3",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "data4",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "data5",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "data6",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "data7",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "data8",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "data9",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              }
+            ]
+          },
+          "x": 323,
+          "y": 175
+        },
+        {
+          "id": "filter_2",
+          "name": "filter",
+          "type": "filter",
+          "stepSettings": {
+            "condition": "Age>10",
+            "parallelism": "1"
+          },
+          "inputConfigurations": {
+            "input": [
+              {
+                "column": "Name",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "Sex",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "Age",
+                "type": "int",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "bb",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "Current_time",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "Data_long",
+                "type": "bigint",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "Data_double",
+                "type": "double",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "Data_boolean",
+                "type": "boolean",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "aa",
+                "type": "timestamp",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "Str_time",
+                "type": "bigint",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "Salary",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "Null_data",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "City",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "data1",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "data2",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "data3",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "data4",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "data5",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "data6",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "data7",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "data8",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "data9",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              }
+            ]
+          },
+          "outputConfigurations": {
+            "output": [
+              {
+                "column": "Name",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "Sex",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "Age",
+                "type": "int",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "bb",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "Current_time",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "Data_long",
+                "type": "bigint",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "Data_double",
+                "type": "double",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "Data_boolean",
+                "type": "boolean",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "aa",
+                "type": "timestamp",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "Str_time",
+                "type": "bigint",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "Salary",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "Null_data",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "City",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "data1",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "data2",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "data3",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "data4",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "data5",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "data6",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "data7",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "data8",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "data9",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              }
+            ]
+          },
+          "x": 589,
+          "y": 157
+        },
+        {
+          "id": "sink_3",
+          "name": "sink",
+          "type": "sink",
+          "stepSettings": {
+            "path": "/tmp/stest/flink/sink",
+            "quoteChar": "\"",
+            "escapeChar": "\\",
+            "format": "csv",
+            "storage": "HDFS",
+            "type": "hdfs",
+            "batchSize": "",
+            "separator": ","
+          },
+          "inputConfigurations": {
+            "input": [
+              {
+                "column": "Name",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "Sex",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "Age",
+                "type": "int",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "bb",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "Current_time",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "Data_long",
+                "type": "bigint",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "Data_double",
+                "type": "double",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "Data_boolean",
+                "type": "boolean",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "aa",
+                "type": "timestamp",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "Str_time",
+                "type": "bigint",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "Salary",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "Null_data",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "City",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "data1",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "data2",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "data3",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "data4",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "data5",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "data6",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "data7",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "data8",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              },
+              {
+                "column": "data9",
+                "type": "string",
+                "alias": "",
+                "description": ""
+              }
+            ]
+          },
+          "outputConfigurations": {
+            "output": []
+          },
+          "x": 926,
+          "y": 175
+        }
+      ],
+      "links": [
+        {
+          "name": "con_29",
+          "source": "source_1",
+          "sourceOutput": "output",
+          "target": "filter_2",
+          "targetInput": "input",
+          "input": "input"
+        },
+        {
+          "name": "con_30",
+          "source": "filter_2",
+          "sourceOutput": "output",
+          "target": "sink_3",
+          "targetInput": "input",
+          "input": "input"
+        }
+      ],
+      "createTime": 1573045912715,
+      "lastModifyTime": 1573045912715
     }
   ]
 }
