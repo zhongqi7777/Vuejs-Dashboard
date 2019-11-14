@@ -7,6 +7,7 @@ Vue.use(VueRouter);
 // import Layout from "@/layout";
 
 /* Router Modules */
+import editRouter from "./modules/editor";
 
 /**
  * constantRoutes
@@ -79,7 +80,8 @@ export const constantRoutes = [
           noCache: true,
           affix: true
         }
-      }
+      },
+      editRouter
     ]
   }
 ];
