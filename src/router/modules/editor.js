@@ -13,7 +13,7 @@ const editRouter = {
   children: [
     {
       path: "jspluimbchart",
-      component: () => import("@/views/editor/modules/jspluimbchart/index"),
+      component: () => import("@/views/editor/modules/flow/jspluimbchart/index"),
       name: "jspluimbchart",
       meta: { title: "jspluimbchart", noCache: true }
     },

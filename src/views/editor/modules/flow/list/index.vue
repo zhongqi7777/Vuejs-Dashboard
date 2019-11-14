@@ -34,7 +34,6 @@
       <el-col :span="24">
         <div class="grid-content">
           <span>流程列表</span>
-        
         </div>
       </el-col>
     </el-row>
@@ -73,7 +72,7 @@
       :page-sizes="[100, 200, 300, 400]"
       :page-size="100"
       layout="total, sizes, prev, pager, next, jumper"
-      :total="400"
+      :total="tableData.length"
       style="    text-align: right"
     ></el-pagination>
   </div>
@@ -82,6 +81,7 @@
 <script>
 import { mapGetters, mapActions, mapState } from "vuex";
 // import _ from "lodash";
+import { getflowlist } from "@/api/flow";
 export default {
   watch: {
     // flowData(val) {
@@ -127,13 +127,17 @@ export default {
       currentPage1: 5,
       currentPage2: 5,
       currentPage3: 5,
-      currentPage4: 4
+      currentPage4: 4,
+      currentPage: 1,
+      pageSize: 5
     };
   },
   computed: {
     //...mapState([""])
   },
-  mounted() {},
+  mounted() {
+    this.initData({ pageSize: this.pageSize, currentPage: this.currentPage });
+  },
   beforeCreate() {},
   created() {},
   beforeMount() {},
@@ -165,6 +169,11 @@ export default {
     cancel(val) {
       this.addDialogFormVisible = false;
       this.formType = val;
+    },
+    initData(val) {
+      getflowlist(val).then(res => {
+        this.tableData = res.data;
+      });
     }
   }
 };

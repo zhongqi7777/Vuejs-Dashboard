@@ -162,12 +162,12 @@ export default {
     },
     initData(val) {
       getUserList(val).then(res => {
-        if (res.data.length == 0) {
-          this.initData({
-            pageSize: this.pageSize,
-            currentPage: this.currentPage - 1
-          });
-        }
+        // if (res.data.length == 0) {
+        //   this.initData({
+        //     pageSize: this.pageSize,
+        //     currentPage: this.currentPage - 1
+        //   });
+        // }
         this.tableData = res.data;
       });
     },
