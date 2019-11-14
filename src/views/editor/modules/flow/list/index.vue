@@ -6,10 +6,7 @@
       <el-col :span="24">
         <div class="grid-content">
           <span>流程筛选</span>
-          <el-button
-            type="primary"
-            icon="el-icon-edit"
-            @click="handleCreate('add')"
+          <el-button type="primary" icon="el-icon-edit" @click="handleCreate"
             >添加</el-button
           >
         </div>
@@ -161,6 +158,9 @@ export default {
     },
     handleCurrentChange(val) {
       console.log(`当前页: ${val}`);
+    },
+    handleCreate(index, row) {
+      this.$router.push({ path: "/editor/jspluimbchart" });
     },
     handleEdit(index, row) {
       //console.log(index, row);
