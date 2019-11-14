@@ -65,7 +65,7 @@
       "name": "editor",
       "meta": {
         "title": "图形编辑器",
-        "icon": "edit",
+        "icon": "chart",
         "noCache": true,
         "affix": true
       },
@@ -76,7 +76,7 @@
           "name": "jspluimbchart",
           "meta": {
             "title": "流程编辑器",
-            "icon": "dashboard",
+            "icon": "nested",
             "noCache": true,
             "affix": true
           }

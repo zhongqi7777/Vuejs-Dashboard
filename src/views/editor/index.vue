@@ -1,6 +1,6 @@
 <template>
   <div class="editor">
-   <router-view/>
+    <router-view />
   </div>
 </template>
 
@@ -43,5 +43,6 @@ export default {
 .editor {
   position: absolute;
   width: 100%;
+  height: 100%;
 }
 </style>
