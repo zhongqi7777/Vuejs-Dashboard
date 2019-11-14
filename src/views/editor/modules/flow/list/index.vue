@@ -61,7 +61,12 @@
             @click="handleEdit(scope.$index, scope.row)"
             >编辑</el-button
           >
-          <el-button type="text" size="small">删除</el-button>
+          <el-button
+            type="text"
+            size="small"
+            @click="del(scope.$index, scope.row)"
+            >删除</el-button
+          >
         </template>
       </el-table-column>
     </el-table>
@@ -81,7 +86,7 @@
 <script>
 import { mapGetters, mapActions, mapState } from "vuex";
 // import _ from "lodash";
-import { getflowlist } from "@/api/flow";
+import { getflowlist, delFlow } from "@/api/flow";
 export default {
   watch: {
     // flowData(val) {
@@ -165,6 +170,14 @@ export default {
       //     }
       //   });
       this.$router.push({ path: "/editor/jspluimbchart" });
+    },
+    del(index, row) {
+      delFlow(row.id).then(res => {
+        this.initData({
+          pageSize: this.pageSize,
+          currentPage: this.currentPage
+        });
+      });
     },
     cancel(val) {
       this.addDialogFormVisible = false;
