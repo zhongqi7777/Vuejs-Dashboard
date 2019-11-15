@@ -41,7 +41,7 @@
 <script>
 import { nodeIcon } from "@/utils/flowchart";
 import { getAllStepList } from "@/api/flow";
-import _ from "lodash";
+// import _ from "lodash";
 export default {
   data() {
     return {
