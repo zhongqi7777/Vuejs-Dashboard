@@ -13,7 +13,7 @@
           <el-col :span="6" justify="space-around"
             ><div class="grid-content bg-purple-light">
               <el-button size="small">清空</el-button>
-              <el-button size="small">保存</el-button>
+              <el-button size="small" @click="saveFlow">保存</el-button>
             </div></el-col
           >
         </el-row>
@@ -23,11 +23,12 @@
           <drop class="drop-workplace" @drop="handleDrop" id="workplace">
             <jsplumbchart
               :data="{
-                stepData: this.stepData,
+                stepData: this.steps,
                 links: this.links,
                 jsPlumb: this.jsPlumb
               }"
               @handleDrop="handleDrop"
+              @modifyChart="modifyChart"
               ref="jsplumbchart"
             ></jsplumbchart>
           </drop>
@@ -43,10 +44,6 @@
 <script>
 import vaside from "@/components/aside/left/index";
 import jsplumbchart from "@/components/jsplumbchart/index";
-
-// import { mapGetters, mapActions, mapState } from "vuex";
-// import _ from "lodash";
-
 export default {
   watch: {
     // flowData(val) {
@@ -62,19 +59,16 @@ export default {
   data: function() {
     return {
       input1: "",
-      stepList: [],
       flowData: [],
       links: [],
-      stepData:[],
-      jsPlumb: window.jsPlumb
+      steps: [],
+      jsPlumb: jsPlumb
     };
   },
   computed: {
     ...Vuex.mapState([""])
   },
-  mounted() {
-  
-  },
+  mounted() {},
   beforeCreate() {},
   created() {},
   beforeMount() {},
@@ -85,11 +79,11 @@ export default {
   methods: {
     //...mapActions([""]),
     handleDrop(val) {
-      this.stepData.push(val.drawIcon ? this.getCurrentNode(val) : val);
+      this.steps.push(val.drawIcon ? this.getCurrentNode(val) : val);
     },
     getCurrentNode(data) {
       let node = {
-        id: data.drawIcon.id + "_" + (this.stepData.length + +1),
+        id: data.drawIcon.id + "_" + (this.steps.length + +1),
         name: data.drawIcon.name,
         type: data.drawIcon.type,
         x: event.offsetX,
@@ -128,6 +122,14 @@ export default {
             ...outputConfigurations
           };
       }
+    },
+    saveFlow() {
+      console.log("this.links", this.links);
+      console.log("this.steps", this.steps);
+    },
+    modifyChart(val) {
+      this.steps = val.steps;
+      this.links = val.links;
     }
   }
 };

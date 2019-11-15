@@ -37,7 +37,7 @@
         ></em>
 
         <!-- line split -->
-        <div class="line-split" v-show="data.type=='multioutput'" :style="setLineSplit(data)"></div>
+        <!-- <div class="line-split" v-show="data.type=='multioutput'" :style="setLineSplit(data)"></div> -->
 
         <div v-show="data.isSelected" class="resize top"></div>
         <div v-show="data.isSelected" class="resize left"></div>
@@ -76,10 +76,10 @@ export default {
       this.links = this.data.links;
     },
     stepData(val) {
-      this.$emit("modifyChart", { stepData: val, links: this.links });
+      this.$emit("modifyChart", { steps: val, links: this.links });
     },
     links(val) {
-      this.$emit("modifyChart", { stepData: this.stepData, links: val });
+      this.$emit("modifyChart", { steps: this.stepData, links: val });
     }
   },
   props: {
@@ -398,6 +398,8 @@ export default {
         return item.id != val;
       });
       this.isDeleCopyStep = false;
+
+      console.log(" delNode(val) {",this.stepData)
       // message(
       //   "确定删除当前节点",
       //   () => {
