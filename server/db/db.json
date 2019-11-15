@@ -100,22 +100,42 @@
   ],
   "flowlist": [
     {
-      "flowName": "gdfgdfgd",
-      "links": [],
+      "flowName": "flow_1",
+      "links": [
+        {
+          "name": "con_21",
+          "source": "source_1",
+          "sourceOutput": "output",
+          "target": "sink_2",
+          "targetInput": "input",
+          "input": "input"
+        }
+      ],
       "steps": [
         {
           "id": "source_1",
           "name": "source",
           "type": "source",
-          "x": 689,
-          "y": 198,
+          "x": 167,
+          "y": 84,
           "stepSettings": {},
           "outputConfigurations": {
             "output": []
           }
+        },
+        {
+          "id": "sink_2",
+          "name": "sink",
+          "type": "sink",
+          "x": 959,
+          "y": 143,
+          "stepSettings": {},
+          "inputConfigurations": {
+            "input": []
+          }
         }
       ],
-      "date": "2019-11-15T17:40:12+08:00",
+      "date": "2019-11-15T19:09:03+08:00",
       "id": 1
     }
   ],

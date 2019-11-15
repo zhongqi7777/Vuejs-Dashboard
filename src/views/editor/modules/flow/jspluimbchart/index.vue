@@ -44,7 +44,7 @@
 <script>
 import vaside from "@/components/aside/left/index";
 import jsplumbchart from "@/components/jsplumbchart/index";
-import { addFlow } from "@/api/flow";
+import { addFlow, getFlowItem, modifyFlow } from "@/api/flow";
 export default {
   watch: {
     // flowData(val) {
@@ -70,10 +70,13 @@ export default {
     ...Vuex.mapState([""])
   },
   mounted() {
-    console.log(this.$route.query.id);
-
-    if(!this.$route.query.id){
-      
+    if (this.$route.query.id) {
+      getFlowItem({ id: this.$route.query.id }).then(res => {
+        let flowData = res.data[0];
+        this.steps = flowData.steps;
+        this.links = flowData.links;
+        this.input1 = flowData.flowName;
+      });
     }
   },
   beforeCreate() {},
@@ -151,11 +154,15 @@ export default {
         date: moment().format("")
       };
 
-      console.log(data);
-
-      addFlow(data).then(res => {
-        this.$router.go(-1);
-      });
+      if (this.$route.query.id) {
+        modifyFlow({ ...data, id: this.$route.query.id }).then(res => {
+          this.$router.go(-1);
+        });
+      } else {
+        addFlow(data).then(res => {
+          this.$router.go(-1);
+        });
+      }
     },
     modifyChart(val) {
       this.steps = val.steps;

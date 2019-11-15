@@ -42,3 +42,11 @@ export const modifyFlow = data => {
     data
   });
 };
+
+export const getFlowItem = data => {
+  return request({
+    url: "/flowlist?id=" + data.id,
+    method: "get",
+    data
+  });
+};
