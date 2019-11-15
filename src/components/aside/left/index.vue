@@ -15,7 +15,6 @@
         </template>
         <drag
           class="designIcon"
-          title="type1"
           v-for="(drawIcon, index) in drawNav.thisIcon"
           :key="index + '-drawNav'"
           :data-index="index"
@@ -29,7 +28,7 @@
             placement="top"
           >
             <div class="item-step-icon">
-              <i class="icon iconfont icon-ir-designIconBg designIconBg"></i>
+              <!-- <i class="icon iconfont icon-ir-designIconBg designIconBg"></i> -->
               <i :class="drawIcon.name | iconFilter"></i>
               <h4>{{ drawIcon.name | cn }}</h4>
             </div>
@@ -124,55 +123,39 @@ export default {
   background: #fff;
   height: 100%;
   padding: 0 10px 10px 10px;
-  .gquery-item {
-    display: flex;
-    flex-wrap: wrap;
-    li {
-      width: 90px;
-      overflow: hidden;
-      text-align: center;
-      margin-top: 10px;
-      i {
-        font-size: 35px;
-      }
-      &:hover {
-        color: #409eff;
-      }
-    }
-  }
 
   .designIcon {
     text-align: center;
     display: inline-block;
+    margin-right: 10px;
+
+    h4 {
+      // position: absolute;
+      // top: 45px;
+      margin: 0px;
+      padding: 0px;
+      font-size: 12px;
+      // width: 100%;
+      font-weight: normal;
+      text-align: center;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    i {
+      float: none !important;
+      // position: absolute;
+      left: 0px;
+      margin: 0px;
+      width: 50px !important;
+      height: 50px !important;
+      line-height: 50px !important;
+      font-size: 40px !important;
+    }
   }
 
   .designIcon:hover {
     color: #3895ff;
-  }
-
-  .designIcon i {
-    float: none !important;
-    // position: absolute;
-    left: 0px;
-    margin: 0px;
-    width: 50px !important;
-    height: 50px !important;
-    line-height: 50px !important;
-    font-size: 40px !important;
-  }
-
-  .designIcon h4 {
-    // position: absolute;
-    // top: 45px;
-    margin: 0px;
-    padding: 0px;
-    font-size: 12px;
-    // width: 100%;
-    font-weight: normal;
-    text-align: center;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
   }
 }
 </style>
