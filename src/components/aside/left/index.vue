@@ -48,7 +48,8 @@ export default {
   data() {
     return {
       gqueryTree: [],
-      stepList: []
+      stepList: [],
+      cnObj: {}
     };
   },
   filters: {
@@ -65,9 +66,9 @@ export default {
       return moment(val).format("YYYY-MM-DD HH:mm:ss");
     },
     cn: value => {
-      for (var i in {}) {
+      for (var i in this.cnObj) {
         if (value == i) {
-          return obj[i];
+          return this.cnObj[i];
         }
       }
       return value;
@@ -138,6 +139,40 @@ export default {
         color: #409eff;
       }
     }
+  }
+
+  .designIcon {
+    text-align: center;
+    display: inline-block;
+  }
+
+  .designIcon:hover {
+    color: #3895ff;
+  }
+
+  .designIcon i {
+    float: none !important;
+    // position: absolute;
+    left: 0px;
+    margin: 0px;
+    width: 50px !important;
+    height: 50px !important;
+    line-height: 50px !important;
+    font-size: 40px !important;
+  }
+
+  .designIcon h4 {
+    // position: absolute;
+    // top: 45px;
+    margin: 0px;
+    padding: 0px;
+    font-size: 12px;
+    // width: 100%;
+    font-weight: normal;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }
 </style>

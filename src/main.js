@@ -9,28 +9,13 @@ import Cookies from "js-cookie";
 import store from "./vuex";
 import "@/utils/dialogDrag";
 
-
+import "normalize.css/normalize.css"; // A modern alternative to CSS resets
 //vue 鼠标事件控制台警告Added non-passive event listener to a scroll-blocking 'mousewheel' event. Consider marking event handler as 'passive' to make the page more responsive
 import 'default-passive-events'
-
-// import "normalize.css/normalize.css"; // A modern alternative to CSS resets
-// import "./styles/element-variables.scss";
-// import "font-awesome/css/font-awesome.min.css";
-// import "./assets/fonts/iconfont.css";
-
-// import "./styles/index.scss"; // global css
-
-// import ElementUI from "element-ui";
-// import "element-ui/lib/theme-chalk/index.css";
-
-import "normalize.css/normalize.css"; // A modern alternative to CSS resets
-
-// import ElementUI from 'element-ui'
-import "./styles/element-variables.scss";
-
+import "./assets/fonts/iconfont.css";// step icons
 import "@/styles/index.scss"; // global css
 
-import "./icons"; // icon
+import "./icons"; // left menu icon
 
 import VueMeta from "vue-meta";
 
@@ -59,5 +44,3 @@ new Vue({
   i18n,
   store
 });
-
-console.log("test");

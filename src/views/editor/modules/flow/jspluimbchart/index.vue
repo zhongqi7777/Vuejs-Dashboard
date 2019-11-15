@@ -20,7 +20,7 @@
       </el-header>
       <el-container>
         <el-main></el-main>
-        <el-aside width="200px">
+        <el-aside width="250px">
           <vaside :stepList="[]"></vaside>
         </el-aside>
       </el-container>
