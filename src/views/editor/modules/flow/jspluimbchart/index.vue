@@ -30,7 +30,7 @@
 
 <script>
 import vaside from "@/components/aside/left/index";
-import { mapGetters, mapActions, mapState } from "vuex";
+// import { mapGetters, mapActions, mapState } from "vuex";
 import _ from "lodash";
 
 export default {
@@ -52,7 +52,7 @@ export default {
     };
   },
   computed: {
-    //...mapState([""])
+    ...Vuex.mapState([""])
   },
   mounted() {},
   beforeCreate() {},
