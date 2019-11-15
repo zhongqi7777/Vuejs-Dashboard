@@ -69,7 +69,13 @@ export default {
   computed: {
     ...Vuex.mapState([""])
   },
-  mounted() {},
+  mounted() {
+    console.log(this.$route.query.id);
+
+    if(!this.$route.query.id){
+      
+    }
+  },
   beforeCreate() {},
   created() {},
   beforeMount() {},

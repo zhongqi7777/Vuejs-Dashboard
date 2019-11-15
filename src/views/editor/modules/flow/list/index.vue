@@ -44,11 +44,7 @@
           <span style="margin-left: 10px">{{ scope.row.date }}</span>
         </template>
       </el-table-column>
-      <el-table-column
-        prop="id"
-        label="ID"
-        width="180"
-      ></el-table-column>
+      <el-table-column prop="id" label="ID" width="180"></el-table-column>
       <el-table-column prop="flowName" label="name"></el-table-column>
       <el-table-column fixed="right" label="操作" width="100">
         <template slot-scope="scope">
@@ -164,12 +160,10 @@ export default {
     },
     handleEdit(index, row) {
       //console.log(index, row);
-      //   this.$router.push({
-      //     path: "/",
-      //     query: {
-      //     }
-      //   });
-      this.$router.push({ path: "/editor/jspluimbchart" });
+      this.$router.push({
+        path: "/editor/jspluimbchart",
+        query: {id:row.id}
+      });
     },
     del(index, row) {
       delFlow(row.id).then(res => {
