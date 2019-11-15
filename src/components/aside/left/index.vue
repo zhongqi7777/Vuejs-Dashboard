@@ -10,7 +10,7 @@
       >
         <template slot="title">
           <i class="icon iconfont icon-ir-supply-chain"></i>
-          &nbsp;{{ drawNav.group | cn }}
+          &nbsp;{{ drawNav.group }}
           <span class="iconNavNub">({{ drawNav.thisIcon.length }})</span>
         </template>
         <drag
@@ -24,13 +24,12 @@
           <el-tooltip
             class="item"
             effect="dark"
-            :content="drawIcon.name | cn"
+            :content="drawIcon.name"
             placement="top"
           >
             <div class="item-step-icon">
-              <!-- <i class="icon iconfont icon-ir-designIconBg designIconBg"></i> -->
               <i :class="drawIcon.name | iconFilter"></i>
-              <h4>{{ drawIcon.name | cn }}</h4>
+              <h4>{{ drawIcon.name }}</h4>
             </div>
           </el-tooltip>
         </drag>
@@ -63,14 +62,6 @@ export default {
     //过滤历史版本下拉内容的时间，返回 YYYY-MM-DD HH:mm:ss 格式
     updateTimeFilter: function(val) {
       return moment(val).format("YYYY-MM-DD HH:mm:ss");
-    },
-    cn: value => {
-      for (var i in this.cnObj) {
-        if (value == i) {
-          return this.cnObj[i];
-        }
-      }
-      return value;
     }
   },
   mounted() {

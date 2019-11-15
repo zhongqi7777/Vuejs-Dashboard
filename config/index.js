@@ -13,7 +13,8 @@ const devJslist = [
   "https://cdn.bootcss.com/vuex/3.1.1/vuex.js",
   "https://cdn.bootcss.com/element-ui/2.12.0/locale/zh-CN.min.js",
   "https://cdn.bootcss.com/element-ui/2.12.0/locale/en.js",
-  "https://cdn.bootcss.com/element-ui/2.12.0/locale/es.js"
+  "https://cdn.bootcss.com/element-ui/2.12.0/locale/es.js",
+  "https://cdn.bootcss.com/jsPlumb/2.2.3/jsPlumb.js"
 ];
 
 const productjslist = [
@@ -25,7 +26,8 @@ const productjslist = [
   "https://cdn.bootcss.com/vuex/3.3.1/vuex.js",
   "https://cdn.bootcss.com/element-ui/2.12.0/locale/zh-CN.min.js",
   "https://cdn.bootcss.com/element-ui/2.12.0/locale/en.js",
-  "https://cdn.bootcss.com/element-ui/2.12.0/locale/es.js"
+  "https://cdn.bootcss.com/element-ui/2.12.0/locale/es.js",
+  "https://cdn.bootcss.com/jsPlumb/2.2.3/jsPlumb.min.js"
 ];
 
 module.exports = {

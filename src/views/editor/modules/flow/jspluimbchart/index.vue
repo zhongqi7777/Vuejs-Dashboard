@@ -19,9 +19,21 @@
         </el-row>
       </el-header>
       <el-container>
-        <el-main></el-main>
+        <el-main>
+          <drop class="drop-workplace" @drop="handleDrop" id="workplace">
+            <jsplumbchart
+              :data="{
+                stepData: this.stepData,
+                links: this.links,
+                jsPlumb: this.jsPlumb
+              }"
+              @handleDrop="handleDrop"
+              ref="jsplumbchart"
+            ></jsplumbchart>
+          </drop>
+        </el-main>
         <el-aside width="250px">
-          <vaside :stepList="[]"></vaside>
+          <vaside></vaside>
         </el-aside>
       </el-container>
     </el-container>
@@ -30,8 +42,10 @@
 
 <script>
 import vaside from "@/components/aside/left/index";
+import jsplumbchart from "@/components/jsplumbchart/index";
+
 // import { mapGetters, mapActions, mapState } from "vuex";
-import _ from "lodash";
+// import _ from "lodash";
 
 export default {
   watch: {
@@ -44,17 +58,23 @@ export default {
     //   default: false
     // }
   },
-  components: { vaside },
+  components: { vaside, jsplumbchart },
   data: function() {
     return {
       input1: "",
-      stepList: []
+      stepList: [],
+      flowData: [],
+      links: [],
+      stepData:[],
+      jsPlumb: window.jsPlumb
     };
   },
   computed: {
     ...Vuex.mapState([""])
   },
-  mounted() {},
+  mounted() {
+    console.log(" window.jsPlumb", window.jsPlumb);
+  },
   beforeCreate() {},
   created() {},
   beforeMount() {},
@@ -64,6 +84,51 @@ export default {
   destroyed: function() {},
   methods: {
     //...mapActions([""]),
+    handleDrop(val) {
+      this.stepData.push(val.drawIcon ? this.getCurrentNode(val) : val);
+    },
+    getCurrentNode(data) {
+      let node = {
+        id: data.drawIcon.id + "_" + (this.flowData.length + +1),
+        name: data.drawIcon.name,
+        type: data.drawIcon.type,
+        x: event.offsetX,
+        y: event.offsetY,
+        stepSettings: data.drawIcon.stepSettings
+      };
+
+      let outputConfigurations = {
+        outputConfigurations: {
+          output: []
+        }
+      };
+
+      let inputConfigurations = {
+        inputConfigurations: {
+          input: []
+        }
+      };
+
+      switch (data.drawIcon.type) {
+        case "source":
+        case "source_dummy":
+          return {
+            ...node,
+            ...outputConfigurations
+          };
+        case "sink":
+          return {
+            ...node,
+            ...inputConfigurations
+          };
+        default:
+          return {
+            ...node,
+            ...inputConfigurations,
+            ...outputConfigurations
+          };
+      }
+    }
   }
 };
 </script>
@@ -88,6 +153,7 @@ export default {
 
   .el-main {
     background-image: url("../../../../../assets/editor/designBg.png");
+    position: relative;
   }
 
   .el-container:nth-child(5) .el-aside,
