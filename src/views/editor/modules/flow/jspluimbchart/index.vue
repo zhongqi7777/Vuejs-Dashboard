@@ -20,15 +20,19 @@
       </el-header>
       <el-container>
         <el-main></el-main>
-        <el-aside width="200px">Aside</el-aside>
+        <el-aside width="200px">
+          <vaside :stepList="[]"></vaside>
+        </el-aside>
       </el-container>
     </el-container>
   </div>
 </template>
 
 <script>
+import vaside from "@/components/aside/left/index";
 import { mapGetters, mapActions, mapState } from "vuex";
 import _ from "lodash";
+
 export default {
   watch: {
     // flowData(val) {
@@ -40,10 +44,11 @@ export default {
     //   default: false
     // }
   },
-  components: {},
+  components: { vaside },
   data: function() {
     return {
-      input1: ""
+      input1: "",
+      stepList: []
     };
   },
   computed: {

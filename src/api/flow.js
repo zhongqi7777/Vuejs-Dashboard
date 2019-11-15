@@ -1,5 +1,11 @@
 import request from "@/utils/request";
 
+export const getAllStepList = () => {
+  return request({
+    url: "/steplist",
+    method: "get"
+  });
+};
 export const getAllflowList = () => {
   return request({
     url: "/flowlist",
