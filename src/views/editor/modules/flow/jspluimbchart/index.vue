@@ -12,7 +12,7 @@
           >
           <el-col :span="6" justify="space-around"
             ><div class="grid-content bg-purple-light">
-              <el-button size="small">清空</el-button>
+              <el-button size="small" @click="reset">清空</el-button>
               <el-button size="small" @click="saveFlow">保存</el-button>
             </div></el-col
           >
@@ -44,6 +44,7 @@
 <script>
 import vaside from "@/components/aside/left/index";
 import jsplumbchart from "@/components/jsplumbchart/index";
+import { addFlow } from "@/api/flow";
 export default {
   watch: {
     // flowData(val) {
@@ -124,12 +125,40 @@ export default {
       }
     },
     saveFlow() {
-      console.log("this.links", this.links);
-      console.log("this.steps", this.steps);
+      // console.log("this.links", this.links);
+      // console.log("this.steps", this.steps);
+
+      if (!this.input1) {
+        this.$message({
+          showClose: true,
+          message: "流程名称不可以为空",
+          type: "error"
+        });
+
+        return;
+      }
+
+      let data = {
+        flowName: this.input1,
+        links: this.links,
+        steps: this.steps,
+        date: moment().format("")
+      };
+
+      console.log(data);
+
+      addFlow(data).then(res => {
+        this.$router.go(-1);
+      });
     },
     modifyChart(val) {
       this.steps = val.steps;
       this.links = val.links;
+    },
+    reset() {
+      this.steps = [];
+      this.links = [];
+      this.$refs.jsplumbchart.reset();
     }
   }
 };

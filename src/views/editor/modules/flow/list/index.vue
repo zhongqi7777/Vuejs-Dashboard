@@ -38,18 +38,18 @@
 
     <!-- <el-divider content-position="left">用户列表</el-divider> -->
     <el-table :data="tableData" style="width: 100%;">
-      <el-table-column label="提交时间" width="180">
+      <el-table-column label="提交时间" width="250">
         <template slot-scope="scope">
           <i class="el-icon-time"></i>
           <span style="margin-left: 10px">{{ scope.row.date }}</span>
         </template>
       </el-table-column>
       <el-table-column
-        prop="name"
-        label="项目名称"
+        prop="id"
+        label="ID"
         width="180"
       ></el-table-column>
-      <el-table-column prop="address" label="属性"></el-table-column>
+      <el-table-column prop="flowName" label="name"></el-table-column>
       <el-table-column fixed="right" label="操作" width="100">
         <template slot-scope="scope">
           <el-button

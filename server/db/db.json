@@ -98,6 +98,308 @@
       "id": 13
     }
   ],
-  "flowlist": [],
-  "steplist":[{"id":"source","name":"source","type":"source","tags":["IO","rtcflow"],"stepSettings":{},"outputConfigurations":{"output":[{"column":"","type":"","alias":"","description":""}]}},{"id":"dummy_source","name":"dummy_source","type":"source_dummy","tags":["IO","rtcflow"],"stepSettings":{"dataType":"userClick","storage":"DUMMY"},"outputConfigurations":{"output":[{"column":"","type":"","alias":"","description":""}]}},{"id":"filter","name":"filter","type":"filter","tags":["Transform","rtcflow"],"stepSettings":{},"inputConfigurations":{"input":[{"column":"","type":"","alias":"","description":""}]},"outputConfigurations":{"output":[{"column":"","type":"","alias":"","description":""}]}},{"id":"join","name":"join","type":"join","tags":["Join","rtcflow"],"stepSettings":{},"inputConfigurations":{"left":[{"column":"","type":"","alias":"","description":""}],"right":[{"column":"","type":"","alias":"","description":""}]},"outputConfigurations":{"output":[{"column":"","type":"","alias":"","description":""}]}},{"id":"aggregate","name":"aggregate","type":"aggregate","tags":["Group","rtcflow"],"stepSettings":{},"inputConfigurations":{"input":[{"column":"","type":"","alias":"","description":""}]},"outputConfigurations":{"output":[{"column":"","type":"","alias":"","description":""}]}},{"id":"transform","name":"transform","type":"transform","tags":["Transform","rtcflow"],"stepSettings":{},"inputConfigurations":{"input":[{"column":"","type":"","alias":"","description":""}]},"outputConfigurations":{"output":[{"column":"","type":"","alias":"","description":""}]}},{"id":"sql","name":"sql","type":"sql","tags":["Transform","rtcflow"],"stepSettings":{},"inputConfigurations":{"input":[{"column":"","type":"","alias":"","description":""}]},"outputConfigurations":{"output":[{"column":"","type":"","alias":"","description":""}]}},{"id":"lookup","name":"lookup","type":"lookup","tags":["Join","rtcflow"],"stepSettings":{},"inputConfigurations":{"input":[{"column":"","type":"","alias":"","description":""}]},"outputConfigurations":{"output":[{"column":"","type":"","alias":"","description":""}]}},{"id":"sink","name":"sink","type":"sink","tags":["IO","rtcflow"],"stepSettings":{},"inputConfigurations":{"input":[{"column":"","type":"","alias":"","description":""}]}},{"id":"split","name":"split","type":"split","tags":["Set","rtcflow"],"stepSettings":{},"inputConfigurations":{"input":[{"column":"","type":"","alias":"","description":""}]},"outputConfigurations":{"output":[{"column":"","type":"","alias":"","description":""}]}}]
+  "flowlist": [
+    {
+      "flowName": "gdfgdfgd",
+      "links": [],
+      "steps": [
+        {
+          "id": "source_1",
+          "name": "source",
+          "type": "source",
+          "x": 689,
+          "y": 198,
+          "stepSettings": {},
+          "outputConfigurations": {
+            "output": []
+          }
+        }
+      ],
+      "date": "2019-11-15T17:40:12+08:00",
+      "id": 1
+    }
+  ],
+  "steplist": [
+    {
+      "id": "source",
+      "name": "source",
+      "type": "source",
+      "tags": [
+        "IO",
+        "rtcflow"
+      ],
+      "stepSettings": {},
+      "outputConfigurations": {
+        "output": [
+          {
+            "column": "",
+            "type": "",
+            "alias": "",
+            "description": ""
+          }
+        ]
+      }
+    },
+    {
+      "id": "dummy_source",
+      "name": "dummy_source",
+      "type": "source_dummy",
+      "tags": [
+        "IO",
+        "rtcflow"
+      ],
+      "stepSettings": {
+        "dataType": "userClick",
+        "storage": "DUMMY"
+      },
+      "outputConfigurations": {
+        "output": [
+          {
+            "column": "",
+            "type": "",
+            "alias": "",
+            "description": ""
+          }
+        ]
+      }
+    },
+    {
+      "id": "filter",
+      "name": "filter",
+      "type": "filter",
+      "tags": [
+        "Transform",
+        "rtcflow"
+      ],
+      "stepSettings": {},
+      "inputConfigurations": {
+        "input": [
+          {
+            "column": "",
+            "type": "",
+            "alias": "",
+            "description": ""
+          }
+        ]
+      },
+      "outputConfigurations": {
+        "output": [
+          {
+            "column": "",
+            "type": "",
+            "alias": "",
+            "description": ""
+          }
+        ]
+      }
+    },
+    {
+      "id": "join",
+      "name": "join",
+      "type": "join",
+      "tags": [
+        "Join",
+        "rtcflow"
+      ],
+      "stepSettings": {},
+      "inputConfigurations": {
+        "left": [
+          {
+            "column": "",
+            "type": "",
+            "alias": "",
+            "description": ""
+          }
+        ],
+        "right": [
+          {
+            "column": "",
+            "type": "",
+            "alias": "",
+            "description": ""
+          }
+        ]
+      },
+      "outputConfigurations": {
+        "output": [
+          {
+            "column": "",
+            "type": "",
+            "alias": "",
+            "description": ""
+          }
+        ]
+      }
+    },
+    {
+      "id": "aggregate",
+      "name": "aggregate",
+      "type": "aggregate",
+      "tags": [
+        "Group",
+        "rtcflow"
+      ],
+      "stepSettings": {},
+      "inputConfigurations": {
+        "input": [
+          {
+            "column": "",
+            "type": "",
+            "alias": "",
+            "description": ""
+          }
+        ]
+      },
+      "outputConfigurations": {
+        "output": [
+          {
+            "column": "",
+            "type": "",
+            "alias": "",
+            "description": ""
+          }
+        ]
+      }
+    },
+    {
+      "id": "transform",
+      "name": "transform",
+      "type": "transform",
+      "tags": [
+        "Transform",
+        "rtcflow"
+      ],
+      "stepSettings": {},
+      "inputConfigurations": {
+        "input": [
+          {
+            "column": "",
+            "type": "",
+            "alias": "",
+            "description": ""
+          }
+        ]
+      },
+      "outputConfigurations": {
+        "output": [
+          {
+            "column": "",
+            "type": "",
+            "alias": "",
+            "description": ""
+          }
+        ]
+      }
+    },
+    {
+      "id": "sql",
+      "name": "sql",
+      "type": "sql",
+      "tags": [
+        "Transform",
+        "rtcflow"
+      ],
+      "stepSettings": {},
+      "inputConfigurations": {
+        "input": [
+          {
+            "column": "",
+            "type": "",
+            "alias": "",
+            "description": ""
+          }
+        ]
+      },
+      "outputConfigurations": {
+        "output": [
+          {
+            "column": "",
+            "type": "",
+            "alias": "",
+            "description": ""
+          }
+        ]
+      }
+    },
+    {
+      "id": "lookup",
+      "name": "lookup",
+      "type": "lookup",
+      "tags": [
+        "Join",
+        "rtcflow"
+      ],
+      "stepSettings": {},
+      "inputConfigurations": {
+        "input": [
+          {
+            "column": "",
+            "type": "",
+            "alias": "",
+            "description": ""
+          }
+        ]
+      },
+      "outputConfigurations": {
+        "output": [
+          {
+            "column": "",
+            "type": "",
+            "alias": "",
+            "description": ""
+          }
+        ]
+      }
+    },
+    {
+      "id": "sink",
+      "name": "sink",
+      "type": "sink",
+      "tags": [
+        "IO",
+        "rtcflow"
+      ],
+      "stepSettings": {},
+      "inputConfigurations": {
+        "input": [
+          {
+            "column": "",
+            "type": "",
+            "alias": "",
+            "description": ""
+          }
+        ]
+      }
+    },
+    {
+      "id": "split",
+      "name": "split",
+      "type": "split",
+      "tags": [
+        "Set",
+        "rtcflow"
+      ],
+      "stepSettings": {},
+      "inputConfigurations": {
+        "input": [
+          {
+            "column": "",
+            "type": "",
+            "alias": "",
+            "description": ""
+          }
+        ]
+      },
+      "outputConfigurations": {
+        "output": [
+          {
+            "column": "",
+            "type": "",
+            "alias": "",
+            "description": ""
+          }
+        ]
+      }
+    }
+  ]
 }

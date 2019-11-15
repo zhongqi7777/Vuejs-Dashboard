@@ -17,7 +17,8 @@ const devJslist = [
   "https://cdn.bootcss.com/element-ui/2.12.0/locale/en.js",
   "https://cdn.bootcss.com/element-ui/2.12.0/locale/es.js",
   "https://cdn.bootcss.com/jsPlumb/2.2.3/jsPlumb.js",
-  "https://cdn.bootcss.com/lodash.js/4.17.15/lodash.js"
+  "https://cdn.bootcss.com/lodash.js/4.17.15/lodash.js",
+  "https://cdn.bootcss.com/moment.js/2.24.0/moment.js"
 ];
 
 const productjslist = [
@@ -31,7 +32,8 @@ const productjslist = [
   "https://cdn.bootcss.com/element-ui/2.12.0/locale/en.js",
   "https://cdn.bootcss.com/element-ui/2.12.0/locale/es.js",
   "https://cdn.bootcss.com/jsPlumb/2.2.3/jsPlumb.min.js",
-  "https://cdn.bootcss.com/lodash.js/4.17.15/lodash.min.js"
+  "https://cdn.bootcss.com/lodash.js/4.17.15/lodash.min.js",
+  "https://cdn.bootcss.com/moment.js/2.24.0/moment.min.js"
 ];
 
 module.exports = {
