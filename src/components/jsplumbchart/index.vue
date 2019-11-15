@@ -623,7 +623,7 @@ export default {
       // });
     },
     setLineSplit(step) {
-      console.log("setLineSplit(step){", step); //outputConfigurations
+      //console.log("setLineSplit(step){", step); //outputConfigurations
 
       if (step.type == "multioutput") {
         let outputConfigurations = _.toArray(step.outputConfigurations);

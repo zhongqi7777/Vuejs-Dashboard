@@ -73,7 +73,7 @@ export default {
     ...Vuex.mapState([""])
   },
   mounted() {
-    console.log(" window.jsPlumb", window.jsPlumb);
+  
   },
   beforeCreate() {},
   created() {},
@@ -89,7 +89,7 @@ export default {
     },
     getCurrentNode(data) {
       let node = {
-        id: data.drawIcon.id + "_" + (this.flowData.length + +1),
+        id: data.drawIcon.id + "_" + (this.stepData.length + +1),
         name: data.drawIcon.name,
         type: data.drawIcon.type,
         x: event.offsetX,
