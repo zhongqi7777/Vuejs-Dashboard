@@ -421,5 +421,163 @@
         ]
       }
     }
+  ],
+  "source": [
+    {
+      "name": "type",
+      "type": "String",
+      "defaultValue": "HDFS",
+      "values": [
+        "HDFS",
+        "KAFKA"
+      ],
+      "required": true,
+      "advanced": false
+    },
+    {
+      "name": "parallelism",
+      "type": "int",
+      "defaultValue": "1",
+      "required": false,
+      "advanced": true
+    },
+    {
+      "name": "path",
+      "type": "String",
+      "defaultValue": "",
+      "required": true,
+      "advanced": false
+    },
+    {
+      "name": "format",
+      "type": "String",
+      "defaultValue": "csv",
+      "values": [
+        "csv",
+        "parquet"
+      ],
+      "required": true,
+      "advanced": false
+    },
+    {
+      "name": "processOnce",
+      "type": "boolean",
+      "defaultValue": "",
+      "required": true,
+      "advanced": false
+    },
+    {
+      "name": "interval",
+      "type": "String",
+      "defaultValue": "3000",
+      "required": true,
+      "advanced": false
+    },
+    {
+      "name": "quoteChar",
+      "type": "String",
+      "defaultValue": "\"",
+      "required": true,
+      "advanced": false,
+      "scope": "format",
+      "bind": "csv"
+    },
+    {
+      "name": "escapeChar",
+      "type": "String",
+      "defaultValue": "\\",
+      "required": true,
+      "advanced": false,
+      "scope": "format",
+      "bind": "csv"
+    },
+    {
+      "name": "separator",
+      "type": "String",
+      "defaultValue": ",",
+      "required": true,
+      "advanced": false,
+      "scope": "format",
+      "bind": "csv"
+    }
+  ],
+  "sink": [
+    {
+      "name": "type",
+      "type": "String",
+      "defaultValue": "HDFS",
+      "values": [
+        "HDFS",
+        "KAFKA"
+      ],
+      "required": true,
+      "advanced": false
+    },
+    {
+      "name": "parallelism",
+      "type": "int",
+      "defaultValue": "1",
+      "required": false,
+      "advanced": true
+    },
+    {
+      "name": "path",
+      "type": "String",
+      "defaultValue": "",
+      "required": true,
+      "advanced": false
+    },
+    {
+      "name": "format",
+      "type": "String",
+      "defaultValue": "csv",
+      "values": [
+        "csv",
+        "parquet"
+      ],
+      "required": true,
+      "advanced": false
+    },
+    {
+      "name": "batchSize",
+      "type": "String",
+      "defaultValue": "402653184",
+      "required": false,
+      "advanced": true
+    },
+    {
+      "name": "batchRolloverInterval",
+      "type": "String",
+      "defaultValue": "60000",
+      "required": false,
+      "advanced": true
+    },
+    {
+      "name": "separator",
+      "type": "String",
+      "defaultValue": ",",
+      "required": true,
+      "advanced": false,
+      "scope": "format",
+      "bind": "csv"
+    },
+    {
+      "name": "quoteChar",
+      "type": "String",
+      "defaultValue": "\"",
+      "required": true,
+      "advanced": false,
+      "scope": "format",
+      "bind": "csv"
+    },
+    {
+      "name": "escapeChar",
+      "type": "String",
+      "defaultValue": "\\",
+      "required": true,
+      "advanced": false,
+      "scope": "format",
+      "bind": "csv"
+    }
   ]
 }

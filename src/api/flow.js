@@ -50,3 +50,11 @@ export const getFlowItem = data => {
     data
   });
 };
+
+export const getSteoConfigData = data => {
+  return request({
+    url: "/rtc/steps/settings/" + data,
+    method: "get",
+    data
+  });
+};

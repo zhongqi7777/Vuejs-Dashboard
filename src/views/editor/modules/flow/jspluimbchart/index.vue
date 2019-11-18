@@ -29,6 +29,7 @@
               }"
               @handleDrop="handleDrop"
               @modifyChart="modifyChart"
+              @nodedblClick="nodedblClick"
               ref="jsplumbchart"
             ></jsplumbchart>
           </drop>
@@ -44,7 +45,12 @@
 <script>
 import vaside from "@/components/aside/left/index";
 import jsplumbchart from "@/components/jsplumbchart/index";
-import { addFlow, getFlowItem, modifyFlow } from "@/api/flow";
+import {
+  addFlow,
+  getFlowItem,
+  modifyFlow,
+  getSteoConfigData
+} from "@/api/flow";
 export default {
   watch: {
     // flowData(val) {
@@ -172,6 +178,11 @@ export default {
       this.steps = [];
       this.links = [];
       this.$refs.jsplumbchart.reset();
+    },
+    nodedblClick(val) {
+      if (val.type == "source" || val.type == "sink") {
+        getSteoConfigData(val.type).then(res => {});
+      }
     }
   }
 };

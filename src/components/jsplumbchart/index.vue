@@ -411,7 +411,7 @@ export default {
       // );
     },
     dblClick(val) {
-      //this.$emit("nodedblClick", val);
+      this.$emit("nodedblClick", val);
     },
     getLinksData() {
       this.links = filterLinkData(
