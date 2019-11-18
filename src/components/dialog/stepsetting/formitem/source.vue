@@ -91,8 +91,8 @@
 </template>
 
 <script>
-import { mapGetters, mapActions, mapState } from "vuex";
-import { querySchema } from "@api";
+// import { mapGetters, mapActions, mapState } from "vuex";
+// import { querySchema } from "@/api";
 import {
   isEmpty,
   forEach,
@@ -105,7 +105,7 @@ import {
   difference
 } from "lodash";
 import adItem from "./common/index";
-import { setUpWatchersUtils, setFormDataUtils } from "@components/utils/index";
+import { setUpWatchersUtils, setFormDataUtils } from "@/utils/index";
 export default {
   watch: {
     // dialog opened init form item
@@ -296,29 +296,29 @@ export default {
     initForm(val) {
       this.form = val;
 
-      if (val.schemaId) {
-        querySchema(val.schemaId).then(
-          data => {
-            this.initOutInputData(
-              _.map(data.fields, item => {
-                return {
-                  alias: item.alias,
-                  description: item.description,
-                  column: item.name,
-                  type: item.type
-                };
-              })
-            );
-          },
-          err => {
-            this.$message({
-              message: err.response.message,
-              type: "error",
-              duration: 1500
-            });
-          }
-        );
-      }
+      // if (val.schemaId) {
+      //   querySchema(val.schemaId).then(
+      //     data => {
+      //       this.initOutInputData(
+      //         _.map(data.fields, item => {
+      //           return {
+      //             alias: item.alias,
+      //             description: item.description,
+      //             column: item.name,
+      //             type: item.type
+      //           };
+      //         })
+      //       );
+      //     },
+      //     err => {
+      //       this.$message({
+      //         message: err.response.message,
+      //         type: "error",
+      //         duration: 1500
+      //       });
+      //     }
+      //   );
+      // }
     },
     selectDataset() {
       //this.dialogDataSetVisible = true;

@@ -163,8 +163,8 @@
   </div>
 </template>
 <script>
-import { mapGetters, mapActions, mapState } from "vuex";
-import _ from "lodash";
+// import { mapGetters, mapActions, mapState } from "vuex";
+// import _ from "lodash";
 export default {
   watch: {
     "realtime.initInputData"(val) {

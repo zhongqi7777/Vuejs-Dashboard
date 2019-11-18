@@ -39,12 +39,18 @@
         </el-aside>
       </el-container>
     </el-container>
+
+    <stepdialog
+      :data="dialogOption"
+      @modifyFlowData="modifyFlowData"
+    ></stepdialog>
   </div>
 </template>
 
 <script>
 import vaside from "@/components/aside/left/index";
 import jsplumbchart from "@/components/jsplumbchart/index";
+import stepdialog from "@/components/dialog/index";
 import {
   addFlow,
   getFlowItem,
@@ -65,8 +71,28 @@ export default {
   components: { vaside, jsplumbchart },
   data: function() {
     return {
+      nodeTab: [
+        {
+          title: "输入",
+          name: "input",
+          icon: "fa fa-sign-in",
+          lable: "input"
+        },
+        {
+          title: "参数",
+          name: "parameter",
+          icon: "fa fa-gear",
+          lable: "parameter"
+        },
+        {
+          title: "输出",
+          name: "output",
+          icon: "fa fa-sign-out",
+          lable: "output"
+        }
+      ],
+      dialogOption: {},
       input1: "",
-      flowData: [],
       links: [],
       steps: [],
       jsPlumb: jsPlumb
@@ -180,9 +206,175 @@ export default {
       this.$refs.jsplumbchart.reset();
     },
     nodedblClick(val) {
-      if (val.type == "source" || val.type == "sink") {
-        getSteoConfigData(val.type).then(res => {});
+      if (this.isOpenStepDialog(val)) {
+        this.$message({
+          message: "请建立正确的连接！",
+          type: "error"
+        });
+        return;
       }
+      // if (val.type == "source" || val.type == "sink") {
+      //   getSteoConfigData(val.type).then(res => {});
+      // }
+
+      //nodeSetTab
+      this.dialogOption = {
+        dialogVisible: true,
+        step: val,
+        filterLinks: this.filterLinks(val),
+        preSteps: this.getPreNodes(this.filterLinks(val)),
+        pre: this.getPreNode(this.findLinks(val)),
+        nodeSetTab: this.setNodeSetTab(
+          val,
+          this.getPreNode(this.findLinks(val))
+        ),
+        steps: this.steps,
+        links: this.links
+      };
+
+      console.log("this.dialogOption ", this.dialogOption);
+    },
+    isOpenStepDialog(val) {
+      if (val.type == "source" || val.type == "source_dummy") {
+        return false;
+      }
+
+      if (
+        val.type == "join" &&
+        (this.filterLinks(val).length == 0 || this.filterLinks(val).length == 1)
+      ) {
+        return true;
+      }
+
+      if (
+        (val.type == "filter" ||
+          val.type == "sink" ||
+          val.type == "aggregate" ||
+          val.type == "transform" ||
+          // val.type == "join" ||
+          val.type == "lookup" ||
+          val.type == "split" ||
+          val.type == "sql") &&
+        !this.filterLinks(val)[0]
+      ) {
+        return true;
+      }
+    },
+    filterLinks(val) {
+      return _.filter(this.links, function(item) {
+        return item.target == val.id;
+      });
+    },
+    setNodeSetTab(val, pre) {
+      if (val.type == "sink") {
+        return [
+          {
+            ...this.nodeTab[0],
+            title: "输入 (" + pre.name + ")"
+          },
+          this.nodeTab[1]
+        ];
+      }
+      if (val.type == "source" || val.type == "source_dummy") {
+        return [this.nodeTab[1], this.nodeTab[2]];
+      }
+      if (
+        val.type == "filter" ||
+        val.type == "aggregate" ||
+        val.type == "sql" ||
+        val.type == "transform" ||
+        val.type == "lookup" ||
+        val.type == "split"
+      ) {
+        return [
+          {
+            ...this.nodeTab[0],
+            title: "输入 (" + pre.name + ")"
+          },
+          this.nodeTab[1],
+          this.nodeTab[2]
+        ];
+      }
+
+      if (val.type == "join") {
+        // console.log("this.getLinks(val)", this.getLinks(val));
+        let result = [];
+        _.forEach(this.getLinks(val), element => {
+          result.push({
+            ...this.nodeTab[0],
+            title:
+              element.targetInput + " (" + this.getPreNode(element).name + ")",
+            targetInput: element.targetInput
+          });
+        });
+        return [...result, this.nodeTab[1], this.nodeTab[2]];
+      }
+    },
+    getPreNodes(links) {
+      let result = [];
+      _.forEach(links, p => {
+        _.forEach(this.steps, s => {
+          if (p.source == s.id) {
+            result.push(s);
+          }
+        });
+      });
+      return result;
+    },
+
+    getPreNode(val) {
+      return _.find(this.steps, function(o) {
+        if (!val) {
+          return "";
+        }
+        return o.id == val.source;
+      });
+    },
+    findLinks(val) {
+      return _.find(this.links, function(item) {
+        return item.target == val.id;
+      });
+    },
+    modifyFlowData(val) {
+      this.steps = _.map(this.steps, item => {
+        if (
+          item.type == val.step.type &&
+          val.step.type == "source" &&
+          item.id == val.step.id
+        ) {
+          return {
+            ...item,
+            stepSettings: val.data.parametData,
+            outputConfigurations: val.data.checkedOutData
+          };
+        }
+
+        if (
+          item.type == val.step.type &&
+          (val.step.type != "source" || val.step.type != "sink") &&
+          item.id == val.step.id
+        ) {
+          return {
+            ...item,
+            stepSettings: val.data.parametData,
+            outputConfigurations: val.data.checkedOutData,
+            inputConfigurations: val.data.checkedinPUTData
+          };
+        }
+
+        if (
+          item.type == val.step.type &&
+          val.step.type == "sink" &&
+          item.id == val.step.id
+        ) {
+          return {
+            ...item,
+            stepSettings: val.data.parametData,
+            inputConfigurations: val.data.checkedinPUTData
+          };
+        }
+        return item;
+      });
     }
   }
 };

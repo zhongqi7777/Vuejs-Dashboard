@@ -41,7 +41,7 @@
 
 <script>
 import { mapGetters, mapActions, mapState } from "vuex";
-import { querySchema } from "@api";
+import { querySchema } from "@/api";
 import { isEmpty } from "lodash";
 import adItem from "./common/index";
 export default {

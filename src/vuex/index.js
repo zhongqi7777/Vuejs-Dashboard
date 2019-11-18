@@ -3,6 +3,7 @@
 import getters from "./getters";
 import app from "./modules/app";
 import permission from "./modules/permission";
+import realtime from "./modules/dialog";
 import createLogger from "@/plugins/logger";
 import createPersistedState from "vuex-persistedstate";
 
@@ -29,6 +30,7 @@ export default new Vuex.Store({
   modules: {
     app,
     permission,
+    realtime
   },
   strict: debug,
   // plugins: debug ? [createLogger()] : []

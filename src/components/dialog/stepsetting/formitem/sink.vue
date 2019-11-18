@@ -70,8 +70,8 @@
 </template>
 
 <script>
-import { mapGetters, mapActions, mapState } from "vuex";
-import { steplist, stepsettings, outputStep } from "@server/realtime/index";
+// import { mapGetters, mapActions, mapState } from "vuex";
+import { getSteoConfigData } from "@/api/flow";
 import {
   isEmpty,
   forEach,
@@ -84,7 +84,7 @@ import {
   difference
 } from "lodash";
 import adItem from "./common/index";
-import { setUpWatchersUtils, setFormDataUtils } from "@components/utils/index";
+import { setUpWatchersUtils, setFormDataUtils } from "@/utils/index";
 export default {
   watch: {
     "realtime.setStepData"(val) {

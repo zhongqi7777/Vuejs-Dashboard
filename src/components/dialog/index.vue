@@ -61,12 +61,10 @@
 </template>
 
 <script>
-import { mapGetters, mapActions, mapState } from "vuex";
-import { steplist, stepsettings, outputStep } from "@server/realtime/index";
-import input from "../tab/input";
-import parameter from "../tab/parameter";
-import output from "../tab/output";
-import _ from "lodash";
+import { getSteoConfigData } from "@/api/flow";
+import input from "./input/input";
+import parameter from "./stepsetting/index";
+import output from "./output/output";
 export default {
   watch: {
     data(val) {
@@ -234,20 +232,20 @@ export default {
         return;
       }
       if (tab.label == "output") {
-        this.modifyLoadingStatus(true);
-        this.getOutPutData(
-          {
-            ...this.data.step,
-            stepSettings: this.realtime.parametData,
-            inputConfigurations: this.getinputConfigurations(
-              this.data.step,
-              this.realtime.checkedinPUTData
-            )
-          },
-          () => {
-            this.modifyLoadingStatus(false);
-          }
-        );
+        // this.modifyLoadingStatus(true);
+        // this.getOutPutData(
+        //   {
+        //     ...this.data.step,
+        //     stepSettings: this.realtime.parametData,
+        //     inputConfigurations: this.getinputConfigurations(
+        //       this.data.step,
+        //       this.realtime.checkedinPUTData
+        //     )
+        //   },
+        //   () => {
+        //     this.modifyLoadingStatus(false);
+        //   }
+        // );
         return;
       }
 
@@ -302,37 +300,13 @@ export default {
     },
     //
     initOutTab(step) {
-      //left table
-      // set input checked value
-      // this.initInputCheckedData(
-      //   step.inputConfigurations ? step.inputConfigurations.input : []
-      // );
-
-      //get data from inputCheckedData and set out data
-      // this.initOutInputData(this.realtime.initCheckedinputData);
-      //right table
-      // get from currrent step
-
-      // console.log(
-      //   "  this.getInitOutCheckedData(step)",
-      //   this.getInitOutCheckedData(step)
-      // );
-      this.initOutCheckedData(
-        // step.outputConfigurations ? step.outputConfigurations.output : []
-
-        this.getInitOutCheckedData(step)
-      );
+      this.initOutCheckedData(this.getInitOutCheckedData(step));
     },
     getInitOutCheckedData(step) {
       if (step.type == "split") {
         return _.map(
           this.getSplitOutputData(step.outputConfigurations).valueList,
           val => {
-            // return {
-            //   ...val,
-            //   name: val.column
-            // };
-
             return {
               ...val,
               column: val.column
@@ -345,30 +319,13 @@ export default {
     },
     initInputTab(step, targetInput, input) {
       //left table
-      // this.initInputForm(step);
       this.initInputForm(step, targetInput);
-
-      // console.log(" step.inputConfigurations", step.inputConfigurations);
-      // console.log('step.inputConfigurations[input]',step.inputConfigurations[input]);
-      // console.log("input",input);
 
       //rigth table
       this.initInputCheckedData(
         step.inputConfigurations ? step.inputConfigurations[input] : []
       );
-      // this.initInputCheckedData(
-      //   step.inputConfigurations ? step.inputConfigurations[input] : []
-      // );
     },
-    // initInputTab(step) {
-    //   //left table
-    //   // this.initInputForm(step);
-    //   this.initInputForm(step, this.data.nodeSetTab[0].targetInput);
-    //   //rigth table
-    //   this.initInputCheckedData(
-    //     step.inputConfigurations ? step.inputConfigurations.input : []
-    //   );
-    // },
     initInputItem() {
       //paramete tab
       this.initParametData(this.data.step.stepSettings);
@@ -445,27 +402,29 @@ export default {
         type = "HDFS";
       }
 
-      stepsettings(
-        val == "sink" || val == "source" ? val + "_" + type : val
-      ).then(
-        data => {
-          if (val == "lookup") {
-            return;
-          }
-          if (val == "join") {
-            this.getStepConfiug({
-              allformItemList: data,
-              joinCondition: this.getJoinConditionData(
-                this.data.filterLinks,
-                this.data.preSteps
-              )
-            });
-          } else {
+      if (val.type == "source" || val.type == "sink") {
+        getSteoConfigData(val.type).then(
+          data => {
+            // if (val == "lookup") {
+            //   return;
+            // }
+            // if (val == "join") {
+            //   this.getStepConfiug({
+            //     allformItemList: data,
+            //     joinCondition: this.getJoinConditionData(
+            //       this.data.filterLinks,
+            //       this.data.preSteps
+            //     )
+            //   });
+            // } else {
+            //   this.getStepConfiug(data);
+            // }
+
             this.getStepConfiug(data);
-          }
-        },
-        err => {}
-      );
+          },
+          err => {}
+        );
+      }
 
       // stepsettings(
       //   val == "sink" || val == "source" ? val + "_" + type : val
