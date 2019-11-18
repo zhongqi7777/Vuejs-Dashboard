@@ -95,11 +95,13 @@ export default {
       //this.getFormItemByType(this.form.type);
     },
     form(val) {
-      this.setParamertData(val);
+      //this.setParamertData(val);
+
+      this.$store.dispatch("realtime/setParamertData", val);
     }
   },
   computed: {
-    ...mapState(["realtime"])
+    ...Vuex.mapState(["realtime"])
   },
   props: {
     data: {
@@ -133,7 +135,7 @@ export default {
   beforeDestroy() {},
   destroyed: function() {},
   methods: {
-    ...mapActions([
+    ...Vuex.mapActions([
       "openDialog",
       "setParamertData",
       "modifyLoadingStatus",
@@ -171,7 +173,6 @@ export default {
           ...this.form,
           ...this.setallformItemData(data)
         });
-        
 
         //针对 form format item,动态控制显示与format数据
         this.formItemList = this.filterFormItem(
@@ -197,7 +198,8 @@ export default {
           this.unWatchlist,
           this.form,
           (watchItem, newValue, formData) => {
-            this.setParamertData(formData);
+            // this.setParamertData(formData);
+            this.$store.dispatch("realtime/setParamertData", formData);
             if (watchItem == "form.format") {
               this.formItemList = this.filterFormItem(
                 this.formItemList,

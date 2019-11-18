@@ -77,7 +77,6 @@
 </template>
 
 <script>
-import { mapGetters, mapActions, mapState } from "vuex";
 // import _ from "lodash";
 import { getflowlist, delFlow } from "@/api/flow";
 export default {

@@ -34,7 +34,6 @@
 
 <script>
 import { addUser, modifyUser } from "@/api/userlist";
-import { mapGetters, mapActions, mapState } from "vuex";
 // import _ from "lodash";
 export default {
   watch: {

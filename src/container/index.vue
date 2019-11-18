@@ -19,7 +19,6 @@
 import vsidebar from "@/components/layout/Sidebar/index.vue";
 import vheader from "@/components/Header/index";
 import AppMain from "./AppMain";
-import { mapGetters, mapActions } from "vuex";
 export default {
   components: { vheader, AppMain, vsidebar },
   data: function() {

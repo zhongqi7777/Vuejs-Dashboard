@@ -174,7 +174,11 @@ export default {
       if (!this.data.targetInput) {
         delete this.realtime.checkedinPUTData.left;
         delete this.realtime.checkedinPUTData.right;
-        this.setInputCheckedData({ input: this.setMapCheckedData(val) }); //setInputCheckedData
+        //this.setInputCheckedData({ input: this.setMapCheckedData(val) }); //setInputCheckedData
+
+        this.$store.dispatch("realtime/setInputCheckedData", {
+          input: this.setMapCheckedData(val)
+        });
       }
 
       if (this.data.targetInput == "left") {
@@ -183,7 +187,8 @@ export default {
         if (this.realtime.checkedinPUTData.right) {
           inputChecked.right = this.realtime.checkedinPUTData.right;
         }
-        this.setInputCheckedData(inputChecked);
+        //this.setInputCheckedData(inputChecked);
+        this.$store.dispatch("realtime/setInputCheckedData", inputChecked);
       }
 
       if (this.data.targetInput == "right") {
@@ -192,15 +197,15 @@ export default {
         if (this.realtime.checkedinPUTData.left) {
           inputChecked.left = this.realtime.checkedinPUTData.left;
         }
-        this.setInputCheckedData(inputChecked);
+        //this.setInputCheckedData(inputChecked);
+        this.$store.dispatch("realtime/setInputCheckedData", inputChecked);
       }
 
       //验证提示
       //this.setMissAndIllegality(this.inputLeftData, val);
-
     },
     "realtime.initCheckedinputData"(val) {
-      if (!val||val.length == 0) {
+      if (!val || val.length == 0) {
         this.inputRightData = [];
       }
 
@@ -241,7 +246,7 @@ export default {
     };
   },
   computed: {
-    ...mapState(["realtime"])
+    ...Vuex.mapState(["realtime"])
   },
   mounted() {
     // let left = [3, 2, 1];
@@ -266,7 +271,7 @@ export default {
   beforeDestroy() {},
   destroyed: function() {},
   methods: {
-    ...mapActions([
+    ...Vuex.mapActions([
       "setInputCheckedData",
       "initInputCheckedData",
       "initOutInputData"
@@ -433,7 +438,8 @@ export default {
 
     setOutTabLeftTable(val) {
       //change outtab out table data
-      this.initOutInputData(val);
+      //this.initOutInputData(val);
+      this.$store.dispatch("realtime/initOutInputData", val);
     },
     outAlias(val, index) {
       this.inputRightData.splice(index, 1, {

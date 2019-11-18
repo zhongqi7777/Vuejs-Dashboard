@@ -9,7 +9,6 @@
 <script>
 import PanelGroup from "./PanelGroup";
 import vTable from "./table";
-import { mapGetters, mapActions } from "vuex";
 
 const lineChartData = {
   newVisitis: {

@@ -68,7 +68,7 @@ export default {
     //   default: false
     // }
   },
-  components: { vaside, jsplumbchart },
+  components: { vaside, stepdialog, jsplumbchart },
   data: function() {
     return {
       nodeTab: [

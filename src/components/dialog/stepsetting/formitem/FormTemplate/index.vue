@@ -5,39 +5,50 @@
       <el-form-item
         :prop="item.name"
         :label="item.name"
-        v-for="(item,index) in formItemList"
+        v-for="(item, index) in formItemList"
         :key="index"
         :rules="{
-      required:  item.required, message: '', trigger: 'blur'
-    }"
+          required: item.required,
+          message: '',
+          trigger: 'blur'
+        }"
         v-if="item.isshow"
       >
-        <el-tooltip lass="item" effect="dark" :content="item.name" placement="top">
+        <el-tooltip
+          lass="item"
+          effect="dark"
+          :content="item.name"
+          placement="top"
+        >
           <i class="parIcon el-icon-warning"></i>
         </el-tooltip>
         <el-input
-          v-if="(item.type=='String'||item.type=='char')&&!item.values"
+          v-if="(item.type == 'String' || item.type == 'char') && !item.values"
           v-model="form[item.name]"
         ></el-input>
         <el-select
-          v-if="item.type=='String'&&item.values"
+          v-if="item.type == 'String' && item.values"
           v-model="form[item.name]"
           placeholder="请选择"
         >
           <el-option
-            v-for="(subitem,subindex) in item.values?item.values:''"
+            v-for="(subitem, subindex) in item.values ? item.values : ''"
             :key="subindex"
             :label="subitem"
             :value="subitem"
           ></el-option>
         </el-select>
-        <el-switch v-if="item.type=='boolean'" v-model="form[item.name]"></el-switch>
+        <el-switch
+          v-if="item.type == 'boolean'"
+          v-model="form[item.name]"
+        ></el-switch>
       </el-form-item>
     </el-form>
-    <adItem :data="{adformItemList:adformItemList,adformItemData:adformItemData}"></adItem>
+    <adItem
+      :data="{ adformItemList: adformItemList, adformItemData: adformItemData }"
+    ></adItem>
   </div>
 </template>
-
 
 <script>
 import { mapGetters, mapActions, mapState } from "vuex";
@@ -50,23 +61,23 @@ export default {
       this.setFormData(val);
     },
     form(val) {
-      this.setParamertData(val);
+      this.$store.dispatch("realtime/setParamertData", val);
     },
     "form.dataType"(val) {
-      this.setParamertData({
+      this.$store.dispatch("realtime/setParamertData", {
         ...this.form,
         dataType: val
       });
     },
     "form.maxOutOfOrderness"(val) {
-      this.setParamertData({
+      this.$store.dispatch("realtime/setParamertData", {
         ...this.form,
         maxOutOfOrderness: val
       });
     }
   },
   computed: {
-    ...mapState(["realtime"])
+    ...Vuex.mapState(["realtime"])
   },
   props: {
     data: {
@@ -104,7 +115,7 @@ export default {
   beforeDestroy() {},
   destroyed() {},
   methods: {
-    ...mapActions([
+    ...Vuex.mapActions([
       "openDialog",
       "setParamertData",
       "initOutInputData",

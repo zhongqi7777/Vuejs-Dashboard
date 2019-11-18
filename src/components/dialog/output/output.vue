@@ -1,5 +1,4 @@
-
-  <template>
+<template>
   <div>
     <div id="input" class="nodeTable block__list_tags">
       <div class="block__list block__list_words blockLeft">
@@ -10,27 +9,46 @@
             v-model="searchAlternative"
             placeholder="请输入字段名称"
             prefix-icon="el-icon-search"
-            @keyup.native="filtertTableData(searchAlternative,inputLeftData,getMapCheckedData(realtime.initOutInputData))"
+            @keyup.native="
+              filtertTableData(
+                searchAlternative,
+                inputLeftData,
+                getMapCheckedData(realtime.initOutInputData)
+              )
+            "
           ></el-input>
           <i
             @click="inputFieldsImport(inputLeftData)"
             title="导入表格内字段"
             class="ns_fields3 icon iconfont icon-ir-copy"
           ></i>
-          <i @click="addInputLeft" title="新增已选字段" class="ns_fields1 el-icon-plus"></i>
+          <i
+            @click="addInputLeft"
+            title="新增已选字段"
+            class="ns_fields1 el-icon-plus"
+          ></i>
         </div>
         <div>
           <el-table
             tooltip-effect="dark"
             ref="multipleTableLeft"
-            :data="inputLeftData.slice((inputLeftCurrentPage-1)*inputLeftPagesize,inputLeftCurrentPage*inputLeftPagesize)"
+            :data="
+              inputLeftData.slice(
+                (inputLeftCurrentPage - 1) * inputLeftPagesize,
+                inputLeftCurrentPage * inputLeftPagesize
+              )
+            "
             @selection-change="handleSelectionChange"
             height="25vh"
             style="width: 100%;"
           >
-            <el-table-column fixed :index="inputLeftIndexMethod" type="index" width="60"></el-table-column>
+            <el-table-column
+              fixed
+              :index="inputLeftIndexMethod"
+              type="index"
+              width="60"
+            ></el-table-column>
             <el-table-column prop="name" label="字段名"></el-table-column>
-            <!-- <el-table-column type="selection" width="55"></el-table-column> -->
             <el-table-column type="selection" width="55"></el-table-column>
           </el-table>
         </div>
@@ -42,7 +60,7 @@
           :page-sizes="[10, 20, 50, 100]"
           :page-size="inputLeftPagesize"
           layout="total, sizes, prev, pager, next, jumper"
-          :total="inputLeftData&&inputLeftData.length"
+          :total="inputLeftData && inputLeftData.length"
         ></el-pagination>
       </div>
       <div class="block__list block__list_words blockRight">
@@ -50,12 +68,22 @@
           <span>已选字段</span>
           <el-input
             v-model="searchright"
-            @keyup.native="filtertTableDataRight(searchright,inputRightData,inputRighCloneData)"
+            @keyup.native="
+              filtertTableDataRight(
+                searchright,
+                inputRightData,
+                inputRighCloneData
+              )
+            "
             class="fieldsInput"
             placeholder="请输入字段名称"
             prefix-icon="el-icon-search"
           ></el-input>
-          <span @click="removeOutSelAllField" class="removeAllFields" title="删除全部已选字段">
+          <span
+            @click="removeOutSelAllField"
+            class="removeAllFields"
+            title="删除全部已选字段"
+          >
             <i class="fa fa-trash-o"></i>
           </span>
           <!-- <span class="removeAllFields pr20" title="删除已选的非法字段">
@@ -70,16 +98,26 @@
             <!-- <el-table ref="multipleTable" :data="inputRightData" height="25vh" style="width: 100%;"> -->
             <el-table
               ref="multipleTable"
-              :data="inputRightData.slice((inputRightCurrentPage-1)*inputRightPagesize,inputRightCurrentPage*inputRightPagesize)"
+              :data="
+                inputRightData.slice(
+                  (inputRightCurrentPage - 1) * inputRightPagesize,
+                  inputRightCurrentPage * inputRightPagesize
+                )
+              "
               height="25vh"
               style="width: 100%;"
             >
-              <el-table-column fixed :index="inputRightIndexMethod" type="index" width="60"></el-table-column>
+              <el-table-column
+                fixed
+                :index="inputRightIndexMethod"
+                type="index"
+                width="60"
+              ></el-table-column>
               <el-table-column prop="name" label="字段名">
                 <template slot-scope="scope">
-                  <span
-                    :class="scope.row.isillegality?'righttb':''"
-                  >{{scope.row.name}} {{scope.row.isillegality}}</span>
+                  <span :class="scope.row.isillegality ? 'righttb' : ''"
+                    >{{ scope.row.name }} {{ scope.row.isillegality }}</span
+                  >
                 </template>
               </el-table-column>
               <el-table-column prop="alias" label="别名">
@@ -87,7 +125,7 @@
                   <el-input
                     v-model="scope.row.alias"
                     placeholder="别名"
-                    @keyup.native="outAlias(scope.row.alias,scope.$index)"
+                    @keyup.native="outAlias(scope.row.alias, scope.$index)"
                   ></el-input>
                 </template>
               </el-table-column>
@@ -96,7 +134,9 @@
                   <el-col :span="3" class="removeFields">
                     <i
                       class="el-icon-close"
-                      @click="removeOutSelThisField(scope.row.name, scope.$index)"
+                      @click="
+                        removeOutSelThisField(scope.row.name, scope.$index)
+                      "
                     ></i>
                   </el-col>
                 </template>
@@ -116,20 +156,23 @@
         </div>
       </div>
       <p>提示：别名允许的字符包括字母,数字和下划线.</p>
-      <p v-if="Missing.length!=0">缺失 {{Missing.length}}个</p>
-      <p v-if="Missing.length!=0" class="Missing">{{Missing.toString()}}</p>
-      <p v-if="illegality.length!=0">非法 {{illegality.length}}个</p>
-      <p v-if="illegality.length!=0" class="illegality">{{illegality.toString()}}</p>
+      <p v-if="Missing.length != 0">缺失 {{ Missing.length }}个</p>
+      <p v-if="Missing.length != 0" class="Missing">{{ Missing.toString() }}</p>
+      <p v-if="illegality.length != 0">非法 {{ illegality.length }}个</p>
+      <p v-if="illegality.length != 0" class="illegality">
+        {{ illegality.toString() }}
+      </p>
     </div>
   </div>
-</template> 
-  <script>
+</template>
+<script>
 // import { mapGetters, mapActions, mapState } from "vuex";
 // import _ from "lodash";
 export default {
   watch: {
     "realtime.selectCheckedDataSet"(val) {
-      this.initOutInputData(val.fields);
+      //this.initOutInputData(val.fields);
+      this.$store.dispatch("realtime/initOutInputData", val.fields);
     },
     "realtime.initOutInputData"(val) {
       this.inputLeftData = this.getMapCheckedDataLeft(
@@ -153,10 +196,11 @@ export default {
       this.setInputRighCloneData(this.inputRightData);
     },
     inputLeftData(val) {
-     //this.setMissAndIllegality(val, this.inputRightData);
+      //this.setMissAndIllegality(val, this.inputRightData);
     },
     inputRightData(val, oldV) {
-      this.setOutCheckedData(
+      this.$store.dispatch(
+        "realtime/setOutCheckedData",
         _.map(val, item => {
           return {
             alias: item.alias,
@@ -211,7 +255,7 @@ export default {
     };
   },
   computed: {
-    ...mapState(["realtime"])
+    ...Vuex.mapState(["realtime"])
   },
   mounted() {},
   beforeCreate() {},
@@ -222,7 +266,7 @@ export default {
   beforeDestroy() {},
   destroyed: function() {},
   methods: {
-    ...mapActions(["setOutCheckedData", "initOutInputData"]),
+    ...Vuex.mapActions(["setOutCheckedData", "initOutInputData"]),
     setMissAndIllegality(inputLeftData, inputRightData) {
       this.Missing = this.setMissing(inputLeftData, inputRightData);
       this.illegality = this.setIllegality(inputLeftData, inputRightData);
@@ -415,7 +459,7 @@ export default {
     }
   }
 };
-</script> 
+</script>
 <style lang="scss" scoped="">
 .block__list_tags:after {
   clear: both;
@@ -504,4 +548,4 @@ export default {
     color: red;
   }
 }
-</style> 
+</style>

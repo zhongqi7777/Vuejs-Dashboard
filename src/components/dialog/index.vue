@@ -118,7 +118,7 @@ export default {
     };
   },
   computed: {
-    ...mapState(["realtime"])
+    ...Vuex.mapState(["realtime"])
   },
   mounted() {},
   beforeCreate() {},
@@ -129,12 +129,12 @@ export default {
   beforeDestroy() {},
   destroyed: function() {},
   methods: {
-    ...mapActions([
+    ...Vuex.mapActions([
       "getStepConfiug",
       "openDialog",
       "setDataSetSelect",
       "setParamertData",
-      "initParametData",
+      "realtime.initParametData",
       "initOutCheckedData",
       "initInputCheckedData",
       "initInputData",
@@ -186,14 +186,14 @@ export default {
     closeDialog() {
       this.activeName = "0";
       this.data.dialogVisible = false;
-      this.setDataSetSelect({});
-      this.initParametData({});
-      this.initOutCheckedData([]);
-      this.initInputCheckedData([]);
-      this.initInputData([]);
-      this.modifyLoadingStatus(false);
-      this.setAdList([]);
-      // this.getStepConfiug([]);
+      this.$store.dispatch("realtime/setDataSetSelect", {});
+      this.$store.dispatch("realtime/initParametData", {});
+      this.$store.dispatch("realtime/initOutCheckedData", []);
+      this.$store.dispatch("realtime/initInputCheckedData", []);
+      this.$store.dispatch("realtime/initInputData", []);
+      this.$store.dispatch("realtime/modifyLoadingStatus", false);
+      this.$store.dispatch("realtime/setAdList", []);
+      this.$store.dispatch("realtime/getStepConfiug", []);
     },
     setTabTemplate(val) {
       switch (val) {
@@ -272,7 +272,7 @@ export default {
         }
         return item.target == val.id;
       });
-      let data = _.find(this.data.flowData, item => {
+      let data = _.find(this.data.steps, item => {
         return item.id == leftlink.source;
       }).outputConfigurations;
 
@@ -287,7 +287,9 @@ export default {
           ? data[leftlink.sourceOutput]
           : data.output;
       //{"alias":"id_test","description":"","column":"id","type":"string"}
-      this.initInputData(
+
+      this.$store.dispatch(
+        "realtime/initInputData",
         _.map(initInputData, item => {
           return {
             alias: "",
@@ -296,11 +298,17 @@ export default {
             type: item.type
           };
         })
-      ); //left table
+      );
+
+      //left table
     },
     //
     initOutTab(step) {
-      this.initOutCheckedData(this.getInitOutCheckedData(step));
+      // this.initOutCheckedData(this.getInitOutCheckedData(step));
+      this.$store.dispatch(
+        "realtime/initOutCheckedData",
+        this.getInitOutCheckedData(step)
+      );
     },
     getInitOutCheckedData(step) {
       if (step.type == "split") {
@@ -322,13 +330,23 @@ export default {
       this.initInputForm(step, targetInput);
 
       //rigth table
-      this.initInputCheckedData(
+      // this.initInputCheckedData(
+      //   step.inputConfigurations ? step.inputConfigurations[input] : []
+      // );
+
+      this.$store.dispatch(
+        "realtime/initInputCheckedData",
         step.inputConfigurations ? step.inputConfigurations[input] : []
       );
     },
     initInputItem() {
       //paramete tab
-      this.initParametData(this.data.step.stepSettings);
+      //this.initParametData(this.data.step.stepSettings);
+
+      this.$store.dispatch(
+        "realtime/initParametData",
+        this.data.step.stepSettings
+      );
 
       if (
         this.data.step.type == "source" ||
@@ -341,7 +359,14 @@ export default {
         //select dateset init left table
         //right table
         // get from currrent step
-        this.initOutCheckedData(
+        // this.initOutCheckedData(
+        //   this.data.step.outputConfigurations
+        //     ? this.data.step.outputConfigurations.output
+        //     : []
+        // );
+
+        this.$store.dispatch(
+          "realtime/initOutCheckedData",
           this.data.step.outputConfigurations
             ? this.data.step.outputConfigurations.output
             : []
@@ -536,21 +561,15 @@ export default {
               //     };
               //   })
               // );
-              this.initOutInputData(data.data.output);
+              this.$store.dispatch(
+                "realtime/initOutInputData",
+                data.data.output
+              );
             } else {
-              // this.initOutInputData(
-              //   _.map(data.data.output, val => {
-              //     // return {
-              //     //   ...val,
-              //     //   name: val.column
-              //     // };
-              //     return {
-              //       ...val,
-              //       column: val.column
-              //     };
-              //   })
-              // );
-              this.initOutInputData(data.data.output);
+              this.$store.dispatch(
+                "realtime/initOutInputData",
+                data.data.output
+              );
             }
             fn();
           } else {

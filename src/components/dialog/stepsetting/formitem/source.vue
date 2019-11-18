@@ -133,93 +133,12 @@ export default {
       });
     },
     form(val) {
-      this.setParamertData(val);
+      this.$store.dispatch("realtime/setParamertData", val);
     }
-
-    // // form item
-    // "form.quoteChar"(val) {
-    //   this.setParamertData({
-    //     ...this.form,
-    //     quoteChar: val
-    //   });
-    // },
-    // "form.path"(val) {
-    //   this.setParamertData({
-    //     ...this.form,
-    //     path: val
-    //   });
-    // },
-    // "form.separator"(val) {
-    //   this.setParamertData({
-    //     ...this.form,
-    //     separator: val
-    //   });
-    // },
-    // "form.processOnce"(val) {
-    //   this.setParamertData({
-    //     ...this.form,
-    //     processOnce: val
-    //   });
-    // },
-    // "form.format"(val) {
-    //   this.setParamertData({
-    //     ...this.form,
-    //     format: val
-    //   });
-    //   this.formItemList = this.filterFormItem(this.formItemList, val);
-    // },
-    // "form.type"(val) {
-    //   this.setParamertData({
-    //     ...this.form,
-    //     format: val
-    //   });
-    // },
-    // "form.interval"(val) {
-    //   this.setParamertData({
-    //     ...this.form,
-    //     interval: val
-    //   });
-    // },
-    // "form.escapeChar"(val) {
-    //   this.setParamertData({
-    //     ...this.form,
-    //     escapeChar: val
-    //   });
-    // },
-    // "form.processOnce"(val) {
-    //   this.setParamertData({
-    //     ...this.form,
-    //     processOnce: val
-    //   });
-    // },
-    // "form.nullValue"(val) {
-    //   this.setParamertData({
-    //     ...this.form,
-    //     nullValue: val
-    //   });
-    // },
-    // "form.jsonSchema"(val) {
-    //   this.setParamertData({
-    //     ...this.form,
-    //     jsonSchema: val
-    //   });
-    // },
-    // "form.parallelism"(val) {
-    //   this.setParamertData({
-    //     ...this.form,
-    //     parallelism: val
-    //   });
-    // },
-    // "form.version"(val) {
-    //   this.setParamertData({
-    //     ...this.form,
-    //     version: val
-    //   });
-    // }
   },
 
   computed: {
-    ...mapState(["realtime"])
+    ...Vuex.mapState(["realtime"])
   },
   props: {
     data: {
@@ -256,7 +175,7 @@ export default {
   beforeDestroy() {},
   destroyed() {},
   methods: {
-    ...mapActions([
+    ...Vuex.mapActions([
       "openDialog",
       "setParamertData",
       "initOutInputData",
@@ -269,7 +188,8 @@ export default {
         this.$watch(watchItem, newValue => {
           let item = {};
           item[formItem] = newValue;
-          this.setParamertData({ ...this.form, ...item });
+          //this.setParamertData({ ...this.form, ...item });
+          this.$store.dispatch("realtime/setParamertData", val.fields);
           if (watchItem == "form.format") {
             this.formItemList = this.filterFormItem(
               this.formItemList,
@@ -419,7 +339,8 @@ export default {
           this.unWatchlist,
           this.form,
           (watchItem, newValue, formData) => {
-            this.setParamertData(formData);
+            this.$store.dispatch("realtime/setParamertData", val.fields);
+            //this.setParamertData(formData);
             if (watchItem == "form.format") {
               this.formItemList = this.filterFormItem(
                 this.formItemList,

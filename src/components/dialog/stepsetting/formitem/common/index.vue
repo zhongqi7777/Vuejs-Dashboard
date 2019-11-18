@@ -11,23 +11,30 @@
           <el-form-item
             :prop="item.name"
             :label="item.name"
-            v-for="(item,index) in data.adformItemList"
+            v-for="(item, index) in data.adformItemList"
             :key="index"
             :rules="{
-      required: item.required, message: '', trigger: 'blur'
-    }"
+              required: item.required,
+              message: '',
+              trigger: 'blur'
+            }"
             v-if="item.isshow"
           >
-            <el-tooltip lass="item" effect="dark" :content="item.name" placement="top">
+            <el-tooltip
+              lass="item"
+              effect="dark"
+              :content="item.name"
+              placement="top"
+            >
               <i class="parIcon el-icon-warning"></i>
             </el-tooltip>
             <!-- 计数器 -->
             <el-input-number
-              v-if="item.type=='int'"
+              v-if="item.type == 'int'"
               v-model="form[item.name]"
               :min="1"
               :max="100"
-              @change="changeFormItem(item,form[item.name])"
+              @change="changeFormItem(item, form[item.name])"
             ></el-input-number>
             <!-- <el-input
               v-if="(item.type=='String'||item.type=='char')&&!item.values"
@@ -36,27 +43,29 @@
             ></el-input>-->
 
             <el-input
-              v-if="(item.type=='String'||item.type=='char')&&!item.values"
+              v-if="
+                (item.type == 'String' || item.type == 'char') && !item.values
+              "
               v-model="form[item.name]"
-              @keyup.native="changeFormItem(item,form[item.name])"
+              @keyup.native="changeFormItem(item, form[item.name])"
             ></el-input>
             <el-select
-              v-if="item.type=='String'&&item.values"
+              v-if="item.type == 'String' && item.values"
               v-model="form[item.name]"
               placeholder="请选择"
-              @change="changeFormItem(item,form[item.name])"
+              @change="changeFormItem(item, form[item.name])"
             >
               <el-option
-                v-for="(subitem,subindex) in item.values?item.values:''"
+                v-for="(subitem, subindex) in item.values ? item.values : ''"
                 :key="subindex"
                 :label="subitem"
                 :value="subitem"
               ></el-option>
             </el-select>
             <el-switch
-              v-if="item.type=='boolean'"
+              v-if="item.type == 'boolean'"
               v-model="form[item.name]"
-              @change="changeFormItem(item,form[item.name])"
+              @change="changeFormItem(item, form[item.name])"
             ></el-switch>
           </el-form-item>
         </el-form>
@@ -64,7 +73,6 @@
     </el-collapse>
   </div>
 </template>
-
 
 <script>
 // import { mapGetters, mapActions, mapState } from "vuex";
@@ -102,7 +110,7 @@ export default {
     };
   },
   computed: {
-    ...mapState(["realtime"])
+    ...Vuex.mapState(["realtime"])
   },
   mounted() {},
   beforeCreate() {},
@@ -113,9 +121,10 @@ export default {
   beforeDestroy() {},
   destroyed: function() {},
   methods: {
-    ...mapActions(["setParamertData"]),
+    ...Vuex.mapActions(["setParamertData"]),
     changeFormItem(item, val) {
-      this.setParamertData(
+      this.$store.dispatch(
+        "realtime/setDataSetSelect",
         this.getParamertData(this.realtime.parametData, val, item.name)
       );
     },
@@ -130,5 +139,4 @@ export default {
 };
 </script>
 
-<style lang="scss">
-</style>
+<style lang="scss"></style>
