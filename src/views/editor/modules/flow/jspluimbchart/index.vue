@@ -183,7 +183,7 @@ export default {
         flowName: this.input1,
         links: this.links,
         steps: this.steps,
-        date: moment().format("")
+        date: moment().format("YYYY-MM-DD HH:mm:ss")
       };
 
       if (this.$route.query.id) {
