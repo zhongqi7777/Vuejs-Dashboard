@@ -11,7 +11,7 @@ import "@/utils/dialogDrag";
 
 import "normalize.css/normalize.css"; // A modern alternative to CSS resets
 //vue 鼠标事件控制台警告Added non-passive event listener to a scroll-blocking 'mousewheel' event. Consider marking event handler as 'passive' to make the page more responsive
-import 'default-passive-events'
+import './assets/lib/default-passive-events/dist'
 import "./assets/fonts/iconfont.css";// step icons
 import "@/styles/index.scss"; // global css
 

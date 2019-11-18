@@ -420,15 +420,17 @@ export default {
     },
     showDailog() {
       this.activeName = "0";
-      let val = this.data.step.type;
+      let stepType = this.data.step.type;
       let type = this.data.step.stepSettings.type;
 
-      if (val == "sink" && !type) {
-        type = "HDFS";
-      }
+      // if (val == "sink" && !type) {
+      //   type = "HDFS";
+      // }
 
-      if (val.type == "source" || val.type == "sink") {
-        getSteoConfigData(val.type).then(
+      //console.log(" showDailog() {", val);
+
+      if (stepType == "source" || stepType == "sink") {
+        getSteoConfigData(stepType).then(
           data => {
             // if (val == "lookup") {
             //   return;
@@ -445,7 +447,9 @@ export default {
             //   this.getStepConfiug(data);
             // }
 
-            this.getStepConfiug(data);
+            //this.getStepConfiug(data);
+
+            this.$store.dispatch("realtime/getStepConfiug", data.data);
           },
           err => {}
         );
