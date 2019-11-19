@@ -129,7 +129,7 @@ export default {
       console.log("handleDragover(){");
     },
     handleDrop(val) {
-      console.log("handleDrop(val) {");
+      console.log("handleDrop(val) {", val);
       this.steps.push(val.drawIcon ? this.getCurrentNode(val) : val);
     },
     getCurrentNode(data) {
