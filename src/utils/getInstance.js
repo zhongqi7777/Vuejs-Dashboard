@@ -21,8 +21,8 @@ export default function(options) {
     // instance.deleteConnection(c); //instance
     options.delConnections(c, () => {
       options.modifyOverConnectStatus(false);
-      //instance.deleteConnection(c); //instance
-      instance.detach(c);
+      instance.deleteConnection(c); //instance
+      //instance.detach(c);
     });
 
     c.preventDefault();

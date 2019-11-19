@@ -16,7 +16,7 @@ const devJslist = [
   "https://cdn.bootcss.com/element-ui/2.12.0/locale/zh-CN.min.js",
   "https://cdn.bootcss.com/element-ui/2.12.0/locale/en.js",
   "https://cdn.bootcss.com/element-ui/2.12.0/locale/es.js",
-  "https://cdn.bootcss.com/jsPlumb/2.2.3/jsPlumb.js",
+  "https://cdn.bootcss.com/jsPlumb/2.9.2/js/jsplumb.js",
   "https://cdn.bootcss.com/lodash.js/4.17.15/lodash.js",
   "https://cdn.bootcss.com/moment.js/2.24.0/moment.js"
 ];
@@ -25,13 +25,12 @@ const productjslist = [
   "https://cdn.bootcss.com/vue/2.6.10/vue.min.js",
   "https://cdn.bootcss.com/vue-router/2.7.0/vue-router.min.js",
   "https://cdn.bootcss.com/axios/0.18.0/axios.min.js",
-  // "https://unpkg.com/element-ui/lib/index.js",
   "https://cdn.bootcss.com/element-ui/2.12.0/index.js",
   "https://cdn.bootcss.com/vuex/3.3.1/vuex.js",
   "https://cdn.bootcss.com/element-ui/2.12.0/locale/zh-CN.min.js",
   "https://cdn.bootcss.com/element-ui/2.12.0/locale/en.js",
   "https://cdn.bootcss.com/element-ui/2.12.0/locale/es.js",
-  "https://cdn.bootcss.com/jsPlumb/2.2.3/jsPlumb.min.js",
+  "https://cdn.bootcss.com/jsPlumb/2.9.2/js/jsplumb.min.js",
   "https://cdn.bootcss.com/lodash.js/4.17.15/lodash.min.js",
   "https://cdn.bootcss.com/moment.js/2.24.0/moment.min.js"
 ];
