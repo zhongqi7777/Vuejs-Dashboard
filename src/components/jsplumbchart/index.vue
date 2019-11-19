@@ -39,10 +39,14 @@
         <!-- line split -->
         <!-- <div class="line-split" v-show="data.type=='multioutput'" :style="setLineSplit(data)"></div> -->
 
-        <div v-show="data.isSelected" class="resize top"></div>
+        <!-- selected node -->
+
+        <!-- <div v-show="data.isSelected" class="resize top"></div>
         <div v-show="data.isSelected" class="resize left"></div>
         <div v-show="data.isSelected" class="resize bottom"></div>
-        <div v-show="data.isSelected" class="resize right"></div>
+        <div v-show="data.isSelected" class="resize right"></div> -->
+
+
       </div>
     </div>
   </div>
