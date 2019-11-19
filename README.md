@@ -44,3 +44,9 @@ npm run build
 
 # build for production and view the bundle analyzer report
 npm run build --report
+
+
+package describe
+
+vue-drag-drop
+https://github.com/cameronhimself/vue-drag-drop

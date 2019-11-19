@@ -15,6 +15,7 @@
         </template>
         <drag
           class="designIcon"
+          @dragstart="handleDragstart"
           v-for="(drawIcon, index) in drawNav.thisIcon"
           :key="index + '-drawNav'"
           :data-index="index"
@@ -68,6 +69,9 @@ export default {
     this.initData();
   },
   methods: {
+    handleDragstart() {
+      console.log(" handleDragstart(){");
+    },
     start() {
       console.log("拖动开始");
     },

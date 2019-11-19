@@ -20,7 +20,7 @@
       </el-header>
       <el-container>
         <el-main>
-          <drop class="drop-workplace" @drop="handleDrop" id="workplace">
+          <drop class="drop-workplace" @drop="handleDrop" @dragover="handleDragover" id="workplace">
             <jsplumbchart
               :data="{
                 stepData: this.steps,
@@ -120,7 +120,12 @@ export default {
   destroyed: function() {},
   methods: {
     //...mapActions([""]),
+    handleDragover(){
+      console.log("handleDragover(){");
+
+    },
     handleDrop(val) {
+      console.log("handleDrop(val) {");
       this.steps.push(val.drawIcon ? this.getCurrentNode(val) : val);
     },
     getCurrentNode(data) {
