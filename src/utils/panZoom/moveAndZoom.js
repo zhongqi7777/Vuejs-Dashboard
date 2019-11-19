@@ -1,9 +1,9 @@
-import instance from './instance';
+// import instance from './instance';
 
 const panzoom = require('panzoom');
 
 // 初始化panzoom插件
-function init() {
+function init(instance) {
   const mainContainer = instance.getContainer();
   const mainContainerWrap = mainContainer.parentNode;
   const pan = panzoom(mainContainer, {

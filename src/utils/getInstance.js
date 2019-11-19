@@ -9,6 +9,11 @@ export default function(options) {
     Container: options.container
   });
 
+  console.log("options.container", options.container);
+
+  // let instance = options.jsPlumb.getInstance({});
+  // instance.setContainer(options.container);
+
   instance.bind("mouseover", function(c) {
     options.modifyOverConnectStatus(true);
   });

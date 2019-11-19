@@ -1,14 +1,20 @@
 <template>
-  <div class="jsplumb-chart" id="jsplumbchart">
-    <div class="cavans jtk-surface jsplumb-droppable" id="cavans">
+  <div class="jsplumb-chart cavans" id="jsplumbchart">
+    <div class=" jtk-surface" id="cavans">
       <div
-        v-for="(data,index) in stepData"
+        v-for="(data, index) in stepData"
         :key="index"
         :id="data.id"
         :class="setNodeStyle(data)"
         :data-sign="data.name"
         :data-type="data.type"
-        :style="'left:'+data.x+'px;top:'+data.y+'px;position:absolute;margin:0'"
+        :style="
+          'left:' +
+            data.x +
+            'px;top:' +
+            data.y +
+            'px;position:absolute;margin:0'
+        "
         @dblclick="dblClick(data)"
         @mousedown="selectCurrentStep(data)"
         @mousemove.ctrl="multSe3lectStep(data)"
@@ -17,10 +23,14 @@
         <i class="icon iconfont icon-ir-designIconBg designIconBg"></i>
         <i
           id="changeSte"
-          :class="nodeIcon(data.type) == 'iconTrue'?'icon iconfont icon-ir-d-'+data.type:'icon iconfont icon-ir-d-default'"
+          :class="
+            nodeIcon(data.type) == 'iconTrue'
+              ? 'icon iconfont icon-ir-d-' + data.type
+              : 'icon iconfont icon-ir-d-default'
+          "
         ></i>
-        <h4 :title="data.name">{{data.name}}</h4>
-        <h5>ID:{{data.id}}</h5>
+        <h4 :title="data.name">{{ data.name }}</h4>
+        <h5>ID:{{ data.id }}</h5>
         <em
           id="copeDes"
           class="icon iconfont icon-ir-copy"
@@ -45,8 +55,6 @@
         <div v-show="data.isSelected" class="resize left"></div>
         <div v-show="data.isSelected" class="resize bottom"></div>
         <div v-show="data.isSelected" class="resize right"></div> -->
-
-
       </div>
     </div>
   </div>
@@ -56,6 +64,7 @@
 /* eslint-disable */
 // import { mapGetters, mapActions, mapState } from "vuex";
 import getInstance from "@/utils/getInstance";
+import panzoom from "@/utils/panZoom/moveAndZoom";
 // import _ from "lodash";
 import {
   message,
@@ -71,7 +80,7 @@ import {
   connect,
   getOutputConfigurations
 } from "@/utils/flowchart";
-import panzoom from "panzoom";
+// import panzoom from "panzoom";
 // import "@svgdotjs/svg.panzoom.js";
 export default {
   watch: {
@@ -96,7 +105,8 @@ export default {
   data: function() {
     return {
       jsplumbInstance: getInstance({
-        container: "workplace",
+        // container: "workplace",
+        container: "cavans",
         delConnections: this.delConnections,
         completedConnect: this.completedConnect,
         jsPlumb: this.data.jsPlumb,
@@ -120,7 +130,8 @@ export default {
       selectedStepId: "",
       mulSelect: false,
       isDeleCopyStep: false,
-      mouserOverConnect: false
+      mouserOverConnect: false,
+      isPanZoomInit: true
     };
   },
   computed: {
@@ -152,6 +163,11 @@ export default {
         },
         () => {
           this.getLinksData();
+          if (this.isPanZoomInit) {
+            panzoom.init(this.jsplumbInstance);
+            this.isPanZoomInit = false;
+          }
+          //
         }
       );
     });
@@ -371,12 +387,7 @@ export default {
         _
       );
 
-      connect(
-        data.jsplumbInstance,
-        data.self,
-        data.links,
-        connectCallback
-      );
+      connect(data.jsplumbInstance, data.self, data.links, connectCallback);
     },
     completedConnect() {
       this.getLinksData();
@@ -403,7 +414,7 @@ export default {
       });
       this.isDeleCopyStep = false;
 
-      console.log(" delNode(val) {",this.stepData)
+      console.log(" delNode(val) {", this.stepData);
       // message(
       //   "确定删除当前节点",
       //   () => {
@@ -672,22 +683,34 @@ export default {
 <style lang="scss">
 // @import "./tookit.css";
 .jsplumb-chart {
-  box-sizing: border-box;
+  // box-sizing: border-box;
   width: 100%;
   height: 100%;
   position: absolute;
-  cursor: -webkit-grab;
+  // cursor: -webkit-grab;
 
-  .cavans {
-    // z-index: 0;
+  // height: calc(100% - 42px);
+  // position: relative;
+  overflow: hidden;
+  outline: none !important;
+
+  #cavans {
+    outline: none !important;
     height: 100%;
     width: 100%;
-    // background: #4586f3;
-    // top: 20px;
-    // left: 20px;
-    // height: 50px;
-    // width: 50px;
     position: relative;
+  }
+
+  .jtk-surface {
+    // z-index: 0;
+    // height: 100%;
+    // width: 100%;
+    // // background: #4586f3;
+    // // top: 20px;
+    // // left: 20px;
+    // // height: 50px;
+    // // width: 50px;
+    // position: relative;
     // cursor: -webkit-grab;
 
     // ////////////////////////node style begin///////////////////

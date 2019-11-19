@@ -103,72 +103,39 @@
       "flowName": "flow_1",
       "links": [
         {
-          "name": "con_33",
+          "name": "con_133",
           "source": "rtc_source_5",
           "sourceOutput": "output",
-          "target": "rtc_sink_3",
+          "target": "sink_2",
           "targetInput": "input",
           "input": "input"
         }
       ],
       "steps": [
         {
-          "id": "source_1",
-          "name": "source",
-          "type": "source",
-          "x": 126,
-          "y": 231,
-          "stepSettings": {},
-          "outputConfigurations": {
-            "output": []
-          }
-        },
-        {
           "id": "sink_2",
           "name": "sink",
           "type": "sink",
-          "x": 939,
-          "y": 70,
+          "x": 866,
+          "y": 187,
           "stepSettings": {},
           "inputConfigurations": {
             "input": []
-          }
-        },
-        {
-          "id": "rtc_sink_3",
-          "name": "sink",
-          "type": "sink",
-          "x": 968,
-          "y": 263,
-          "stepSettings": {},
-          "inputConfigurations": {
-            "input": []
-          }
-        },
-        {
-          "id": "rtc_source_4",
-          "name": "source",
-          "type": "source",
-          "x": 196,
-          "y": 319,
-          "stepSettings": {},
-          "outputConfigurations": {
-            "output": []
           }
         },
         {
           "id": "rtc_source_5",
           "name": "source",
           "type": "source",
-          "x": 505,
-          "y": 246,
+          "x": 338,
+          "y": 78,
           "stepSettings": {},
           "outputConfigurations": {
             "output": []
           }
         }
       ],
-      "date": "2019-11-19 17:15:44",
+      "date": "2019-11-19 18:33:25",
       "id": 1
     }
   ],
