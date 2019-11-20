@@ -20,25 +20,6 @@
       </el-header>
       <el-container>
         <el-main>
-          <!-- <drop
-            class="drop-workplace"
-            @drop="handleDrop"
-            @dragover="handleDragover"
-            id="workplace"
-          >
-            <jsplumbchart
-              :data="{
-                stepData: this.steps,
-                links: this.links,
-                jsPlumb: this.jsPlumb
-              }"
-              @handleDrop="handleDrop"
-              @modifyChart="modifyChart"
-              @nodedblClick="nodedblClick"
-              ref="jsplumbchart"
-            ></jsplumbchart>
-          </drop> -->
-
           <jsplumbchart
             :data="{
               stepData: this.steps,
@@ -141,8 +122,8 @@ export default {
       console.log("handleDragover(){");
     },
     handleDrop(val) {
-      console.log("handleDrop(val) {", val);
-      console.log(val.drawIcon ? this.getCurrentNode(val) : val);
+      // console.log("handleDrop(val) {", val);
+      // console.log(val.drawIcon ? this.getCurrentNode(val) : val);
       this.steps.push(val.drawIcon ? this.getCurrentNode(val) : val);
     },
     getCurrentNode(data) {

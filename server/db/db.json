@@ -103,69 +103,50 @@
       "flowName": "flow_1",
       "links": [
         {
-          "name": "con_206",
-          "source": "rtc_source_5",
+          "name": "con_21",
+          "source": "source_1",
           "sourceOutput": "output",
           "target": "sink_2",
-          "targetInput": "input",
-          "input": "input"
-        },
-        {
-          "name": "con_207",
-          "source": "source_3",
-          "sourceOutput": "output",
-          "target": "sink_4",
           "targetInput": "input",
           "input": "input"
         }
       ],
       "steps": [
         {
+          "id": "source_1",
+          "name": "source",
+          "type": "source",
+          "x": 929,
+          "y": 67,
+          "stepSettings": {},
+          "outputConfigurations": {
+            "output": []
+          }
+        },
+        {
           "id": "sink_2",
           "name": "sink",
           "type": "sink",
-          "x": 866,
-          "y": 187,
+          "x": 1141,
+          "y": 214,
           "stepSettings": {},
           "inputConfigurations": {
             "input": []
           }
         },
         {
-          "id": "rtc_source_5",
+          "id": "rtc_source_3",
           "name": "source",
           "type": "source",
-          "x": 338,
-          "y": 78,
+          "x": 1085,
+          "y": 596,
           "stepSettings": {},
           "outputConfigurations": {
             "output": []
-          }
-        },
-        {
-          "id": "source_3",
-          "name": "source",
-          "type": "source",
-          "x": 62,
-          "y": 374,
-          "stepSettings": {},
-          "outputConfigurations": {
-            "output": []
-          }
-        },
-        {
-          "id": "sink_4",
-          "name": "sink",
-          "type": "sink",
-          "x": 1136,
-          "y": 420,
-          "stepSettings": {},
-          "inputConfigurations": {
-            "input": []
           }
         }
       ],
-      "date": "2019-11-20 09:40:30",
+      "date": "2019-11-20 19:22:19",
       "id": 1
     }
   ],
