@@ -142,6 +142,7 @@ export default {
     },
     handleDrop(val) {
       console.log("handleDrop(val) {", val);
+      console.log(val.drawIcon ? this.getCurrentNode(val) : val);
       this.steps.push(val.drawIcon ? this.getCurrentNode(val) : val);
     },
     getCurrentNode(data) {
@@ -149,8 +150,10 @@ export default {
         id: data.drawIcon.id + "_" + (this.steps.length + +1),
         name: data.drawIcon.name,
         type: data.drawIcon.type,
-        x: event.offsetX,
-        y: event.offsetY,
+        x: data.x,
+        y: data.y,
+        // x: event.offsetX,
+        // y: event.offsetY,
         stepSettings: data.drawIcon.stepSettings
       };
 

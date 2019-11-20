@@ -178,8 +178,10 @@ export default {
   destroyed: function() {},
   methods: {
     //...mapActions([""]),
-    handleDrop(val) {
-      this.$emit("handleDrop", val);
+    handleDrop(val,nativeEvent) {
+      console.log(" handleDrop(val) { jsplumb", val);
+      console.log("nativeEvent",nativeEvent);
+      this.$emit("handleDrop", {...val,x:nativeEvent.pageX,y:nativeEvent.pageY});
     },
     delAllselected(data) {
       this.stepData = _.filter(data, item => {
