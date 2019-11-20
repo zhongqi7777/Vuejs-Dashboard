@@ -103,10 +103,18 @@
       "flowName": "flow_1",
       "links": [
         {
-          "name": "con_133",
+          "name": "con_206",
           "source": "rtc_source_5",
           "sourceOutput": "output",
           "target": "sink_2",
+          "targetInput": "input",
+          "input": "input"
+        },
+        {
+          "name": "con_207",
+          "source": "source_3",
+          "sourceOutput": "output",
+          "target": "sink_4",
           "targetInput": "input",
           "input": "input"
         }
@@ -133,9 +141,31 @@
           "outputConfigurations": {
             "output": []
           }
+        },
+        {
+          "id": "source_3",
+          "name": "source",
+          "type": "source",
+          "x": 62,
+          "y": 374,
+          "stepSettings": {},
+          "outputConfigurations": {
+            "output": []
+          }
+        },
+        {
+          "id": "sink_4",
+          "name": "sink",
+          "type": "sink",
+          "x": 1136,
+          "y": 420,
+          "stepSettings": {},
+          "inputConfigurations": {
+            "input": []
+          }
         }
       ],
-      "date": "2019-11-19 18:33:25",
+      "date": "2019-11-20 09:40:30",
       "id": 1
     }
   ],

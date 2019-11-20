@@ -20,7 +20,7 @@
       </el-header>
       <el-container>
         <el-main>
-          <drop
+          <!-- <drop
             class="drop-workplace"
             @drop="handleDrop"
             @dragover="handleDragover"
@@ -37,7 +37,19 @@
               @nodedblClick="nodedblClick"
               ref="jsplumbchart"
             ></jsplumbchart>
-          </drop>
+          </drop> -->
+
+          <jsplumbchart
+            :data="{
+              stepData: this.steps,
+              links: this.links,
+              jsPlumb: this.jsPlumb
+            }"
+            @handleDrop="handleDrop"
+            @modifyChart="modifyChart"
+            @nodedblClick="nodedblClick"
+            ref="jsplumbchart"
+          ></jsplumbchart>
         </el-main>
         <el-aside width="250px">
           <vaside></vaside>

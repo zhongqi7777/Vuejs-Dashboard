@@ -1,5 +1,6 @@
 <template>
-  <div class="jsplumb-chart cavans" id="jsplumbchart">
+  <!-- <div class="jsplumb-chart cavans" id="jsplumbchart"> -->
+  <drop class="jsplumb-chart" @drop="handleDrop" id="jsplumbchart">
     <div class=" jtk-surface" id="cavans">
       <div
         v-for="(data, index) in stepData"
@@ -57,7 +58,8 @@
         <div v-show="data.isSelected" class="resize right"></div> -->
       </div>
     </div>
-  </div>
+  </drop>
+  <!-- </div> -->
 </template>
 
 <script>
@@ -176,6 +178,9 @@ export default {
   destroyed: function() {},
   methods: {
     //...mapActions([""]),
+    handleDrop(val) {
+      this.$emit("handleDrop", val);
+    },
     delAllselected(data) {
       this.stepData = _.filter(data, item => {
         return !item.isSelected;
@@ -213,158 +218,6 @@ export default {
       // document.getElementById("cavans").style = "matrix(1, 0, 0, 1, 0, 0)";
       //this.setZoomJsplumbChart("cavans");
     },
-    setZoomJsplumbChart(val) {
-      // 假设矩阵是：matrix(a,b,c,d,e,f);
-      // 如果只是平移translate，只关注最后两个数值就好：
-      // e是水平移动距离，f是垂直移动距离
-      // 如果只是缩放scale，只关注a和d两个数值就好：
-      // a是水平缩放倍数，d是垂直缩放倍数
-      // 如果是旋转rotate，假设旋转角度是θ：
-      // matrix(cosθ,sinθ,-sinθ,cosθ,0,0)
-      // 拉伸skew，用到了三角函数tanθ，只与b, c两个参数相关，书写如下：
-      // （注意y轴倾斜角度在前）
-      // matrix(1,tan(θy),tan(θx),1,0,0)
-
-      // and forward it it to panzoom.
-      // var instance = panzoom(document.getElementById("cavans"), {
-      //   zoomDoubleClickSpeed: 1,
-      //   smoothScroll: false
-      // }).zoomAbs(
-      //   300, // initial x position
-      //   500, // initial y position
-      //   0.1 // initial zoom
-      // );
-      //instance.style = "transform-origin: 500px 500px 0px";
-      // let canvas = document.getElementById("cavans");
-      // // console.log("canvas", canvas.children);
-
-      // Array.from(document.querySelectorAll(".stepsItem")).forEach((e, i) => {
-      //   // var canvas = SVG()
-      //   //   .addTo(e)
-      //   //   .size(1000, 1000)
-      //   //   .panZoom();
-      //   // console.log(e);
-      //   panzoom(e, {
-      //     zoomDoubleClickSpeed: 1,
-      //     smoothScroll: false
-      //   });
-      //   // console.log(e + "->" + i);
-      // });
-
-      // for (var element of canvas.children) {
-      //   console.log(element);
-      // }
-
-      // HTMLCollection.prototype.toArray = function() {
-      //   return [].slice.call(this);
-      // };
-
-      // canvas.children.toArray().forEach(function(e, i) {
-      //   console.log(e + "->" + i);getLinksData(
-      // });
-
-      // for (var j = 0; j < canvas.children.length; j++) {
-      //   console.log("element", element);
-      //   panzoom(element, {
-      //     zoomDoubleClickSpeed: 1,
-      //     smoothScroll: false
-      //   });
-      // }
-
-      // canvas.children.forEach(item => {
-      //   console.log(item);
-      // });
-
-      // return;
-
-      let canvas = document.getElementById(val);
-
-      this.instanceZoom = panzoom(canvas, {
-        zoomDoubleClickSpeed: 1,
-        smoothScroll: false,
-        maxZoom: 1,
-        minZoom: 0.8
-      });
-
-      // let style = window.getComputedStyle(canvas);
-
-      // var values = [];
-
-      // this.instanceZoom.on("pan", function(e, dx, dy, dz) {
-      //   console.log("Fired when the `element` is being panned", e);
-      //   values = style.transform
-      //     .split("(")[1]
-      //     .split(")")[0]
-      //     .split(",");
-      //   console.log(values);
-      //   console.log("x", parseFloat(values[4]));
-      //   console.log("y", parseFloat(values[5]));
-      //   console.log("坐标", {
-      //     x: parseFloat(values[4]) * parseFloat(values[0]),
-      //     y: parseFloat(values[5]) * parseFloat(values[3])
-      //   });
-      // });
-
-      // this.instanceZoom.on("zoom", function(e, dx, dy, dz) {
-      //   console.log("Fired when `element` is zoomed", e);
-      //   values = style.transform
-      //     .split("(")[1]
-      //     .split(")")[0]
-      //     .split(",");
-      //   console.log(values);
-      //   console.log("水平缩放", parseFloat(values[0]));
-      //   console.log("垂直缩放", parseFloat(values[3]));
-      //   console.log("坐标", {
-      //     x: parseFloat(values[4]) * parseFloat(values[0]),
-      //     y: parseFloat(values[5]) * parseFloat(values[3])
-      //   });
-      // });
-
-      this.instanceZoom.on("panend", (e, dx, dy, dz) => {
-        console.log("Fired when pan ended", e, dx, dy, dz);
-        // values = style.transform
-        //   .split("(")[1]
-        //   .split(")")[0]
-        //   .split(",");
-        // console.log(values);
-        // console.log("x", parseFloat(values[4]));
-        // console.log("y", parseFloat(values[5]));
-        // console.log("坐标", {
-        //   x: parseFloat(values[4]) * parseFloat(values[0]),
-        //   y: parseFloat(values[5]) * parseFloat(values[3])
-        // });
-        // this.modifyElementPosition({
-        //   x: parseFloat(values[4]) * parseFloat(values[0]),
-        //   y: parseFloat(values[5]) * parseFloat(values[3])
-        // });
-      });
-
-      // this.instanceZoom.on("zoom", (e, dx, dy, dz) => {
-      //   console.log("Fired when `element` is zoomed", e, dx, dy, dz);
-      //   // values = style.transform
-      //   //   .split("(")[1]
-      //   //   .split(")")[0]
-      //   //   .split(",");
-      //   // console.log(values);
-      //   // console.log("水平缩放", parseFloat(values[0]));
-      //   // console.log("垂直缩放", parseFloat(values[3]));
-      //   // console.log("坐标", {
-      //   //   x: parseFloat(values[4]) * parseFloat(values[0]),
-      //   //   y: parseFloat(values[5]) * parseFloat(values[3])
-      //   // });
-      //   // this.modifyElementPosition({
-      //   //   x: parseFloat(values[4]) * parseFloat(values[0]),
-      //   //   y: parseFloat(values[5]) * parseFloat(values[3])
-      //   // });
-      // });
-
-      // this.instanceZoom.on("transform", function(e) {
-      //   // This event will be called along with events above.
-      //   console.log("Fired when any transformation has happened", e);
-      // });
-
-      // canvas.style = "transform-origin: 500px 500px 0px";
-    },
 
     drawJsplumbChart(data, connectCallback) {
       addEndpointToNode(
@@ -392,9 +245,6 @@ export default {
     completedConnect() {
       this.getLinksData();
     },
-    // handleDrop(data, event) {
-    //   this.$emit("handleDrop", { data: data, event: event });
-    // },
     delConnections(val, fn) {
       //console.log(" delConnections(val, fn) {", val, fn);
       fn();
@@ -530,82 +380,6 @@ export default {
       document.onmousedown = e => {
         this.mousedownBody(e);
       };
-
-      // //元素的鼠标落下事件
-      // let jsplumbchart = document.getElementById("jsplumbchart");
-      // //let cavans = document.getElementById("cavans");
-      // // let divs = document.getElementById("cavans");
-      // // let divs = document.getElementById("rtc_multioutput_1");
-      // jsplumbchart.onmousedown = ev => {
-      //   console.log(' document.getElementById("cavans").onmousedown = ev => {');
-      //   //event的兼容性
-      //   // var ev = ev || event;
-
-      //   let cavans = document.getElementById("cavans");
-
-      //   //获取鼠标按下的坐标
-      //   var x1 = ev.clientX;
-      //   var y1 = ev.clientY;
-
-      //   //获取元素的left，top值
-      //   var l = cavans.offsetLeft;
-      //   var t = cavans.offsetTop;
-      //   var lt = 0;
-      //   var ls = 0;
-
-      //   // _.forEach(this.stepData, val => {
-      //   //   console.log(val);
-      //   //   console.log(document.getElementById(val.id));
-      //   // });
-
-      //   //给可视区域添加鼠标的移动事件
-      //   document.onmousemove = ev => {
-      //     //console.log("document.onmousemove = ev => {");
-      //     //event的兼容性
-      //     var ev = ev || event;
-      //     //获取鼠标移动时的坐标
-      //     var x2 = ev.clientX;
-      //     var y2 = ev.clientY;
-      //     //计算出鼠标的移动距离
-      //     var x = x2 - x1;
-      //     var y = y2 - y1;
-      //     //移动的数值与元素的left，top相加，得出元素的移动的距离
-      //     lt = y + t;
-      //     ls = x + l;
-
-      //     // top: 38px;
-      //     // left: 145px;
-      //     // width: 50px;
-      //     // height: 50px;
-      //     // position: relative;
-      //     // transform: scale(0.993667);
-      //     // transform-origin: 148% 494%;
-      //     //更改元素的left，top值
-      //     cavans.style.top = lt + "px";
-      //     cavans.style.left = ls + "px";
-      //     cavans.style.width = "50px";
-      //     cavans.style.height = "50px";
-      //     cavans.style.position = "relative";
-      //     //console.log(lt, ls);
-      //   };
-
-      //   //清除
-      //   document.onmouseup = function(ev) {
-      //     document.onmousemove = null;
-
-      //     // this.stepData = _.map(this.stepData, item => {
-      //     //   return {
-      //     //     ...item,
-      //     //     x: ls,
-      //     //     y: lt
-      //     //   };
-      //     // });
-
-      //     // divs.style.top = "0px";
-      //     // divs.style.left = "0px";
-      //     //divs.style.position = "";
-      //   };
-      // };
     },
     dragAllEelment(x1, y1, elem) {
       var l = document.getElementById(elem).offsetLeft;
@@ -686,7 +460,7 @@ export default {
   // box-sizing: border-box;
   width: 100%;
   height: 100%;
-  position: absolute;
+  position: relative;
   // cursor: -webkit-grab;
 
   // height: calc(100% - 42px);
