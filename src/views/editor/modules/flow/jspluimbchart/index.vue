@@ -12,7 +12,8 @@
           >
           <el-col :span="6" justify="space-around"
             ><div class="grid-content bg-purple-light">
-              <el-button size="small" @click="reset">清空</el-button>
+              <el-button size="small" @click="clearall">清空</el-button>
+               <el-button size="small" @click="reset">还原</el-button>
               <el-button size="small" @click="saveFlow">保存</el-button>
             </div></el-col
           >
@@ -205,10 +206,13 @@ export default {
       this.steps = val.steps;
       this.links = val.links;
     },
-    reset() {
+    clearall() {
       this.steps = [];
       this.links = [];
       this.$refs.jsplumbchart.reset();
+    },
+    reset(){
+       this.$refs.jsplumbchart.resume();
     },
     nodedblClick(val) {
       if (this.isOpenStepDialog(val)) {

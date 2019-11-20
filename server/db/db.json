@@ -101,52 +101,21 @@
   "flowlist": [
     {
       "flowName": "flow_1",
-      "links": [
-        {
-          "name": "con_21",
-          "source": "source_1",
-          "sourceOutput": "output",
-          "target": "sink_2",
-          "targetInput": "input",
-          "input": "input"
-        }
-      ],
+      "links": [],
       "steps": [
         {
           "id": "source_1",
           "name": "source",
           "type": "source",
-          "x": 929,
-          "y": 67,
-          "stepSettings": {},
-          "outputConfigurations": {
-            "output": []
-          }
-        },
-        {
-          "id": "sink_2",
-          "name": "sink",
-          "type": "sink",
-          "x": 1141,
-          "y": 214,
-          "stepSettings": {},
-          "inputConfigurations": {
-            "input": []
-          }
-        },
-        {
-          "id": "rtc_source_3",
-          "name": "source",
-          "type": "source",
-          "x": 1085,
-          "y": 596,
+          "x": 337,
+          "y": 145,
           "stepSettings": {},
           "outputConfigurations": {
             "output": []
           }
         }
       ],
-      "date": "2019-11-20 19:22:19",
+      "date": "2019-11-20 19:58:37",
       "id": 1
     }
   ],
