@@ -2,14 +2,12 @@
 
 export default function(options) {
   // let instance = plumbGather.jsPlumb.getInstance({
-  //   Container: options.container
+  //   Container: r
   // });
 
   let instance = options.jsPlumb.getInstance({
     Container: options.container
   });
-
-  console.log("options.container", options.container);
 
   // let instance = options.jsPlumb.getInstance({});
   // instance.setContainer(options.container);

@@ -1,8 +1,8 @@
 <template>
   <!-- <div class="jsplumb-chart cavans" id="jsplumbchart"> -->
-  <drop class="jsplumb-chart" @drop="handleDrop" id="jsplumbchart">
-    <div class=" jtk-surface" id="cavans">
-      <div
+  <drop class="jsplumb-chart" @drop="handleDrop">
+    <div class=" jtk-surface" id="jsplumb-chart">
+      <!-- <div
         v-for="(data, index) in stepData"
         :key="index"
         :id="data.id"
@@ -16,6 +16,19 @@
             data.y +
             'px;position:absolute;margin:0'
         "
+        @dblclick="dblClick(data)"
+        @mousedown="selectCurrentStep(data)"
+        @mousemove.ctrl="multSe3lectStep(data)"
+        @mouseup="mouseUpStep"
+      > -->
+      <div
+        v-for="(data, index) in stepData"
+        :key="index"
+        :id="data.id"
+        :class="setNodeStyle(data)"
+        :data-sign="data.name"
+        :data-type="data.type"
+        :style="'left:' + data.x + 'px;top:' + data.y + 'px;'"
         @dblclick="dblClick(data)"
         @mousedown="selectCurrentStep(data)"
         @mousemove.ctrl="multSe3lectStep(data)"
@@ -108,7 +121,7 @@ export default {
     return {
       jsplumbInstance: getInstance({
         // container: "workplace",
-        container: "cavans",
+        container: "jsplumb-chart",
         delConnections: this.delConnections,
         completedConnect: this.completedConnect,
         jsPlumb: this.data.jsPlumb,
@@ -468,6 +481,7 @@ export default {
 .jsplumb-chart {
   // box-sizing: border-box;
   width: 100%;
+  // width: calc(100% - 250px);
   height: 100%;
   position: relative;
   // cursor: -webkit-grab;
@@ -477,7 +491,7 @@ export default {
   overflow: hidden;
   outline: none !important;
 
-  #cavans {
+  #jsplumb-chart {
     outline: none !important;
     height: 100%;
     width: 100%;

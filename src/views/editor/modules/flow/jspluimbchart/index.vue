@@ -13,7 +13,7 @@
           <el-col :span="6" justify="space-around"
             ><div class="grid-content bg-purple-light">
               <el-button size="small" @click="clearall">清空</el-button>
-               <el-button size="small" @click="reset">还原</el-button>
+              <el-button size="small" @click="reset">还原</el-button>
               <el-button size="small" @click="saveFlow">保存</el-button>
             </div></el-col
           >
@@ -128,14 +128,24 @@ export default {
       this.steps.push(val.drawIcon ? this.getCurrentNode(val) : val);
     },
     getCurrentNode(data) {
+      console.log("  getCurrentNode(data) {", data);
+      console.log("data.x", data.x);
+      console.log("data.y", data.y);
+
+      console.log("event.offsetX", event.offsetX);
+      console.log("event.offsetY", event.offsetY);
+
+      console.log("event", event);
       let node = {
         id: data.drawIcon.id + "_" + (this.steps.length + +1),
         name: data.drawIcon.name,
         type: data.drawIcon.type,
-        x: data.x,
-        y: data.y,
-        // x: event.offsetX,
-        // y: event.offsetY,
+        // x: data.x,
+        // y: data.y,
+        // x: event.pageX,
+        // y: event.pageY,
+        x: event.offsetX,
+        y: event.offsetY,
         stepSettings: data.drawIcon.stepSettings
       };
 
@@ -211,8 +221,8 @@ export default {
       this.links = [];
       this.$refs.jsplumbchart.reset();
     },
-    reset(){
-       this.$refs.jsplumbchart.resume();
+    reset() {
+      this.$refs.jsplumbchart.resume();
     },
     nodedblClick(val) {
       if (this.isOpenStepDialog(val)) {
@@ -409,7 +419,7 @@ export default {
 
   .el-main {
     background-image: url("../../../../../assets/editor/designBg.png");
-    position: relative;
+    // position: relative;
   }
 
   .el-container:nth-child(5) .el-aside,
