@@ -4,6 +4,7 @@ const panzoom = require("panzoom");
 
 // 初始化panzoom插件
 function init(instance) {
+  console.log("function init(instance) {", instance);
   const mainContainer = instance.getContainer();
   const mainContainerWrap = mainContainer.parentNode;
   const pan = panzoom(mainContainer, {
@@ -49,4 +50,38 @@ const panZoom = {
   init
 };
 
+/**
+ * @description 获取缩放比率
+ * @returns {number} 缩放比率
+ */
+const getScale = instance => {
+  // let container = instance.getContainer();
+  // let scale1;
+  // if (instance.pan) {
+  //   const { scale } = instance.pan.getTransform();
+  //   scale1 = scale;
+  // } else {
+  //   const matrix = window.getComputedStyle(container).transform;
+  //   scale1 = matrix.split(", ")[3] * 1;
+  // }
+  // instance.setZoom(scale1);
+  // return scale1;
+
+  let container = this.jsplumbInstance.getContainer();
+  let scale1;
+  if (this.jsplumbInstance.pan) {
+    console.log("if (this.jsplumbInstance.pan) {");
+    const { scale } = this.jsplumbInstance.pan.getTransform();
+    scale1 = scale;
+  } else {
+    console.log(" } else {");
+    const matrix = window.getComputedStyle(container).transform;
+    scale1 = matrix.split(", ")[3] * 1;
+  }
+  this.jsplumbInstance.setZoom(scale1);
+  return scale1;
+};
+
 export default panZoom;
+
+export { getScale };
