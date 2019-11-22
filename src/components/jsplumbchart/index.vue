@@ -1,7 +1,7 @@
 <template>
   <!-- <div class="jsplumb-chart cavans" id="jsplumbchart"> -->
   <drop class="jsplumb-chart" @drop="handleDrop">
-    <div class=" jtk-surface" id="jsplumb-chart">
+    <div class="jtk-surface" id="jsplumb-chart">
       <!-- <div
         v-for="(data, index) in stepData"
         :key="index"
@@ -20,7 +20,7 @@
         @mousedown="selectCurrentStep(data)"
         @mousemove.ctrl="multSe3lectStep(data)"
         @mouseup="mouseUpStep"
-      > -->
+      >-->
       <div
         v-for="(data, index) in stepData"
         :key="index"
@@ -68,7 +68,7 @@
         <!-- <div v-show="data.isSelected" class="resize top"></div>
         <div v-show="data.isSelected" class="resize left"></div>
         <div v-show="data.isSelected" class="resize bottom"></div>
-        <div v-show="data.isSelected" class="resize right"></div> -->
+        <div v-show="data.isSelected" class="resize right"></div>-->
       </div>
     </div>
   </drop>
@@ -195,12 +195,17 @@ export default {
       return panzoom.init(this.jsplumbInstance).resume;
     },
     handleDrop(val, nativeEvent) {
-      console.log(" handleDrop(val) { jsplumb", val);
-      console.log("nativeEvent", nativeEvent);
+      // console.log(" handleDrop(val) { jsplumb", val);
+      // console.log("nativeEvent", nativeEvent);
+
+      let x = nativeEvent.offsetX;
+      let y = nativeEvent.offsetY;
+      x -= 20;
+      y -= 25;
       this.$emit("handleDrop", {
         ...val,
-        x: nativeEvent.pageX,
-        y: nativeEvent.pageY
+        x: x,
+        y: y
       });
     },
     delAllselected(data) {
@@ -262,7 +267,12 @@ export default {
         _
       );
 
-      connect(data.jsplumbInstance, data.self, data.links, connectCallback);
+      connect(
+        data.jsplumbInstance,
+        data.self,
+        data.links,
+        connectCallback
+      );
     },
     completedConnect() {
       this.getLinksData();

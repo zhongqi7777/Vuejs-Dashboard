@@ -23,12 +23,12 @@ function init(instance) {
   });
 
   pan.on("panstart", function(e) {
-    console.log("Fired when pan is just started ", e);
+    // console.log("Fired when pan is just started ", e);
     // Note: e === instance.
   });
 
   pan.on("panend", function(e) {
-    console.log("Fired when pan ended", e);
+    //console.log("Fired when pan ended", e);
   });
 
   // 平移时设置鼠标样式
@@ -43,7 +43,7 @@ function init(instance) {
     this.style.cursor = "grab";
   });
 
-  return pan
+  return pan;
 }
 const panZoom = {
   init
