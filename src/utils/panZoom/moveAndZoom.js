@@ -20,6 +20,7 @@ function init(instance) {
   // 缩放时设置jsPlumb的缩放比率
   pan.on("zoom", e => {
     const { scale } = e.getTransform();
+    // console.log("scale", scale);
     instance.setZoom(scale);
   });
 
