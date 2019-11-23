@@ -10,7 +10,7 @@ function init(instance) {
   const pan = panzoom(mainContainer, {
     smoothScroll: false,
     bounds: true,
-    // autocenter: true,
+    autocenter: true,
     zoomDoubleClickSpeed: 1,
     minZoom: 0.5,
     maxZoom: 2
@@ -71,11 +71,9 @@ const getScale = instance => {
   let container = this.jsplumbInstance.getContainer();
   let scale1;
   if (this.jsplumbInstance.pan) {
-    console.log("if (this.jsplumbInstance.pan) {");
     const { scale } = this.jsplumbInstance.pan.getTransform();
     scale1 = scale;
   } else {
-    console.log(" } else {");
     const matrix = window.getComputedStyle(container).transform;
     scale1 = matrix.split(", ")[3] * 1;
   }
