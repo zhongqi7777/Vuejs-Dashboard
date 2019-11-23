@@ -508,16 +508,11 @@ export default {
 <style lang="scss">
 // @import "./tookit.css";
 .jsplumb-chart {
-  // box-sizing: border-box;
   width: 100%;
-  // width: calc(100% - 250px);
   height: 100%;
   position: relative;
-  // cursor: -webkit-grab;
-
-  // height: calc(100% - 42px);
-  // position: relative;
-  overflow: hidden;
+  // overflow: hidden;
+  // overflow: scroll;
   outline: none !important;
 
   #jsplumb-chart {

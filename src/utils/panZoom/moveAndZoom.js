@@ -29,8 +29,13 @@ function init(instance) {
     // Note: e === instance.
   });
 
-  pan.on("panend", function(e) {
-    //console.log("Fired when pan ended", e);
+  pan.on("panend", function(e, x, y) {
+    console.log("Fired when pan ended", e, x, y);
+    // const containerRect = instance.getContainer().getBoundingClientRect();
+    // console.log("containerRect pand", containerRect);
+    // let jsplumbchart = document.getElementById("jsplumb-chart");
+    // jsplumbchart.style.left = containerRect.left + "px";
+    // jsplumbchart.style.top = containerRect.top + "px";
   });
 
   // 平移时设置鼠标样式

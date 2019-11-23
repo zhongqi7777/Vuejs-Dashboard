@@ -103,7 +103,7 @@
       "flowName": "flow_1",
       "links": [
         {
-          "name": "con_2824",
+          "name": "con_813",
           "source": "source_1",
           "sourceOutput": "output",
           "target": "join_3",
@@ -111,7 +111,7 @@
           "input": "left"
         },
         {
-          "name": "con_2825",
+          "name": "con_814",
           "source": "rtc_source_6",
           "sourceOutput": "output",
           "target": "join_3",
@@ -119,7 +119,7 @@
           "input": "right"
         },
         {
-          "name": "con_2826",
+          "name": "con_815",
           "source": "join_3",
           "sourceOutput": "output",
           "target": "lookup_4",
@@ -127,7 +127,7 @@
           "input": "input"
         },
         {
-          "name": "con_2827",
+          "name": "con_816",
           "source": "join_3",
           "sourceOutput": "output",
           "target": "dummy_source_5",
@@ -135,7 +135,7 @@
           "input": "input"
         },
         {
-          "name": "con_2828",
+          "name": "con_817",
           "source": "lookup_4",
           "sourceOutput": "output",
           "target": "sink_2",
@@ -143,7 +143,7 @@
           "input": "input"
         },
         {
-          "name": "con_2829",
+          "name": "con_818",
           "source": "dummy_source_5",
           "sourceOutput": "output",
           "target": "aggregate_7",
@@ -151,7 +151,7 @@
           "input": "input"
         },
         {
-          "name": "con_2830",
+          "name": "con_819",
           "source": "aggregate_7",
           "sourceOutput": "output",
           "target": "sink_8",
@@ -164,8 +164,8 @@
           "id": "source_1",
           "name": "source",
           "type": "source",
-          "x": -9,
-          "y": 110,
+          "x": 72,
+          "y": -102,
           "stepSettings": {},
           "outputConfigurations": {
             "output": []
@@ -175,8 +175,8 @@
           "id": "sink_2",
           "name": "sink",
           "type": "sink",
-          "x": 1047,
-          "y": 87,
+          "x": 950,
+          "y": -41,
           "stepSettings": {},
           "inputConfigurations": {
             "input": []
@@ -186,8 +186,8 @@
           "id": "join_3",
           "name": "join",
           "type": "join",
-          "x": 367,
-          "y": 236,
+          "x": 256,
+          "y": 21,
           "stepSettings": {},
           "inputConfigurations": {
             "input": []
@@ -200,8 +200,8 @@
           "id": "lookup_4",
           "name": "lookup",
           "type": "lookup",
-          "x": 721,
-          "y": 75,
+          "x": 611,
+          "y": -16,
           "stepSettings": {},
           "inputConfigurations": {
             "input": []
@@ -215,7 +215,7 @@
           "name": "dummy_source",
           "type": "source_dummy",
           "x": 283,
-          "y": 466,
+          "y": 208,
           "stepSettings": {
             "dataType": "userClick",
             "storage": "DUMMY"
@@ -228,8 +228,8 @@
           "id": "rtc_source_6",
           "name": "source",
           "type": "source",
-          "x": -5,
-          "y": 242,
+          "x": -211,
+          "y": 126,
           "stepSettings": {},
           "outputConfigurations": {
             "output": []
@@ -239,8 +239,8 @@
           "id": "aggregate_7",
           "name": "aggregate",
           "type": "aggregate",
-          "x": 773,
-          "y": 352,
+          "x": 663,
+          "y": 167,
           "stepSettings": {},
           "inputConfigurations": {
             "input": []
@@ -253,15 +253,37 @@
           "id": "sink_8",
           "name": "sink",
           "type": "sink",
-          "x": 1112.7777777777778,
-          "y": 395.6111145019532,
+          "x": 997,
+          "y": 189,
           "stepSettings": {},
           "inputConfigurations": {
             "input": []
           }
+        },
+        {
+          "id": "source_9",
+          "name": "source",
+          "type": "source",
+          "x": 1157,
+          "y": -20,
+          "stepSettings": {},
+          "outputConfigurations": {
+            "output": []
+          }
+        },
+        {
+          "id": "source_10",
+          "name": "source",
+          "type": "source",
+          "x": 1780,
+          "y": 145,
+          "stepSettings": {},
+          "outputConfigurations": {
+            "output": []
+          }
         }
       ],
-      "date": "2019-11-23 10:03:08",
+      "date": "2019-11-23 19:55:50",
       "id": 1
     }
   ],
