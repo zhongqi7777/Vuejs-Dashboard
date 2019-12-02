@@ -1,7 +1,7 @@
 <template>
   <!-- <div class="jsplumb-chart cavans" id="jsplumbchart"> -->
   <drop class="jsplumb-chart" @drop="handleDrop">
-    <div class=" jtk-surface" id="jsplumb-chart">
+    <div class="jtk-surface" id="jsplumb-chart">
       <!-- <div
         v-for="(data, index) in stepData"
         :key="index"
@@ -20,7 +20,7 @@
         @mousedown="selectCurrentStep(data)"
         @mousemove.ctrl="multSe3lectStep(data)"
         @mouseup="mouseUpStep"
-      > -->
+      >-->
       <div
         v-for="(data, index) in stepData"
         :key="index"
@@ -68,7 +68,7 @@
         <!-- <div v-show="data.isSelected" class="resize top"></div>
         <div v-show="data.isSelected" class="resize left"></div>
         <div v-show="data.isSelected" class="resize bottom"></div>
-        <div v-show="data.isSelected" class="resize right"></div> -->
+        <div v-show="data.isSelected" class="resize right"></div>-->
       </div>
     </div>
   </drop>
@@ -119,6 +119,8 @@ export default {
   components: {},
   data: function() {
     return {
+      panzoomInstance: "",
+      // panzoomInstance: panzoom.init(this.jsplumbInstance),
       jsplumbInstance: getInstance({
         // container: "workplace",
         container: "jsplumb-chart",
@@ -191,16 +193,38 @@ export default {
   destroyed: function() {},
   methods: {
     //...mapActions([""]),
+    getScale(instance) {
+      let container = instance.getContainer();
+      let scale1;
+      if (instance.pan) {
+        console.log("if (this.jsplumbInstance.pan) {");
+        const { scale } = instance.pan.getTransform();
+        scale1 = scale;
+      } else {
+        console.log(" } else {");
+        const matrix = window.getComputedStyle(container).transform;
+        scale1 = matrix.split(", ")[3] * 1;
+      }
+      instance.setZoom(scale1);
+      return scale1;
+    },
     resume() {
       return panzoom.init(this.jsplumbInstance).resume;
     },
     handleDrop(val, nativeEvent) {
-      console.log(" handleDrop(val) { jsplumb", val);
-      console.log("nativeEvent", nativeEvent);
+      const containerRect = this.jsplumbInstance
+        .getContainer()
+        .getBoundingClientRect();
+      let scale = this.getScale(this.jsplumbInstance);
+
+      let left = (nativeEvent.pageX - containerRect.left) / scale;
+      let top = (nativeEvent.pageY - containerRect.top) / scale;
+      left -= 20;
+      top -= 25;
       this.$emit("handleDrop", {
         ...val,
-        x: nativeEvent.pageX,
-        y: nativeEvent.pageY
+        x: left,
+        y: top
       });
     },
     delAllselected(data) {
@@ -262,7 +286,12 @@ export default {
         _
       );
 
-      connect(data.jsplumbInstance, data.self, data.links, connectCallback);
+      connect(
+        data.jsplumbInstance,
+        data.self,
+        data.links,
+        connectCallback
+      );
     },
     completedConnect() {
       this.getLinksData();
@@ -479,15 +508,9 @@ export default {
 <style lang="scss">
 // @import "./tookit.css";
 .jsplumb-chart {
-  // box-sizing: border-box;
   width: 100%;
-  // width: calc(100% - 250px);
   height: 100%;
   position: relative;
-  // cursor: -webkit-grab;
-
-  // height: calc(100% - 42px);
-  // position: relative;
   overflow: hidden;
   outline: none !important;
 

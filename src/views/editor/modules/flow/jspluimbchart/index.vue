@@ -3,20 +3,20 @@
     <el-container>
       <el-header>
         <el-row>
-          <el-col :span="18"
-            ><div class="grid-content">
+          <el-col :span="18">
+            <div class="grid-content">
               <el-input placeholder="请输入内容" v-model="input1">
                 <template slot="prepend">流程名称</template>
               </el-input>
-            </div></el-col
-          >
-          <el-col :span="6" justify="space-around"
-            ><div class="grid-content bg-purple-light">
+            </div>
+          </el-col>
+          <el-col :span="6" justify="space-around">
+            <div class="grid-content bg-purple-light">
               <el-button size="small" @click="clearall">清空</el-button>
               <el-button size="small" @click="reset">还原</el-button>
               <el-button size="small" @click="saveFlow">保存</el-button>
-            </div></el-col
-          >
+            </div>
+          </el-col>
         </el-row>
       </el-header>
       <el-container>
@@ -39,10 +39,7 @@
       </el-container>
     </el-container>
 
-    <stepdialog
-      :data="dialogOption"
-      @modifyFlowData="modifyFlowData"
-    ></stepdialog>
+    <stepdialog :data="dialogOption" @modifyFlowData="modifyFlowData"></stepdialog>
   </div>
 </template>
 
@@ -120,7 +117,7 @@ export default {
   methods: {
     //...mapActions([""]),
     handleDragover() {
-      console.log("handleDragover(){");
+      //console.log("handleDragover(){");
     },
     handleDrop(val) {
       // console.log("handleDrop(val) {", val);
@@ -128,24 +125,12 @@ export default {
       this.steps.push(val.drawIcon ? this.getCurrentNode(val) : val);
     },
     getCurrentNode(data) {
-      console.log("  getCurrentNode(data) {", data);
-      console.log("data.x", data.x);
-      console.log("data.y", data.y);
-
-      console.log("event.offsetX", event.offsetX);
-      console.log("event.offsetY", event.offsetY);
-
-      console.log("event", event);
       let node = {
         id: data.drawIcon.id + "_" + (this.steps.length + +1),
         name: data.drawIcon.name,
         type: data.drawIcon.type,
-        // x: data.x,
-        // y: data.y,
-        // x: event.pageX,
-        // y: event.pageY,
-        x: event.offsetX,
-        y: event.offsetY,
+        x: data.x,
+        y: data.y,
         stepSettings: data.drawIcon.stepSettings
       };
 
