@@ -13,7 +13,7 @@
 - [√ 添加 IE 兼容]
 - [√ 配置多项目模式]
 - [√ webpack启动之后自动打开首页]
-- [√ webpack构建完成之后服务器自动部署]
+- [√ webpack构建完成之后服务器自动部署] 
 
 备注 npm run  参数说明
 baseurl 默认值 "http://localhost:8080/"  baseurl 根路径,如果不显示设置默认获取当前服务器地址
