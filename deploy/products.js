@@ -10,7 +10,7 @@ const path = require('path');
 
 // env 文件 判断打包环境指定对应的服务器id
 
-const envfile = process.env.NODE_ENV === 'prod' ? '../.env.prod' : '../.env.dev';
+const envfile = process.env.NODE_ENV === 'production' ? '../.env.prod' : '../.env.dev';
 
 // env环境变量的路径
 

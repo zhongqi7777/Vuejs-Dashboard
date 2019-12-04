@@ -6,7 +6,7 @@ const chalk = require('chalk');
 
 const server = require('./products');
 
-const spinner = ora('正在发布到' + (process.env.NODE_ENV === 'prod' ? '生产' : '测试') + '服务器...');
+const spinner = ora('正在发布到' + (process.env.NODE_ENV === 'production' ? '生产' : '测试') + '服务器...');
 
 spinner.start();
 
@@ -31,7 +31,7 @@ scpClient.scp(
 
 			throw err;
 		} else {
-			console.log(chalk.green('Success! 成功发布到' + (process.env.NODE_ENV === 'prod' ? '生产' : '测试') + '服务器! \n'));
+			console.log(chalk.green('Success! 成功发布到' + (process.env.NODE_ENV === 'production' ? '生产' : '测试') + '服务器! \n'));
 		}
 	}
 );
