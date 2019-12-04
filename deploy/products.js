@@ -68,40 +68,58 @@ function parse(src) {
 
 const SERVER_LIST = [
 	{
-		id: 0,
+		// id: 0,
 
-		name: 'A-生产环境',
+		// name: 'A-生产环境',
 
-		domain: 'www.prod.com', // 域名
+		// domain: 'www.prod.com', // 域名
 
-		host: '46.106.38.24', // ip
+		host: '192.168.2.81', // ip
 
 		port: 22, // 端口
 
 		username: 'root', // 登录服务器的账号
 
-		password: 'Rock@sz18!', // 登录服务器的账号
+		password: '123456', // 登录服务器的账号
 
-		path: '/mdm/nginx/dist' // 发布至静态服务器的项目路径
-	},
-
-	{
-		id: 1,
-
-		name: 'B-测试环境',
-
-		domain: 'test.xxx.com',
-
-		host: 'XX.XX.XX.XX',
-
-		port: 22,
-
-		username: 'root',
-
-		password: 'xxxxxxx',
-
-		path: '/usr/local/www/xxx_program_test/'
+		path: '/var/lib/jenkins/workspace/frond-test' // 发布至静态服务器的项目路径
 	}
+
+	// {
+	// 	id: 0,
+
+	// 	name: 'A-生产环境',
+
+	// 	domain: 'www.prod.com', // 域名
+
+	// 	host: '46.106.38.24', // ip
+
+	// 	port: 22, // 端口
+
+	// 	username: 'root', // 登录服务器的账号
+
+	// 	password: 'Rock@sz18!', // 登录服务器的账号
+
+	// 	path: '/mdm/nginx/dist' // 发布至静态服务器的项目路径
+	// },
+
+	// {
+	// 	id: 1,
+
+	// 	name: 'B-测试环境',
+
+	// 	domain: 'test.xxx.com',
+
+	// 	host: 'XX.XX.XX.XX',
+
+	// 	port: 22,
+
+	// 	username: 'root',
+
+	// 	password: 'xxxxxxx',
+
+	// 	path: '/usr/local/www/xxx_program_test/'
+	// }
 ];
 
 module.exports = SERVER_LIST[SERVER_ID];
