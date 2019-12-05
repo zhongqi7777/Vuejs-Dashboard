@@ -21,7 +21,7 @@
         @mousemove.ctrl="multSe3lectStep(data)"
         @mouseup="mouseUpStep"
       >-->
-      <div
+      <!-- <div
         v-for="(data, index) in stepData"
         :key="index"
         :id="data.id"
@@ -33,6 +33,16 @@
         @mousedown="selectCurrentStep(data)"
         @mousemove.ctrl="multSe3lectStep(data)"
         @mouseup="mouseUpStep"
+      > -->
+      <div
+        v-for="(data, index) in stepData"
+        :key="index"
+        :id="data.id"
+        :class="setNodeStyle(data)"
+        :data-sign="data.name"
+        :data-type="data.type"
+        :style="'left:' + data.x + 'px;top:' + data.y + 'px;'"
+        @dblclick="dblClick(data)"
       >
         <i class="icon iconfont icon-ir-designIconBg designIconBg"></i>
         <i
@@ -286,12 +296,7 @@ export default {
         _
       );
 
-      connect(
-        data.jsplumbInstance,
-        data.self,
-        data.links,
-        connectCallback
-      );
+      connect(data.jsplumbInstance, data.self, data.links, connectCallback);
     },
     completedConnect() {
       this.getLinksData();
@@ -769,5 +774,9 @@ export default {
     right: -2px;
     // top: -120px;
   }
+
+  // .jtk-connector-path {
+  //   stroke-dasharray: 10;
+  // }
 }
 </style>

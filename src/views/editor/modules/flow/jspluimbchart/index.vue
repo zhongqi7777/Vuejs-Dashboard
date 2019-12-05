@@ -12,6 +12,12 @@
           </el-col>
           <el-col :span="6" justify="space-around">
             <div class="grid-content bg-purple-light">
+              <el-button size="small" @click="addCssRules"
+                >addCssRules</el-button
+              >
+              <el-button size="small" @click="removeCssRules"
+                >removeCssRules</el-button
+              >
               <el-button size="small" @click="clearall">清空</el-button>
               <el-button size="small" @click="reset">还原</el-button>
               <el-button size="small" @click="saveFlow">保存</el-button>
@@ -39,7 +45,10 @@
       </el-container>
     </el-container>
 
-    <stepdialog :data="dialogOption" @modifyFlowData="modifyFlowData"></stepdialog>
+    <stepdialog
+      :data="dialogOption"
+      @modifyFlowData="modifyFlowData"
+    ></stepdialog>
   </div>
 </template>
 
@@ -116,6 +125,23 @@ export default {
   destroyed: function() {},
   methods: {
     //...mapActions([""]),
+    addCssRules() {
+      const css = ".jtk-connector path { stroke-dasharray: 10;}";
+      const style = document.createElement("style");
+      if (style.styleSheet) {
+        console.log(' if (style.styleSheet) { if')
+        style.styleSheet.cssText = css;
+      } else {
+        console.log("else");
+        style.appendChild(document.createTextNode(css));
+        style.setAttribute('id', 'addCssRules')
+        
+      }
+      document.getElementsByTagName("head")[0].appendChild(style);
+    },
+    removeCssRules() {
+      document.getElementById("addCssRules").remove();
+    },
     handleDragover() {
       //console.log("handleDragover(){");
     },
