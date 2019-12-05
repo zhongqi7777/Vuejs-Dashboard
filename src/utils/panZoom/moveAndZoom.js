@@ -13,15 +13,17 @@ function init(instance) {
 		autocenter: true,
 		zoomDoubleClickSpeed: 1,
 		minZoom: 0.5,
-    maxZoom: 2,
-		beforeWheel: function(e) {
-			// allow wheel-zoom only if altKey is down. Otherwise - ignore
-			var shouldIgnore = !e.altKey;
-			return shouldIgnore;
-		}
+		maxZoom: 2,
+		// beforeWheel: function(e) {
+		// 	// allow wheel-zoom only if altKey is down. Otherwise - ignore
+		// 	var shouldIgnore = !e.altKey;
+		// 	return shouldIgnore;
+		// }
 	});
 	instance.mainContainerWrap = mainContainerWrap;
 	instance.pan = pan;
+
+	//let style = window.getComputedStyle(mainContainer);
 
 	// 缩放时设置jsPlumb的缩放比率
 	pan.on('zoom', (e) => {
@@ -30,14 +32,19 @@ function init(instance) {
 		instance.setZoom(scale);
 	});
 
-	pan.on('panstart', function(e) {
-		// console.log("Fired when pan is just started ", e);
-		// Note: e === instance.
-	});
-
 	pan.on('panend', function(e, x, y) {
-		console.log('Fired when pan ended', e, x, y);
+		// let values = style.transform.split('(')[1].split(')')[0].split(',');
+		// console.log('style.transform', style.transform); //matrix
+		// console.log('水平移动距离', parseFloat(values[4]));
+		// console.log('垂直移动距离', parseFloat(values[5]));
+		// console.log('坐标', {
+		// 	x: parseFloat(values[4]) * parseFloat(values[0]),
+		// 	y: parseFloat(values[5]) * parseFloat(values[3])
+		// });
+		//console.log('Fired when pan ended', e, x, y);
 		// const containerRect = instance.getContainer().getBoundingClientRect();
+		// console.log("containerRect",containerRect);
+		//console.log('坐标', { x: containerRect.left, y: containerRect.top });
 		// console.log("containerRect pand", containerRect);
 		// let jsplumbchart = document.getElementById("jsplumb-chart");
 		// jsplumbchart.style.left = containerRect.left + "px";

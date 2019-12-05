@@ -518,7 +518,8 @@ export default {
     outline: none !important;
     height: 100%;
     width: 100%;
-    position: relative;
+    // position: relative;
+    position: absolute;
   }
 
   .jtk-surface {
