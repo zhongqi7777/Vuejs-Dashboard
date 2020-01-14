@@ -528,7 +528,6 @@ export default {
   }
 
   .jtk-surface {
-    // z-index: 0;
     // height: 100%;
     // width: 100%;
     // // background: #4586f3;

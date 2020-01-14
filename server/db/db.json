@@ -101,7 +101,16 @@
   "flowlist": [
     {
       "flowName": "flow_1",
-      "links": [],
+      "links": [
+        {
+          "name": "con_33",
+          "source": "source_1",
+          "sourceOutput": "output",
+          "target": "sink_2",
+          "targetInput": "input",
+          "input": "input"
+        }
+      ],
       "steps": [
         {
           "id": "source_1",
@@ -113,9 +122,20 @@
           "outputConfigurations": {
             "output": []
           }
+        },
+        {
+          "id": "sink_2",
+          "name": "sink",
+          "type": "sink",
+          "x": 963,
+          "y": 257,
+          "stepSettings": {},
+          "inputConfigurations": {
+            "input": []
+          }
         }
       ],
-      "date": "2019-12-05 19:39:42",
+      "date": "2020-01-14 14:21:12",
       "id": 1
     }
   ],

@@ -658,7 +658,6 @@ export const addMultioutput = val => {
 
 export const connect = (jsplumbInstance, self, links, connectCallback) => {
   self.$nextTick(() => {
-    console.log(' connect = (jsplumbInstance, self, links, connectCallback) => {');
     //节点之间连线
     links.forEach(item => {
       jsplumbInstance.connect({
