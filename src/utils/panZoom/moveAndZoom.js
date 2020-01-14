@@ -4,7 +4,6 @@ const panzoom = require("panzoom");
 
 // 初始化panzoom插件
 function init(instance) {
-  console.log("function init(instance) {", instance);
   const mainContainer = instance.getContainer();
   const mainContainerWrap = mainContainer.parentNode;
   const pan = panzoom(mainContainer, {

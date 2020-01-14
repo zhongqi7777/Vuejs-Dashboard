@@ -207,11 +207,9 @@ export default {
       let container = instance.getContainer();
       let scale1;
       if (instance.pan) {
-        console.log("if (this.jsplumbInstance.pan) {");
         const { scale } = instance.pan.getTransform();
         scale1 = scale;
       } else {
-        console.log(" } else {");
         const matrix = window.getComputedStyle(container).transform;
         scale1 = matrix.split(", ")[3] * 1;
       }
