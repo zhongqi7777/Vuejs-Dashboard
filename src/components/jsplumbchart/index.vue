@@ -33,7 +33,7 @@
         @mousedown="selectCurrentStep(data)"
         @mousemove.ctrl="multSe3lectStep(data)"
         @mouseup="mouseUpStep"
-      > -->
+      >-->
       <div
         v-for="(data, index) in stepData"
         :key="index"
@@ -193,6 +193,12 @@ export default {
           if (this.isPanZoomInit) {
             panzoom.init(this.jsplumbInstance);
             this.isPanZoomInit = false;
+
+            console.log(this.data.matrix);
+            let container = this.jsplumbInstance.getContainer();
+
+            document.getElementById("jsplumb-chart").style.transform = this.data.matrix;
+            // this.addClass(container)
           }
           //
         }

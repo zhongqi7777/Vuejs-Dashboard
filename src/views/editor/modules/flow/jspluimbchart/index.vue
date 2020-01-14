@@ -12,12 +12,8 @@
           </el-col>
           <el-col :span="6" justify="space-around">
             <div class="grid-content bg-purple-light">
-              <el-button size="small" @click="addCssRules"
-                >addCssRules</el-button
-              >
-              <el-button size="small" @click="removeCssRules"
-                >removeCssRules</el-button
-              >
+              <!-- <el-button size="small" @click="addCssRules">addCssRules</el-button>
+              <el-button size="small" @click="removeCssRules">removeCssRules</el-button> -->
               <el-button size="small" @click="clearall">清空</el-button>
               <el-button size="small" @click="reset">还原</el-button>
               <el-button size="small" @click="saveFlow">保存</el-button>
@@ -29,6 +25,7 @@
         <el-main>
           <jsplumbchart
             :data="{
+              matrix:matrix,
               stepData: this.steps,
               links: this.links,
               jsPlumb: this.jsPlumb
@@ -45,10 +42,7 @@
       </el-container>
     </el-container>
 
-    <stepdialog
-      :data="dialogOption"
-      @modifyFlowData="modifyFlowData"
-    ></stepdialog>
+    <stepdialog :data="dialogOption" @modifyFlowData="modifyFlowData"></stepdialog>
   </div>
 </template>
 
@@ -100,7 +94,8 @@ export default {
       input1: "",
       links: [],
       steps: [],
-      jsPlumb: jsPlumb
+      jsPlumb: jsPlumb,
+      matrix: ""
     };
   },
   computed: {
@@ -113,6 +108,7 @@ export default {
         this.steps = flowData.steps;
         this.links = flowData.links;
         this.input1 = flowData.flowName;
+        this.matrix = flowData.matrix;
       });
     }
   },
@@ -129,13 +125,12 @@ export default {
       const css = ".jtk-connector path { stroke-dasharray: 10;}";
       const style = document.createElement("style");
       if (style.styleSheet) {
-        console.log(' if (style.styleSheet) { if')
+        console.log(" if (style.styleSheet) { if");
         style.styleSheet.cssText = css;
       } else {
         console.log("else");
         style.appendChild(document.createTextNode(css));
-        style.setAttribute('id', 'addCssRules')
-        
+        style.setAttribute("id", "addCssRules");
       }
       document.getElementsByTagName("head")[0].appendChild(style);
     },
@@ -196,6 +191,10 @@ export default {
       // console.log("this.links", this.links);
       // console.log("this.steps", this.steps);
 
+      const matrix = window.getComputedStyle(
+        this.$refs.jsplumbchart.jsplumbInstance.getContainer()
+      ).transform;
+
       if (!this.input1) {
         this.$message({
           showClose: true,
@@ -210,7 +209,8 @@ export default {
         flowName: this.input1,
         links: this.links,
         steps: this.steps,
-        date: moment().format("YYYY-MM-DD HH:mm:ss")
+        date: moment().format("YYYY-MM-DD HH:mm:ss"),
+        matrix: matrix
       };
 
       if (this.$route.query.id) {
