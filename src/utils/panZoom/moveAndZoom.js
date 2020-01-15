@@ -3,11 +3,10 @@
 const panzoom = require('panzoom');
 
 // 初始化panzoom插件
-function init(instance, transformOrigin) {
+function init(instance) {
 	const mainContainer = instance.getContainer();
 	const mainContainerWrap = mainContainer.parentNode;
 	const pan = panzoom(mainContainer, {
-		// transformOrigin: transformOrigin,
 		smoothScroll: false,
 		// bounds: true,
 		autocenter: true,
@@ -25,23 +24,12 @@ function init(instance, transformOrigin) {
 	// 缩放时设置jsPlumb的缩放比率
 	pan.on('zoom', (e) => {
 		const { scale } = e.getTransform();
-		// console.log("scale", scale);
 		instance.setZoom(scale);
 	});
 
-	pan.on('panstart', function(e) {
-		// console.log("Fired when pan is just started ", e);
-		// Note: e === instance.
-	});
+	// pan.on('panstart', function(e) {});
 
-	pan.on('panend', function(e, x, y) {
-		console.log('Fired when pan ended', e, x, y);
-		// const containerRect = instance.getContainer().getBoundingClientRect();
-		// console.log("containerRect pand", containerRect);
-		// let jsplumbchart = document.getElementById("jsplumb-chart");
-		// jsplumbchart.style.left = containerRect.left + "px";
-		// jsplumbchart.style.top = containerRect.top + "px";
-	});
+	// pan.on('panend', function(e, x, y) {});
 
 	// 平移时设置鼠标样式
 	mainContainerWrap.style.cursor = 'grab';
@@ -55,7 +43,7 @@ function init(instance, transformOrigin) {
 		this.style.cursor = 'grab';
 	});
 
-	mainContainer.oncontextmenu = () => {
+	mainContainerWrap.oncontextmenu = () => {
 		return false;
 	};
 

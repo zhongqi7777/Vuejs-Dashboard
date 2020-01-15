@@ -191,13 +191,20 @@ export default {
         () => {
           this.getLinksData();
           if (this.isPanZoomInit) {
+            let matrix = this.data.matrix
+              .split("(")[1]
+              .split(")")[0]
+              .split(",");
+            let transformOrigin = {
+              x: parseInt(matrix[4]),
+              y: parseInt(matrix[5])
+            };
             panzoom.init(this.jsplumbInstance);
             this.isPanZoomInit = false;
-
-            console.log(this.data.matrix);
-            //let container = this.jsplumbInstance.getContainer();
-            //document.getElementById("jsplumb-chart").style.transform = this.data.matrix;
-            // this.addClass(container)
+            this.jsplumbInstance.pan.moveTo(
+              transformOrigin.x,
+              transformOrigin.y
+            );
           }
           //
         }
