@@ -191,20 +191,15 @@ export default {
         () => {
           this.getLinksData();
           if (this.isPanZoomInit) {
-            let matrix = this.data.matrix
-              .split("(")[1]
-              .split(")")[0]
-              .split(",");
-            let transformOrigin = {
-              x: parseInt(matrix[4]),
-              y: parseInt(matrix[5])
-            };
             panzoom.init(this.jsplumbInstance);
             this.isPanZoomInit = false;
-            this.jsplumbInstance.pan.moveTo(
-              transformOrigin.x,
-              transformOrigin.y
-            );
+
+            this.canvasMoveTo(this.data.matrix, transformOrigin => {
+              this.jsplumbInstance.pan.moveTo(
+                transformOrigin.x,
+                transformOrigin.y
+              );
+            });
           }
           //
         }
@@ -215,6 +210,18 @@ export default {
   destroyed: function() {},
   methods: {
     //...mapActions([""]),
+    canvasMoveTo(data, fn) {
+      let matrix = data
+        .split("(")[1]
+        .split(")")[0]
+        .split(",");
+      let transformOrigin = {
+        x: parseInt(matrix[4]),
+        y: parseInt(matrix[5])
+      };
+
+      fn(transformOrigin);
+    },
     getScale(instance) {
       let container = instance.getContainer();
       let scale1;
