@@ -3,10 +3,11 @@
 const panzoom = require('panzoom');
 
 // 初始化panzoom插件
-function init(instance) {
+function init(instance, transformOrigin) {
 	const mainContainer = instance.getContainer();
 	const mainContainerWrap = mainContainer.parentNode;
 	const pan = panzoom(mainContainer, {
+		// transformOrigin: transformOrigin,
 		smoothScroll: false,
 		// bounds: true,
 		autocenter: true,
