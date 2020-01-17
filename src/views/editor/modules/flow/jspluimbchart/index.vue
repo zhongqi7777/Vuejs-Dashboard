@@ -111,10 +111,8 @@ export default {
         let flowData = res.data[0];
         this.steps = flowData.steps;
         this.links = flowData.links;
-        // this.input1 = flowData.flowName;
-        // this.matrix = flowData.matrix;
-
-        console.log("this.steps", this.steps);
+        this.input1 = flowData.flowName;
+        this.matrix = flowData.matrix;
         this.jsplumbchartOption = {
           steps: this.steps,
           links: this.links,
@@ -162,10 +160,6 @@ export default {
       };
     },
     handleDrop(val) {
-      // console.log("handleDrop(val) {", val);
-      // console.log(val.drawIcon ? this.getCurrentNode(val) : val);
-      // this.steps.push(val.drawIcon ? this.getCurrentNode(val) : val);
-      console.log("this.steps", this.steps);
       this.steps.push(
         val.drawIcon ? this.getCurrentNode(val) : this.copyNode(val)
       );

@@ -87,7 +87,6 @@ export default {
   beforeUpdate() {},
   updated() {
     this.$nextTick(() => {
-      console.log("   this.$nextTick(() => {");
       this.drawJsplumbChart(
         {
           jsplumbInstance: this.jsplumbInstance,
@@ -101,12 +100,12 @@ export default {
             panzoom.init(this.jsplumbInstance, false);
             this.isPanZoomInit = false;
 
-            // this.canvasMoveTo(this.data.matrix, transformOrigin => {
-            //   this.jsplumbInstance.pan.moveTo(
-            //     transformOrigin.x,
-            //     transformOrigin.y
-            //   );
-            // });
+            this.canvasMoveTo(this.data.matrix, transformOrigin => {
+              this.jsplumbInstance.pan.moveTo(
+                transformOrigin.x,
+                transformOrigin.y
+              );
+            });
           }
         }
       );
