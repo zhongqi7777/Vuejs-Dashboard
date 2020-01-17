@@ -22,19 +22,7 @@
         </el-row>
       </el-header>
       <el-container>
-        <el-main>
-          <!-- <jsplumbchart
-            :data="{
-              matrix:matrix,
-              stepData: this.steps,
-              links: this.links,
-              jsPlumb: this.jsPlumb
-            }"
-            @handleDrop="handleDrop"
-            @modifyChart="modifyChart"
-            @nodedblClick="nodedblClick"
-            ref="jsplumbchart"
-          ></jsplumbchart>-->
+        <el-main class="jsplumbchart-main">
           <drop class="drop-workplace" @drop="handleDrop" id="workplace">
             <jsplumbchart
               :data="jsplumbchartOption"
@@ -121,17 +109,19 @@ export default {
     if (this.$route.query.id) {
       getFlowItem({ id: this.$route.query.id }).then(res => {
         let flowData = res.data[0];
-        // this.steps = flowData.steps;
-        // this.links = flowData.links;
+        this.steps = flowData.steps;
+        this.links = flowData.links;
         // this.input1 = flowData.flowName;
         // this.matrix = flowData.matrix;
+
+        console.log("this.steps", this.steps);
         this.jsplumbchartOption = {
-          steps: flowData.steps,
-          links: flowData.links,
+          steps: this.steps,
+          links: this.links,
           container: "workplace",
           nodeType: "flowchartnode",
           jsPlumb: this.jsPlumb,
-          matrix:flowData.matrix
+          matrix: flowData.matrix
         };
       });
     }
@@ -164,18 +154,76 @@ export default {
     handleDragover() {
       //console.log("handleDragover(){");
     },
+    copyNode(node) {
+      let uuid = jsPlumbUtil.uuid();
+      return {
+        ...node,
+        id: this.isExitStepID(node.id) ? node.id + "_new" + uuid : node.id
+      };
+    },
     handleDrop(val) {
       // console.log("handleDrop(val) {", val);
       // console.log(val.drawIcon ? this.getCurrentNode(val) : val);
-      this.steps.push(val.drawIcon ? this.getCurrentNode(val) : val);
+      // this.steps.push(val.drawIcon ? this.getCurrentNode(val) : val);
+      console.log("this.steps", this.steps);
+      this.steps.push(
+        val.drawIcon ? this.getCurrentNode(val) : this.copyNode(val)
+      );
+
+      this.jsplumbchartOption = {
+        ...this.jsplumbchartOption,
+        steps: this.steps,
+        links: this.links
+      };
+    },
+    isExitStepID(val) {
+      let result = false;
+      _.forEach(this.flowData, item => {
+        if (item.id == val) {
+          result = true;
+        }
+      });
+
+      return result;
+    },
+    getScale(instance) {
+      let container = instance.getContainer();
+      let scale1;
+      if (instance.pan) {
+        const { scale } = instance.pan.getTransform();
+        scale1 = scale;
+      } else {
+        const matrix = window.getComputedStyle(container).transform;
+        scale1 = matrix.split(", ")[3] * 1;
+      }
+      instance.setZoom(scale1);
+      return scale1;
     },
     getCurrentNode(data) {
+      let jsplumbInstance = this.$refs.jsplumbchart.jsplumbInstance;
+      const containerRect = jsplumbInstance
+        .getContainer()
+        .getBoundingClientRect();
+      let scale = this.getScale(jsplumbInstance);
+
+      let left = (event.pageX - containerRect.left) / scale;
+      let top = (event.pageY - containerRect.top) / scale;
+      left -= 20;
+      top -= 25;
+
+      let uuid = jsPlumbUtil.uuid();
+      let stepId = data.drawIcon.id + "_" + (this.steps.length + 1);
+      let newstepid = this.isExitStepID(stepId)
+        ? stepId + "_new" + uuid
+        : stepId;
       let node = {
-        id: data.drawIcon.id + "_" + (this.steps.length + +1),
+        id: this.isExitStepID(newstepid) ? newstepid + "_new" : newstepid,
         name: data.drawIcon.name,
         type: data.drawIcon.type,
-        x: data.x,
-        y: data.y,
+        x: left,
+        y: top,
+        // x: event.offsetX,
+        // y: event.offsetY,
         stepSettings: data.drawIcon.stepSettings
       };
 
@@ -248,7 +296,7 @@ export default {
       }
     },
     modifyChart(val) {
-      this.steps = val.steps;
+      this.steps = val.stepData;
       this.links = val.links;
     },
     clearall() {
@@ -454,7 +502,7 @@ export default {
 
   .el-main {
     background-image: url("../../../../../assets/editor/designBg.png");
-    // position: relative;
+    position: relative;
   }
 
   .el-container:nth-child(5) .el-aside,

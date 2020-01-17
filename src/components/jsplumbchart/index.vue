@@ -87,6 +87,7 @@ export default {
   beforeUpdate() {},
   updated() {
     this.$nextTick(() => {
+      console.log("   this.$nextTick(() => {");
       this.drawJsplumbChart(
         {
           jsplumbInstance: this.jsplumbInstance,
