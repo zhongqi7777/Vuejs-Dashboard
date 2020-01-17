@@ -1,43 +1,3 @@
-//字体图标的变量（需跟iconFont字体包同步）
-var nodeIconFont = {
-	source: 'source',
-	sqlsource: 'sqlsource',
-	sink: 'sink',
-	decision: 'decision',
-	validate: 'validate',
-	supplement: 'supplement',
-	sql: 'sql',
-	transform: 'transform',
-	filter: 'filter',
-	sample: 'sample',
-	lookup: 'lookup',
-	join: 'join',
-	starjoin: 'starjoin',
-	productjoin: 'productjoin',
-	aggregate: 'aggregate',
-	top: 'top',
-	union: 'union',
-	intersect: 'intersect',
-	minus: 'minus',
-	split: 'split',
-	Correlation: 'Correlation',
-	Summary: 'Summary',
-	gradientboogradientbostedtrees_predict: 'gradientboogradientbostedtrees_predict',
-	MultilayerPerceptronPredict: 'MultilayerPerceptronPredict',
-	MultilayerPerceptronTrain: 'MultilayerPerceptronTrain',
-	kmeans_predict: 'kmeans_predict',
-	kmeans_train: 'kmeans_train'
-	// aggregate: "aggregate"
-};
-//节点图标函数
-export function nodeIcon(type) {
-	if (type in nodeIconFont) {
-		return 'iconTrue';
-	} else {
-		return false;
-	}
-}
-
 export const messageDialog = (message, callback, self) => {
 	self
 		.$confirm(message, '提示', {
@@ -174,4 +134,84 @@ export const setFormDataUtils = (
 		adformItemList: adformItemList,
 		adformItemData: adformItemData
 	};
+};
+
+export const timeDifference = (startTime, endTime) => {
+	let start = typeof startTime == 'number' ? startTime : new Date(startTime).getTime(),
+		end = typeof endTime == 'number' ? endTime : new Date(endTime).getTime(),
+		difference = end - start, //时间差的毫秒数
+		days = Math.floor(difference / (24 * 3600 * 1000)), //计算出相差天数
+		leave1 = difference % (24 * 3600 * 1000), //计算天数后剩余的毫秒数
+		hours = Math.floor(leave1 / (3600 * 1000)), //计算相差分钟数
+		leave2 = leave1 % (3600 * 1000), //计算小时数后剩余的毫秒数
+		minutes = Math.floor(leave2 / (60 * 1000)), //计算相差秒数
+		leave3 = leave2 % (60 * 1000), //计算分钟数后剩余的毫秒数
+		seconds = Math.round(leave3 / 1000);
+	return `运行${days}天${hours}小时${minutes}分钟${seconds}秒`;
+};
+
+export const parseParams = (data) => {
+	try {
+		var tempArr = [];
+		for (var i in data) {
+			var key = encodeURIComponent(i);
+			var value = encodeURIComponent(data[i]);
+			tempArr.push(key + '=' + value);
+		}
+		var urlParamsStr = tempArr.join('&');
+		return urlParamsStr;
+	} catch (err) {
+		return '';
+	}
+};
+
+export const deleteEmptyProperty = (object) => {
+	for (var i in object) {
+		var value = object[i];
+		if (typeof value === 'object') {
+			if (Array.isArray(value)) {
+				if (value.length == 0) {
+					delete object[i];
+					continue;
+				}
+			}
+			this.deleteEmptyProperty(value);
+			if (isEmpty(value)) {
+				delete object[i];
+			}
+		} else {
+			if (value === '' || value === null || value === undefined) {
+				delete object[i];
+			} else {
+			}
+		}
+	}
+
+	return object;
+};
+
+export const isEmpty = (object) => {
+	for (var name in object) {
+		return false;
+	}
+	return true;
+};
+
+
+
+export const getRequest = (urlStr) => {
+	if (typeof urlStr == 'undefined') {
+		var url = decodeURI(location.search); //获取url中"?"符后的字符串
+	} else {
+		var url = '?' + urlStr.split('?')[1];
+	}
+	var theRequest = new Object();
+	if (url.indexOf('?') != -1) {
+		var str = url.substr(1);
+		var strs = str.split('&');
+		for (var i = 0; i < strs.length; i++) {
+			theRequest[strs[i].split('=')[0]] = decodeURI(strs[i].split('=')[1]);
+		}
+	}
+	return theRequest;
 };

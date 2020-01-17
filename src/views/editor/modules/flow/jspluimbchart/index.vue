@@ -13,7 +13,7 @@
           <el-col :span="6" justify="space-around">
             <div class="grid-content bg-purple-light">
               <!-- <el-button size="small" @click="addCssRules">addCssRules</el-button>
-              <el-button size="small" @click="removeCssRules">removeCssRules</el-button> -->
+              <el-button size="small" @click="removeCssRules">removeCssRules</el-button>-->
               <el-button size="small" @click="clearall">清空</el-button>
               <el-button size="small" @click="reset">还原</el-button>
               <el-button size="small" @click="saveFlow">保存</el-button>
@@ -23,7 +23,7 @@
       </el-header>
       <el-container>
         <el-main>
-          <jsplumbchart
+          <!-- <jsplumbchart
             :data="{
               matrix:matrix,
               stepData: this.steps,
@@ -34,7 +34,16 @@
             @modifyChart="modifyChart"
             @nodedblClick="nodedblClick"
             ref="jsplumbchart"
-          ></jsplumbchart>
+          ></jsplumbchart>-->
+          <drop class="drop-workplace" @drop="handleDrop" id="workplace">
+            <jsplumbchart
+              :data="jsplumbchartOption"
+              @modifyChart="modifyChart"
+              @nodedblClick="nodedblClick"
+              @handleDrop="handleDrop"
+              ref="jsplumbchart"
+            ></jsplumbchart>
+          </drop>
         </el-main>
         <el-aside width="250px">
           <vaside></vaside>
@@ -70,6 +79,13 @@ export default {
   components: { vaside, stepdialog, jsplumbchart },
   data: function() {
     return {
+      jsplumbchartOption: {
+        steps: this.steps,
+        links: this.links,
+        container: "workplace",
+        nodeType: "flowchartnode",
+        jsPlumb: jsPlumb
+      },
       nodeTab: [
         {
           title: "输入",
@@ -105,10 +121,18 @@ export default {
     if (this.$route.query.id) {
       getFlowItem({ id: this.$route.query.id }).then(res => {
         let flowData = res.data[0];
-        this.steps = flowData.steps;
-        this.links = flowData.links;
-        this.input1 = flowData.flowName;
-        this.matrix = flowData.matrix;
+        // this.steps = flowData.steps;
+        // this.links = flowData.links;
+        // this.input1 = flowData.flowName;
+        // this.matrix = flowData.matrix;
+        this.jsplumbchartOption = {
+          steps: flowData.steps,
+          links: flowData.links,
+          container: "workplace",
+          nodeType: "flowchartnode",
+          jsPlumb: this.jsPlumb,
+          matrix:flowData.matrix
+        };
       });
     }
   },

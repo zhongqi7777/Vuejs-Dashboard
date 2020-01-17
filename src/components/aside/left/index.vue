@@ -11,7 +11,9 @@
         <template slot="title">
           <i class="icon iconfont icon-ir-supply-chain"></i>
           &nbsp;{{ drawNav.group }}
-          <span class="iconNavNub">({{ drawNav.thisIcon.length }})</span>
+          <span
+            class="iconNavNub"
+          >({{ drawNav.thisIcon.length }})</span>
         </template>
         <drag
           class="designIcon"
@@ -22,12 +24,7 @@
           :data-type="drawIcon.type"
           :transfer-data="{ drawIcon }"
         >
-          <el-tooltip
-            class="item"
-            effect="dark"
-            :content="drawIcon.name"
-            placement="top"
-          >
+          <el-tooltip class="item" effect="dark" :content="drawIcon.name" placement="top">
             <div class="item-step-icon">
               <i :class="drawIcon.name | iconFilter"></i>
               <h4>{{ drawIcon.name }}</h4>
@@ -40,7 +37,7 @@
 </template>
 
 <script>
-import { nodeIcon } from "@/utils/flowchart";
+import { nodeIcon } from "@/utils/index";
 import { getAllStepList } from "@/api/flow";
 // import _ from "lodash";
 export default {
@@ -69,6 +66,13 @@ export default {
     this.initData();
   },
   methods: {
+    nodeIcon() {
+      if (type in nodeIconFont) {
+        return "iconTrue";
+      } else {
+        return false;
+      }
+    },
     handleDragstart() {
       console.log(" handleDragstart(){");
     },
