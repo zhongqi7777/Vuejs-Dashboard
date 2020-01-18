@@ -1,0 +1,9 @@
+@charset "UTF-8";
+
+$themeColor: #409eff;
+
+@mixin ellipsis() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
