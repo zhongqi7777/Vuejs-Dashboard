@@ -39,6 +39,7 @@ export default {
       this.stepData = this.data.steps;
       this.links = this.data.links;
       this.nodeType = this.data.nodeType;
+      this.containerRect = val.containerRect;
     },
     stepData(val) {
       this.$emit("modifyChart", { stepData: val, links: this.links });
@@ -74,7 +75,8 @@ export default {
       instanceZoom: "",
       nodeType: "",
       isPanZoomInit: true,
-      cssText: ""
+      cssText: "",
+      containerRect: ""
     };
   },
   computed: {
@@ -87,6 +89,29 @@ export default {
   beforeUpdate() {},
   updated() {
     this.$nextTick(() => {
+      if (this.containerRect) {
+        let lastStep = _.last(this.stepData);
+        let result = this.modifyNodePositon({ x: lastStep.x, y: lastStep.y });
+        this.stepData = _.map(_.cloneDeep(this.stepData), item => {
+          if (lastStep.id == item.id) {
+            return {
+              ...item,
+              x: result.x,
+              y: result.y
+            };
+          } else {
+            return item;
+          }
+        });
+
+        this.$emit("modifyJsplumbchartOption", {
+          ...this.data,
+          steps: this.stepData,
+          links: this.links,
+          containerRect: ""
+        });
+      }
+
       this.drawJsplumbChart(
         {
           jsplumbInstance: this.jsplumbInstance,
@@ -115,6 +140,33 @@ export default {
   destroyed: function() {},
   methods: {
     //...mapActions([""]),
+    getScale(instance) {
+      let container = instance.getContainer();
+      let scale1;
+      if (instance.pan) {
+        const { scale } = instance.pan.getTransform();
+        scale1 = scale;
+      } else {
+        const matrix = window.getComputedStyle(container).transform;
+        scale1 = matrix.split(", ")[3] * 1;
+      }
+      instance.setZoom(scale1);
+      return scale1;
+    },
+
+    modifyNodePositon(val) {
+      let jsplumbInstance = this.jsplumbInstance;
+      const containerRect = this.containerRect;
+      let scale = this.getScale(this.jsplumbInstance);
+      let left = (val.x - containerRect.left) / scale;
+      let top = (val.y - containerRect.top) / scale;
+      left -= 20;
+      top -= 25;
+      return {
+        x: left,
+        y: top
+      };
+    },
     canvasMoveTo(data, fn) {
       let matrix = data
         .split("(")[1]

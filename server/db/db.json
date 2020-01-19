@@ -103,7 +103,7 @@
       "flowName": "eter",
       "links": [
         {
-          "name": "con_9",
+          "name": "con_19",
           "source": "source_1",
           "sourceOutput": "output",
           "target": "sink_2",
@@ -111,10 +111,26 @@
           "input": "input"
         },
         {
-          "name": "con_10",
+          "name": "con_20",
           "source": "source_3",
           "sourceOutput": "output",
           "target": "sink_4",
+          "targetInput": "input",
+          "input": "input"
+        },
+        {
+          "name": "con_21",
+          "source": "source_5",
+          "sourceOutput": "output",
+          "target": "sink_6",
+          "targetInput": "input",
+          "input": "input"
+        },
+        {
+          "name": "con_22",
+          "source": "dummy_source_7",
+          "sourceOutput": "output",
+          "target": "transform_8",
           "targetInput": "input",
           "input": "input"
         }
@@ -163,10 +179,60 @@
           "inputConfigurations": {
             "input": []
           }
+        },
+        {
+          "id": "source_5",
+          "name": "source",
+          "type": "source",
+          "x": -1412,
+          "y": 35,
+          "stepSettings": {},
+          "outputConfigurations": {
+            "output": []
+          }
+        },
+        {
+          "id": "sink_6",
+          "name": "sink",
+          "type": "sink",
+          "x": -587.2880859375,
+          "y": 91.2879638671875,
+          "stepSettings": {},
+          "inputConfigurations": {
+            "input": []
+          }
+        },
+        {
+          "id": "dummy_source_7",
+          "name": "dummy_source",
+          "type": "source_dummy",
+          "x": -1073,
+          "y": 530,
+          "stepSettings": {
+            "dataType": "userClick",
+            "storage": "DUMMY"
+          },
+          "outputConfigurations": {
+            "output": []
+          }
+        },
+        {
+          "id": "transform_8",
+          "name": "transform",
+          "type": "transform",
+          "x": 40.49494181751484,
+          "y": 412.4082052178202,
+          "stepSettings": {},
+          "inputConfigurations": {
+            "input": []
+          },
+          "outputConfigurations": {
+            "output": []
+          }
         }
       ],
-      "date": "2020-01-17 14:34:19",
-      "matrix": "matrix(1, 0, 0, 1, 271, 183)",
+      "date": "2020-01-19 16:37:49",
+      "matrix": "matrix(1, 0, 0, 1, -1124, 96)",
       "id": 1
     }
   ],

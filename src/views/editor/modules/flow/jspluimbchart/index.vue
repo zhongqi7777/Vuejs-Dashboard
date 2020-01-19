@@ -26,6 +26,7 @@
           <drop class="drop-workplace" @drop="handleDrop" id="workplace">
             <jsplumbchart
               :data="jsplumbchartOption"
+              @modifyJsplumbchartOption="modifyJsplumbchartOption"
               @modifyChart="modifyChart"
               @nodedblClick="nodedblClick"
               @handleDrop="handleDrop"
@@ -72,7 +73,8 @@ export default {
         links: this.links,
         container: "workplace",
         nodeType: "flowchartnode",
-        jsPlumb: jsPlumb
+        jsPlumb: jsPlumb,
+        containerRect: ""
       },
       nodeTab: [
         {
@@ -133,6 +135,9 @@ export default {
   destroyed: function() {},
   methods: {
     //...mapActions([""]),
+    modifyJsplumbchartOption(val) {
+      this.jsplumbchartOption = val;
+    },
     addCssRules() {
       const css = ".jtk-connector path { stroke-dasharray: 10;}";
       const style = document.createElement("style");
@@ -167,7 +172,10 @@ export default {
       this.jsplumbchartOption = {
         ...this.jsplumbchartOption,
         steps: this.steps,
-        links: this.links
+        links: this.links,
+        containerRect: this.$refs.jsplumbchart.jsplumbInstance
+          .getContainer()
+          .getBoundingClientRect()
       };
     },
     isExitStepID(val) {
@@ -194,16 +202,15 @@ export default {
       return scale1;
     },
     getCurrentNode(data) {
-      let jsplumbInstance = this.$refs.jsplumbchart.jsplumbInstance;
-      const containerRect = jsplumbInstance
-        .getContainer()
-        .getBoundingClientRect();
-      let scale = this.getScale(jsplumbInstance);
-
-      let left = (event.pageX - containerRect.left) / scale;
-      let top = (event.pageY - containerRect.top) / scale;
-      left -= 20;
-      top -= 25;
+      // let jsplumbInstance = this.$refs.jsplumbchart.jsplumbInstance;
+      // const containerRect = jsplumbInstance
+      //   .getContainer()
+      //   .getBoundingClientRect();
+      // let scale = this.getScale(jsplumbInstance);
+      // let left = (event.pageX - containerRect.left) / scale;
+      // let top = (event.pageY - containerRect.top) / scale;
+      // left -= 20;
+      // top -= 25;
 
       let uuid = jsPlumbUtil.uuid();
       let stepId = data.drawIcon.id + "_" + (this.steps.length + 1);
@@ -214,10 +221,12 @@ export default {
         id: this.isExitStepID(newstepid) ? newstepid + "_new" : newstepid,
         name: data.drawIcon.name,
         type: data.drawIcon.type,
-        x: left,
-        y: top,
+        // x: left,
+        // y: top,
         // x: event.offsetX,
         // y: event.offsetY,
+        x: event.pageX,
+        y: event.pageY,
         stepSettings: data.drawIcon.stepSettings
       };
 
@@ -256,6 +265,7 @@ export default {
     saveFlow() {
       // console.log("this.links", this.links);
       // console.log("this.steps", this.steps);
+      // return;
 
       const matrix = window.getComputedStyle(
         this.$refs.jsplumbchart.jsplumbInstance.getContainer()
@@ -292,6 +302,12 @@ export default {
     modifyChart(val) {
       this.steps = val.stepData;
       this.links = val.links;
+
+      this.jsplumbchartOption = {
+        ...this.jsplumbchartOption,
+        steps: val.stepData,
+        links: val.links
+      };
     },
     clearall() {
       this.steps = [];

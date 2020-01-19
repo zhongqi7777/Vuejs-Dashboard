@@ -38,9 +38,6 @@ export default {
   watch: {
     data(val) {
       this.stepData = val.stepData;
-      // this.$nextTick(() => {
-      //   this.stepData = val.stepData;
-      // });
     }
   },
   props: {
@@ -71,6 +68,7 @@ export default {
   destroyed: function() {},
   methods: {
     //...mapActions([""]),
+
     delNode(val) {
       this.$emit("delNode", val);
     },
