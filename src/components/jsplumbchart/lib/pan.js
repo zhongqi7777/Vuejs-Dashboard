@@ -1,3 +1,4 @@
+/* eslint-disable */
 // import instance from './instance';
 
 const panzoom = require('panzoom');
@@ -26,12 +27,12 @@ function init(instance, shouldIgnore) {
 		instance.setZoom(scale);
 	});
 
-	pan.on('panstart', function(e) {
-		// console.log("Fired when pan is just started ", e);
-		// Note: e === instance.
-	});
+	// pan.on('panstart', function(e) {
+	// 	// console.log("Fired when pan is just started ", e);
+	// 	// Note: e === instance.
+	// });
 
-	pan.on('panend', function(e, x, y) {});
+	// pan.on('panend', function(e, x, y) {});
 
 	// 平移时设置鼠标样式
 	mainContainerWrap.style.cursor = 'grab';

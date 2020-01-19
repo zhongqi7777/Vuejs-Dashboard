@@ -22,6 +22,7 @@ export default function(options) {
 
 	instance.bind('connection', function(c) {
 		options.completedConnect();
+		return c;
 	});
 
 	// 连接线删除时触发

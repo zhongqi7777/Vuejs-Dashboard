@@ -73,9 +73,7 @@ export default {
         return false;
       }
     },
-    handleDragstart() {
-      console.log(" handleDragstart(){");
-    },
+    handleDragstart() {},
     start() {
       console.log("拖动开始");
     },
