@@ -90,6 +90,7 @@ export default {
   updated() {
     this.$nextTick(() => {
       if (this.containerRect) {
+        console.log('if (this.containerRect) {');
         let lastStep = _.last(this.stepData);
         let result = this.modifyNodePositon({ x: lastStep.x, y: lastStep.y });
         this.stepData = _.map(_.cloneDeep(this.stepData), item => {

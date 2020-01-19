@@ -165,6 +165,18 @@ export default {
       };
     },
     handleDrop(val) {
+      let stepData = "";
+      let containerRect = "";
+      // add step
+      if (val.drawIcon) {
+        stepData = this.getCurrentNode(val);
+        containerRect = this.$refs.jsplumbchart.jsplumbInstance
+          .getContainer()
+          .getBoundingClientRect();
+      } else {
+        // copy step
+        stepData = this.copyNode(val);
+      }
       this.steps.push(
         val.drawIcon ? this.getCurrentNode(val) : this.copyNode(val)
       );
@@ -173,9 +185,7 @@ export default {
         ...this.jsplumbchartOption,
         steps: this.steps,
         links: this.links,
-        containerRect: this.$refs.jsplumbchart.jsplumbInstance
-          .getContainer()
-          .getBoundingClientRect()
+        containerRect: containerRect
       };
     },
     isExitStepID(val) {
