@@ -277,9 +277,13 @@ export default {
       // console.log("this.steps", this.steps);
       // return;
 
-      const matrix = window.getComputedStyle(
-        this.$refs.jsplumbchart.jsplumbInstance.getContainer()
-      ).transform;
+      // console.log(this.$refs.jsplumbchart.jsplumbInstance.pan.getTransform());
+
+      
+
+      // const matrix = window.getComputedStyle(
+      //   this.$refs.jsplumbchart.jsplumbInstance.getContainer()
+      // ).transform;
 
       if (!this.input1) {
         this.$message({
@@ -296,7 +300,7 @@ export default {
         links: this.links,
         steps: this.steps,
         date: moment().format("YYYY-MM-DD HH:mm:ss"),
-        matrix: matrix
+        matrix: JSON.stringify(this.$refs.jsplumbchart.jsplumbInstance.pan.getTransform())
       };
 
       if (this.$route.query.id) {

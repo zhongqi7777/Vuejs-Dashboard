@@ -103,7 +103,7 @@
       "flowName": "eter",
       "links": [
         {
-          "name": "con_767",
+          "name": "con_55",
           "source": "source_1",
           "sourceOutput": "output",
           "target": "sink_2",
@@ -111,7 +111,7 @@
           "input": "input"
         },
         {
-          "name": "con_768",
+          "name": "con_56",
           "source": "source_3",
           "sourceOutput": "output",
           "target": "sink_4",
@@ -119,7 +119,7 @@
           "input": "input"
         },
         {
-          "name": "con_769",
+          "name": "con_57",
           "source": "dummy_source_7",
           "sourceOutput": "output",
           "target": "transform_8",
@@ -127,7 +127,7 @@
           "input": "input"
         },
         {
-          "name": "con_770",
+          "name": "con_58",
           "source": "source_10",
           "sourceOutput": "output",
           "target": "sql_11",
@@ -135,7 +135,7 @@
           "input": "input"
         },
         {
-          "name": "con_771",
+          "name": "con_59",
           "source": "source_13_copy",
           "sourceOutput": "output",
           "target": "sql_12_copy",
@@ -143,7 +143,7 @@
           "input": "input"
         },
         {
-          "name": "con_772",
+          "name": "con_60",
           "source": "source_15",
           "sourceOutput": "output",
           "target": "sink_16",
@@ -151,7 +151,7 @@
           "input": "input"
         },
         {
-          "name": "con_773",
+          "name": "con_61",
           "source": "source_15",
           "sourceOutput": "output",
           "target": "sql_18",
@@ -159,7 +159,7 @@
           "input": "input"
         },
         {
-          "name": "con_781",
+          "name": "con_62",
           "source": "source_18_copy",
           "sourceOutput": "output",
           "target": "sink_19",
@@ -397,10 +397,24 @@
           "inputConfigurations": {
             "input": []
           }
+        },
+        {
+          "id": "aggregate_20",
+          "name": "aggregate",
+          "type": "aggregate",
+          "x": 1056,
+          "y": -126,
+          "stepSettings": {},
+          "inputConfigurations": {
+            "input": []
+          },
+          "outputConfigurations": {
+            "output": []
+          }
         }
       ],
-      "date": "2020-01-19 18:24:38",
-      "matrix": "matrix(0.946446, 0, 0, 0.946446, 1487.87, 103.834)",
+      "date": "2020-01-20 15:22:44",
+      "matrix": "{\"x\":3302.9881002322204,\"y\":246.17354594489834,\"scale\":0.9995757002559338}",
       "id": 1
     }
   ],

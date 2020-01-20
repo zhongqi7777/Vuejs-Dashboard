@@ -129,10 +129,19 @@ export default {
               return;
             }
 
+            if(!this.data.matrix){
+              return;
+            }
+
             this.canvasMoveTo(this.data.matrix, transformOrigin => {
               this.jsplumbInstance.pan.moveTo(
                 transformOrigin.x,
                 transformOrigin.y
+              );
+              this.jsplumbInstance.pan.zoomAbs(
+                transformOrigin.x,
+                transformOrigin.y,
+                transformOrigin.scale
               );
             });
           }
@@ -173,16 +182,16 @@ export default {
       };
     },
     canvasMoveTo(data, fn) {
-      let matrix = data
-        .split("(")[1]
-        .split(")")[0]
-        .split(",");
-      let result = {
-        x: parseInt(matrix[4]),
-        y: parseInt(matrix[5])
-      };
+      // let matrix = data
+      //   .split("(")[1]
+      //   .split(")")[0]
+      //   .split(",");
+      // let result = {
+      //   x: parseInt(matrix[4]),
+      //   y: parseInt(matrix[5])
+      // };
 
-      fn(result);
+      fn(JSON.parse(data));
     },
     setCavansMatrix(data) {
       let source = _.filter(data, val => {
