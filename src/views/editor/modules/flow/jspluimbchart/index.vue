@@ -55,7 +55,6 @@ import {
   getSteoConfigData
 } from "@/api/flow";
 export default {
-  name:"jsplumbchart",
   watch: {
     // flowData(val) {
     // }
