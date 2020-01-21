@@ -167,19 +167,16 @@ export default {
     handleDrop(val) {
       let stepData = "";
       let containerRect = "";
+      let container = this.$refs.jsplumbchart.jsplumbInstance.getContainer();
       // add step
       if (val.drawIcon) {
-        stepData = this.getCurrentNode(val);
-        containerRect = this.$refs.jsplumbchart.jsplumbInstance
-          .getContainer()
-          .getBoundingClientRect();
+        stepData = this.getCurrentNode(val, container);
+        containerRect = container && container.getBoundingClientRect();
       } else {
         // copy step
         stepData = this.copyNode(val);
       }
-      this.steps.push(
-        val.drawIcon ? this.getCurrentNode(val) : this.copyNode(val)
-      );
+      this.steps.push(stepData);
 
       this.jsplumbchartOption = {
         ...this.jsplumbchartOption,
@@ -190,7 +187,7 @@ export default {
     },
     isExitStepID(val) {
       let result = false;
-      _.forEach(this.flowData, item => {
+      _.forEach(this.steps, item => {
         if (item.id == val) {
           result = true;
         }
@@ -211,17 +208,7 @@ export default {
       instance.setZoom(scale1);
       return scale1;
     },
-    getCurrentNode(data) {
-      // let jsplumbInstance = this.$refs.jsplumbchart.jsplumbInstance;
-      // const containerRect = jsplumbInstance
-      //   .getContainer()
-      //   .getBoundingClientRect();
-      // let scale = this.getScale(jsplumbInstance);
-      // let left = (event.pageX - containerRect.left) / scale;
-      // let top = (event.pageY - containerRect.top) / scale;
-      // left -= 20;
-      // top -= 25;
-
+    getCurrentNode(data,container) {
       let uuid = jsPlumbUtil.uuid();
       let stepId = data.drawIcon.id + "_" + (this.steps.length + 1);
       let newstepid = this.isExitStepID(stepId)
@@ -235,8 +222,10 @@ export default {
         // y: top,
         // x: event.offsetX,
         // y: event.offsetY,
-        x: event.pageX,
-        y: event.pageY,
+        // x: event.pageX,
+        // y: event.pageY,
+        x: _.isElement(container) ? event.pageX : event.offsetX,
+        y: _.isElement(container) ? event.pageY : event.offsetY,
         stepSettings: data.drawIcon.stepSettings
       };
 
@@ -279,8 +268,6 @@ export default {
 
       // console.log(this.$refs.jsplumbchart.jsplumbInstance.pan.getTransform());
 
-      
-
       // const matrix = window.getComputedStyle(
       //   this.$refs.jsplumbchart.jsplumbInstance.getContainer()
       // ).transform;
@@ -300,7 +287,9 @@ export default {
         links: this.links,
         steps: this.steps,
         date: moment().format("YYYY-MM-DD HH:mm:ss"),
-        matrix: JSON.stringify(this.$refs.jsplumbchart.jsplumbInstance.pan.getTransform())
+        matrix: JSON.stringify(
+          this.$refs.jsplumbchart.jsplumbInstance.pan.getTransform()
+        )
       };
 
       if (this.$route.query.id) {

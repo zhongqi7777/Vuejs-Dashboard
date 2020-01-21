@@ -416,6 +416,62 @@
       "date": "2020-01-20 15:22:44",
       "matrix": "{\"x\":3302.9881002322204,\"y\":246.17354594489834,\"scale\":0.9995757002559338}",
       "id": 1
+    },
+    {
+      "flowName": "4seftwsewr",
+      "links": [],
+      "steps": [
+        {
+          "id": "source_1",
+          "name": "source",
+          "type": "source",
+          "x": 1146,
+          "y": 93,
+          "stepSettings": {},
+          "outputConfigurations": {
+            "output": []
+          }
+        },
+        {
+          "id": "sink_2",
+          "name": "sink",
+          "type": "sink",
+          "x": 908,
+          "y": 113,
+          "stepSettings": {},
+          "inputConfigurations": {
+            "input": []
+          }
+        },
+        {
+          "id": "source_3",
+          "name": "source",
+          "type": "source",
+          "x": 855,
+          "y": 212,
+          "stepSettings": {},
+          "outputConfigurations": {
+            "output": []
+          }
+        },
+        {
+          "id": "join_4",
+          "name": "join",
+          "type": "join",
+          "x": 431,
+          "y": 148,
+          "stepSettings": {},
+          "inputConfigurations": {
+            "input": []
+          },
+          "outputConfigurations": {
+            "output": []
+          }
+        }
+      ],
+      "date": "2020-01-21 11:35:21",
+      "matrix": "{\"x\":-45,\"y\":18,\"scale\":1}",
+      "id": 2
     }
   ],
   "steplist": [
