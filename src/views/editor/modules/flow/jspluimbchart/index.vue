@@ -357,8 +357,6 @@ export default {
         steps: this.steps,
         links: this.links
       };
-
-      console.log("this.dialogOption ", this.dialogOption);
     },
     isOpenStepDialog(val) {
       if (val.type == "source" || val.type == "source_dummy") {
