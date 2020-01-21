@@ -1,9 +1,9 @@
 
 // import Vue from "vue";
-import Banner from "./Banner.vue";
+import Jsplumbchart from "./index.vue";
 
 const Components = {
-    Banner
+    Jsplumbchart
 };
 
 Object.keys(Components).forEach(name => {
