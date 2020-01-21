@@ -19,7 +19,7 @@
     "nodemon-server": "nodemon --watch mock --exec json-server ./server/db/db.json --port 7000",
     "json-server-routes": "json-server ./server/db/db.json --routes ./server/db/routes.json --port 7000",
     "json-server": "json-server ./server/db/db.json --port 7000",
-    "package": "vue-cli-service build --target lib --name jsplumb-chart ./src/components/jsplumbchart/jsplumbchart.js"
+    "package": "vue-cli-service build --target lib --name jsplumbchart ./src/components/jsplumbchart/jsplumbchart.js"
   },
   "dependencies": {
     "@babel/polyfill": "^7.4.4",

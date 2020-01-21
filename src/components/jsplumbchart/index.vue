@@ -34,6 +34,7 @@ import {
 } from "./lib/flowchart";
 
 export default {
+  name:"jsplumb-chart",
   watch: {
     data(val) {
       this.stepData = this.data.steps;
