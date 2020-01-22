@@ -28,6 +28,7 @@ import VueDragDrop from "vue-drag-drop"; //https://github.com/cameronhimself/vue
 
 Vue.use(VueDragDrop);
 
+
 Vue.use(ELEMENT, {
   size: Cookies.get("size") || "medium", // set element-ui default size
   i18n: (key, value) => i18n.t(key, value)
