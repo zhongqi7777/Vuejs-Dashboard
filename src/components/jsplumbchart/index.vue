@@ -2,11 +2,11 @@
   <div class="jsplumb-chart">
     <div class="cavansClass" id="cavans">
       <flowchartNode
-        :data="{stepData:stepData}"
+        :data="{ stepData: stepData }"
         @dblClick="dblClick"
         @copyNode="copyNode"
         @delNode="delNode"
-        v-show="nodeType=='flowchartnode'"
+        v-show="nodeType == 'flowchartnode'"
       ></flowchartNode>
     </div>
   </div>
@@ -34,7 +34,7 @@ import {
 } from "./lib/flowchart";
 
 export default {
-  name:"jsplumb-chart",
+  name: "jsplumb-chart",
   watch: {
     data(val) {
       this.stepData = this.data.steps;
@@ -130,7 +130,7 @@ export default {
               return;
             }
 
-            if(!this.data.matrix){
+            if (!this.data.matrix) {
               return;
             }
 
