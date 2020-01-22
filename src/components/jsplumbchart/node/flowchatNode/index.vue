@@ -265,5 +265,11 @@ export default {
     right: -2px;
     top: 0;
   }
+
+  .jtk-endpoint {
+    // z-index: 12;
+    // opacity: 0.8;
+    cursor: default;
+  }
 }
 </style>
