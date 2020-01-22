@@ -129,10 +129,6 @@ export default {
               return;
             }
 
-            if (!this.data.matrix) {
-              return;
-            }
-
             this.canvasMoveTo(this.data.matrix, transformOrigin => {
               this.jsplumbInstance.pan.moveTo(
                 transformOrigin.x,
@@ -161,7 +157,6 @@ export default {
         scale1 = scale;
       } else {
         const matrix = window.getComputedStyle(container).transform;
-        console.log("matrix", matrix);
         scale1 = matrix && matrix.split(", ")[3] * 1;
       }
       instance.setZoom(scale1);

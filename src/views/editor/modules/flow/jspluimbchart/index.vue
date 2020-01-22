@@ -126,7 +126,7 @@ export default {
           container: "workplace",
           nodeType: "flowchartnode",
           jsPlumb: this.jsPlumb,
-          matrix: flowData.matrix
+          matrix: flowData.matrix&&JSON.parse(flowData.matrix)
         };
       });
     }
