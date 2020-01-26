@@ -33,6 +33,7 @@ export default {
             this.stepData = this.data.steps;
             this.links = this.data.links;
             this.nodeType = this.data.nodeType;
+            this.operationType = val.operationType;
             this.containerRect = val.containerRect;
             this.isPanZoom = val.isPanZoom;
         },
@@ -84,14 +85,30 @@ export default {
     computed: {
         //...mapState([""])
     },
-    mounted() {},
+    mounted() {
+        //this.containerRect = this.jsplumbInstance.getContainer() ? this.jsplumbInstance.getContainer().getBoundingClientRect() : ""
+    },
     beforeCreate() {},
     created() {},
     beforeMount() {},
     beforeUpdate() {},
     updated() {
         this.$nextTick(() => {
-            if (this.containerRect == "add") {
+
+            //          let stepData = "";
+            //   let containerRect = "";
+            //   let container = this.$refs.jsplumbchart.jsplumbInstance.getContainer();
+            //   // add step
+            //   if (val.drawIcon) {
+            //     stepData = this.getCurrentNode(val, container);
+            //     containerRect = container && container.getBoundingClientRect();
+
+            // let container = this.jsplumbInstance.getContainer();
+            // if (container) {
+            //     this.containerRect = container.getBoundingClientRect();
+            // }
+
+            if (this.containerRect && this.isPanZoom) {
                 let lastStep = _.last(this.stepData);
                 let result = this.modifyNodePositon({
                     x: lastStep.x,
@@ -117,6 +134,8 @@ export default {
                 });
             }
 
+            // console.log("this.stepData", this.stepData);
+            // console.log("this.links", this.links);
             this.drawJsplumbChart({
                     jsplumbInstance: this.jsplumbInstance,
                     self: this,
@@ -126,7 +145,7 @@ export default {
                 () => {
                     this.getLinksData();
                     if (this.isPanZoomInit && this.isPanZoom) {
-                        panzoom.init(this.jsplumbInstance, true);
+                        panzoom.init(this.jsplumbInstance, !this.isPanZoom);
                         this.isPanZoomInit = false;
 
                         if (!this.data.matrix) {

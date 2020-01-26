@@ -73,8 +73,7 @@ export default {
                 links: this.links,
                 container: "workplace",
                 nodeType: "flowchartnode",
-                jsPlumb: jsPlumb,
-                containerRect: ""
+                jsPlumb: jsPlumb
             },
             nodeTab: [{
                     title: "输入",
@@ -101,7 +100,8 @@ export default {
             steps: [],
             jsPlumb: jsPlumb,
             matrix: "",
-            isPanZoom: false
+            isPanZoom: true,
+            operationType: "copy"
         };
     },
     computed: {
@@ -125,6 +125,8 @@ export default {
                     jsPlumb: this.jsPlumb,
                     matrix: flowData.matrix && JSON.parse(flowData.matrix)
                 };
+
+                //console.log("this.jsplumbchartOption",this.jsplumbchartOption);
             });
         }
     },
@@ -152,11 +154,13 @@ export default {
         },
         handleDrop(val) {
             let stepData = "";
-            let containerRect = "copy";
+            let containerRect = "";
+            let container = this.$refs.jsplumbchart.jsplumbInstance.getContainer();
             // add step
             if (val.drawIcon) {
-                stepData = this.getCurrentNode(val, "");
-                containerRect = "add";
+                stepData = this.getCurrentNode(val, this.isPanZoom ? container : "");
+                containerRect = container && container.getBoundingClientRect();
+                this.operationType = "add";
             } else {
                 // copy step
                 stepData = this.copyNode(val);
@@ -167,6 +171,7 @@ export default {
                 ...this.jsplumbchartOption,
                 steps: this.steps,
                 links: this.links,
+                operationType: this.operationType,
                 containerRect: containerRect
             };
         },
