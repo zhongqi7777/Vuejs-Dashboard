@@ -123,30 +123,26 @@ export default {
                 },
                 () => {
                     this.getLinksData();
-                    if (this.isPanZoomInit) {
+                    // if (this.isPanZoomInit) {
+                    //     panzoom.init(this.jsplumbInstance, true);
+                    //     this.isPanZoomInit = false;
 
-                        // if(this.data.isPan){
-                        //   panzoom.init(this.jsplumbInstance, true);
-                        // }
-                        panzoom.init(this.jsplumbInstance, true);
-                        this.isPanZoomInit = false;
+                    //     if (!this.data.matrix) {
+                    //         return;
+                    //     }
 
-                        if (!this.data.matrix) {
-                            return;
-                        }
-
-                        this.canvasMoveTo(this.data.matrix, transformOrigin => {
-                            this.jsplumbInstance.pan.moveTo(
-                                transformOrigin.x,
-                                transformOrigin.y
-                            );
-                            this.jsplumbInstance.pan.zoomAbs(
-                                transformOrigin.x,
-                                transformOrigin.y,
-                                transformOrigin.scale
-                            );
-                        });
-                    }
+                    //     this.canvasMoveTo(this.data.matrix, transformOrigin => {
+                    //         this.jsplumbInstance.pan.moveTo(
+                    //             transformOrigin.x,
+                    //             transformOrigin.y
+                    //         );
+                    //         this.jsplumbInstance.pan.zoomAbs(
+                    //             transformOrigin.x,
+                    //             transformOrigin.y,
+                    //             transformOrigin.scale
+                    //         );
+                    //     });
+                    // }
                 }
             );
         });

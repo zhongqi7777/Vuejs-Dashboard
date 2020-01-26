@@ -159,10 +159,10 @@ export default {
     },
     handleDrop(val) {
       let stepData = "";
-      let containerRect = "";
+      let containerRect = "copy";
       // add step
       if (val.drawIcon) {
-        stepData = this.getCurrentNode(val, container);
+        stepData = this.getCurrentNode(val, "");
         containerRect = "add";
       } else {
         // copy step
