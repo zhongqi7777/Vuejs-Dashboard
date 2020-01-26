@@ -153,6 +153,7 @@ export default {
             };
         },
         handleDrop(val) {
+            console.log('handleDrop(val) {',val);
             let stepData = "";
             let containerRect = "";
             let container = this.$refs.jsplumbchart.jsplumbInstance.getContainer();

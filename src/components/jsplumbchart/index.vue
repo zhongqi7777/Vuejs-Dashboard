@@ -30,6 +30,7 @@ import {
 export default {
     watch: {
         data(val) {
+            console.log(" data(val) {", val);
             this.stepData = this.data.steps;
             this.links = this.data.links;
             this.nodeType = this.data.nodeType;
@@ -136,6 +137,10 @@ export default {
 
             // console.log("this.stepData", this.stepData);
             // console.log("this.links", this.links);
+
+            // if (!this.stepData || !this.links) {
+            //     return;
+            // }
             this.drawJsplumbChart({
                     jsplumbInstance: this.jsplumbInstance,
                     self: this,
