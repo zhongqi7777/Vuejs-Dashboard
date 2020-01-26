@@ -16,6 +16,7 @@
     "deploy:prod": "npm run build && cross-env NODE_ENV=production node ./deploy",
     "dynamic-server": "nodemon --watch mock --exec node ./server/dynamic/server.js",
     "nodemon-server-routes": "nodemon --watch mock --exec json-server --routes ./server/db/routes.json ./server/db/db.json --port 7000",
+    "nodemon-server-routes:vpn": "nodemon --watch mock --exec json-server --routes ./server/db/routes.json ./server/db/db.json --port 7000 --host 192.168.31.74",
     "nodemon-server": "nodemon --watch mock --exec json-server ./server/db/db.json --port 7000",
     "json-server-routes": "json-server ./server/db/db.json --routes ./server/db/routes.json --port 7000",
     "json-server": "json-server ./server/db/db.json --port 7000",

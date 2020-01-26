@@ -2,6 +2,9 @@
 // Template version: 1.3.1
 // see http://vuejs-templates.github.io/webpack for documentation.
 
+const HOST = process.env.npm_config_host;
+const PORT = process.env.npm_config_port && Number(process.env.npm_config_port);
+
 const path = require("path");
 const csslist = [
   "https://unpkg.com/element-ui/lib/theme-chalk/index.css",
@@ -43,14 +46,14 @@ module.exports = {
     //依据参数 baseenv 确定代理环境
     proxyTable: {
       "/mock/": {
-        target: "http://localhost:7000",
+        target: `http://${HOST ? HOST : "localhost"}:7000`,
         changeOrigin: false,
         pathRewrite: {
           "^/mock": ""
         }
       },
       "/api/": {
-        target: "http://localhost:7000",
+        target: `http://${HOST ? HOST : "localhost"}:7000`,
         changeOrigin: false,
         pathRewrite: {
           "^/api": ""
@@ -59,8 +62,8 @@ module.exports = {
     },
 
     // Various Dev Server settings
-    host: "localhost", // can be overwritten by process.env.HOST
-    port: 8080, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
+    host: HOST || "localhost", // can be overwritten by process.env.HOST
+    port: PORT || 8080, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
     autoOpenBrowser: false,
     errorOverlay: true,
     notifyOnErrors: true,
