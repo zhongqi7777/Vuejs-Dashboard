@@ -85,21 +85,21 @@ const devWebpackConfig = merge(baseWebpackConfig, {
       )
     ),
     // copy custom static assets
+    new CopyWebpackPlugin([
+      {
+        from: path.resolve(__dirname, "../static"),
+        to: config.dev.assetsSubDirectory,
+        ignore: [".*"]
+      }
+    ]),
+
     // new CopyWebpackPlugin([
     //   {
-    //     from: path.resolve(__dirname, "../static"),
-    //     to: config.dev.assetsSubDirectory,
+    //     from: path.resolve(__dirname, "../dll"),
+    //     to: 'dll',
     //     ignore: [".*"]
     //   }
     // ])
-
-    new CopyWebpackPlugin([
-      {
-        from: path.resolve(__dirname, "../dll"),
-        to: 'dll',
-        ignore: [".*"]
-      }
-    ])
   ]
 });
 

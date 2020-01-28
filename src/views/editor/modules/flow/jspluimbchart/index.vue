@@ -47,8 +47,9 @@
 import vaside from "@/components/aside/left/index";
 import jsplumbchart from "@/components/jsplumbchart/index";
 
-// import "@/components/jsplumbchart/dist/jsplumbchart.css";
+// import "@/components/jsplumbchart/dist/jsplumbchart.css"
 // import * as jsplumbchart from "@/components/jsplumbchart/dist/jsplumbchart.umd.min.js";
+
 import stepdialog from "@/components/dialog/index";
 import plumbGather from "jsplumb";
 import {
@@ -59,10 +60,7 @@ import {
 } from "@/api/flow";
 export default {
   name: "jsplumb-chart",
-  watch: {
-    // flowData(val) {
-    // }
-  },
+  watch: {},
   props: {
     // data: {
     //   type: Object,
@@ -74,7 +72,9 @@ export default {
     stepdialog,
     jsplumbchart
   },
+
   // components: { vaside, stepdialog },
+
   data: function() {
     return {
       jsplumbchartOption: {

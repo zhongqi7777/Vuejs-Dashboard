@@ -6,7 +6,7 @@ module.exports = {
     vendor: ['vue/dist/vue.esm.js', 'lodash', 'vuex', 'axios', 'vue-router', 'element-ui', "fuse.js", 'js-cookie', 'jsplumb', 'moment', 'panzoom', 'vue-count-to', 'vue-drag-drop', 'vue-i18n', 'vue-meta', 'vuex-persistedstate']
   },
   output: {
-    path: path.join(__dirname, '../dll/js'),
+    path: path.join(__dirname, '../static/js'),
     filename: '[name].dll.js',
     library: '[name]_library'
   },
