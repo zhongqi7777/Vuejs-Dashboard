@@ -51,6 +51,10 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     }
   },
   plugins: [
+    new webpack.DllReferencePlugin({
+      context: __dirname,
+      manifest: require('./vendor-manifest.json')
+    }),
     new webpack.ProvidePlugin({
       $: "jquery",
       jQuery: "jquery",

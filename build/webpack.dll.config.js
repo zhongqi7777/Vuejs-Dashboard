@@ -11,10 +11,7 @@ module.exports = {
     library: '[name]_library'
   },
   plugins: [
-    new webpack.DllReferencePlugin({
-      context: __dirname,
-      manifest: require('./vendor-manifest.json')
-    }),
+
     new webpack.DllPlugin({
       path: path.join(__dirname, '.', '[name]-manifest.json'),
       name: '[name]_library',

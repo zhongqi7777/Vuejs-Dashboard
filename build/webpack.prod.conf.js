@@ -31,6 +31,10 @@ const webpackConfig = merge(baseWebpackConfig, {
     chunkFilename: utils.assetsPath("js/[id].[chunkhash].js")
   },
   plugins: [
+    new webpack.DllReferencePlugin({
+      context: __dirname,
+      manifest: require('./vendor-manifest.json')
+    }),
     new webpack.ProvidePlugin({
       $: "jquery",
       jQuery: "jquery",
