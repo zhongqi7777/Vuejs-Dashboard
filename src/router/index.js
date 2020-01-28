@@ -1,5 +1,5 @@
-// import Vue from "vue";
-// import Router from "vue-router";
+import Vue from "vue";
+import VueRouter from "vue-router";
 // const Router = require('vue-router')
 Vue.use(VueRouter);
 

@@ -23,11 +23,7 @@
             title="导入表格内字段"
             class="ns_fields3 icon iconfont icon-ir-copy"
           ></i>
-          <i
-            @click="addInputLeft"
-            title="新增已选字段"
-            class="ns_fields1 el-icon-plus"
-          ></i>
+          <i @click="addInputLeft" title="新增已选字段" class="ns_fields1 el-icon-plus"></i>
         </div>
         <ol>
           <template>
@@ -43,12 +39,7 @@
               height="25vh"
               style="width: 100%;"
             >
-              <el-table-column
-                fixed
-                :index="inputLeftIndexMethod"
-                type="index"
-                width="60"
-              ></el-table-column>
+              <el-table-column fixed :index="inputLeftIndexMethod" type="index" width="60"></el-table-column>
               <el-table-column prop="name" label="字段名"></el-table-column>
               <el-table-column type="selection" width="55"></el-table-column>
             </el-table>
@@ -81,11 +72,7 @@
               )
             "
           ></el-input>
-          <span
-            @click="removeOutSelAllField"
-            class="removeAllFields"
-            title="删除全部已选字段"
-          >
+          <span @click="removeOutSelAllField" class="removeAllFields" title="删除全部已选字段">
             <i class="fa fa-trash-o"></i>
           </span>
         </div>
@@ -103,17 +90,14 @@
                 height="25vh"
                 style="width: 100%;"
               >
-                <el-table-column
-                  fixed
-                  :index="inputRightIndexMethod"
-                  type="index"
-                  width="60"
-                ></el-table-column>
+                <el-table-column fixed :index="inputRightIndexMethod" type="index" width="60"></el-table-column>
                 <el-table-column prop="name" label="字段名">
                   <template slot-scope="scope">
-                    <span :class="scope.row.isillegality ? 'righttb' : ''">{{
+                    <span :class="scope.row.isillegality ? 'righttb' : ''">
+                      {{
                       scope.row.name
-                    }}</span>
+                      }}
+                    </span>
                   </template>
                 </el-table-column>
                 <el-table-column prop="alias" label="别名">
@@ -156,9 +140,7 @@
       <p v-if="Missing.length != 0">缺失 {{ Missing.length }}个</p>
       <p v-if="Missing.length != 0" class="Missing">{{ Missing.toString() }}</p>
       <p v-if="illegality.length != 0">非法 {{ illegality.length }}个</p>
-      <p v-if="illegality.length != 0" class="illegality">
-        {{ illegality.toString() }}
-      </p>
+      <p v-if="illegality.length != 0" class="illegality">{{ illegality.toString() }}</p>
     </div>
   </div>
 </template>
@@ -246,7 +228,7 @@ export default {
     };
   },
   computed: {
-    ...Vuex.mapState(["realtime"])
+    // ...Vuex.mapState(["realtime"])
   },
   mounted() {
     // let left = [3, 2, 1];
@@ -271,11 +253,11 @@ export default {
   beforeDestroy() {},
   destroyed: function() {},
   methods: {
-    ...Vuex.mapActions([
-      "setInputCheckedData",
-      "initInputCheckedData",
-      "initOutInputData"
-    ]),
+    // ...Vuex.mapActions([
+    //   "setInputCheckedData",
+    //   "initInputCheckedData",
+    //   "initOutInputData"
+    // ]),
     setMissAndIllegality(inputLeftData, inputRightData) {
       this.Missing = this.setMissing(inputLeftData, inputRightData);
       this.illegality = this.setIllegality(inputLeftData, inputRightData);

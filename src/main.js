@@ -28,8 +28,12 @@ import VueDragDrop from "vue-drag-drop"; //https://github.com/cameronhimself/vue
 
 Vue.use(VueDragDrop);
 
+// 引入css
+import "element-ui/lib/theme-chalk/index.css";
+import Element from "element-ui";
 
-Vue.use(ELEMENT, {
+
+Vue.use(Element, {
   size: Cookies.get("size") || "medium", // set element-ui default size
   i18n: (key, value) => i18n.t(key, value)
 });

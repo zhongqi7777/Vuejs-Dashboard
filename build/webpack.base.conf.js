@@ -20,13 +20,13 @@ const createLintingRule = () => ({
 });
 
 module.exports = {
-  externals: {
-    "vue-router": "VueRouter",
-    vue: "Vue",
-    axios: "axios",
-    "element-ui": "ELEMENT",
-    vuex: "Vuex"
-  },
+  // externals: {
+  //   "vue-router": "VueRouter",
+  //   vue: "Vue",
+  //   axios: "axios",
+  //   "element-ui": "ELEMENT",
+  //   vuex: "Vuex"
+  // },
   context: path.resolve(__dirname, "../"),
   entry: {
     // app: "./src/main.js"//entry: ["@babel/polyfill", "./app/js"],

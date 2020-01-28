@@ -50,6 +50,7 @@ import jsplumbchart from "@/components/jsplumbchart/index";
 // import "@/components/jsplumbchart/dist/jsplumbchart.css";
 // import * as jsplumbchart from "@/components/jsplumbchart/dist/jsplumbchart.umd.min.js";
 import stepdialog from "@/components/dialog/index";
+import plumbGather from "jsplumb";
 import {
   addFlow,
   getFlowItem,
@@ -82,7 +83,7 @@ export default {
         links: this.links,
         container: "workplace",
         nodeType: "flowchartnode",
-        jsPlumb: jsPlumb
+        jsPlumb: plumbGather.jsPlumb
       },
       nodeTab: [
         {
@@ -114,9 +115,9 @@ export default {
       input1Test: ""
     };
   },
-  computed: {
-    ...Vuex.mapState([""])
-  },
+  // computed: {
+  //   ...Vuex.mapState([""])
+  // },
   mounted() {
     if (this.$route.query.id) {
       getFlowItem({

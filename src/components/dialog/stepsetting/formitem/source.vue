@@ -2,10 +2,7 @@
   <div class="sink-step">
     <!-- <h1>{{data.type}}</h1> -->
     <el-form ref="form" :model="form" label-width="150px">
-      <el-form-item
-        :label="'dataset'"
-        :rules="[{ required: true, message: '', trigger: 'blur' }]"
-      >
+      <el-form-item :label="'dataset'" :rules="[{ required: true, message: '', trigger: 'blur' }]">
         <el-tooltip
           lass="item"
           effect="dark"
@@ -30,10 +27,7 @@
         </el-input>
         <p class="sign" v-if="!form.datasetName">选择内容不能为空</p>
       </el-form-item>
-      <el-form-item
-        label="type"
-        :rules="[{ required: true, message: '', trigger: 'change' }]"
-      >
+      <el-form-item label="type" :rules="[{ required: true, message: '', trigger: 'change' }]">
         <el-tooltip lass="item" effect="dark" content="type" placement="top">
           <i class="parIcon el-icon-warning"></i>
         </el-tooltip>
@@ -52,14 +46,9 @@
           message: '',
           trigger: 'blur'
         }"
-        v-if="item.isshow"
+        v-show="item.isshow"
       >
-        <el-tooltip
-          lass="item"
-          effect="dark"
-          :content="item.name"
-          placement="top"
-        >
+        <el-tooltip lass="item" effect="dark" :content="item.name" placement="top">
           <i class="parIcon el-icon-warning"></i>
         </el-tooltip>
         <el-input
@@ -78,15 +67,10 @@
             :value="subitem"
           ></el-option>
         </el-select>
-        <el-switch
-          v-if="item.type == 'boolean'"
-          v-model="form[item.name]"
-        ></el-switch>
+        <el-switch v-if="item.type == 'boolean'" v-model="form[item.name]"></el-switch>
       </el-form-item>
     </el-form>
-    <adItem
-      :data="{ adformItemList: adformItemList, adformItemData: adformItemData }"
-    ></adItem>
+    <adItem :data="{ adformItemList: adformItemList, adformItemData: adformItemData }"></adItem>
   </div>
 </template>
 
@@ -138,7 +122,7 @@ export default {
   },
 
   computed: {
-    ...Vuex.mapState(["realtime"])
+    // ...Vuex.mapState(["realtime"])
   },
   props: {
     data: {
@@ -175,12 +159,12 @@ export default {
   beforeDestroy() {},
   destroyed() {},
   methods: {
-    ...Vuex.mapActions([
-      "openDialog",
-      "setParamertData",
-      "initOutInputData",
-      "modifyLoadingStatus"
-    ]),
+    // ...Vuex.mapActions([
+    //   "openDialog",
+    //   "setParamertData",
+    //   "initOutInputData",
+    //   "modifyLoadingStatus"
+    // ]),
     setUpWatchers(watchList, formList) {
       for (let i in watchList) {
         let formItem = formList[i];
