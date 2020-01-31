@@ -12,7 +12,7 @@ COPY . /server
 #编译运行node项目，使用npm安装程序的所有依赖,利用taobao的npm安装
 
 WORKDIR /server
-RUN npm install
+RUN cnpm install
 
 #暴露container的端口
 EXPOSE 7000
