@@ -5,7 +5,7 @@
   "author": "ylb",
   "private": true,
   "scripts": {
-    "start": "nodemon --watch mock --exec json-server --routes ./db/routes.json ./db/db.json --port 7000"
+    "start": "nodemon --watch mock --exec json-server --routes ./db/routes.json ./db/db.json --port 7000 --host 132.232.215.26"
   },
   "devDependencies": {
     "nodemon": "^1.19.0",
