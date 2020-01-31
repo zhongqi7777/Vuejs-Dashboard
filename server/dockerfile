@@ -7,7 +7,7 @@ RUN mkdir -p /root/server
 WORKDIR /root/server
 
 #复制所有文件到 工作目录。
-COPY . /
+COPY . /db
 
 #编译运行node项目，使用npm安装程序的所有依赖,利用taobao的npm安装
 
