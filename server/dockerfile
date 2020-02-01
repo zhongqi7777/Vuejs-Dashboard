@@ -3,5 +3,5 @@ WORKDIR /nodemon
 COPY package.json /nodemon
 RUN npm install
 COPY . /nodemon
-CMD nodemon --watch mock --exec json-server --routes ./db/routes.json ./db/db.json 
+CMD npm run start
 EXPOSE 8075
