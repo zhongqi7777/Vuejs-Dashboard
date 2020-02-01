@@ -1,7 +1,7 @@
 {
-  "name": "node-server",
+  "name": "nodemon",
   "version": "1.0.0",
-  "description": "node-server",
+  "description": "nodemon",
   "author": "ylb",
   "scripts": {
     "start": "nodemon --watch mock --exec json-server --routes ./db/routes.json ./db/db.json --host 172.27.16.15"
