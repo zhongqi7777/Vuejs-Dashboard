@@ -4,7 +4,7 @@
   "description": "nodemon",
   "author": "ylb",
   "scripts": {
-    "start": "nodemon --watch mock --exec json-server --routes ./db/routes.json ./db/db.json --port 8075"
+    "start": "nodemon --watch mock --exec json-server --routes ./db/routes.json ./db/db.json --port 7000"
   },
   "dependencies": {
     "nodemon": "^1.19.0",

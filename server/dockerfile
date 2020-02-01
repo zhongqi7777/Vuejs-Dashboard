@@ -4,4 +4,5 @@ COPY package.json /nodemon
 RUN npm install
 COPY . /nodemon
 CMD npm run start
-EXPOSE 8075
+RUN npm install -g json-server
+EXPOSE 7000
