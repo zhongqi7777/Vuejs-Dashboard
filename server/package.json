@@ -6,7 +6,7 @@
   "scripts": {
     "start": "nodemon --watch mock --exec json-server --routes ./db/routes.json ./db/db.json --port 8075"
   },
-  "devDependencies": {
+  "dependencies": {
     "nodemon": "^1.19.0",
     "json-server": "^0.15.1"
   },
