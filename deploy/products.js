@@ -74,15 +74,15 @@ const SERVER_LIST = [
 
 		// domain: 'www.prod.com', // 域名
 
-		host: '192.168.2.81', // ip
+		host: '132.232.215.26', // ip
 
 		port: 22, // 端口
 
 		username: 'root', // 登录服务器的账号
 
-		password: '123456', // 登录服务器的账号
+		password: '1QAZxsw2#', // 登录服务器的账号
 
-		path: '/var/lib/jenkins/workspace/frond-test' // 发布至静态服务器的项目路径
+		path: '/usr/share/nginx/html' // 发布至静态服务器的项目路径
 	}
 
 	// {
