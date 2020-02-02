@@ -10,6 +10,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const OptimizeCSSPlugin = require("optimize-css-assets-webpack-plugin");
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
+const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin')
 
 const env =
   process.env.NODE_ENV === "testing"
@@ -36,18 +37,18 @@ const webpackConfig = merge(baseWebpackConfig, {
     //   manifest: require('./vendor-manifest.json')
     // }),
     new webpack.DllReferencePlugin({
-      context: process.cwd(),
-      manifest: require('./public/vendor/vendor-manifest.json')
+      context: __dirname,
+      manifest: require('../vendor/vendor-manifest.json')
     }),
     // 将 dll 注入到 生成的 html 模板中
-    new AddAssetHtmlPlugin({
-      // dll文件位置
-      filepath: path.resolve(__dirname, './public/vendor/*.js'),
-      // dll 引用路径
-      publicPath: './vendor',
-      // dll最终输出的目录
-      outputPath: './vendor'
-    }),
+    // new AddAssetHtmlPlugin({
+    //   // dll文件位置
+    //   filepath: path.resolve(__dirname, './public/vendor/*.js'),
+    //   // dll 引用路径
+    //   publicPath: './vendor',
+    //   // dll最终输出的目录
+    //   outputPath: './vendor'
+    // }),
     new webpack.ProvidePlugin({
       $: "jquery",
       jQuery: "jquery",
@@ -161,7 +162,8 @@ const webpackConfig = merge(baseWebpackConfig, {
     // copy custom static assets
     new CopyWebpackPlugin([
       {
-        from: path.resolve(__dirname, "../static"),
+        // from: path.resolve(__dirname, "../static"),
+        from: path.resolve(__dirname, "../vendor"),
         to: config.build.assetsSubDirectory,
         ignore: [".*"]
       }
