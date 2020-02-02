@@ -51,9 +51,22 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     }
   },
   plugins: [
+    // new webpack.DllReferencePlugin({
+    //   context: __dirname,
+    //   manifest: require('./vendor-manifest.json')
+    // }),
     new webpack.DllReferencePlugin({
-      context: __dirname,
-      manifest: require('./vendor-manifest.json')
+      context: process.cwd(),
+      manifest: require('./public/vendor/vendor-manifest.json')
+    }),
+    // 将 dll 注入到 生成的 html 模板中
+    new AddAssetHtmlPlugin({
+      // dll文件位置
+      filepath: path.resolve(__dirname, './public/vendor/*.js'),
+      // dll 引用路径
+      publicPath: './vendor',
+      // dll最终输出的目录
+      outputPath: './vendor'
     }),
     new webpack.ProvidePlugin({
       $: "jquery",
