@@ -52,23 +52,6 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     }
   },
   plugins: [
-    // new webpack.DllReferencePlugin({
-    //   context: __dirname,
-    //   manifest: require('./vendor-manifest.json')
-    // }),
-
-
-    // //给定的 JS 或 CSS 文件添加到 webpack 配置的文件中，并将其放入资源列表 html webpack插件注入到生成的 html 中
-    // new AddAssetHtmlPlugin([
-    //   {
-    //     //要添加到编译中的文件的绝对路径
-    //     filepath: path.resolve(__dirname, '../public/dll/_dll_vendor.js'),
-    //     outputPath: 'dll',
-    //     publicPath: 'dll',
-    //     includeSourcemap: false
-    //   }
-    // ]),
-
     new webpack.DllReferencePlugin({
       context: __dirname,
       // context: process.cwd(),
@@ -110,19 +93,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
         to: config.dev.assetsSubDirectory,
         ignore: [".*"]
       }
-    ]),
-
-
-    // 将 dll 注入到 生成的 html 模板中
-    // new AddAssetHtmlPlugin({
-    //   // dll文件位置
-    //   filepath: path.resolve(__dirname, '../static/js/*.js'),
-    //   // dll 引用路径
-    //   publicPath: 'static/js',
-    //   // dll最终输出的目录
-    //   outputPath: 'static/js',
-    //   includeSourcemap: false
-    // })
+    ])
   ]
 });
 
