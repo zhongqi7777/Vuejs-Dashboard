@@ -59,17 +59,17 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     new webpack.DllReferencePlugin({
       context: __dirname,
       // context: process.cwd(),
-      manifest: require('../vendor/vendor-manifest.json')
+      manifest: require('./vendor-manifest.json')
     }),
     // 将 dll 注入到 生成的 html 模板中
-    // new AddAssetHtmlPlugin({
-    //   // dll文件位置
-    //   filepath: path.resolve(__dirname, './public/vendor/*.js'),
-    //   // dll 引用路径
-    //   publicPath: './vendor',
-    //   // dll最终输出的目录
-    //   outputPath: './vendor'
-    // }),
+    new AddAssetHtmlPlugin({
+      // dll文件位置
+      filepath: path.resolve(__dirname, './public/vendor/*.js'),
+      // dll 引用路径
+      publicPath: './vendor',
+      // dll最终输出的目录
+      outputPath: './vendor'
+    }),
     new webpack.ProvidePlugin({
       $: "jquery",
       jQuery: "jquery",
@@ -102,7 +102,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     // copy custom static assets
     new CopyWebpackPlugin([
       {
-        from: path.resolve(__dirname, "../vendor"),
+        from: path.resolve(__dirname, "../static"),
         to: config.dev.assetsSubDirectory,
         ignore: [".*"]
       }

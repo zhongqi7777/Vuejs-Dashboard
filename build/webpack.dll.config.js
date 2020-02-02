@@ -4,7 +4,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin')
 
 // dll文件存放的目录
 // const dllPath = 'public/vendor'
-const dllPath = '../vendor'
+const dllPath = '../static/js'
 
 module.exports = {
   entry: {
@@ -47,7 +47,7 @@ module.exports = {
     // })
 
     new webpack.DllPlugin({
-      path: path.join(__dirname, dllPath, '[name]-manifest.json'),
+      path: path.join(__dirname, ".", '[name]-manifest.json'),
       name: '[name]_library',
       context: __dirname
     }),

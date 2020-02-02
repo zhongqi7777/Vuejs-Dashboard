@@ -38,7 +38,7 @@ const webpackConfig = merge(baseWebpackConfig, {
     // }),
     new webpack.DllReferencePlugin({
       context: __dirname,
-      manifest: require('../vendor/vendor-manifest.json')
+      manifest: require('./vendor-manifest.json')
     }),
     // 将 dll 注入到 生成的 html 模板中
     // new AddAssetHtmlPlugin({
@@ -162,8 +162,7 @@ const webpackConfig = merge(baseWebpackConfig, {
     // copy custom static assets
     new CopyWebpackPlugin([
       {
-        // from: path.resolve(__dirname, "../static"),
-        from: path.resolve(__dirname, "../vendor"),
+        from: path.resolve(__dirname, "../static"),
         to: config.build.assetsSubDirectory,
         ignore: [".*"]
       }
