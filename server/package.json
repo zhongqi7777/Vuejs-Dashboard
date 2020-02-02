@@ -1,0 +1,17 @@
+{
+  "name": "nodemon",
+  "version": "1.0.0",
+  "description": "nodemon",
+  "author": "ylb",
+  "scripts": {
+    "start": "nodemon --watch mock --exec json-server --routes ./db/routes.json ./db/db.json --port 7000 --host 0.0.0.0"
+  },
+  "dependencies": {
+    "nodemon": "^1.19.0",
+    "json-server": "^0.15.1"
+  },
+  "engines": {
+    "node": ">= 6.0.0",
+    "npm": ">= 3.0.0"
+  }
+}
