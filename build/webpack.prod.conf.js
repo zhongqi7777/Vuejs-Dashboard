@@ -10,6 +10,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const OptimizeCSSPlugin = require("optimize-css-assets-webpack-plugin");
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
+// const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin')
 
 const env =
   process.env.NODE_ENV === "testing"
@@ -113,6 +114,7 @@ const webpackConfig = merge(baseWebpackConfig, {
         config.dev.cdn
       )
     ),
+
     // keep module.id stable when vendor modules does not change
     new webpack.HashedModuleIdsPlugin(),
     // enable scope hoisting
@@ -153,14 +155,6 @@ const webpackConfig = merge(baseWebpackConfig, {
         ignore: [".*"]
       }
     ])
-
-    // new CopyWebpackPlugin([
-    //   {
-    //     from: path.resolve(__dirname, "../dll"),
-    //     to: 'dll',
-    //     ignore: [".*"]
-    //   }
-    // ])
   ]
 });
 

@@ -7,35 +7,37 @@ const PORT = process.env.npm_config_port && Number(process.env.npm_config_port);
 
 const path = require("path");
 const csslist = [
-  "https://unpkg.com/element-ui/lib/theme-chalk/index.css",
-  "https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"
+  // "https://unpkg.com/element-ui/lib/theme-chalk/index.css",
+  // "https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"
 ];
 const devJslist = [
-  "https://cdn.bootcss.com/vue/2.6.10/vue.js",
-  "https://cdn.bootcss.com/vue-router/2.7.0/vue-router.min.js",
-  "https://cdn.bootcss.com/axios/0.18.0/axios.min.js",
-  "https://cdn.bootcss.com/element-ui/2.12.0/index.js",
-  "https://cdn.bootcss.com/vuex/3.1.1/vuex.js",
-  "https://cdn.bootcss.com/element-ui/2.12.0/locale/zh-CN.min.js",
-  "https://cdn.bootcss.com/element-ui/2.12.0/locale/en.js",
-  "https://cdn.bootcss.com/element-ui/2.12.0/locale/es.js",
-  "https://cdn.bootcss.com/jsPlumb/2.9.2/js/jsplumb.js",
-  "https://cdn.bootcss.com/lodash.js/4.17.15/lodash.js",
-  "https://cdn.bootcss.com/moment.js/2.24.0/moment.js"
+  // "https://cdn.bootcss.com/vue/2.6.10/vue.js",
+  // "https://cdn.bootcss.com/vue-router/2.7.0/vue-router.min.js",
+  // "https://cdn.bootcss.com/axios/0.18.0/axios.min.js",
+  // "https://cdn.bootcss.com/element-ui/2.12.0/index.js",
+  // "https://cdn.bootcss.com/vuex/3.1.1/vuex.js",
+  // "https://cdn.bootcss.com/element-ui/2.12.0/locale/zh-CN.min.js",
+  // "https://cdn.bootcss.com/element-ui/2.12.0/locale/en.js",
+  // "https://cdn.bootcss.com/element-ui/2.12.0/locale/es.js",
+  // "https://cdn.bootcss.com/jsPlumb/2.9.2/js/jsplumb.js",
+  // "https://cdn.bootcss.com/lodash.js/4.17.15/lodash.js",
+  // "https://cdn.bootcss.com/moment.js/2.24.0/moment.js",
+  "./static/js/vendor.dll.js"
 ];
 
 const productjslist = [
-  "https://cdn.bootcss.com/vue/2.6.10/vue.min.js",
-  "https://cdn.bootcss.com/vue-router/2.7.0/vue-router.min.js",
-  "https://cdn.bootcss.com/axios/0.18.0/axios.min.js",
-  "https://cdn.bootcss.com/element-ui/2.12.0/index.js",
-  "https://cdn.bootcss.com/vuex/3.3.1/vuex.js",
-  "https://cdn.bootcss.com/element-ui/2.12.0/locale/zh-CN.min.js",
-  "https://cdn.bootcss.com/element-ui/2.12.0/locale/en.js",
-  "https://cdn.bootcss.com/element-ui/2.12.0/locale/es.js",
-  "https://cdn.bootcss.com/jsPlumb/2.9.2/js/jsplumb.min.js",
-  "https://cdn.bootcss.com/lodash.js/4.17.15/lodash.min.js",
-  "https://cdn.bootcss.com/moment.js/2.24.0/moment.min.js"
+  // "https://cdn.bootcss.com/vue/2.6.10/vue.min.js",
+  // "https://cdn.bootcss.com/vue-router/2.7.0/vue-router.min.js",
+  // "https://cdn.bootcss.com/axios/0.18.0/axios.min.js",
+  // "https://cdn.bootcss.com/element-ui/2.12.0/index.js",
+  // "https://cdn.bootcss.com/vuex/3.3.1/vuex.js",
+  // "https://cdn.bootcss.com/element-ui/2.12.0/locale/zh-CN.min.js",
+  // "https://cdn.bootcss.com/element-ui/2.12.0/locale/en.js",
+  // "https://cdn.bootcss.com/element-ui/2.12.0/locale/es.js",
+  // "https://cdn.bootcss.com/jsPlumb/2.9.2/js/jsplumb.min.js",
+  // "https://cdn.bootcss.com/lodash.js/4.17.15/lodash.min.js",
+  // "https://cdn.bootcss.com/moment.js/2.24.0/moment.min.js"
+  "./static/js/vendor.dll.js"
 ];
 
 module.exports = {

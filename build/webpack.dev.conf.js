@@ -9,6 +9,7 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const FriendlyErrorsPlugin = require("friendly-errors-webpack-plugin");
 const portfinder = require("portfinder");
+// const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin')
 
 // const HOST = process.env.HOST;
 // const PORT = process.env.PORT && Number(process.env.PORT);
@@ -53,6 +54,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
   plugins: [
     new webpack.DllReferencePlugin({
       context: __dirname,
+      // context: process.cwd(),
       manifest: require('./vendor-manifest.json')
     }),
     new webpack.ProvidePlugin({
@@ -91,15 +93,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
         to: config.dev.assetsSubDirectory,
         ignore: [".*"]
       }
-    ]),
-
-    // new CopyWebpackPlugin([
-    //   {
-    //     from: path.resolve(__dirname, "../dll"),
-    //     to: 'dll',
-    //     ignore: [".*"]
-    //   }
-    // ])
+    ])
   ]
 });
 
