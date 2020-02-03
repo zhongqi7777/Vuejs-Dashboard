@@ -3,6 +3,7 @@
     <h1>jsplumb chart</h1>
     <div class="right-menu">
       <search id="header-search" class="right-menu-item" />
+      <lang-select class="set-language" />
       <el-dropdown class="avatar-container right-menu-item hover-effect" trigger="click">
         <div class="avatar-wrapper">
           <img
@@ -25,6 +26,7 @@
 </template>
 
 <script>
+import LangSelect from "@/components/LangSelect";
 import Search from "@/components/HeaderSearch";
 /* eslint-disable */
 export default {
@@ -60,9 +62,10 @@ export default {
       ]
     };
   },
-  computed: {},
+  computed: {  },
   components: {
-    Search
+    Search,
+    LangSelect
   },
   methods: {
     handleSelect(key, keyPath) {
