@@ -1,7 +1,5 @@
 <template>
   <div class="flow-list">
-    <!-- <el-divider content-position="left">用户筛选</el-divider> -->
-
     <el-row>
       <el-col :span="24">
         <div class="grid-content">
@@ -28,7 +26,6 @@
         <el-button @click="resetForm('ruleForm')">重置</el-button>
       </el-form-item>
     </el-form>
-
     <el-row>
       <el-col :span="24">
         <div class="grid-content">
