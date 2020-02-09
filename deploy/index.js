@@ -23,7 +23,7 @@ scpClient.scp(
 
 		path: server.path
 	},
-	function(err) {
+	function (err) {
 		spinner.stop();
 
 		if (err) {

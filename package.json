@@ -13,6 +13,7 @@
     "lint": "eslint --ext .js,.vue src test/unit test/e2e/specs",
     "build": "node build/build.js",
     "deploy:dev": "npm run build && cross-env NODE_ENV=development node ./deploy",
+    "deploy:pro": "npm run build && cross-env NODE_ENV=production node ./deploy",
     "dynamic-server": "nodemon --watch mock --exec node ./server/dynamic/server.js",
     "nodemon-server-routes": "nodemon --watch mock --exec json-server --routes ./server/db/routes.json ./server/db/db.json --port 7000",
     "nodemon-server-routes:vpn": "nodemon --watch mock --exec json-server --routes ./server/db/routes.json ./server/db/db.json --port 7000 --host 192.168.31.74",
