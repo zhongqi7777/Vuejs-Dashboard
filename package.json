@@ -22,7 +22,7 @@
     "package": "vue-cli-service build --target lib --name jsplumbchart ./src/components/jsplumbchart/jsplumbchart.js",
     "dll": "webpack --config ./build/webpack.dll.config.js",
     "dllplugin": "webpack -p --progress --config ./build/webpack.dll.config.js",
-    "start": "node server.js && yarn nodemon-server-routes"
+    "start": "node server.js"
   },
   "dependencies": {
     "@babel/polyfill": "^7.4.4",
