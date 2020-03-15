@@ -36,14 +36,14 @@ npm run dev (默认开启dev模式mock环境,即 baseurl="http://localhost:8080/
 
 显示指定开发环境
 
-npm run dev --baseurl=http://localhost.dev/ --baseenv=api
+npm run dev --baseurl=http://localhost.dev/ --baseenv=mock
 
 显示指定生产环境
 
 npm run dev --baseurl=http://localhost.pro/ --baseenv=api --host=192.168.31.74
 
 # build for production with minification
-npm run build
+npm run build  --baseurl="http://localhost:3000/" --baseenv=api
 
 # build for production and view the bundle analyzer report
 npm run build --report
