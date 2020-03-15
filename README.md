@@ -43,7 +43,7 @@ npm run dev --baseurl=http://localhost.dev/ --baseenv=mock
 npm run dev --baseurl=http://localhost.pro/ --baseenv=api --host=192.168.31.74
 
 # build for production with minification
-npm run build  --baseurl="http://localhost:3000/" --baseenv=api
+npm run build  --baseurl=http://localhost:3000/ --baseenv=api
 
 # build for production and view the bundle analyzer report
 npm run build --report
