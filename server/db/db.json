@@ -1,70 +1,10 @@
 {
   "menu": [
     {
-      "path": "/login",
-      "hidden": true
-    },
-    {
-      "path": "",
-      "redirect": "dashboard",
-      "children": [
-        {
-          "path": "dashboard",
-          "name": "Dashboard",
-          "meta": {
-            "title": "数据统计",
-            "icon": "dashboard",
-            "noCache": true,
-            "affix": true
-          }
-        }
-      ]
-    },
-    {
-      "path": "user",
-      "name": "user",
-      "meta": {
-        "title": "用户管理",
-        "icon": "user",
-        "noCache": true,
-        "affix": true
-      }
-    },
-    {
-      "path": "project",
-      "name": "project",
-      "meta": {
-        "title": "项目管理",
-        "icon": "excel",
-        "noCache": true,
-        "affix": true
-      }
-    },
-    {
-      "path": "model",
-      "name": "model",
-      "meta": {
-        "title": "预置模型",
-        "icon": "table",
-        "noCache": true,
-        "affix": true
-      }
-    },
-    {
-      "path": "config",
-      "name": "config",
-      "meta": {
-        "title": "配置",
-        "icon": "edit",
-        "noCache": true,
-        "affix": true
-      }
-    },
-    {
       "path": "editor",
       "name": "editor",
       "meta": {
-        "title": "图形编辑器",
+        "title": "流程设计器",
         "icon": "chart",
         "noCache": true,
         "affix": true
@@ -75,7 +15,7 @@
           "path": "flowlist",
           "name": "flowlist",
           "meta": {
-            "title": "流程编辑器",
+            "title": "jsplumbchart",
             "icon": "nested",
             "noCache": true,
             "affix": true

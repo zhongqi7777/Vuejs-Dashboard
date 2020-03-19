@@ -9,7 +9,8 @@
       label-position="left"
     >
       <div class="title-container">
-        <h3 class="title">{{ $t('login.title') }} heroku2021</h3>
+        <!-- <h3 class="title">{{ $t('login.title') }} heroku2021</h3> -->
+        <h3 class="title">{{ $t('login.title') }}</h3>
       </div>
 
       <el-form-item prop="username">
@@ -59,18 +60,8 @@
       <div style="position:relative">
         <div class="tips">
           <span>{{ $t('login.username') }} : admin</span>
-          <span>{{ $t('login.password') }} : {{ $t('login.any') }}</span>
+          <span>{{ $t('login.password') }} : 111111</span>
         </div>
-        <div class="tips">
-          <span style="margin-right:18px;">{{ $t('login.username') }} : editor</span>
-          <span>{{ $t('login.password') }} : {{ $t('login.any') }}</span>
-        </div>
-
-        <el-button
-          class="thirdparty-button"
-          type="primary"
-          @click="showDialog=true"
-        >{{ $t('login.thirdparty') }}</el-button>
       </div>
     </el-form>
 
@@ -99,7 +90,9 @@ export default {
       amp: true
     }
   },
-  components: { SocialSign },
+  components: {
+    SocialSign
+  },
   data() {
     const validateUsername = (rule, value, callback) => {
       if (!validUsername(value, this)) {
@@ -122,10 +115,18 @@ export default {
       },
       loginRules: {
         username: [
-          { required: true, trigger: "blur", validator: validateUsername }
+          {
+            required: true,
+            trigger: "blur",
+            validator: validateUsername
+          }
         ],
         password: [
-          { required: true, trigger: "blur", validator: validatePassword }
+          {
+            required: true,
+            trigger: "blur",
+            validator: validatePassword
+          }
         ]
       },
       passwordType: "password",
@@ -186,7 +187,9 @@ export default {
       this.$refs.loginForm.validate(valid => {
         if (valid) {
           // this.loading = true;
-          this.$router.push({ path: this.redirect || "/dashboard" });
+          this.$router.push({
+            path: this.redirect || "/editor/flowlist"
+          });
           // this.$store
           //   .dispatch("user/login", this.loginForm)
           //   .then(() => {
@@ -271,9 +274,7 @@ $cursor: #fff;
     color: #454545;
   }
 }
-</style>
-
-<style lang="scss" scoped>
+</style><style lang="scss" scoped>
 $bg: #2d3a4b;
 $dark_gray: #889aa4;
 $light_gray: #eee;

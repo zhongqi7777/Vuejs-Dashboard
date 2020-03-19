@@ -94,7 +94,7 @@ export default {
   components: { SocialSign },
   data() {
     const validateUsername = (rule, value, callback) => {
-      if (!validUsername(value,this)) {
+      if (!validUsername(value, this)) {
         callback(new Error("Please enter the correct user name"));
       } else {
         callback();
@@ -152,8 +152,8 @@ export default {
     checkCapslock({ shiftKey, key } = {}) {
       if (key && key.length === 1) {
         if (
-          (shiftKey && (key >= "a" && key <= "z")) ||
-          (!shiftKey && (key >= "A" && key <= "Z"))
+          (shiftKey && key >= "a" && key <= "z") ||
+          (!shiftKey && key >= "A" && key <= "Z")
         ) {
           this.capsTooltip = true;
         } else {
@@ -178,7 +178,7 @@ export default {
       this.$refs.loginForm.validate(valid => {
         if (valid) {
           // this.loading = true;
-          this.$router.push({ path: this.redirect || "/dashboard" });
+          this.$router.push({ path: this.redirect || "/editor/flowlist" });
           // this.$store
           //   .dispatch("user/login", this.loginForm)
           //   .then(() => {
