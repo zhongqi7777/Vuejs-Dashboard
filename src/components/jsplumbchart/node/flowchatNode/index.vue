@@ -219,21 +219,21 @@ export default {
     padding: 0px;
   }
 
-  .t1Style {
-    border: 2px solid #48c038;
-    color: #48c038;
-    border-radius: 2px;
-  }
-  .t2Style {
-    border: 2px solid #4586f3;
-    color: #4586f3;
-    border-radius: 2px;
-  }
-  .t3Style {
-    border: 2px solid #8367df;
-    color: #8367df;
-    border-radius: 2px;
-  }
+  // .t1Style {
+  //   border: 2px solid #48c038;
+  //   color: #48c038;
+  //   border-radius: 2px;
+  // }
+  // .t2Style {
+  //   border: 2px solid #4586f3;
+  //   color: #4586f3;
+  //   border-radius: 2px;
+  // }
+  // .t3Style {
+  //   border: 2px solid #8367df;
+  //   color: #8367df;
+  //   border-radius: 2px;
+  // }
 
   .redStyle {
     border: 2px solid red;
