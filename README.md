@@ -48,12 +48,6 @@ npm run dev --baseurl=http://localhost.pro/ --baseenv=api --host=192.168.31.74
 npm run build --report
 
 
-package describe
-
-vue-drag-drop
-https://github.com/cameronhimself/vue-drag-drop
-```
-
 dev mode when vpn is connected
 
 npm run dev --host=192.168.31.74
@@ -67,3 +61,10 @@ npm run dev
 
 #json server
 npm run nodemon-server-routes
+
+
+package describe
+
+vue-drag-drop
+https://github.com/cameronhimself/vue-drag-drop
+```
