@@ -1,4 +1,6 @@
-# vue-cli2 全面配置
+# Vuejs-Dashboard
+
+vuejs dashbord webpack vuex jsplumbchart
 
 <span id="top">目录</span>
 
