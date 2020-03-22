@@ -1,6 +1,6 @@
 <template>
   <header class="v-header">
-    <h1>jsplumb chart</h1>
+    <h1>Vuejs Visual display</h1>
     <div class="right-menu">
       <search id="header-search" class="right-menu-item" />
       <lang-select class="set-language" />
@@ -62,7 +62,7 @@ export default {
       ]
     };
   },
-  computed: {  },
+  computed: {},
   components: {
     Search,
     LangSelect
