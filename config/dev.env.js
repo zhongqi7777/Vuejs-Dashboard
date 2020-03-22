@@ -6,6 +6,8 @@ const prodEnv = require("./prod.env");
 
 module.exports = merge(prodEnv, {
   NODE_ENV: '"development"',
+  HOST: JSON.stringify(process.env.npm_config_host),
+  PORT: JSON.stringify(process.env.npm_config_port),
   // BASE_URL:
   //   JSON.stringify(process.env.npm_config_baseurl) ||
   //   '"http://localhost:8080/"',

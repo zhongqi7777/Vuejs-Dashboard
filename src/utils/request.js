@@ -9,10 +9,10 @@ let baseENV = process.env.BASE_ENV;
 baseURL += baseENV;
 
 
-console.log("process.env.BASE_URL", process.env.BASE_URL);
+// console.log("process.env.BASE_URL", process.env.BASE_URL);
 
-console.log("baseURL", baseURL);
-console.log("baseENV", baseENV);
+// console.log("baseURL", baseURL);
+// console.log("baseENV", baseENV);
 
 // create an axios instance
 const service = axios.create({

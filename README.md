@@ -44,9 +44,6 @@ npm run dev --baseurl=http://localhost.dev/ --baseenv=mock
 
 npm run dev --baseurl=http://localhost.pro/ --baseenv=api --host=192.168.31.74
 
-# build for production with minification
-npm run build  --baseurl=http://localhost:3000/ --baseenv=api
-
 # build for production and view the bundle analyzer report
 npm run build --report
 
@@ -56,3 +53,17 @@ package describe
 vue-drag-drop
 https://github.com/cameronhimself/vue-drag-drop
 ```
+
+dev mode when vpn is connected
+
+npm run dev --host=192.168.31.74
+
+#json server
+npm run nodemon-server-routes:vpn
+
+dev mode normally
+
+npm run dev
+
+#json server
+npm run nodemon-server-routes
