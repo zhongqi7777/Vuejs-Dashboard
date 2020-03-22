@@ -50,7 +50,8 @@ module.exports = {
   entry: {
     vue: ['vue', 'vuex', 'vue-router', 'vue-i18n', 'vue-drag-drop', 'vue-meta', 'vuex-persistedstate', 'vue-count-to'],
     moment: ['moment'],
-    vendor: ['lodash', 'axios', 'element-ui', "fuse.js", 'js-cookie', 'jsplumb', 'panzoom'],
+    lodash: ["lodash"],
+    vendor: ['axios', 'element-ui', "fuse.js", 'js-cookie', 'jsplumb', 'panzoom'],
   },
   output: {
     filename: '[name].dll.js',
