@@ -5,6 +5,7 @@
   "author": "ylb",
   "private": true,
   "scripts": {
+    "serve": "concurrently \"yarn run dev\"  \"yarn run nodemon-server-routes\"",
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js --open",
     "unit": "jest --config test/unit/jest.conf.js --coverage",
     "e2e": "node test/e2e/runner.js",
@@ -78,6 +79,7 @@
     "chromedriver": "^2.46.0",
     "clean-webpack-plugin": "^1.0.1",
     "compression-webpack-plugin": "^1.1.11",
+    "concurrently": "^5.1.0",
     "copy-webpack-plugin": "^4.0.1",
     "cross-env": "^6.0.3",
     "cross-spawn": "^5.0.1",
