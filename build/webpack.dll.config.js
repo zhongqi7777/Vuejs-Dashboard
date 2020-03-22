@@ -1,36 +1,83 @@
+// const path = require('path')
+// const webpack = require('webpack')
+// const CleanWebpackPlugin = require('clean-webpack-plugin')
+// const resolve = (dir) => path.join(__dirname, '../', dir);
+
+// // dll文件存放的目录
+// // const dllPath = 'public/vendor'
+// const dllPath = '../static/js'
+
+// module.exports = {
+//   entry: {
+//     vendor: ['vue/dist/vue.esm.js', 'lodash', 'vuex', 'axios', 'vue-router', 'element-ui', "fuse.js", 'js-cookie', 'jsplumb', 'moment', 'panzoom', 'vue-count-to', 'vue-drag-drop', 'vue-i18n', 'vue-meta', 'vuex-persistedstate'],
+//     //lodash: ['lodash']
+//   },
+//   output: {
+//     path: path.join(__dirname, dllPath),
+//     filename: '[name].dll.js',
+//     library: '[name]_library'
+//   },
+//   plugins: [
+//     // 清除之前的dll文件
+//     new CleanWebpackPlugin(['*.*'], {
+//       root: path.join(__dirname, dllPath)
+//     }),
+//     new webpack.DllPlugin({
+//       path: path.join(__dirname, ".", '[name]-manifest.json'),
+//       name: '[name]_library',
+//       context: __dirname
+//     }),
+//     new webpack.optimize.UglifyJsPlugin({
+//       compress: {
+//         warnings: false
+//       }
+//     })
+//   ]
+// }
+
+// 创建文件 webpack.dll.js
 const path = require('path')
 const webpack = require('webpack')
-const CleanWebpackPlugin = require('clean-webpack-plugin')
-const resolve = (dir) => path.join(__dirname, '../', dir);
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')//require('clean-webpack-plugin')
+const CompressionWebpackPlugin = require('compression-webpack-plugin');
 
-// dll文件存放的目录
+// // dll文件存放的目录
 // const dllPath = 'public/vendor'
-const dllPath = '../static/js'
+const dllPath = '../dll'
 
 module.exports = {
+  mode: 'production',
   entry: {
-    vendor: ['vue/dist/vue.esm.js', 'lodash', 'vuex', 'axios', 'vue-router', 'element-ui', "fuse.js", 'js-cookie', 'jsplumb', 'moment', 'panzoom', 'vue-count-to', 'vue-drag-drop', 'vue-i18n', 'vue-meta', 'vuex-persistedstate'],
-    //lodash: ['lodash']
+    vue: ['vue', 'vuex', 'vue-router', 'vue-i18n', 'vue-drag-drop', 'vue-meta', 'vuex-persistedstate', 'vue-count-to'],
+    moment: ['moment'],
+    vendor: ['lodash', 'axios', 'element-ui', "fuse.js", 'js-cookie', 'jsplumb', 'panzoom'],
   },
   output: {
-    path: path.join(__dirname, dllPath),
     filename: '[name].dll.js',
-    library: '[name]_library'
+    path: path.resolve(__dirname, dllPath), // 打包好的文件，存放到dll目录下
+    library: '[name]' // 打包好的文件，变成一个库，通过一个全局变量暴露出去。
+  },
+  performance: {
+    hints: false
   },
   plugins: [
-    // 清除之前的dll文件
-    new CleanWebpackPlugin(['*.*'], {
-      root: path.join(__dirname, dllPath)
-    }),
+    //     // 清除之前的dll文件
+    new CleanWebpackPlugin(), // 清理输出内容，自动根据output的内容来清理。,
+    // 引入打包好的DLL文件
     new webpack.DllPlugin({
-      path: path.join(__dirname, ".", '[name]-manifest.json'),
-      name: '[name]_library',
-      context: __dirname
+      name: '[name]', // 上面暴露出去的库名称
+      path: path.resolve(__dirname, '../dll/[name].manifest.json') // 映射关系存放到这个文件下
     }),
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false
-      }
-    })
+    // 对JS文件进行压缩
+    new CompressionWebpackPlugin({
+      filename: '[path].gz[query]',
+      cache: true,
+      algorithm: 'gzip',
+      test: /\.(js|css|html|svg|png|jpg|jpeg)$/,
+      threshold: 10240, // 只处理比这个值大的资源。按字节计算。
+      minRatio: 0.8, // 只有压缩率比这个值小的资源才会被处理（minRatio = 压缩大小 / 原始大小）
+      deleteOriginalAssets: false // 删除原始资源. nginx会先判断是否有.gz后缀的相同文件(这就表示需要两个文件，一个是压缩前的，一个是压缩后的。)
+      // 有的话，就直接返回，nginx自己不再进行压缩处理。 如果删除源文件，那么 NGINX 处理会有问题的！！！
+    }),
   ]
-}
+};
