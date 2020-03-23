@@ -38,11 +38,10 @@
 // 创建文件 webpack.dll.js
 const path = require('path')
 const webpack = require('webpack')
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')//require('clean-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const CompressionWebpackPlugin = require('compression-webpack-plugin');
 
 // // dll文件存放的目录
-// const dllPath = 'public/vendor'
 const dllPath = '../dll'
 
 module.exports = {
