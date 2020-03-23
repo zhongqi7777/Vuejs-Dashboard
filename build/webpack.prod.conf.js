@@ -189,6 +189,7 @@ const path = require('path')
 const webpack = require('webpack')
 const merge = require('webpack-merge')
 const baseWebpackConfig = require('./webpack.base.conf')
+const config = require("../config");
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
@@ -247,20 +248,40 @@ let plugins = [
   // generate dist home.html with correct asset hash for caching.
   // you can customize output by editing /home.html
   // see https://github.com/ampedandwired/html-webpack-plugin
-  new HtmlWebpackPlugin({
-    filename: 'index.html',
-    template: 'index.html',
-    inject: true,
-    minify: {
-      removeComments: true,
-      collapseWhitespace: true,
-      removeAttributeQuotes: true
-      // more options:
-      // https://github.com/kangax/html-minifier#options-quick-reference
-    },
-    // necessary to consistently work with multiple chunks via CommonsChunkPlugin
-    chunksSortMode: 'auto'
-  }),
+  // new HtmlWebpackPlugin({
+  //   filename: 'index.html',
+  //   template: 'index.html',
+  //   inject: true,
+  //   minify: {
+  //     removeComments: true,
+  //     collapseWhitespace: true,
+  //     removeAttributeQuotes: true
+  //     // more options:
+  //     // https://github.com/kangax/html-minifier#options-quick-reference
+  //   },
+  //   // necessary to consistently work with multiple chunks via CommonsChunkPlugin
+  //   chunksSortMode: 'auto'
+  // }),
+
+  new HtmlWebpackPlugin(
+    Object.assign(
+      {
+        filename: 'index.html',
+        template: "index.html",
+        inject: true,
+        minify: {
+          removeComments: true,
+          collapseWhitespace: true,
+          removeAttributeQuotes: true
+          // more options:
+          // https://github.com/kangax/html-minifier#options-quick-reference
+        },
+        // necessary to consistently work with multiple chunks via CommonsChunkPlugin
+        chunksSortMode: 'auto'
+      },
+      config.build.cdn
+    )
+  ),
   // keep module.id stable when vendor modules does not change
   new webpack.HashedModuleIdsPlugin(),
   // enable scope hoisting

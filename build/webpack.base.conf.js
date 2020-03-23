@@ -38,13 +38,13 @@ module.exports = {
   plugins: [
     new VueLoaderPlugin(), // Vue加载
     // copy custom static assets
-    new CopyWebpackPlugin([
-      {
-        from: path.resolve(__dirname, '../static'),
-        to: 'static',
-        ignore: ['.*']
-      }
-    ]),
+    // new CopyWebpackPlugin([
+    //   {
+    //     from: path.resolve(__dirname, '../static'),
+    //     to: 'static',
+    //     ignore: ['.*']
+    //   }
+    // ]),
     // 让 moment.js 中的语言文件，按需加载。使用的时候配置即可。没有导入的语言文件不会被加载。
     // 默认情况下，加载moment.js会导入全部的语言文件。
     new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
