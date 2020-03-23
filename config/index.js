@@ -22,7 +22,7 @@ const devJslist = [
   // "https://cdn.bootcss.com/jsPlumb/2.9.2/js/jsplumb.js",
   // "https://cdn.bootcss.com/lodash.js/4.17.15/lodash.js",
   // "https://cdn.bootcss.com/moment.js/2.24.0/moment.js",
-  "./static/js/vendor.dll.js"
+  // "./static/js/vendor.dll.js"
 ];
 
 const productjslist = [
@@ -37,7 +37,7 @@ const productjslist = [
   // "https://cdn.bootcss.com/jsPlumb/2.9.2/js/jsplumb.min.js",
   // "https://cdn.bootcss.com/lodash.js/4.17.15/lodash.min.js",
   // "https://cdn.bootcss.com/moment.js/2.24.0/moment.min.js"
-  "./static/js/vendor.dll.js"
+  // "./static/js/vendor.dll.js"
 ];
 
 module.exports = {
