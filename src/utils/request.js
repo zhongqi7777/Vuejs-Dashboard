@@ -11,8 +11,14 @@ baseURL += baseENV;
 
 // console.log("process.env.BASE_URL", process.env.BASE_URL);
 
+console.log("process.env.BASE_URL", process.env.BASE_URL);
+
 console.log("baseURL", baseURL);
 console.log("baseENV", baseENV);
+
+console.log('process.env.BASE_ENV', process.env.BASE_ENV);
+
+console.log('process.env.npm_config_baseenv', process.env.npm_config_baseenv);
 
 // create an axios instance
 const service = axios.create({
