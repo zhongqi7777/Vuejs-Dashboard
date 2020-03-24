@@ -1,10 +1,11 @@
 import axios from "axios";
 import { Message } from "element-ui";
 // import store from '@/store'
-import { getBaseURL } from "@/utils/util";
+// import { getBaseURL } from "@/utils/util";
 
 
-let baseURL = process.env.BASE_URL ? process.env.BASE_URL : getBaseURL();
+// let baseURL = process.env.BASE_URL ? process.env.BASE_URL : getBaseURL();
+let baseURL = "";
 let baseENV = process.env.BASE_ENV;
 baseURL += baseENV;
 

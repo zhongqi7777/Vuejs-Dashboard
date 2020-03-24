@@ -56,14 +56,14 @@ module.exports = {
     proxyTable: {
       "/mock/": {
         target: `http://${HOST ? HOST : "localhost"}:7000`,
-        changeOrigin: false,
+        //changeOrigin: false,
         pathRewrite: {
           "^/mock": ""
         }
       },
       "/api/": {
         target: `http://${HOST ? HOST : "localhost"}:7000`,
-        changeOrigin: false,
+        //changeOrigin: false,
         pathRewrite: {
           "^/api": ""
         }
@@ -76,6 +76,8 @@ module.exports = {
     autoOpenBrowser: false,
     errorOverlay: true,
     notifyOnErrors: true,
+
+
     poll: false, // https://webpack.js.org/configuration/dev-server/#devserver-watchoptions-
 
     // Use Eslint Loader?
