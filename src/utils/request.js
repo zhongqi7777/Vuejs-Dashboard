@@ -5,7 +5,8 @@ import { Message } from "element-ui";
 
 
 // let baseURL = process.env.BASE_URL ? process.env.BASE_URL : getBaseURL();
-let baseURL = "";
+// let baseURL = "";
+let baseURL = process.env.BASE_URL ? process.env.BASE_URL : "";
 let baseENV = process.env.BASE_ENV;
 baseURL += baseENV;
 
