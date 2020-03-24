@@ -38,12 +38,12 @@ const productjslist = [
   // "https://cdn.bootcss.com/lodash.js/4.17.15/lodash.min.js",
   // "https://cdn.bootcss.com/moment.js/2.24.0/moment.min.js"
   // "./static/js/vendor.dll.js"
-  "./static/fonts/element-icons.535877f.woff",
-  "./static/fonts/element-icons.732389d.ttf",
-  "./static/fonts/element-icons.535877f.woff",
-  "./static/fonts/iconfont.3a5ead1.ttf",
-  "./static/fonts/iconfont.324bb3e.woff",
-  "./static/fonts/iconfont.e88cd9c.eot",
+  "./static/css/fonts/element-icons.535877f.woff",
+  "./static/css/fonts/element-icons.732389d.ttf",
+  "./static/css/fonts/element-icons.535877f.woff",
+  "./static/css/fonts/iconfont.3a5ead1.ttf",
+  "./static/css/fonts/iconfont.324bb3e.woff",
+  "./static/css/fonts/iconfont.e88cd9c.eot",
   "./static/img/iconfont.f7c16c7.svg"
 ];
 
