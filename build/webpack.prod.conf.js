@@ -200,6 +200,9 @@ const AddAssetHtmlWebpackPlugin = require('add-asset-html-webpack-plugin')
 
 // 因为要加入预先分析好的第三方库，所以这里的插件要独立出来写。
 let plugins = [
+  new webpack.DefinePlugin({
+    "process.env": require("../config/prod.env")
+  }),
   new CleanWebpackPlugin(), // 清理输出内容，自动根据output的内容来清理。
   new MiniCssExtractPlugin({ // css打包配置
     filename: 'css/[name].[contenthash].css',
