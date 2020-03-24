@@ -5,7 +5,6 @@ const config = require("../config");
 const vueLoaderConfig = require("./vue-loader.conf");
 const webpack = require('webpack')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
-const CopyWebpackPlugin = require('copy-webpack-plugin')
 function resolve(dir) {
   return path.join(__dirname, "..", dir);
 }
@@ -64,8 +63,8 @@ module.exports = {
     alias: {
       vue$: "vue/dist/vue.esm.js",
       "@": resolve("src"),
-      jquery: "jquery",
-      "jquery-ui": "jquery-ui"
+      // jquery: "jquery",
+      // "jquery-ui": "jquery-ui"
     }
   },
   module: {
