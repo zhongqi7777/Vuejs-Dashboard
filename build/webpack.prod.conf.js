@@ -31,13 +31,14 @@ let plugins = [
     extractComments: false, // 移除注释
     uglifyOptions: {
       unused: true,
-      // warnings: false,
-      // drop_debugger: true,
-      compress: {
-        warnings: false,
-        drop_debugger: true, //自动删除debugger
-        drop_console: true //自动删除console.log
-      }
+      warnings: false,
+      drop_debugger: true, //自动删除debugger
+      drop_console: true //自动删除console.log
+      // compress: {
+      //   warnings: false,
+      //   drop_debugger: true, //自动删除debugger
+      //   drop_console: true //自动删除console.log
+      // }
     }
   }),
   new CompressionWebpackPlugin({
