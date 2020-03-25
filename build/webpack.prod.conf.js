@@ -104,13 +104,10 @@ files.forEach(file => {
     // // 添加指定的文件，到 html 文件中去。
     plugins.push(new AddAssetHtmlWebpackPlugin({
       filepath: path.resolve(__dirname, '../dll', file),
-      // // 文件输出目录
-      // outputPath: 'static/lib',
-      // // 脚本或链接标记的公共路径
-      // publicPath: 'static/lib'
-      outputPath: 'static',
+      // 文件输出目录
+      outputPath: 'static/lib',
       // 脚本或链接标记的公共路径
-      publicPath: 'static'
+      publicPath: 'static/lib'
     }))
 
   }
