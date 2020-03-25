@@ -108,6 +108,9 @@ files.forEach(file => {
       // outputPath: 'static/lib',
       // // 脚本或链接标记的公共路径
       // publicPath: 'static/lib'
+      outputPath: 'static',
+      // 脚本或链接标记的公共路径
+      publicPath: 'static'
     }))
 
   }
