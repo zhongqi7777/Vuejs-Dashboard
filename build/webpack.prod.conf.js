@@ -91,27 +91,27 @@ let plugins = [
 
 // 动态添加第三方打包好的组件
 // 引入 node.js 核心库，获取第三方库文件夹下的文件名数组
-const files = fs.readdirSync(path.resolve(__dirname, '../dll'));
-// 遍历数组，根据指定的条件，生成插件的第三方库加载代码。
-files.forEach(file => {
-  if (/.*\.dll.js$/.test(file)) {
-    // // 添加指定的文件，到 html 文件中去。
-    plugins.push(new AddAssetHtmlWebpackPlugin({
-      filepath: path.resolve(__dirname, '../dll', file),
-      // 文件输出目录
-      outputPath: 'static/lib',
-      // 脚本或链接标记的公共路径
-      publicPath: './static/lib'
-    }))
+// const files = fs.readdirSync(path.resolve(__dirname, '../dll'));
+// // 遍历数组，根据指定的条件，生成插件的第三方库加载代码。
+// files.forEach(file => {
+//   if (/.*\.dll.js$/.test(file)) {
+//     // // 添加指定的文件，到 html 文件中去。
+//     plugins.push(new AddAssetHtmlWebpackPlugin({
+//       filepath: path.resolve(__dirname, '../dll', file),
+//       // 文件输出目录
+//       outputPath: 'static/lib',
+//       // 脚本或链接标记的公共路径
+//       publicPath: './static/lib'
+//     }))
 
-  }
-  if (/.*\.manifest.json/.test(file)) {
-    // 这个插件避免 webpack 重复打包第三方库，如果要打包第三方库，会先到这个映射文件中去找，已经打包好的。
-    plugins.push(new webpack.DllReferencePlugin({
-      manifest: path.resolve(__dirname, '../dll', file)
-    }))
-  }
-})
+//   }
+//   if (/.*\.manifest.json/.test(file)) {
+//     // 这个插件避免 webpack 重复打包第三方库，如果要打包第三方库，会先到这个映射文件中去找，已经打包好的。
+//     plugins.push(new webpack.DllReferencePlugin({
+//       manifest: path.resolve(__dirname, '../dll', file)
+//     }))
+//   }
+// })
 
 
 const webpackConfig = merge(baseWebpackConfig, {
