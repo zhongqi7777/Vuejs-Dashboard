@@ -107,7 +107,7 @@ files.forEach(file => {
       // 文件输出目录
       outputPath: 'static/lib',
       // 脚本或链接标记的公共路径
-      publicPath: './static/lib'
+      publicPath: 'static/lib'
     }))
 
   }
