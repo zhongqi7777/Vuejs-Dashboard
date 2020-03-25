@@ -32,13 +32,12 @@ let plugins = [
     uglifyOptions: {
       unused: true,
       warnings: false,
-      drop_debugger: true, //自动删除debugger
-      drop_console: true //自动删除console.log
-      // compress: {
-      //   warnings: false,
-      //   drop_debugger: true, //自动删除debugger
-      //   drop_console: true //自动删除console.log
-      // }
+      // drop_debugger: true, //自动删除debugger
+      // drop_console: true //自动删除console.log
+      compress: {
+        drop_debugger: true, //自动删除debugger
+        drop_console: true //自动删除console.log
+      }
     }
   }),
   new CompressionWebpackPlugin({
