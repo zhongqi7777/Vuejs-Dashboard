@@ -20,8 +20,10 @@ let plugins = [
   }),
   new CleanWebpackPlugin(), // 清理输出内容，自动根据output的内容来清理。
   new MiniCssExtractPlugin({ // css打包配置
-    filename: 'static/css/[name].[contenthash].css',
-    chunkFilename: 'static/css/[id].[contenthash].css'
+    // filename: 'static/css/[name].[contenthash].css',
+    // chunkFilename: 'static/css/[id].[contenthash].css'
+    filename: './static/css/[name].[contenthash].css',
+    chunkFilename: './static/css/[id].[contenthash].css'
   }),
   new UglifyJsPlugin({
     exclude: /\.min\.js$/,
