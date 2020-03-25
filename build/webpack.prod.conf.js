@@ -22,8 +22,8 @@ let plugins = [
   new MiniCssExtractPlugin({ // css打包配置
     // filename: 'static/css/[name].[contenthash].css',
     // chunkFilename: 'static/css/[id].[contenthash].css'
-    filename: './static/css/[name].[contenthash].css',
-    chunkFilename: './static/css/[id].[contenthash].css'
+    filename: 'static/css/[name].[contenthash].css',
+    chunkFilename: 'static/css/[id].[contenthash].css'
   }),
   new UglifyJsPlugin({
     exclude: /\.min\.js$/,
