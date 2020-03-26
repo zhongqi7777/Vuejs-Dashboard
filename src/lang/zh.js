@@ -71,7 +71,7 @@ export default {
     size: '布局大小'
   },
   login: {
-    title: 'Vuejs Dashbord',
+    title: 'Vuejs Dashbord Dev',
     logIn: '登录',
     username: '账号',
     password: '密码',
