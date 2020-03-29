@@ -63,6 +63,12 @@
           <span>{{ $t('login.password') }} : 111111</span>
         </div>
       </div>
+
+      <div style="position:relative">
+        <div class="tips">
+          <span style="color:red">备注 :首次登陆页面数据如果没成功加载,请刷新页面!!!</span>
+        </div>
+      </div>
     </el-form>
 
     <el-dialog :title="$t('login.thirdparty')" :visible.sync="showDialog">
