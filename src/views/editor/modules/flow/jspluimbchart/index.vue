@@ -46,6 +46,7 @@
 <script>
 import vaside from "@/components/aside/left/index";
 import jsplumbchart from "@/components/jsplumbchart/index";
+import moment from "moment";
 
 // import "@/components/jsplumbchart/dist/jsplumbchart.css"
 // import * as jsplumbchart from "@/components/jsplumbchart/dist/jsplumbchart.umd.min.js";
