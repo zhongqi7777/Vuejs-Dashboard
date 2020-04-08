@@ -6,10 +6,12 @@
 const Mock = require('mockjs');
 // const { param2Obj } = require('../src/utils');
 const menu = require("./api/menu")
+const flow = require("./api/flow")
 
 
 const mocks = [
   ...menu,
+  ...flow
 ]
 
 // for front mock

@@ -167,7 +167,7 @@ export default {
     },
     initData(val) {
       getflowlist(val).then(res => {
-        this.tableData = res.data;
+        this.tableData = res.data.data;
       });
     }
   }

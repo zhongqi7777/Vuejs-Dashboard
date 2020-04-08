@@ -46,7 +46,8 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     quiet: false, // necessary for FriendlyErrorsPlugin //控制台信息输出 fasle 显示 true 不显示
     watchOptions: {
       poll: config.dev.poll
-    }
+    },
+    before: require('../mock/mock-server.js')
   },
   plugins: [
     // new webpack.DllReferencePlugin({

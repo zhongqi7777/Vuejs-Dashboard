@@ -54,20 +54,20 @@ module.exports = {
     assetsPublicPath: "/",
     //依据参数 baseenv 确定代理环境
     proxyTable: {
-      "/mock/": {
-        target: `http://${HOST ? HOST : "localhost"}:7000`,
-        //changeOrigin: false,
-        pathRewrite: {
-          "^/mock": ""
-        }
-      },
-      "/api/": {
-        target: `http://${HOST ? HOST : "localhost"}:7000`,
-        //changeOrigin: false,
-        pathRewrite: {
-          "^/api": ""
-        }
-      }
+      // "/mock/": {
+      //   target: `http://${HOST ? HOST : "localhost"}:7000`,
+      //   //changeOrigin: false,
+      //   pathRewrite: {
+      //     "^/mock": ""
+      //   }
+      // },
+      // "/api/": {
+      //   target: `http://${HOST ? HOST : "localhost"}:7000`,
+      //   //changeOrigin: false,
+      //   pathRewrite: {
+      //     "^/api": ""
+      //   }
+      // }
     },
 
     // Various Dev Server settings

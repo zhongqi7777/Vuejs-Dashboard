@@ -58,7 +58,7 @@ export default {
     initData() {
       getMenu().then(res => {
         // this.getMenuData(res.data.menu);
-        this.$store.dispatch("permission/getMenuData", res.data);
+        this.$store.dispatch("permission/getMenuData", res.data.data);
       });
     }
   },
