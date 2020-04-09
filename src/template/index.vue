@@ -3,6 +3,8 @@
 
 <script>
 import { mapGetters, mapActions, mapState } from "vuex";
+const Base64 = require("js-base64").Base64;
+
 export default {
   watch: {
     // flowData(val) {

@@ -48,8 +48,8 @@
 
       <el-table-column fixed="right" label="操作" width="100">
         <template slot-scope="scope">
-          <el-button type="text" size="small" @click="handleEdit(scope.$index, scope.row)">编辑</el-button>
-          <el-button type="text" size="small" @click="del(scope.$index, scope.row)">删除</el-button>
+          <el-button type="text" size="small" @click="handleEdit(scope)">编辑</el-button>
+          <el-button type="text" size="small" @click="del(scope)">删除</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -69,6 +69,7 @@
 <script>
 // import _ from "lodash";
 import { getflowlist, delFlow } from "@/api/flow";
+import { Base64 } from "js-base64";
 export default {
   watch: {
     // flowData(val) {
@@ -147,20 +148,32 @@ export default {
     handleCreate(index, row) {
       this.$router.push({ path: "/editor/jspluimbchart" });
     },
-    handleEdit(index, row) {
-      //console.log(index, row);
+    handleEdit({ $index, row }) {
       this.$router.push({
         path: "/editor/jspluimbchart",
-        query: { id: row.id }
+        query: { row: encodeURIComponent(Base64.encode(JSON.stringify(row))) }
       });
     },
-    del(index, row) {
-      delFlow(row.id).then(res => {
-        this.initData({
-          pageSize: this.pageSize,
-          currentPage: this.currentPage
+    del({ $index, row }) {
+      this.$confirm("Confirm to remove the role?", "Warning", {
+        confirmButtonText: "Confirm",
+        cancelButtonText: "Cancel",
+        type: "warning"
+      })
+        .then(async () => {
+          await delFlow(row.id).then(res => {
+            if (res.data.code == 20000) {
+              this.tableData.splice($index, 1);
+              this.$message({
+                type: "success",
+                message: "Delete succed!"
+              });
+            }
+          });
+        })
+        .catch(err => {
+          console.error(err);
         });
-      });
     },
     cancel(val) {
       this.addDialogFormVisible = false;

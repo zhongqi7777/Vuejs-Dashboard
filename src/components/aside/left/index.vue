@@ -85,8 +85,8 @@ export default {
     initData() {
       getAllStepList().then(res => {
         this.stepList = this.getLeftAsideData(
-          res.data,
-          _.uniq(this.getGroupData(res.data))
+          res.data.data,
+          _.uniq(this.getGroupData(res.data.data))
         );
       });
     },

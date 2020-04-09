@@ -47,6 +47,7 @@
 import vaside from "@/components/aside/left/index";
 import jsplumbchart from "@/components/jsplumbchart/index";
 import moment from "moment";
+import { Base64 } from "js-base64";
 
 // import "@/components/jsplumbchart/dist/jsplumbchart.css"
 // import * as jsplumbchart from "@/components/jsplumbchart/dist/jsplumbchart.umd.min.js";
@@ -113,34 +114,31 @@ export default {
       jsPlumb: jsPlumb,
       matrix: "",
       operationType: "copy",
-      input1Test: ""
+      input1Test: "",
+      flowData: {}
     };
   },
   // computed: {
   //   ...Vuex.mapState([""])
   // },
   mounted() {
-    if (this.$route.query.id) {
-      getFlowItem({
-        id: this.$route.query.id
-      }).then(res => {
-        let flowData = res.data[0];
-        this.steps = flowData.steps;
-        this.links = flowData.links;
-        this.input1 = flowData.flowName;
-        this.matrix = flowData.matrix;
-        this.jsplumbchartOption = {
-          isPanZoom: true,
-          steps: this.steps,
-          links: this.links,
-          container: "workplace",
-          nodeType: "flowchartnode",
-          jsPlumb: this.jsPlumb,
-          matrix: flowData.matrix && JSON.parse(flowData.matrix)
-        };
-
-        //console.log("this.jsplumbchartOption",this.jsplumbchartOption);
-      });
+    if (this.$route.query.row) {
+      this.flowData = JSON.parse(
+        Base64.decode(decodeURIComponent(this.$route.query.row))
+      );
+      this.steps = this.flowData.steps;
+      this.links = this.flowData.links;
+      this.input1 = this.flowData.flowName;
+      this.matrix = this.flowData.matrix;
+      this.jsplumbchartOption = {
+        isPanZoom: true,
+        steps: this.steps,
+        links: this.links,
+        container: "workplace",
+        nodeType: "flowchartnode",
+        jsPlumb: this.jsPlumb,
+        matrix: this.flowData.matrix && JSON.parse(this.flowData.matrix)
+      };
     }
   },
   beforeCreate() {},
@@ -269,28 +267,15 @@ export default {
       }
     },
     saveFlow() {
-      // console.log("this.links", this.links);
-      // console.log("this.steps", this.steps);
-      // return;
-
-      // console.log(this.$refs.jsplumbchart.jsplumbInstance.pan.getTransform());
-
-      // const matrix = window.getComputedStyle(
-      //   this.$refs.jsplumbchart.jsplumbInstance.getContainer()
-      // ).transform;
-
       if (!this.input1) {
         this.$message({
           showClose: true,
           message: "流程名称不可以为空",
           type: "error"
         });
-
         return;
       }
-
       let data = {};
-
       if (this.jsplumbchartOption.isPanZoom) {
         data = {
           flowName: this.input1,
@@ -309,11 +294,10 @@ export default {
           date: moment().format("YYYY-MM-DD HH:mm:ss")
         };
       }
-
-      if (this.$route.query.id) {
+      if (this.$route.query.row) {
         modifyFlow({
           ...data,
-          id: this.$route.query.id
+          id: this.flowData.id
         }).then(res => {
           this.$router.go(-1);
         });

@@ -1,4 +1,5 @@
 
+const Mock = require('mockjs');
 var flowlist = [
     {
         "flowName": "source_sink_flow",
@@ -383,9 +384,305 @@ var flowlist = [
     }
 ];
 
+var steplist = [
+    {
+        "id": "source",
+        "name": "source",
+        "type": "source",
+        "tags": [
+            "IO",
+            "rtcflow"
+        ],
+        "stepSettings": {},
+        "outputConfigurations": {
+            "output": [
+                {
+                    "column": "",
+                    "type": "",
+                    "alias": "",
+                    "description": ""
+                }
+            ]
+        }
+    },
+    {
+        "id": "dummy_source",
+        "name": "dummy_source",
+        "type": "source_dummy",
+        "tags": [
+            "IO",
+            "rtcflow"
+        ],
+        "stepSettings": {
+            "dataType": "userClick",
+            "storage": "DUMMY"
+        },
+        "outputConfigurations": {
+            "output": [
+                {
+                    "column": "",
+                    "type": "",
+                    "alias": "",
+                    "description": ""
+                }
+            ]
+        }
+    },
+    {
+        "id": "filter",
+        "name": "filter",
+        "type": "filter",
+        "tags": [
+            "Transform",
+            "rtcflow"
+        ],
+        "stepSettings": {},
+        "inputConfigurations": {
+            "input": [
+                {
+                    "column": "",
+                    "type": "",
+                    "alias": "",
+                    "description": ""
+                }
+            ]
+        },
+        "outputConfigurations": {
+            "output": [
+                {
+                    "column": "",
+                    "type": "",
+                    "alias": "",
+                    "description": ""
+                }
+            ]
+        }
+    },
+    {
+        "id": "join",
+        "name": "join",
+        "type": "join",
+        "tags": [
+            "Join",
+            "rtcflow"
+        ],
+        "stepSettings": {},
+        "inputConfigurations": {
+            "left": [
+                {
+                    "column": "",
+                    "type": "",
+                    "alias": "",
+                    "description": ""
+                }
+            ],
+            "right": [
+                {
+                    "column": "",
+                    "type": "",
+                    "alias": "",
+                    "description": ""
+                }
+            ]
+        },
+        "outputConfigurations": {
+            "output": [
+                {
+                    "column": "",
+                    "type": "",
+                    "alias": "",
+                    "description": ""
+                }
+            ]
+        }
+    },
+    {
+        "id": "aggregate",
+        "name": "aggregate",
+        "type": "aggregate",
+        "tags": [
+            "Group",
+            "rtcflow"
+        ],
+        "stepSettings": {},
+        "inputConfigurations": {
+            "input": [
+                {
+                    "column": "",
+                    "type": "",
+                    "alias": "",
+                    "description": ""
+                }
+            ]
+        },
+        "outputConfigurations": {
+            "output": [
+                {
+                    "column": "",
+                    "type": "",
+                    "alias": "",
+                    "description": ""
+                }
+            ]
+        }
+    },
+    {
+        "id": "transform",
+        "name": "transform",
+        "type": "transform",
+        "tags": [
+            "Transform",
+            "rtcflow"
+        ],
+        "stepSettings": {},
+        "inputConfigurations": {
+            "input": [
+                {
+                    "column": "",
+                    "type": "",
+                    "alias": "",
+                    "description": ""
+                }
+            ]
+        },
+        "outputConfigurations": {
+            "output": [
+                {
+                    "column": "",
+                    "type": "",
+                    "alias": "",
+                    "description": ""
+                }
+            ]
+        }
+    },
+    {
+        "id": "sql",
+        "name": "sql",
+        "type": "sql",
+        "tags": [
+            "Transform",
+            "rtcflow"
+        ],
+        "stepSettings": {},
+        "inputConfigurations": {
+            "input": [
+                {
+                    "column": "",
+                    "type": "",
+                    "alias": "",
+                    "description": ""
+                }
+            ]
+        },
+        "outputConfigurations": {
+            "output": [
+                {
+                    "column": "",
+                    "type": "",
+                    "alias": "",
+                    "description": ""
+                }
+            ]
+        }
+    },
+    {
+        "id": "lookup",
+        "name": "lookup",
+        "type": "lookup",
+        "tags": [
+            "Join",
+            "rtcflow"
+        ],
+        "stepSettings": {},
+        "inputConfigurations": {
+            "input": [
+                {
+                    "column": "",
+                    "type": "",
+                    "alias": "",
+                    "description": ""
+                }
+            ]
+        },
+        "outputConfigurations": {
+            "output": [
+                {
+                    "column": "",
+                    "type": "",
+                    "alias": "",
+                    "description": ""
+                }
+            ]
+        }
+    },
+    {
+        "id": "sink",
+        "name": "sink",
+        "type": "sink",
+        "tags": [
+            "IO",
+            "rtcflow"
+        ],
+        "stepSettings": {},
+        "inputConfigurations": {
+            "input": [
+                {
+                    "column": "",
+                    "type": "",
+                    "alias": "",
+                    "description": ""
+                }
+            ]
+        }
+    },
+    {
+        "id": "split",
+        "name": "split",
+        "type": "split",
+        "tags": [
+            "Set",
+            "rtcflow"
+        ],
+        "stepSettings": {},
+        "inputConfigurations": {
+            "input": [
+                {
+                    "column": "",
+                    "type": "",
+                    "alias": "",
+                    "description": ""
+                }
+            ]
+        },
+        "outputConfigurations": {
+            "output": [
+                {
+                    "column": "",
+                    "type": "",
+                    "alias": "",
+                    "description": ""
+                }
+            ]
+        }
+    }
+]
+
 
 module.exports = [
     // mock get all routes form server
+    // steplist
+    {
+        url: '/steplist',
+        type: 'get',
+        response: _ => {
+            return {
+                code: 20000,
+                data: steplist
+            }
+        }
+    },
+    // list
     {
         url: '/flowlist',
         type: 'get',
@@ -393,6 +690,39 @@ module.exports = [
             return {
                 code: 20000,
                 data: flowlist
+            }
+        }
+    },
+    //add
+    {
+        url: '/add/flow',
+        type: 'post',
+        response: {
+            code: 20000,
+            data: {
+                key: Mock.mock('@integer(300, 5000)')
+            }
+        }
+    },
+    // modify
+    {
+        url: '/modify/flow/[A-Za-z0-9]',
+        type: 'put',
+        response: {
+            code: 20000,
+            data: {
+                status: 'success'
+            }
+        }
+    },
+    //delete
+    {
+        url: '/del/flow/[A-Za-z0-9]',
+        type: 'delete',
+        response: {
+            code: 20000,
+            data: {
+                status: 'success'
             }
         }
     }
