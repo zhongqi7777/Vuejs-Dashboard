@@ -2,6 +2,9 @@
 
 vuejs dashbord webpack vuex jsplumbchart
 
+线上地址
+https://vuejs-dashborad.herokuapp.com/#/login
+
 <span id="top">目录</span>
 
 - [√ 配置多环境变量]
