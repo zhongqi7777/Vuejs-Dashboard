@@ -71,7 +71,7 @@ export default {
     size: 'Global Size'
   },
   login: {
-    title: 'Login Form',
+    title: 'Vuejs Dashbord',
     logIn: 'Login',
     username: 'Username',
     password: 'Password',

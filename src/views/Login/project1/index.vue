@@ -9,8 +9,8 @@
       label-position="left"
     >
       <div class="title-container">
-        <!-- <h3 class="title">{{ $t('login.title') }} heroku2021</h3> -->
         <h3 class="title">{{ $t('login.title') }}</h3>
+        <lang-select class="set-language" />
       </div>
 
       <el-form-item prop="username">
@@ -83,7 +83,7 @@
 
 <script>
 import { validUsername } from "@/utils/validate";
-// import LangSelect from "@/components/LangSelect";
+import LangSelect from "@/components/LangSelect";
 import SocialSign from "./socialSignin";
 
 export default {
@@ -97,6 +97,7 @@ export default {
     }
   },
   components: {
+    LangSelect,
     SocialSign
   },
   data() {

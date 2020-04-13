@@ -86,12 +86,12 @@
 
 <script>
 import { validUsername } from "@/utils/validate";
-// import LangSelect from "@/components/LangSelect";
+import LangSelect from "@/components/LangSelect";
 import SocialSign from "./socialSignin";
 
 export default {
   name: "Login",
-  components: { SocialSign },
+  components: { LangSelect, ocialSign },
   data() {
     const validateUsername = (rule, value, callback) => {
       if (!validUsername(value, this)) {

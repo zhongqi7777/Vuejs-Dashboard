@@ -3,39 +3,11 @@
     <el-row>
       <el-col :span="24">
         <div class="grid-content">
-          <span>流程筛选</span>
-          <el-button
-            type="primary"
-            icon="el-icon-edit"
-            @click="handleCreate"
-          >{{ $t('flowlist.btnSave') }}</el-button>
-        </div>
-      </el-col>
-    </el-row>
-
-    <el-divider class="divider"></el-divider>
-    <el-form :inline="true" :model="formInline" class="form-inline">
-      <el-form-item label="项目">
-        <el-input v-model="formInline.user" placeholder="项目"></el-input>
-      </el-form-item>
-      <el-form-item label="手机号">
-        <el-input v-model="formInline.region" placeholder="手机号"></el-input>
-      </el-form-item>
-      <el-form-item>
-        <el-button type="primary" @click="onSubmit">查询</el-button>
-        <el-button @click="resetForm('ruleForm')">重置</el-button>
-      </el-form-item>
-    </el-form>
-    <el-row>
-      <el-col :span="24">
-        <div class="grid-content">
-          <span>流程列表</span>
+          <span>流程演示</span>
         </div>
       </el-col>
     </el-row>
     <el-divider></el-divider>
-
-    <!-- <el-divider content-position="left">用户列表</el-divider> -->
     <el-table :data="tableData" style="width: 100%;">
       <el-table-column prop="id" label="ID" width="180"></el-table-column>
       <el-table-column prop="flowName" label="name"></el-table-column>
