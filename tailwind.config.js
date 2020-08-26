@@ -3,12 +3,12 @@ module.exports = {
   theme: {
     extend: {
       container: {
-        center: true,
-      },
-    },
+        center: true
+      }
+    }
   },
   variants: {
-    backgroundColor: ["responsive", "odd", "hover", "focus"],
+    backgroundColor: ["responsive", "odd", "hover", "focus"]
   },
-  plugins: [],
+  plugins: []
 };

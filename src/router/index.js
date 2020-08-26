@@ -21,6 +21,7 @@ export const constantRoutes = [
     name: "login",
     component: () => import("@/views/Login/index"),
   },
+  ...demoRouter,
   {
     path: "",
     // component: Container,
