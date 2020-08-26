@@ -78,13 +78,23 @@ export default {
 
     // get first item and last item
 
-    fruits.add(fruits.length, { name: "Apple1" });
-    fruits.add(fruits.length, { name: "Apple2" });
-    fruits.add(fruits.length, { name: "Apple3" });
-    fruits.add(fruits.length, { name: "Apple4" });
-    fruits.add(fruits.length, { name: "Apple5" });
+    // fruits.add(fruits.length, { name: "Apple1" });
+    // fruits.add(fruits.length + 1, { name: "Apple2" });
+    // fruits.add(fruits.length, { name: "Apple3" });
+    // fruits.add(fruits.length, { name: "Apple4" });
+    // fruits.add(fruits.length, { name: "Apple5" });
 
-    //console.log(fruits);
+    // console.log(fruits.add(6, { name: "Apple6" }));
+
+    fruits.add({ name: "Apple1" });
+    fruits.add({ name: "Apple2" });
+    fruits.add({ name: "Apple3" });
+    fruits.add({ name: "Apple4" });
+
+    fruits.addFirst({ name: "Apple first" });
+    fruits.addLast({ name: "Apple2 last" });
+
+    console.log(fruits);
 
     // first item
     // console.log(fruits.head);

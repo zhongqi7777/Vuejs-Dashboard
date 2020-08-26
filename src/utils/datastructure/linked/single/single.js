@@ -63,7 +63,8 @@ class SinglyLinkedList {
    * @param   {*}         value   需要设置的值
    * @returns {*}
    */
-  add(index, value) {
+  add(value, type) {
+    let index = this.length;
     // console.log("add(index, value) {");
     if (
       typeof index !== "number" ||
@@ -80,7 +81,7 @@ class SinglyLinkedList {
     };
 
     if (this.length > 0) {
-      if (index === 0) {
+      if (type === "first") {
         item.next = this.head;
         this.head = item;
       } else if (index === this.length) {
@@ -138,11 +139,11 @@ class SinglyLinkedList {
   }
 
   addFirst(value) {
-    return this.add(0, value);
+    return this.add(value, "first");
   }
 
   addLast(value) {
-    return this.add(this.length, value);
+    return this.add(value);
   }
 
   toString() {
