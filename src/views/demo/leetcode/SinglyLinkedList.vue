@@ -84,12 +84,12 @@ export default {
     // fruits.add(fruits.length, { name: "Apple4" });
     // fruits.add(fruits.length, { name: "Apple5" });
 
-    // // first item
-    // console.log(fruits.head);
+    // first item
+    //console.log(fruits.head);
 
     // // last item
 
-    // console.log(fruits.tail);
+    //console.log(fruits.tail);
 
     // get SinglyLinkedList length
 
@@ -105,7 +105,7 @@ export default {
     // console.log(fruits.addLast("Apple last"));
     // console.log(fruits);
 
-    // console.log(fruits.toString());
+    //console.log(fruits.toString());
   },
   beforeCreate() {},
   created() {},

@@ -86,10 +86,10 @@ class SinglyLinkedList {
         this.tail.next = item;
         this.tail = item;
       } else {
-        var prevItem = this.get(index - 1),
-          nextItem = this.get(index);
+        //var prevItem = this.get(index - 1),
+        nextItem = this.get(index);
         item.next = nextItem;
-        prevItem.next = item;
+        //prevItem.next = item;
       }
     } else {
       this.head = item;
