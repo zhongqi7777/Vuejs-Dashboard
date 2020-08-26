@@ -30,22 +30,17 @@ export default {
   },
   mounted() {
     var fruits = new LinkedList();
-    fruits.addNode("Apple");
-    fruits.addNode("Banana");
-    fruits.addNode("Pear");
+    // fruits.addNode("Apple");
+    // fruits.addNode("Banana");
+    // fruits.addNode("Pear");
 
-    // console.log(fruits.addNode("Pear4"));
+    // console.log(fruits.removeNode("Banana"));
 
-    console.log(fruits.removeNode("Banana"));
-    //console.log("fruits", fruits);
+    fruits.addNode({ name: "Apple" });
+    fruits.addNode({ name: "Banana" });
+    fruits.addNode({ name: "Pear" });
 
-    // console.log("linked list length", fruits.length);
-    // fruits.insert("Apple", "head");
-    // // fruits.insert("Banana", "Apple");
-    // // fruits.insert("Pear", "Banana");
-    // console.log("fruits", fruits);
-    // console.log("display", fruits.display()); // Apple
-    // console.log("findPrev", fruits.findPrev("111"));
+    console.log(fruits.removeNode({ name: "Banana" }));
   },
   beforeCreate() {},
   created() {},

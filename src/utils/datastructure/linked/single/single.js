@@ -11,7 +11,11 @@ class LinkedList {
   }
 
   addNode(data) {
-    const node = new Node(data);
+    const node = new Node(
+      Object.prototype.toString.call(data) === "[object String]"
+        ? data
+        : JSON.stringify(data)
+    );
 
     if (!this.head) {
       //  Make this node both the tail & head
@@ -29,6 +33,10 @@ class LinkedList {
   }
 
   removeNode(data) {
+    let removeItem =
+      Object.prototype.toString.call(data) === "[object String]"
+        ? data
+        : JSON.stringify(data);
     let previous = this.head;
     let current = this.head;
 
@@ -37,7 +45,7 @@ class LinkedList {
     }
 
     while (current) {
-      if (current.data === data) {
+      if (current.data === removeItem) {
         if (current === this.head) this.head = this.head.next;
         // Replace head node with the node after it
         else if (current === this.tail) this.tail = previous; // Replace tail with node before it
