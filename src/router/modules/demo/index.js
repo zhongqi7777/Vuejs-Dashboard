@@ -2,9 +2,9 @@
 
 const demoRouter = [
   {
-    path: "/leetcode",
-    component: () => import("@/views/demo/leetcode/index"),
-  },
+    path: "/SinglyLinkedList",
+    component: () => import("@/views/demo/leetcode/SinglyLinkedList")
+  }
 ];
 
 export default demoRouter;
