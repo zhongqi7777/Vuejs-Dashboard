@@ -64,6 +64,7 @@ class SinglyLinkedList {
    * @returns {*}
    */
   add(index, value) {
+    // console.log("add(index, value) {");
     if (
       typeof index !== "number" ||
       index < 0 ||
@@ -86,12 +87,14 @@ class SinglyLinkedList {
         this.tail.next = item;
         this.tail = item;
       } else {
-        //var prevItem = this.get(index - 1),
-        nextItem = this.get(index);
-        item.next = nextItem;
-        //prevItem.next = item;
+        // //var prevItem = this.get(index - 1),
+        // nextItem = this.get(index);
+        // item.next = nextItem;
+        // //prevItem.next = item;
+        // console.log(index, nextItem);
       }
     } else {
+      // add first item
       this.head = item;
       this.tail = item;
     }

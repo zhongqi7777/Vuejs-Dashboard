@@ -78,34 +78,36 @@ export default {
 
     // get first item and last item
 
-    // fruits.add(fruits.length, { name: "Apple1" });
-    // fruits.add(fruits.length, { name: "Apple2" });
-    // fruits.add(fruits.length, { name: "Apple3" });
-    // fruits.add(fruits.length, { name: "Apple4" });
-    // fruits.add(fruits.length, { name: "Apple5" });
+    fruits.add(fruits.length, { name: "Apple1" });
+    fruits.add(fruits.length, { name: "Apple2" });
+    fruits.add(fruits.length, { name: "Apple3" });
+    fruits.add(fruits.length, { name: "Apple4" });
+    fruits.add(fruits.length, { name: "Apple5" });
+
+    //console.log(fruits);
 
     // first item
-    //console.log(fruits.head);
+    // console.log(fruits.head);
 
     // // last item
 
-    //console.log(fruits.tail);
+    // console.log(fruits.tail);
 
     // get SinglyLinkedList length
 
-    //console.log(fruits.length);
+    // console.log(fruits.length);
 
     // clear all item
 
     // console.log(fruits.clear());
     // console.log(fruits);
 
-    //console.log(fruits.addFirst("Apple first"));
+    // console.log(fruits.addFirst("Apple first"));
 
     // console.log(fruits.addLast("Apple last"));
-    // console.log(fruits);
+    // // console.log(fruits);
 
-    //console.log(fruits.toString());
+    // console.log(fruits.toString());
   },
   beforeCreate() {},
   created() {},
