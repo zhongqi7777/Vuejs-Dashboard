@@ -22,7 +22,7 @@ export default {
     // }
   },
   components: {},
-  data: function () {
+  data: function() {
     return {};
   },
   computed: {
@@ -36,11 +36,17 @@ export default {
 
     // console.log(fruits.removeNode("Banana"));
 
-    fruits.addNode({ name: "Apple" });
-    fruits.addNode({ name: "Banana" });
-    fruits.addNode({ name: "Pear" });
+    fruits.add({ name: "Apple" });
+    fruits.add({ name: "Banana" });
+    fruits.add({ name: "Pear" });
 
-    console.log(fruits.removeNode({ name: "Banana" }));
+    fruits.removeByIndex(0);
+
+    console.log(fruits);
+
+    // console.log(fruits.removeNode({ name: "Banana" }));
+
+    //console.log("find item", fruits.get(1));
   },
   beforeCreate() {},
   created() {},
@@ -48,10 +54,10 @@ export default {
   beforeUpdate() {},
   updated() {},
   beforeDestroy() {},
-  destroyed: function () {},
+  destroyed: function() {},
   methods: {
     //...mapActions([""]),
-  },
+  }
 };
 </script>
 

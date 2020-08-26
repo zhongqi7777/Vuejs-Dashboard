@@ -9,8 +9,24 @@ class LinkedList {
     this.tail = null; //  Node at end of list\
     this.length = 0;
   }
+  /**
+   * 根据索引获取 item
+   * @param   {Number}    index   链表索引
+   * @returns {*}
+   */
+  get(index) {
+    if (typeof index !== "number" || index < 0 || index >= this.length) {
+      return undefined;
+    }
 
-  addNode(data) {
+    var item = this.head;
+    for (var i = 0; i < index; i++) {
+      item = item.next;
+    }
+    return item;
+  }
+
+  add(data) {
     const node = new Node(
       Object.prototype.toString.call(data) === "[object String]"
         ? data
@@ -32,7 +48,38 @@ class LinkedList {
     return this;
   }
 
-  removeNode(data) {
+  removeByIndex(index) {
+    if (typeof index !== "number" || index < 0 || index >= this.length) {
+      return false;
+    }
+
+    var item = this.get(index);
+
+    if (this.length > 1) {
+      if (index === 0) {
+        this.head = item.next;
+      } else if (index === this.length - 1) {
+        this.tail = this.get(this.length - 2);
+        this.tail.next = null;
+      } else {
+        this.get(index - 1).next = item.next;
+      }
+    } else {
+      this.head = null;
+      this.tail = null;
+    }
+
+    item = null;
+    this.length--;
+    return true;
+  }
+
+  /**
+   * delete element by item
+   * @param   {Object}
+   * @returns {Object}
+   */
+  removeByItem(data) {
     let removeItem =
       Object.prototype.toString.call(data) === "[object String]"
         ? data

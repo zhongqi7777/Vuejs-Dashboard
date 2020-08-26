@@ -10,7 +10,7 @@ import store from "./vuex";
 import "@/utils/dialogDrag";
 
 import "normalize.css/normalize.css"; // A modern alternative to CSS resets
-import "@/assets/tailwindcss/index.css";
+// import "@/assets/tailwindcss/index.css";
 //vue 鼠标事件控制台警告Added non-passive event listener to a scroll-blocking 'mousewheel' event. Consider marking event handler as 'passive' to make the page more responsive
 import "./assets/lib/default-passive-events/dist";
 import "./assets/fonts/iconfont.css"; // step icons
@@ -22,7 +22,7 @@ import VueMeta from "vue-meta";
 
 Vue.use(VueMeta, {
   // optional pluginOptions
-  refreshOnceOnNavigation: true,
+  refreshOnceOnNavigation: true
 });
 
 import VueDragDrop from "vue-drag-drop"; //https://github.com/cameronhimself/vue-drag-drop
@@ -35,7 +35,7 @@ import Element from "element-ui";
 
 Vue.use(Element, {
   size: Cookies.get("size") || "medium", // set element-ui default size
-  i18n: (key, value) => i18n.t(key, value),
+  i18n: (key, value) => i18n.t(key, value)
 });
 
 Vue.config.productionTip = false;
@@ -47,7 +47,7 @@ new Vue({
   components: { App },
   template: "<App/>",
   i18n,
-  store,
+  store
 });
 
 /**
