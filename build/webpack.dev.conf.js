@@ -47,7 +47,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     watchOptions: {
       poll: config.dev.poll
     },
-    before: require('../mock/mock-server.js')
+    before: require("../mock/mock-server.js")
   },
   plugins: [
     // new webpack.DllReferencePlugin({
@@ -78,7 +78,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
         },
         config.dev.cdn
       )
-    ),
+    )
     // copy custom static assets
     // new CopyWebpackPlugin([
     //   {
