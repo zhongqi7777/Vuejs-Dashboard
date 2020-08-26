@@ -1,67 +1,59 @@
-//节点
-function Node(element) {
-  this.element = element; //当前节点的元素
-  this.next = null; //下一个节点链接
+function Node(data) {
+  this.data = data;
+  this.next = null;
 }
 
-//链表类
-function LList() {
-  this.head = new Node("head"); //头节点
-  this.find = find; //查找节点
-  this.insert = insert; //插入节点
-  this.remove = remove; //删除节点
-  this.findPrev = findPrev; //查找前一个节点
-  this.display = display; //显示链表
-}
-
-//查找给定节点
-
-function find(item) {
-  var currNode = this.head;
-  while (currNode.element != item) {
-    currNode = currNode.next;
+class LinkedList {
+  constructor() {
+    this.head = null; //  Node at start of list
+    this.tail = null; //  Node at end of list\
+    this.length = 0;
   }
-  return currNode;
-}
 
-//插入节点
+  addNode(data) {
+    const node = new Node(data);
 
-function insert(newElement, item) {
-  var newNode = new Node(newElement);
-  var currNode = this.find(item);
-  newNode.next = currNode.next;
-  currNode.next = newNode;
-}
-
-//显示链表元素
-
-function display() {
-  var currNode = this.head;
-  while (!(currNode.next == null)) {
-    console.log(currNode.next.element);
-    currNode = currNode.next;
+    if (!this.head) {
+      //  Make this node both the tail & head
+      //  since there are no other nodes.
+      this.head = node;
+      this.tail = node;
+    } else {
+      //  Make this the next node for the current tail
+      this.tail.next = node;
+      //  Then set the tail to this node
+      this.tail = node;
+    }
+    this.length++;
+    return this;
   }
-}
 
-//从链表中删除节点时，我们先要找个待删除节点的前一个节点，找到后，我们修改它的 next 属性，使其不在指向待删除的节点，而是待删除节点的下一个节点。那么，我们就得需要定义一个 findPrevious 方法遍历链表，检查每一个节点的下一个节点是否存储待删除的数据。如果找到，返回该节点，这样就可以修改它的 next 属性了。 findPrevious 的实现如下：
+  removeNode(data) {
+    let previous = this.head;
+    let current = this.head;
 
-//查找带删除节点的前一个节点
+    if (!current) {
+      return this;
+    }
 
-function findPrev(item) {
-  var currNode = this.head;
-  while (!(currNode.next == null) && currNode.next.element != item) {
-    currNode = currNode.next;
-  }
-  return currNode;
-}
+    while (current) {
+      if (current.data === data) {
+        if (current === this.head) this.head = this.head.next;
+        // Replace head node with the node after it
+        else if (current === this.tail) this.tail = previous; // Replace tail with node before it
 
-//删除节点
+        previous.next = current.next; // Replace current node with the node after it
 
-function remove(item) {
-  var prevNode = this.findPrev(item);
-  if (!(prevNode.next == null)) {
-    prevNode.next = prevNode.next.next;
+        break;
+      }
+
+      previous = current;
+      current = current.next;
+    }
+
+    this.length--;
+    return this;
   }
 }
 
-module.exports = LList;
+export default LinkedList;
