@@ -8,7 +8,7 @@
 import { mapGetters, mapActions, mapState } from "vuex";
 const Base64 = require("js-base64").Base64;
 
-import LinkedList from "@/utils/datastructure/linked/single/single";
+import SinglyLinkedList from "@/utils/datastructure/linked/single/single";
 
 export default {
   watch: {
@@ -29,24 +29,83 @@ export default {
     //...mapState([""])
   },
   mounted() {
-    var fruits = new LinkedList();
-    // fruits.addNode("Apple");
-    // fruits.addNode("Banana");
-    // fruits.addNode("Pear");
+    var fruits = new SinglyLinkedList();
 
-    // console.log(fruits.removeNode("Banana"));
+    // add item
 
-    fruits.add({ name: "Apple" });
-    fruits.add({ name: "Banana" });
-    fruits.add({ name: "Pear" });
+    // console.log("length: ", fruits.length);
 
-    fruits.removeByIndex(0);
+    // console.log(fruits.add(fruits.length, { name: "Apple1" }));
+    // console.log("length: ", fruits.length);
 
-    console.log(fruits);
+    // console.log(fruits.add(fruits.length, { name: "Apple2" }));
+    // console.log("length: ", fruits.length);
+    // console.log(fruits.add(fruits.length, { name: "Apple3" }));
 
-    // console.log(fruits.removeNode({ name: "Banana" }));
+    // console.log(fruits.add("", { name: "Apple7" }));
 
-    //console.log("find item", fruits.get(1));
+    // get item
+
+    // fruits.add(fruits.length, { name: "Apple1" });
+    // fruits.add(fruits.length, { name: "Apple2" });
+    // fruits.add(fruits.length, { name: "Apple3" });
+    // fruits.add(fruits.length, { name: "Apple4" });
+    // fruits.add(fruits.length, { name: "Apple5" });
+
+    // console.log(fruits.get(3));
+
+    // delete item
+
+    // fruits.add(fruits.length, { name: "Apple1" });
+    // fruits.add(fruits.length, { name: "Apple2" });
+    // fruits.add(fruits.length, { name: "Apple3" });
+    // fruits.add(fruits.length, { name: "Apple4" });
+    // fruits.add(fruits.length, { name: "Apple5" });
+
+    // console.log(fruits.removeByIndex(3));
+    // console.log(fruits);
+
+    //set item
+
+    // fruits.add(fruits.length, { name: "Apple1" });
+    // fruits.add(fruits.length, { name: "Apple2" });
+    // fruits.add(fruits.length, { name: "Apple3" });
+    // fruits.add(fruits.length, { name: "Apple4" });
+    // fruits.add(fruits.length, { name: "Apple5" });
+
+    // console.log(fruits.set(4, "Apple7777"));
+    // console.log(fruits);
+
+    // get first item and last item
+
+    // fruits.add(fruits.length, { name: "Apple1" });
+    // fruits.add(fruits.length, { name: "Apple2" });
+    // fruits.add(fruits.length, { name: "Apple3" });
+    // fruits.add(fruits.length, { name: "Apple4" });
+    // fruits.add(fruits.length, { name: "Apple5" });
+
+    // // first item
+    // console.log(fruits.head);
+
+    // // last item
+
+    // console.log(fruits.tail);
+
+    // get SinglyLinkedList length
+
+    //console.log(fruits.length);
+
+    // clear all item
+
+    // console.log(fruits.clear());
+    // console.log(fruits);
+
+    //console.log(fruits.addFirst("Apple first"));
+
+    // console.log(fruits.addLast("Apple last"));
+    // console.log(fruits);
+
+    // console.log(fruits.toString());
   },
   beforeCreate() {},
   created() {},
