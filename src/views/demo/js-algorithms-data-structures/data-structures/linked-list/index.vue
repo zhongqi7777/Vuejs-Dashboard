@@ -1,4 +1,11 @@
-<template></template>
+<template>
+  <div class="container">
+    <div class="header">
+      <h1>LinkedList</h1>
+    </div>
+    <div class="content"></div>
+  </div>
+</template>
 
 <script>
 import LinkedList from "./lib/LinkedList"; //单向链表
@@ -35,4 +42,20 @@ export default {
 };
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  .header {
+    height: 100px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .content {
+    flex: 1;
+  }
+}
+</style>

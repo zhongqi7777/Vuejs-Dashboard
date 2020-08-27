@@ -3,7 +3,10 @@
 const datastructuresRouter = [
   {
     path: "/LinkedList",
-    component: () => import("@/views/demo/leetcode/SinglyLinkedList")
+    component: () =>
+      import(
+        "@/views/demo/js-algorithms-data-structures/data-structures/linked-list/index"
+      )
   }
 ];
 
