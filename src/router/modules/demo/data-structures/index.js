@@ -9,6 +9,13 @@ const datastructuresRouter = [
       )
   },
   {
+    path: "/doubly-linked-list",
+    component: () =>
+      import(
+        "@/views/demo/js-algorithms-data-structures/data-structures/doubly-linked-list/index"
+      )
+  },
+  {
     path: "/statck",
     component: () =>
       import(
