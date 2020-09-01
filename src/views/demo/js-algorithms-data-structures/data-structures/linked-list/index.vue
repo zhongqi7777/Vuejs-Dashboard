@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="header">
-      <h1>LinkedList</h1>
+      <h1>链表 LinkedList</h1>
     </div>
     <div class="content"></div>
   </div>

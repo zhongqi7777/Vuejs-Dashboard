@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="header">
-      <h1>queue</h1>
+      <h1>队列 queue</h1>
     </div>
     <div class="content"></div>
   </div>

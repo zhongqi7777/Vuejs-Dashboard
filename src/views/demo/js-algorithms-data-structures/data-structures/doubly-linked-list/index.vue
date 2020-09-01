@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="header">
-      <h1>doubly-linked-list</h1>
+      <h1>双向链表 doubly-linked-list</h1>
     </div>
     <div class="content"></div>
   </div>

@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="header">
-      <h1>Stack</h1>
+      <h1>栈 Stack</h1>
     </div>
     <div class="content"></div>
   </div>
