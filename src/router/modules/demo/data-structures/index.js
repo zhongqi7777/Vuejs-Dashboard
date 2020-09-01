@@ -21,6 +21,13 @@ const datastructuresRouter = [
       import(
         "@/views/demo/js-algorithms-data-structures/data-structures/stack/index"
       )
+  },
+  {
+    path: "/queue",
+    component: () =>
+      import(
+        "@/views/demo/js-algorithms-data-structures/data-structures/queue/index"
+      )
   }
 ];
 
