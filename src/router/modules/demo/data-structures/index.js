@@ -7,6 +7,13 @@ const datastructuresRouter = [
       import(
         "@/views/demo/js-algorithms-data-structures/data-structures/linked-list/index"
       )
+  },
+  {
+    path: "/statck",
+    component: () =>
+      import(
+        "@/views/demo/js-algorithms-data-structures/data-structures/stack/index"
+      )
   }
 ];
 
