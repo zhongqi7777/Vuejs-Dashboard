@@ -28,6 +28,13 @@ const datastructuresRouter = [
       import(
         "@/views/demo/js-algorithms-data-structures/data-structures/queue/index"
       )
+  },
+  {
+    path: "/hashtable",
+    component: () =>
+      import(
+        "@/views/demo/js-algorithms-data-structures/data-structures/hashtable/index"
+      )
   }
 ];
 
