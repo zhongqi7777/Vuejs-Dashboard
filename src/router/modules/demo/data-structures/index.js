@@ -35,6 +35,13 @@ const datastructuresRouter = [
       import(
         "@/views/demo/js-algorithms-data-structures/data-structures/hashtable/index"
       )
+  },
+  {
+    path: "/heap",
+    component: () =>
+      import(
+        "@/views/demo/js-algorithms-data-structures/data-structures/heap/index"
+      )
   }
 ];
 
