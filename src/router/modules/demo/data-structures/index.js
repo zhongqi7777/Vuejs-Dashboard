@@ -49,6 +49,13 @@ const datastructuresRouter = [
       import(
         "@/views/demo/js-algorithms-data-structures/data-structures/PriorityQueue/index"
       )
+  },
+  {
+    path: "/trie",
+    component: () =>
+      import(
+        "@/views/demo/js-algorithms-data-structures/data-structures/Trie/index"
+      )
   }
 ];
 
