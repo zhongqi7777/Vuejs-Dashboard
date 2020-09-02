@@ -42,6 +42,13 @@ const datastructuresRouter = [
       import(
         "@/views/demo/js-algorithms-data-structures/data-structures/heap/index"
       )
+  },
+  {
+    path: "/PriorityQueue",
+    component: () =>
+      import(
+        "@/views/demo/js-algorithms-data-structures/data-structures/PriorityQueue/index"
+      )
   }
 ];
 
