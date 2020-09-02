@@ -56,6 +56,13 @@ const datastructuresRouter = [
       import(
         "@/views/demo/js-algorithms-data-structures/data-structures/Trie/index"
       )
+  },
+  {
+    path: "/binary-search-tree",
+    component: () =>
+      import(
+        "@/views/demo/js-algorithms-data-structures/data-structures/tree/binary-search-tree/index"
+      )
   }
 ];
 
