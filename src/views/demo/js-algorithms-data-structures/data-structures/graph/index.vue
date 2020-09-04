@@ -217,29 +217,63 @@ export default {
     //   .addEdge(edgeBD);
     // const adjacencyMatrix = graph.getAdjacencyMatrix();
     // console.log("adjacencyMatrix", adjacencyMatrix);
-
     //should generate adjacency matrix for directed graph
+    // const vertexA = new GraphVertex("A");
+    // const vertexB = new GraphVertex("B");
+    // const vertexC = new GraphVertex("C");
+    // const vertexD = new GraphVertex("D");
+    // const edgeAB = new GraphEdge(vertexA, vertexB, 2);
+    // const edgeBC = new GraphEdge(vertexB, vertexC, 1);
+    // const edgeCD = new GraphEdge(vertexC, vertexD, 5);
+    // const edgeBD = new GraphEdge(vertexB, vertexD, 7);
+    // const graph = new Graph(true);
+    // graph
+    //   .addEdge(edgeAB)
+    //   .addEdge(edgeBC)
+    //   .addEdge(edgeCD)
+    //   .addEdge(edgeBD);
+    // const adjacencyMatrix = graph.getAdjacencyMatrix();
+    // console.log("adjacencyMatrix", adjacencyMatrix);
 
-    const vertexA = new GraphVertex("A");
-    const vertexB = new GraphVertex("B");
-    const vertexC = new GraphVertex("C");
-    const vertexD = new GraphVertex("D");
-
-    const edgeAB = new GraphEdge(vertexA, vertexB, 2);
-    const edgeBC = new GraphEdge(vertexB, vertexC, 1);
-    const edgeCD = new GraphEdge(vertexC, vertexD, 5);
-    const edgeBD = new GraphEdge(vertexB, vertexD, 7);
-
+    //有向图  flow
     const graph = new Graph(true);
-    graph
-      .addEdge(edgeAB)
-      .addEdge(edgeBC)
-      .addEdge(edgeCD)
-      .addEdge(edgeBD);
+    // 创建点
+    const vertexA = new GraphVertex(
+      JSON.stringify({
+        id: "source_1",
+        name: "source",
+        type: "source",
+        x: 172,
+        y: 144,
+        stepSettings: {},
+        outputConfigurations: {
+          output: []
+        }
+      })
+    );
+    const vertexB = new GraphVertex(
+      JSON.stringify({
+        id: "filter_3",
+        name: "filter",
+        type: "filter",
+        x: 588,
+        y: 266,
+        stepSettings: {},
+        inputConfigurations: {
+          input: []
+        },
+        outputConfigurations: {
+          output: []
+        }
+      })
+    );
+    graph.addVertex(vertexA).addVertex(vertexB);
+    const edgeAB = new GraphEdge(vertexA, vertexB); // 创建边
+    graph.addEdge(edgeAB);
 
-    const adjacencyMatrix = graph.getAdjacencyMatrix();
-
-    console.log("adjacencyMatrix", adjacencyMatrix);
+    // console.log(edgeAB);
+    console.log(graph.getAllEdges());
+    console.log(graph.getAllVertices());
   },
   beforeCreate() {},
   created() {},
