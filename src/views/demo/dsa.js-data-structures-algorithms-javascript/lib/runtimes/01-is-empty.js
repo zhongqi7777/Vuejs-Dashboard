@@ -33,5 +33,5 @@ function isEmpty(thing) {
 
 module.exports = {
   isEmpty,
-  isEmpty2,
+  isEmpty2
 };
