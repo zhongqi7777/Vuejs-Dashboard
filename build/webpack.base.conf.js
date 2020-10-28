@@ -57,12 +57,12 @@ module.exports = {
         : config.dev.assetsPublicPath
   },
   resolve: {
+    modules: ['src/views/demo/Web-designer/GrapesJS/src', 'node_modules'],
     extensions: [".js", ".vue", ".json"],
     alias: {
       vue$: "vue/dist/vue.esm.js",
       "@": resolve("src"),
-      // jquery: "jquery",
-      // "jquery-ui": "jquery-ui"
+      jquery: 'cash-dom'
     }
   },
   module: {
