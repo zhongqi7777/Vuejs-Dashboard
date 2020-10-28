@@ -26,7 +26,7 @@ export const constantRoutes = [
     path: "",
     // component: Container,
     component: () => import("@/container/index"),
-    redirect: "login",
+    redirect: "web-designer",
     children: [
       {
         path: "dashboard",
