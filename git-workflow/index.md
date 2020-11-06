@@ -32,7 +32,12 @@ git push origin <branch name>
 git branch -d <branch name>
 
 删除远程分支
+
+方式一
 git push origin :<branch name>
+
+方式二
+git push origin --delete <branch name>
 
 更新本地仓库至最新改动
 git pull
