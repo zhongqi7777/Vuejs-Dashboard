@@ -330,7 +330,7 @@ git remote remove heroku
 git remote add origin git@first:yanlibo2021/Vuejs-Dashboard.git
 
 // git fork update
-git remote add upstream 上游仓库地址
+git remote add upstream <repo >
 git remote -v
 git fetch upstream
 git merge upstream/<branch name>
