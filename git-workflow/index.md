@@ -32,7 +32,12 @@ git push origin <branch name>
 git branch -d <branch name>
 
 删除远程分支
+
+方式一
 git push origin :<branch name>
+
+方式二
+git push origin --delete <branch name>
 
 更新本地仓库至最新改动
 git pull
@@ -138,8 +143,11 @@ git log --help
 git checout ./ (对应所有文件)
 git checkout --<file name>(path 文件路径,指定文件)
 
-撤销暂存区操作
+撤销暂存区操作 (即 add操作)
 git reset HEAD < filw path>(文件路径可选)
+
+撤销本地仓库操作 (即 commit操作)
+git reset --soft HEAD^
 
 撤销工作区,暂存区，本地仓库操作
 git reset --hard origin/master
