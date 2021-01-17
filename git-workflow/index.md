@@ -329,6 +329,13 @@ git remote remove heroku
 //关联远程仓库
 git remote add origin git@first:yanlibo2021/Vuejs-Dashboard.git
 
+// git fork update
+git remote add upstream <repo >
+git remote -v
+git fetch upstream
+git merge upstream/<branch name>
+git push origin <branch name>
+
 //
 git remote show origin //可以看到删除分支情况
 git remote prune origin
