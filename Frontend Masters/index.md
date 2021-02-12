@@ -5,6 +5,8 @@ https://code.visualstudio.com/docs
 
 https://css-tricks.com/
 
+https://www.w3schools.com/
+
 https://frontendmasters.com/books/
 
 
