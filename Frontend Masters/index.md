@@ -14,6 +14,14 @@ https://frontendmasters.com/books/
 https://www.w3.org/
 
 
+## Web Safe Fonts 
+https://www.cssfontstack.com/
+
+
+## Google Fonts 
+https://fonts.google.com/
+
+
 ## Code Repo
 
 State Modeling in React with XState
