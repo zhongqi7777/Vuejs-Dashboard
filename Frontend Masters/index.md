@@ -7,7 +7,7 @@ https://css-tricks.com/
 
 https://www.w3schools.com/
 
-https://caniuse.com/?search=vh
+https://caniuse.com/
 
 https://frontendmasters.com/books/
 
