@@ -45,3 +45,8 @@ https://github.com/davidkpiano/frontend-masters-react-workshop
 
 ## Javascript Data Structure and Algorithms
 https://github.com/trekhleb/javascript-algorithms
+
+## Official Git website 
+https://git-scm.com/
+## Git commands reference
+https://git-scm.com/docs
