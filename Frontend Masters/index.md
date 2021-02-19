@@ -43,6 +43,9 @@ https://sass-lang.com/
 State Modeling in React with XState
 https://github.com/davidkpiano/frontend-masters-react-workshop
 
+## Academind
+https://github.com/academind
+
 ## Javascript Data Structure and Algorithms
 https://github.com/trekhleb/javascript-algorithms
 
